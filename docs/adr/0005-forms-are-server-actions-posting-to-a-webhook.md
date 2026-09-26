@@ -15,6 +15,9 @@ tags: [forms, enquiry, server-actions, privacy]
 - **Date:** 2026-09-25
 - **Deciders:** project owner
 
+> **Update 2026-09-26:** the newsletter form this ADR first served was removed. No form exists today; the pattern
+> and its plumbing remain for the planned enquiry form.
+
 ## Context
 
 The site has no backend and no database, yet its purpose is to turn visitors into enquiries and
@@ -35,7 +38,7 @@ easiest thing to build and the worst: an enquiry is lost and everyone believes i
 ## Consequences
 
 **Good:** no backend to run; the form is honest in every state, including an unwired one during
-development; one small pattern (`newsletter` is the model) serves every future form; the endpoint never
+development; one small pattern (`lib/forms.ts` + `lib/webhook.ts`) serves every form; the endpoint never
 reaches the client.
 
 **Bad / accepted costs:** the site depends on an external service for delivery; there is no retry or

@@ -42,9 +42,9 @@ An action does three things, in order, and returns at the first that fails:
 3. **Map the result** to a message with a `switch`, including a `default`.
 
 ```ts
-switch (await postToWebhook(process.env.NEWSLETTER_ENDPOINT, { email })) {
+switch (await postToWebhook(process.env.ENQUIRY_ENDPOINT, { email, message })) {
   case 'sent':           return { status: 'success', message: "Thank you. You're on the list." };
-  case 'not-configured': return { status: 'error',   message: "Newsletter signup isn't connected yet." };
+  case 'not-configured': return { status: 'error',   message: "Enquiries aren't connected yet." };
   default:               return { status: 'error',   message: 'Something went wrong. Please try again in a moment.' };
 }
 ```
@@ -92,7 +92,7 @@ and say what they can do next.
 
 ## 6. Configuration
 
-`process.env` is read directly today (`NEWSLETTER_ENDPOINT`, `NEXT_PUBLIC_SITE_URL`). A missing
+`process.env` is read directly today (`NEXT_PUBLIC_SITE_URL` today, `ENQUIRY_ENDPOINT` when the form exists). A missing
 optional value degrades _honestly_ (the form says it is not connected). **Gap:** there is no
 validated `config/env.ts` that fails the build on a malformed value. Add one (a schema, read
 once, typed) before the number of variables passes a handful, and list each in `.env.example`.

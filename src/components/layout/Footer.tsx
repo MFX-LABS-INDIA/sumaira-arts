@@ -4,7 +4,6 @@ import { site } from "@/constants/site";
 import { Container } from "@/components/ui/Container";
 import { FacebookIcon, InstagramIcon, PinterestIcon, YoutubeIcon } from "@/components/ui/Icons";
 import { SmartLink } from "@/components/ui/Link";
-import { NewsletterForm } from "@/components/common/NewsletterForm";
 import { Logo } from "./Logo";
 
 const socialIcons: Record<string, ReactNode> = {
@@ -26,7 +25,7 @@ export function Footer() {
             <p className="mt-7 max-w-sm text-sm leading-relaxed">{site.statement}</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:col-span-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:col-span-8">
             {footerNav.map((group) => (
               <nav key={group.title} aria-label={group.title}>
                 <h3 className={columnTitle}>{group.title}</h3>
@@ -41,13 +40,6 @@ export function Footer() {
                 </ul>
               </nav>
             ))}
-            <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-              <h3 className={columnTitle}>Newsletter</h3>
-              <p className="mt-6 text-sm">New collections and studio stories, occasionally.</p>
-              <div className="mt-5">
-                <NewsletterForm id="footer-email" stacked />
-              </div>
-            </div>
           </div>
         </div>
 

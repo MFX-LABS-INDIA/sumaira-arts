@@ -34,7 +34,6 @@ Copy `.env.example` to `.env.local`.
 | Variable               | Purpose                                                    |
 | ---------------------- | ---------------------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL` | Public origin — metadata, sitemap, robots                  |
-| `NEWSLETTER_ENDPOINT`  | Receives `{ email }` as a JSON POST. Until set, the form says signup "isn't connected yet" rather than pretending it worked |
 | `ENQUIRY_ENDPOINT`     | Same pattern, for the future enquiry form                  |
 
 ## Before launch
@@ -44,5 +43,5 @@ Things that are deliberately placeholders and must be replaced. All are labelled
 - **Artwork images** — drawn placeholders; swap in photographs (see the art `CLAUDE.md`).
 - **Prices, the 4.9 / 5 rating, the review count and the testimonials** — placeholders in `src/data/`.
 - **Links** — social, product, collection and footer support pages point to `#`.
-- **`NEWSLETTER_ENDPOINT`** and a privacy policy page, before any form goes live.
+- **`ENQUIRY_ENDPOINT`** and a privacy policy page, before any form goes live.
 - **Spam protection** for the enquiry form — a known gap in [SECURITY_HYGIENE](docs/SECURITY_HYGIENE.md).

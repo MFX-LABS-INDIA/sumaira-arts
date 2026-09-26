@@ -7,7 +7,7 @@ Small, boring, non-negotiable. Consistency here is worth more than any individua
 | Thing                         | Convention                                  | Example                                   |
 | ----------------------------- | ------------------------------------------- | ----------------------------------------- |
 | Component file and export     | PascalCase, identical                       | `ProductCard.tsx` → `ProductCard`         |
-| Non-component module          | lowercase, one word where possible          | `products.ts`, `newsletter.ts`, `webhook.ts` |
+| Non-component module          | lowercase, one word where possible          | `products.ts`, `journal.ts`, `webhook.ts`   |
 | Folder                        | lowercase, by kind of file                  | `components/sections`, `data`             |
 | Type                          | PascalCase, no `I` prefix; `type` over `interface` | `Collection`, `FormState`          |
 | Constant                      | SCREAMING_SNAKE at module scope only when it is a true constant | `SOLID_AFTER`         |

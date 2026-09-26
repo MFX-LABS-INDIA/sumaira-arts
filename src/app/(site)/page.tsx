@@ -8,7 +8,6 @@ import { CategoryCards } from "@/components/sections/CategoryCards";
 import { Hero } from "@/components/sections/Hero";
 import { InteriorShowcase } from "@/components/sections/InteriorShowcase";
 import { Journal } from "@/components/sections/Journal";
-import { Newsletter } from "@/components/sections/Newsletter";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { SocialGallery } from "@/components/sections/SocialGallery";
 
@@ -28,7 +27,6 @@ export default function Home() {
       <Testimonials />
       <Journal />
       <SocialGallery />
-      <Newsletter />
     </>
   );
 }

@@ -23,14 +23,14 @@ src/
 ├── components/
 │   ├── sections/               The large blocks a page is made of: Hero, Journal, Commission, …
 │   ├── common/                 Composed pieces reused by sections or the layout:
-│   │                           ProductCard, WishlistButton, NewsletterForm
+│   │                           ProductCard, WishlistButton
 │   ├── layout/                 Header, Footer, Logo, SiteChrome, RevealController, SmoothScroll
 │   ├── ui/                     Primitives: Container, Section, SectionHeading, Link, Icons, Reveal
 │   └── art/                    Placeholder artwork: sprite, rooms, ArtImage
 │
 ├── data/                       Static content, one file per topic:
 │                               home, products, collections, inspiration, commission, artist,
-│                               reviews, journal, social, newsletter, navigation
+│                               reviews, journal, social, navigation
 ├── constants/                  site.ts (name, url, currency, hero photo), routes.ts
 ├── types/                      Shared TypeScript types (content.ts)
 └── lib/                        Helpers: format, forms, webhook — and actions/ (server actions)
@@ -88,7 +88,6 @@ or a browser API. Today the complete list is:
 | `layout/Header`                          | reads scroll position and route, owns the mobile menu state |
 | `layout/RevealController`                | one `IntersectionObserver` for every scroll reveal          |
 | `layout/SmoothScroll`, `LenisRoot`       | `matchMedia` gate, then the lazily loaded smooth-scroll lib |
-| `common/NewsletterForm`                  | `useActionState` for the form's result                      |
 | `common/WishlistButton`                  | a toggle (local state)                                      |
 | `(site)/error.tsx`                       | Next requires an error boundary to be a client component    |
 
@@ -128,12 +127,12 @@ wrong place.
 1. Write its data first: `src/data/<topic>.ts` (and its types in `src/types/content.ts`).
 2. Write `src/components/sections/<Name>.tsx` that renders it. Reuse `ui`, `common` and `art`; do not restyle them.
 3. Compose it in a page. If it needs a piece another section also needs, put that piece in `common/`.
-4. If it has a form, follow [Add an enquiry form](#add-an-enquiry-form) — the newsletter is the model.
+4. If it has a form, follow [Add an enquiry form](#add-an-enquiry-form) — there is no form on the site yet.
 
 ## Add an enquiry form (the main conversion path)
 
-The newsletter (`lib/actions/newsletter.ts`, `common/NewsletterForm.tsx`, `sections/Newsletter.tsx`) is
-the working model. For enquiries:
+There is no form on the site today (the newsletter was removed). `lib/forms.ts` (`FormState`) and
+`lib/webhook.ts` (`postToWebhook`) are the shared plumbing kept for the enquiry form. To build it:
 
 1. `src/lib/actions/enquiry.ts` — a server action that validates on the **server**, then
    `postToWebhook(process.env.ENQUIRY_ENDPOINT, data)` and returns a `FormState`. Handle all three
@@ -164,7 +163,6 @@ Copy `.env.example` to `.env.local`.
 | Variable               | Purpose                                                         |
 | ---------------------- | --------------------------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL` | Public origin — metadata, sitemap, robots. `NEXT_PUBLIC_*` is published to every visitor |
-| `NEWSLETTER_ENDPOINT`  | Receives `{ email }` as a JSON POST. Server-only                |
 | `ENQUIRY_ENDPOINT`     | Same pattern, for the future enquiry form. Server-only          |
 
 Env vars are read directly from `process.env` today. A validated env module (schema, fail at boot) is the

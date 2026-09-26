@@ -116,7 +116,7 @@ instead of decay.
 
 | For                              | Required context                                                            |
 | -------------------------------- | --------------------------------------------------------------------------- |
-| A form or server action          | `ERROR_HANDLING.md` + `SECURITY_HYGIENE.md` + the newsletter (`lib/actions/newsletter.ts`, `common/NewsletterForm.tsx`) as the example |
+| A form or server action          | `ERROR_HANDLING.md` + `SECURITY_HYGIENE.md` + `lib/forms.ts` + `lib/webhook.ts` (the shared form plumbing) |
 | Fonts, scripts, images, client JS | `PERFORMANCE.md` — and numbers before/after                                |
 | Any bug fix                      | `ERROR_FIXING_PROTOCOL.md` — and the output must answer its seven points    |
 | Every completed task             | `SECURITY_HYGIENE.md` completion checklist, filled in                       |

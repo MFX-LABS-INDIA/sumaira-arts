@@ -6,7 +6,7 @@ Auto-loaded when you work anywhere under `src/components`.
 
 ```
 components/sections/  the large blocks a page is made of (Hero, Journal, …) — see sections/CLAUDE.md
-components/common/    pieces reused by sections or the layout: ProductCard, WishlistButton, NewsletterForm
+components/common/    pieces reused by sections or the layout: ProductCard, WishlistButton
 components/layout/    page chrome: Header, Footer, Logo, SiteChrome, RevealController, SmoothScroll
 components/ui/        primitives: Container, Section, SectionHeading, ButtonLink, TextLink, Icons, Reveal
 components/art/       placeholder artwork and rooms — read art/CLAUDE.md before touching it
@@ -35,7 +35,7 @@ A library with three buttons has no design system, however good each button is.
   fine for a glyph that must mirror (an arrow). Known LTR-only spots: INTERNATIONALIZATION §1.
 - **Copy comes in as props.** Never hard-code marketing text. (UI microcopy — "Subscribe", aria-labels —
   is recorded debt; do not add to it.)
-- **Server by default.** Only `layout/Header`, `RevealController`, `SmoothScroll`/`LenisRoot` and `common/NewsletterForm`, `WishlistButton` are client
+- **Server by default.** Only `layout/Header`, `RevealController`, `SmoothScroll`/`LenisRoot` and `common/WishlistButton` are client
   components, each for a stated reason. Anything new needs one.
 - `className` is always accepted and merged. Shared class strings are named constants next to their
   component (`buttonBase`, `headingClass`), not copied.

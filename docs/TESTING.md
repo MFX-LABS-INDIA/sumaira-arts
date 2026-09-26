@@ -33,12 +33,12 @@ Ordered by risk per hour of effort. Each is small; none is built yet.
 1. **Unit tests for `src/lib/`** (Vitest). Pure and fast: `formatPrice`, `EMAIL_PATTERN`,
    `postToWebhook` with a stubbed `fetch` (`sent` / `not-configured` / `failed` / network error).
    These hold the exact behaviour ERROR_HANDLING promises.
-2. **Server-action tests** for `subscribeToNewsletter` (and later the enquiry action): an invalid email,
+2. **Server-action tests** for the enquiry action, once it exists: an invalid email,
    an unset endpoint, a failing endpoint, and a success — asserting the message and `status` for each.
    The "never fake success" rule needs evidence.
 3. **End-to-end tests** (Playwright), critical journeys only: the anchor links land under the header,
    the collection filter shows the right counts, the mobile menu opens and closes with Escape, the
-   newsletter form shows the honest "not connected" message, and the 404 renders.
+   enquiry form (once it exists) shows the honest "not connected" message, and the 404 renders.
 4. **Accessibility** (axe, inside the Playwright run) on the home page and any form.
 5. **Performance in CI:** a scheduled Lighthouse run against the deployed site, alerting on a drop
    of more than a few points or an LCP regression. Lab numbers are noisy (±2 points); alert on the

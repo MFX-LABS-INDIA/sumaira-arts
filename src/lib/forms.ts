@@ -1,4 +1,4 @@
-/** Shared shape for every server-action form (newsletter, enquiry, ...). */
+/** Shared shape for every server-action form (the enquiry form, when it exists). */
 export type FormState = { status: "idle" | "success" | "error"; message: string };
 
 export const idleForm: FormState = { status: "idle", message: "" };

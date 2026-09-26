@@ -5,7 +5,7 @@ Auto-loaded when you work in `src/data`.
 ## What this folder is
 
 Static content, one file per topic: `home`, `products`, `collections`, `inspiration`, `commission`,
-`artist`, `reviews`, `journal`, `social`, `newsletter`, `navigation`. Each exports the copy and lists a
+`artist`, `reviews`, `journal`, `social`, `navigation`. Each exports the copy and lists a
 section renders. The **shapes** live in `src/types/content.ts`; site-wide facts (name, URL, currency, the
 hero photo, the route list) live in `src/constants/`.
 

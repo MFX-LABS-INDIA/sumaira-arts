@@ -20,7 +20,7 @@ Sections 1–7 are the reference. The **Completion Checklist** at the bottom is 
 - `NEXT_PUBLIC_*` is a **publication**, not a config prefix. Anything with that prefix is public
   forever. Today the only one is `NEXT_PUBLIC_SITE_URL` (a public origin, so fine). Confirm each
   new one deliberately.
-- Server-only values (`NEWSLETTER_ENDPOINT`, `ENQUIRY_ENDPOINT`) are read only in server actions or
+- Server-only values (`ENQUIRY_ENDPOINT`) are read only in server actions or
   server components — never passed to a client component, an error message or a log line.
 - A webhook URL is a credential: anyone who has it can post to it. Treat it like a key; rotate it
   if it leaks.
@@ -64,7 +64,7 @@ the obligations start the day a form goes live.
   error, and not put in a URL or query string.
 - Know where the data lands (the webhook's destination), who can read it, how long it is kept,
   and how to delete it on request. Write that down before launch.
-- Newsletter signup is **consent**: explicit action, clear purpose, and an unsubscribe in every
+- Any mailing-list signup (should one be added) is **consent**: explicit action, clear purpose, and an unsubscribe in every
   email. Do not pre-tick, and do not reuse the list for anything else.
 - No analytics, tracker or advertising pixel without a decision recorded in an ADR and, where the
   law requires it, a consent banner that actually blocks the script until accepted.

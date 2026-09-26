@@ -74,7 +74,7 @@ These strings are welded into markup today and must move into `src/data/` (or a 
 - Button and link verbs: "Explore Collection", "Read Article", "View artwork →", "Try again", "Back to home"
 - Form: "Your email address", "Subscribe", "Sending"
 - Accessible names: "Search", "Account", "Cart", "Open menu", "Close menu", "Filter collections"
-- Footer: the "Newsletter", "Privacy" and "Terms" labels; the page-not-found and error copy.
+- Footer: the "Privacy" and "Terms" labels; the page-not-found and error copy.
 
 New code must not add to this list: put new copy in `src/data/`.
 
