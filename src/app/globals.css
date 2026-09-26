@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/*
+ * Sumaira Arts design tokens.
+ * `static` keeps every variable in the CSS output, because the SVG artwork
+ * references them directly as var(--color-*) instead of through utility classes.
+ */
+@theme static {
+  /* Brand palette */
+  --color-brand: #1b3a6b; /* primary navy: CTAs, links, accents */
+  --color-deep: #0d182a; /* deep navy: headings, dark sections, footer */
+  --color-steel: #3d5a80; /* steel blue: secondary accents, body text */
+  --color-mist: #6b8cae; /* muted blue: details, icons */
+  --color-soft: #a8c5e0; /* soft blue: borders, accents on dark */
+  --color-light: #cde1f2; /* light blue: hairlines, soft sections */
+  --color-ice: #ebf1fa; /* ice: page and section backgrounds */
+  --color-white: #ffffff; /* cards, mats, artwork surfaces */
+
+  /* Small-caps UI copy. One scale, so labels cannot drift apart. */
+  --text-label: 0.72rem; /* buttons, links, nav, pills, eyebrows */
+  --text-micro: 0.66rem; /* tiny meta: product category, wall labels */
+  --text-body-sm: 0.95rem; /* card descriptions */
+  --tracking-caps: 0.22em; /* letterspacing for small-caps labels */
+  --tracking-eyebrow: 0.3em; /* wider spacing for eyebrows */
+
+  /* Corner radii. Controls (buttons, inputs, chips) are tighter than cards and imagery. */
+  --radius-control: 0.5rem;
+  --radius-card: 1rem;
+
+  /* One soft deceleration curve for UI motion (drawer, icon turn). */
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Artwork shapes. */
+  --aspect-portrait: 4 / 5;
+  --aspect-landscape: 4 / 3;
+  --aspect-tall: 3 / 4;
+
+  /* Shadows are tinted with the brand navy, never plain black. */
+  --shadow-raised: 0 10px 30px -18px color-mix(in srgb, var(--color-deep) 35%, transparent);
+  --shadow-artwork: 0 22px 32px -22px color-mix(in srgb, var(--color-deep) 50%, transparent);
+
+  /* Editorial serif for headings, clean sans for everything else */
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+
+  /* Elegant entrances. Disabled under prefers-reduced-motion in components. */
+  --animate-fade-up: fade-up 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.9s ease-out both;
+  --animate-scale-in: scale-in 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  /* Starts already visible so the hero image is painted (and counted for LCP) immediately. */
+  @keyframes scale-in {
+    from {
+      opacity: 0.55;
+      transform: scale(1.06);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/*
+ * Scroll reveal (see components/ui/Reveal.tsx). Applies only when scripting is on and motion is
+ * welcome, so no-JS and reduced-motion visitors just see the content.
+ */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 900ms ease-out,
+      transform 900ms ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  [data-reveal="in"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Native smooth anchor scrolling. Lenis takes over (and switches this off) where it is loaded. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer base {
+  ::selection {
+    background: var(--color-soft);
+    color: var(--color-deep);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-mist);
+    outline-offset: 3px;
+  }
+}
