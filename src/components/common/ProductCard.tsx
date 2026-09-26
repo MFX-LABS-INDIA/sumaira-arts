@@ -11,11 +11,11 @@ import type { Product } from "@/types/content";
 // TODO: point at `/artwork/${product.slug}` once product pages exist.
 const productHref = "#";
 
-const sizes = "(min-width: 1024px) 25vw, 50vw";
+const sizes = "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 72vw";
 
-export function ProductCard({ product, index }: { product: Product; index: number }) {
+export function ProductCard({ product, index, className = "" }: { product: Product; index: number; className?: string }) {
   return (
-    <Reveal delay={(index % 4) * 90}>
+    <Reveal delay={(index % 4) * 90} className={className}>
       <article className="group relative h-full overflow-hidden rounded-card border border-light bg-white transition-colors duration-500 hover:border-soft">
         <div className="relative aspect-portrait overflow-hidden bg-ice">
           {/* Default view: the artwork, matted, on a quiet ground. */}

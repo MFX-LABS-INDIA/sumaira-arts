@@ -105,6 +105,14 @@
   }
 }
 
+/* Hide the scrollbar on a horizontally scrolling row (swipe carousels, filter pills). */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @layer base {
   ::selection {
     background: var(--color-soft);

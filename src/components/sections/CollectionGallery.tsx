@@ -34,7 +34,7 @@ export function CollectionGallery() {
           <style>{filterCss}</style>
           <SectionHeading eyebrow={collectionsIntro.eyebrow} title={collectionsIntro.title} description={collectionsIntro.description} />
 
-          <fieldset className="-mx-5 mt-10 flex min-w-0 gap-2.5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden">
+          <fieldset className="-mx-5 mt-10 flex min-w-0 gap-2.5 no-scrollbar overflow-x-auto px-5 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
             <legend className="sr-only">Filter collections</legend>
             {collectionFilters.map((filter) => (
               <div key={filter.value} className="relative shrink-0">
