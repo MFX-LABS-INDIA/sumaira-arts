@@ -46,7 +46,7 @@ export function ReviewsWall() {
                 ) : null}
                 <div className="p-6">
                   {review.rating !== undefined ? <StarRating rating={review.rating} className="mb-3" /> : null}
-                  <blockquote className="font-serif text-lg font-light leading-relaxed text-deep">{review.quote}</blockquote>
+                  <blockquote className="font-serif text-base font-light leading-relaxed text-deep">{review.quote}</blockquote>
                   <figcaption className="mt-5 text-micro font-medium uppercase tracking-caps text-steel">
                     {review.author}
                     {review.verified ? <span className="ms-2 text-brand">· Verified</span> : null}

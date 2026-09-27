@@ -47,7 +47,7 @@ export function ProductCard({ product, index, className = "" }: { product: Produ
 
         <div className="p-4 md:p-5">
           <p className="text-micro font-medium uppercase tracking-caps text-steel">{product.category}</p>
-          <h3 className="mt-2 font-serif text-lg font-light leading-normal tracking-tight text-deep md:text-[1.4rem]">
+          <h3 className="mt-2 font-serif text-base font-light leading-normal tracking-tight text-deep md:text-lg">
             <SmartLink href={productHref} className="after:absolute after:inset-0">
               {product.title}
             </SmartLink>

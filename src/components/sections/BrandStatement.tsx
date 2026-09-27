@@ -16,8 +16,8 @@ export function BrandStatement() {
             <h2 className={`${headingClass} mt-5 text-deep`}>{intro.title}</h2>
           </Reveal>
           <Reveal delay={150}>
-            <p className="mt-7 text-base leading-relaxed text-steel md:text-lg">{intro.description}</p>
-            <div className="mt-9">
+            <p className="mt-5 text-sm leading-relaxed text-steel md:text-base">{intro.description}</p>
+            <div className="mt-8">
               <TextLink href={intro.cta.href}>{intro.cta.label}</TextLink>
             </div>
           </Reveal>

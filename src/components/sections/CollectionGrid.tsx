@@ -21,13 +21,13 @@ function CollectionCard({ collection }: { collection: Collection }) {
           sizes="(min-width: 1024px) 30vw, 46vw"
           className="aspect-portrait"
         />
-        <h3 className="absolute inset-x-3 bottom-3 rounded-control bg-white/95 px-4 py-3 text-center font-serif text-lg font-light leading-snug tracking-tight text-deep">
+        <h3 className="absolute inset-x-3 bottom-3 rounded-control bg-white/95 px-4 py-2.5 text-center font-serif text-base font-light leading-snug tracking-tight text-deep">
           <SmartLink href={collection.href} className="after:absolute after:inset-0 after:content-['']">
             {collection.name}
           </SmartLink>
         </h3>
       </div>
-      <p className="mt-4 truncate text-body-sm text-steel">{collection.description}</p>
+      <p className="mt-4 truncate text-sm text-steel">{collection.description}</p>
     </article>
   );
 }

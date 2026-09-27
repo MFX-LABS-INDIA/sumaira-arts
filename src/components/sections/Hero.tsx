@@ -30,19 +30,19 @@ export function Hero() {
       </div>
 
       <Container className="md:flex md:min-h-[calc(100svh-4.75rem)] md:items-center">
-        <div className="py-10 md:max-w-[32rem] md:rounded-card md:bg-white md:p-10 lg:max-w-[36rem] lg:p-12">
+        <div className="py-10 md:max-w-[28rem] md:rounded-card md:bg-white md:p-9 lg:max-w-[30rem] lg:p-10">
           <div className={enter} style={{ animationDelay: "100ms" }}>
             <Eyebrow>{hero.eyebrow}</Eyebrow>
           </div>
 
           <h1
-            className={`${enter} mt-6 font-serif text-[clamp(2.35rem,4.8vw,4rem)] font-light leading-[1.15] tracking-[-0.015em] text-deep`}
+            className={`${enter} mt-4 font-serif text-[clamp(1.875rem,3.6vw,2.75rem)] font-light leading-[1.2] tracking-[-0.015em] text-deep`}
             style={{ animationDelay: "200ms" }}
           >
             {hero.lead} <em className="font-normal italic text-brand">{hero.accent}</em>
           </h1>
 
-          <p className={`${enter} mt-6 text-base leading-relaxed text-steel md:text-lg`} style={{ animationDelay: "320ms" }}>
+          <p className={`${enter} mt-4 text-sm leading-relaxed text-steel md:text-base`} style={{ animationDelay: "320ms" }}>
             {hero.description}
           </p>
 
@@ -58,7 +58,7 @@ export function Hero() {
         style={{ animationDelay: "800ms" }}
       >
         <span className="block text-[0.62rem] font-medium uppercase tracking-eyebrow text-steel">{hero.caption.kicker}</span>
-        <span className="mt-1 block font-serif text-lg italic text-deep">{hero.caption.title}</span>
+        <span className="mt-1 block font-serif text-base italic text-deep">{hero.caption.title}</span>
       </p>
     </section>
   );

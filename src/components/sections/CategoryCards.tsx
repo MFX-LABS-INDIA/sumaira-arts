@@ -27,8 +27,8 @@ function OfferingCard({ offering, wide }: { offering: Offering; wide: boolean })
       </div>
       <div className="flex flex-1 flex-col p-7 md:p-9">
         <Eyebrow>{offering.eyebrow}</Eyebrow>
-        <h3 className="mt-4 font-serif text-[1.75rem] font-light leading-snug tracking-tight text-deep md:text-[2rem]">{offering.title}</h3>
-        <p className="mt-4 flex-1 text-body-sm leading-relaxed text-steel">{offering.description}</p>
+        <h3 className="mt-4 font-serif text-xl font-light leading-snug tracking-tight text-deep md:text-[1.4rem]">{offering.title}</h3>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-steel">{offering.description}</p>
         <div className="mt-8">
           <TextLink href={offering.cta.href}>{offering.cta.label}</TextLink>
         </div>

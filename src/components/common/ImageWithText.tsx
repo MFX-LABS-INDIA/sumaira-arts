@@ -35,7 +35,7 @@ export function ImageWithText({
     <Reveal key="text" delay={150}>
       {feature.eyebrow ? <Eyebrow>{feature.eyebrow}</Eyebrow> : null}
       <h2 className={`${headingClass} ${feature.eyebrow ? "mt-5" : ""} text-deep`}>{feature.title}</h2>
-      <p className="mt-6 max-w-md text-base leading-relaxed text-steel md:text-lg">{feature.description}</p>
+      <p className="mt-4 max-w-md text-sm leading-relaxed text-steel md:text-base">{feature.description}</p>
       {children}
       <div className="mt-10">
         <ButtonLink href={feature.cta.href}>{feature.cta.label}</ButtonLink>
