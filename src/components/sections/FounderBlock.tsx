@@ -14,7 +14,7 @@ export function FounderBlock() {
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-4">
             <SectionHeading eyebrow={artist.eyebrow} title={artist.title} description={artist.description} />
-            <blockquote className="mt-8 border-s-2 border-brand ps-5 font-serif text-lg italic leading-relaxed text-deep">
+            <blockquote className="mt-8 border-s-2 border-brand ps-5 font-serif text-lg font-light italic leading-relaxed text-deep">
               {artist.belief}
             </blockquote>
             <div className="mt-9">

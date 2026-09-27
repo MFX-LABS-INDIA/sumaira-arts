@@ -33,7 +33,7 @@ function PickRow({ product, index }: { product: Product; index: number }) {
           )}
         </div>
         <span className="min-w-0 flex-1">
-          <span className="block truncate font-serif text-base leading-snug text-deep">{product.title}</span>
+          <span className="block truncate font-serif text-base font-light tracking-tight text-deep">{product.title}</span>
           <span className="mt-0.5 block text-sm text-steel">{formatPrice(product.price)}</span>
         </span>
         <ArrowIcon className="h-4 w-4 shrink-0 text-brand opacity-0 transition-[opacity,transform] duration-300 group-hover/pick:translate-x-1 group-hover/pick:opacity-100 group-focus-visible/pick:translate-x-1 group-focus-visible/pick:opacity-100 motion-reduce:transition-none" />

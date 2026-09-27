@@ -28,7 +28,7 @@ export function Journal() {
                   className="aspect-[3/2]"
                 />
                 <Eyebrow className="mt-6">{post.category}</Eyebrow>
-                <h3 className="mt-3 font-serif text-[1.7rem] leading-tight text-deep">
+                <h3 className="mt-3 font-serif text-[1.7rem] font-light leading-snug tracking-tight text-deep">
                   <SmartLink href={post.href} className="after:absolute after:inset-0">
                     {post.title}
                   </SmartLink>

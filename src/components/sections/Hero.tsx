@@ -30,13 +30,13 @@ export function Hero() {
       </div>
 
       <Container className="md:flex md:min-h-[calc(100svh-4.75rem)] md:items-center">
-        <div className="py-10 md:max-w-[30rem] md:rounded-card md:bg-white md:p-10 lg:p-12">
+        <div className="py-10 md:max-w-[32rem] md:rounded-card md:bg-white md:p-10 lg:max-w-[36rem] lg:p-12">
           <div className={enter} style={{ animationDelay: "100ms" }}>
             <Eyebrow>{hero.eyebrow}</Eyebrow>
           </div>
 
           <h1
-            className={`${enter} mt-5 font-serif text-[clamp(2.25rem,4.6vw,3.75rem)] font-light leading-[1.05] tracking-[0.005em] text-deep`}
+            className={`${enter} mt-6 font-serif text-[clamp(2.35rem,4.8vw,4rem)] font-light leading-[1.15] tracking-[-0.015em] text-deep`}
             style={{ animationDelay: "200ms" }}
           >
             {hero.lead} <em className="font-normal italic text-brand">{hero.accent}</em>

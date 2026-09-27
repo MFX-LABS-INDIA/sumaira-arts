@@ -20,8 +20,10 @@ export function Eyebrow({
   );
 }
 
+// Manrope is a tall-x-height grotesque, not the narrow serif this scale was tuned for: a lighter
+// weight, tighter (negative) tracking and more line-height keep a big headline from reading dense.
 export const headingClass =
-  "font-serif text-[clamp(2rem,4.5vw,3.5rem)] font-normal leading-[1.1] tracking-[0.01em]";
+  "font-serif text-[clamp(2.1rem,4.7vw,3.75rem)] font-light leading-[1.2] tracking-[-0.01em]";
 
 export function SectionHeading({
   eyebrow,
@@ -40,7 +42,7 @@ export function SectionHeading({
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
       <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
-      <h2 className={`${headingClass} mt-5 ${tone === "dark" ? "text-white" : "text-deep"}`}>{title}</h2>
+      <h2 className={`${headingClass} mt-6 ${tone === "dark" ? "text-white" : "text-deep"}`}>{title}</h2>
       {description ? (
         <p
           className={`mt-6 text-base leading-relaxed md:text-lg ${

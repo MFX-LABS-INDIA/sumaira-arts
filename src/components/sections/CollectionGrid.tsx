@@ -21,7 +21,7 @@ function CollectionCard({ collection }: { collection: Collection }) {
           sizes="(min-width: 1024px) 30vw, 46vw"
           className="aspect-portrait"
         />
-        <h3 className="absolute inset-x-3 bottom-3 rounded-control bg-white/95 px-4 py-3 text-center font-serif text-lg leading-tight text-deep">
+        <h3 className="absolute inset-x-3 bottom-3 rounded-control bg-white/95 px-4 py-3 text-center font-serif text-lg font-light leading-snug tracking-tight text-deep">
           <SmartLink href={collection.href} className="after:absolute after:inset-0 after:content-['']">
             {collection.name}
           </SmartLink>
