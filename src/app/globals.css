@@ -41,7 +41,7 @@
 
   /* Editorial serif for headings, clean sans for everything else */
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
   /* Elegant entrances. Disabled under prefers-reduced-motion in components. */
   --animate-fade-up: fade-up 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;

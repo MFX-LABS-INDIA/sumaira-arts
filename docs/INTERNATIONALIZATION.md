@@ -107,7 +107,7 @@ Steps, in order:
 3. `<html lang dir>` rendered from the locale, so RTL is correct on first paint — no direction flash.
 4. One set of `src/data` files per locale (or files keyed by locale). A missing key must fail the build, not render
    English inside an Arabic page.
-5. **Fonts.** Cormorant Garamond and Manrope have no Arabic. Adding an Arabic family (e.g. Noto Naskh
+5. **Fonts.** Manrope has no Arabic. Adding an Arabic family (e.g. Noto Naskh
    Arabic, Amiri) is a font addition under PERFORMANCE rule 4: it needs an ADR and a measurement, and
    should load only for Arabic pages.
 6. `hreflang` alternates in `metadata` and the sitemap; a language switcher that links to the

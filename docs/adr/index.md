@@ -18,7 +18,8 @@ rather than edited, so the reasoning history stays readable. This index is **han
 | [ADR-0010](./0010-sections-data-and-common-components.md)      | Sections, data and common components get their own folders                  | `accepted`   | `src/app`, `src/components`, `src/data`, `src/constants`, `src/types`, `src/lib`    |
 | [ADR-0011](./0011-header-is-always-solid-white.md)             | The header is always solid white                                            | `accepted`   | `src/components/layout/Header.tsx`, `src/components/sections/Hero.tsx`              |
 | [ADR-0012](./0012-home-page-redesign.md)                       | Home page redesign: fixed section order, no collection filter, 1280px container | `accepted`   | `src/components/sections`, `src/components/common`, `src/data`                      |
-| [ADR-0013](./0013-brand-sans-is-manrope.md)                    | The brand sans-serif is Manrope, replacing Jost                              | `accepted`   | `src/app/layout.tsx`, `src/app/globals.css`                                         |
+| [ADR-0013](./0013-brand-sans-is-manrope.md)                    | The brand sans-serif is Manrope, replacing Jost                              | `superseded` by 0014 | `src/app/layout.tsx`, `src/app/globals.css`                                 |
+| [ADR-0014](./0014-single-font-family-manrope.md)               | One font family everywhere — Manrope replaces Cormorant Garamond too         | `accepted`   | `src/app/layout.tsx`, `src/app/globals.css`                                         |
 
 ## By area
 
