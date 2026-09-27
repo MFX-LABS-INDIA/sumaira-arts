@@ -24,8 +24,8 @@ hero photo, the route list) live in `src/constants/`.
 
 ## What people get wrong
 
-- **Editing a filter list without its type.** `collectionFilters` (here) and `CollectionTag` (in `types`)
-  must agree; the CSS filter is generated from the list and matches `data-tags`.
+- **Adding review or product fields without the type.** `rating`, `reviewCount`, `soldOut`, `titleAr` and the
+  review extras are optional in `types`; the UI renders them only when present.
 - **Putting a whole list into a client component's props.** It ships the list to every visitor.
 - **Adding copy to a component** because it "is only one string". It is exactly how a second language gets
   expensive (INTERNATIONALIZATION).

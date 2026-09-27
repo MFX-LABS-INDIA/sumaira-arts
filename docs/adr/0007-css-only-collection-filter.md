@@ -1,7 +1,7 @@
 ---
 id: ADR-0007
 title: The collection filter is CSS-only (radios and :has), with no client JavaScript
-status: accepted
+status: superseded
 date: 2026-09-25
 affects:
   - src/components/sections

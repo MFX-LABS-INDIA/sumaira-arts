@@ -44,7 +44,7 @@ Sections 1–7 are the reference. The **Completion Checklist** at the bottom is 
   `required` and `type="email"` are conveniences.
 - Cap lengths. An enquiry message with no maximum is a spam relay and a memory problem.
 - Output is encoded by default. `dangerouslySetInnerHTML` is banned without a sanitiser and a comment.
-  (The one inline `<style>` in `CollectionGallery` is generated from static data in `data/collections.ts`, never
+  (There is no inline `<style>` now; the old `CollectionGallery` one is gone. If one returns, generate it from static data, never
   from input, which is why it is safe. Keep it that way.)
 - No dynamic `import()` of a user-controlled path. No string-built shell or URL from user input.
 - Redirects go to an allowlist. An open redirect is a phishing primitive.

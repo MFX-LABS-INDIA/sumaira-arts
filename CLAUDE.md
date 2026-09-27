@@ -127,7 +127,7 @@ One word per concept. Synonyms in a domain model are how the same feature gets b
 | **enquiry**    | inquiry, lead, contact request, ticket | `lib/actions/enquiry.ts` (planned)                  |
 | **journal**    | blog, news, articles                   | `data/journal.ts`, `sections/Journal`               |
 | **collector**  | customer, buyer, user                  | reviews copy                                         |
-| **the artist** | owner, founder                         | `data/artist.ts`, `sections/BrandStory`             |
+| **the artist** | owner, founder                         | `data/artist.ts`, `sections/FounderBlock`           |
 
 British spelling in copy (colour, enquiry, artefact).
 

@@ -1,5 +1,4 @@
-import type { ArtVariant } from "@/components/art/variants";
-import type { Cta } from "@/types/content";
+import type { Cta, Visual } from "@/types/content";
 
 export const artist: {
   eyebrow: string;
@@ -7,9 +6,8 @@ export const artist: {
   description: string;
   belief: string;
   cta: Cta;
-  art: ArtVariant;
-  accentArt: ArtVariant;
-  image?: string;
+  /** Three pictures from the studio, shown beside the words. */
+  gallery: (Visual & { alt: string })[];
 } = {
   eyebrow: "The Artist",
   title: "Where Heritage Meets Contemporary Expression",
@@ -17,6 +15,9 @@ export const artist: {
   belief:
     "Art should not simply fill a wall. It should create atmosphere, express personality and become part of the story of a space.",
   cta: { label: "Meet the Artist", href: "#" },
-  art: "enso",
-  accentArt: "arches",
+  gallery: [
+    { art: "enso", alt: "Brushwork from the studio" },
+    { art: "arches", alt: "Detail of a studio piece" },
+    { art: "ink", alt: "Ink study from the studio" },
+  ],
 };

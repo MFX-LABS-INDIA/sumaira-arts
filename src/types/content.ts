@@ -41,22 +41,45 @@ export type Product = {
   image?: string;
   /** Optional photograph of the artwork in a room (hover view). */
   sceneImage?: string;
+  /** Optional Arabic title, shown under the English one. Rendered only when present. */
+  titleAr?: string;
+  /** Optional rating (0 to 5) and review count. Stars render only when present. */
+  rating?: number;
+  reviewCount?: number;
+  /** Shows a "Sold out" badge. */
+  soldOut?: boolean;
 };
-
-/** What a collection can be filtered by. Must match `collectionFilters` in data/collections.ts. */
-export type CollectionTag = "abstract" | "contemporary" | "classic" | "limited-editions" | "custom";
 
 export type Collection = {
   name: string;
   description: string;
   art: ArtVariant;
-  /** Filters this collection appears under (besides "All"). */
-  tags: CollectionTag[];
-  /** Image shape, varied on purpose so the grid reads like an exhibition. */
-  ratio: "4/5" | "3/4" | "1/1" | "4/3" | "2/3";
   href: string;
   /** Optional photograph, e.g. "/images/collections/shadows.jpg". */
   image?: string;
+};
+
+/** A picture-and-words block: the featured collection, a commission, a single collection spotlight. */
+export type Feature = Visual & {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  cta: Cta;
+  /** Text alternative for the picture. */
+  alt: string;
+};
+
+/** A customer review. Everything except the words and the author is optional and renders only when present. */
+export type Review = {
+  quote: string;
+  author: string;
+  rating?: number;
+  verified?: boolean;
+  date?: string;
+  product?: { label: string; href: string };
+  /** The studio's reply. */
+  reply?: string;
+  photo?: Visual & { alt: string };
 };
 
 export type JournalPost = Visual & {

@@ -4,6 +4,7 @@ import { RoomScene } from "@/components/art/RoomScene";
 import { buildScene } from "@/components/art/scenes";
 import { SmartLink } from "@/components/ui/Link";
 import { Reveal } from "@/components/ui/Reveal";
+import { StarRating } from "@/components/ui/StarRating";
 import { WishlistButton } from "./WishlistButton";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/types/content";
@@ -11,17 +12,17 @@ import type { Product } from "@/types/content";
 // TODO: point at `/artwork/${product.slug}` once product pages exist.
 const productHref = "#";
 
-const sizes = "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 72vw";
+const sizes = "(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 72vw";
 
 export function ProductCard({ product, index, className = "" }: { product: Product; index: number; className?: string }) {
   return (
     <Reveal delay={(index % 4) * 90} className={className}>
       <article className="group relative h-full overflow-hidden rounded-card border border-light bg-white transition-colors duration-500 hover:border-soft">
         <div className="relative aspect-portrait overflow-hidden bg-ice">
-          {/* Default view: the artwork, matted, on a quiet ground. */}
+          {/* Default view: the artwork, uncropped and matted, on a quiet ground. */}
           <div className="absolute inset-0 transition-[opacity,transform] duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-0 motion-reduce:transform-none">
             {product.image ? (
-              <Image src={product.image} alt={product.title} fill sizes={sizes} className="object-cover" />
+              <Image src={product.image} alt={product.title} fill sizes={sizes} className="object-contain" />
             ) : (
               <div role="img" aria-label={product.title} className="absolute inset-[12%] bg-white p-[3.5%] shadow-artwork">
                 <ArtPiece variant={product.art} className="h-full w-full" />
@@ -36,6 +37,11 @@ export function ProductCard({ product, index, className = "" }: { product: Produ
               <RoomScene scene={buildScene(product.scene, product.art)} className="h-full w-full" />
             )}
           </div>
+          {product.soldOut ? (
+            <span className="absolute start-3 top-3 z-10 rounded-control bg-deep px-2.5 py-1 text-micro font-medium uppercase tracking-caps text-white">
+              Sold out
+            </span>
+          ) : null}
           <WishlistButton title={product.title} className="absolute end-3 top-3 z-10" />
         </div>
 
@@ -46,6 +52,12 @@ export function ProductCard({ product, index, className = "" }: { product: Produ
               {product.title}
             </SmartLink>
           </h3>
+          {product.titleAr ? (
+            <p lang="ar" dir="rtl" className="mt-1 text-sm text-steel">
+              {product.titleAr}
+            </p>
+          ) : null}
+          {product.rating !== undefined ? <StarRating rating={product.rating} count={product.reviewCount} className="mt-2" /> : null}
           <div className="mt-3 flex items-center justify-between gap-3">
             <p className="text-sm font-medium text-deep">{formatPrice(product.price)}</p>
             <span className="hidden text-micro font-medium uppercase tracking-caps text-brand transition-[opacity,transform] duration-500 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 md:block md:translate-y-1 md:opacity-0">
