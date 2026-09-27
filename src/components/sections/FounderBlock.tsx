@@ -1,20 +1,33 @@
 import { ArtImage } from "@/components/art/ArtImage";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Eyebrow, headingClass } from "@/components/ui/SectionHeading";
 import { TextLink } from "@/components/ui/Link";
 import { Reveal } from "@/components/ui/Reveal";
 import { artist } from "@/data/artist";
 
-/** The artist's words on the start side, three pictures on the end side. */
+// One image sits lower than its neighbours and a shade taller, so the row of three reads as a
+// hung arrangement, not a grid of identical frames.
+const frame = [
+  { ratio: "aspect-portrait", offset: "" },
+  { ratio: "aspect-tall", offset: "sm:mt-10" },
+  { ratio: "aspect-square", offset: "sm:-mt-4" },
+];
+
+/** The title runs the full width so it stays on one line; the words and the hung pictures sit in a row below. */
 export function FounderBlock() {
   return (
     <Section id="artist" tone="light">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-4">
-            <SectionHeading eyebrow={artist.eyebrow} title={artist.title} description={artist.description} />
-            <blockquote className="mt-8 border-s-2 border-brand ps-5 font-serif text-base font-light italic leading-relaxed text-deep">
+        <Reveal>
+          <Eyebrow>{artist.eyebrow}</Eyebrow>
+          <h2 className={`${headingClass} mt-4 text-deep lg:whitespace-nowrap`}>{artist.title}</h2>
+        </Reveal>
+
+        <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-16">
+          <Reveal delay={120} className="lg:col-span-4">
+            <p className="max-w-xl text-sm leading-relaxed text-steel md:text-base">{artist.description}</p>
+            <blockquote className="mt-6 border-s-2 border-brand ps-5 font-serif text-base font-light italic leading-relaxed text-deep">
               {artist.belief}
             </blockquote>
             <div className="mt-9">
@@ -22,9 +35,9 @@ export function FounderBlock() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-3 gap-3 sm:gap-6 lg:col-span-8">
+          <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:col-span-8">
             {artist.gallery.map((image, index) => (
-              <Reveal key={image.alt} delay={index * 100} className="group">
+              <Reveal key={image.alt} delay={220 + index * 100} className={`group ${frame[index]?.offset ?? ""}`}>
                 <ArtImage
                   art={image.art}
                   scene={image.scene}
@@ -32,7 +45,7 @@ export function FounderBlock() {
                   alt={image.alt}
                   zoom
                   sizes="(min-width: 1024px) 26vw, 30vw"
-                  className="aspect-portrait"
+                  className={frame[index]?.ratio ?? "aspect-portrait"}
                 />
               </Reveal>
             ))}
