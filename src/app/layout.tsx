@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { ArtSprite } from "@/components/art/Sprite";
 import { site } from "@/constants/site";
 import "./globals.css";
@@ -13,8 +13,8 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const jost = Jost({
-  variable: "--font-jost",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 /** Root layout: document, fonts, metadata and the shared artwork sprite. Page chrome lives in the route-group layouts. */
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable} h-full antialiased`}>
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-white font-sans text-steel">
         <ArtSprite />
         {children}

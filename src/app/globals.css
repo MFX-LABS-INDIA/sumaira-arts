@@ -40,7 +40,7 @@
   --shadow-artwork: 0 22px 32px -22px color-mix(in srgb, var(--color-deep) 50%, transparent);
 
   /* Editorial serif for headings, clean sans for everything else */
-  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
 
   /* Elegant entrances. Disabled under prefers-reduced-motion in components. */

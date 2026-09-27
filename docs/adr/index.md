@@ -18,13 +18,14 @@ rather than edited, so the reasoning history stays readable. This index is **han
 | [ADR-0010](./0010-sections-data-and-common-components.md)      | Sections, data and common components get their own folders                  | `accepted`   | `src/app`, `src/components`, `src/data`, `src/constants`, `src/types`, `src/lib`    |
 | [ADR-0011](./0011-header-is-always-solid-white.md)             | The header is always solid white                                            | `accepted`   | `src/components/layout/Header.tsx`, `src/components/sections/Hero.tsx`              |
 | [ADR-0012](./0012-home-page-redesign.md)                       | Home page redesign: fixed section order, no collection filter, 1280px container | `accepted`   | `src/components/sections`, `src/components/common`, `src/data`                      |
+| [ADR-0013](./0013-brand-sans-is-manrope.md)                    | The brand sans-serif is Manrope, replacing Jost                              | `accepted`   | `src/app/layout.tsx`, `src/app/globals.css`                                         |
 
 ## By area
 
 Each of these has a back-link in its folder's `CLAUDE.md`, so the decision surfaces when you edit the code
 it constrains — you do not have to come here.
 
-- `src/app` — [ADR-0010](./0010-sections-data-and-common-components.md)
+- `src/app` — [ADR-0010](./0010-sections-data-and-common-components.md), [ADR-0013](./0013-brand-sans-is-manrope.md)
 - `src/components` — [ADR-0004](./0004-logical-properties-and-externalised-copy.md), [ADR-0010](./0010-sections-data-and-common-components.md)
 - `src/components/art` — [ADR-0002](./0002-shared-svg-sprite-for-placeholder-art.md)
 - `src/components/common`, `src/lib` — [ADR-0005](./0005-forms-are-server-actions-posting-to-a-webhook.md)

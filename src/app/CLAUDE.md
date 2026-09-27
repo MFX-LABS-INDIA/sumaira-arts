@@ -41,5 +41,6 @@ Checklist in [ARCHITECTURE.md](../../docs/ARCHITECTURE.md#add-a-page). In short:
 ## Decisions that constrain this code
 
 - [ADR-0010](../../docs/adr/0010-sections-data-and-common-components.md) — routes compose sections; data lives in `src/data`
+- [ADR-0013](../../docs/adr/0013-brand-sans-is-manrope.md) — the brand sans is Manrope (`layout.tsx`)
 
 Rules: [ARCHITECTURE](../../docs/ARCHITECTURE.md) · [PERFORMANCE](../../docs/PERFORMANCE.md) · [ERROR_HANDLING](../../docs/ERROR_HANDLING.md)
