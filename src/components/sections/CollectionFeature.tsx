@@ -47,8 +47,10 @@ export function CollectionFeature() {
   return (
     <Section id="featured" tone="white">
       <Container>
-        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="group relative lg:col-span-7">
+        {/* No items-start/center: the grid's default stretch makes the banner match the text column's own
+            height exactly, so there is no dead space under whichever side happens to be shorter. */}
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="group relative h-full lg:col-span-7">
             <ArtImage
               art={content.art}
               scene={content.scene}
@@ -56,7 +58,7 @@ export function CollectionFeature() {
               alt={content.alt}
               zoom
               sizes="(min-width: 1024px) 58vw, 100vw"
-              className="aspect-landscape lg:aspect-[5/4]"
+              className="aspect-landscape h-full lg:aspect-auto"
             />
             {content.eyebrow ? (
               <span className="absolute start-5 top-5 rounded-control bg-white/95 px-4 py-2 text-label font-medium uppercase tracking-caps text-deep shadow-raised">
