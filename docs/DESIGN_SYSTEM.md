@@ -58,7 +58,7 @@ across everything. Avoid gold and beige as a dominant colour.
 
 | Token                      | Value                 | Use                                             |
 | -------------------------- | --------------------- | ----------------------------------------------- |
-| `font-serif` / `font-sans` | Cormorant Garamond / Jost | Headings / everything else                  |
+| `font-serif` / `font-sans` | Manrope (both) | Headings / everything else — one variable font, told apart by weight |
 | `text-label`               | 0.72rem               | Buttons, links, nav, eyebrows                   |
 | `text-micro`               | 0.66rem               | Tiny meta: category, wall labels, pills         |
 | `text-body-sm`             | 0.95rem               | Card descriptions                               |

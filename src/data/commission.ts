@@ -1,10 +1,6 @@
-import type { Cta, Visual } from "@/types/content";
+import type { Feature } from "@/types/content";
 
-export const commission: Visual & {
-  eyebrow: string;
-  title: string;
-  description: string;
-  cta: Cta;
+export const commission: Feature & {
   steps: { number: string; title: string; text: string }[];
 } = {
   eyebrow: "Bespoke Art",
@@ -19,4 +15,5 @@ export const commission: Visual & {
   ],
   art: "rings",
   scene: "office",
+  alt: "A commissioned artwork in an office interior",
 };

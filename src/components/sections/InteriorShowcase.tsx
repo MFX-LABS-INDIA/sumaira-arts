@@ -8,7 +8,7 @@ import { inspiration, interiors } from "@/data/inspiration";
 
 export function InteriorShowcase() {
   return (
-    <Section id="inspiration" tone="white" className="lg:pt-56">
+    <Section id="inspiration" tone="white">
       <Container>
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>

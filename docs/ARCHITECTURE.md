@@ -91,7 +91,7 @@ or a browser API. Today the complete list is:
 | `common/WishlistButton`                  | a toggle (local state)                                      |
 | `(site)/error.tsx`                       | Next requires an error boundary to be a client component    |
 
-Everything else — including the gallery filter, the product cards and every reveal wrapper — is
+Everything else — including the collection grid, the product cards and every reveal wrapper — is
 server-rendered with no hydration cost. Adding to this table is an architectural decision: say why in the PR.
 
 ## State
@@ -102,7 +102,7 @@ server-rendered with no hydration cost. Adding to this table is an architectural
 | Form result      | `useActionState` + a server action returning `FormState`                        |
 | URL state        | anchors (`#collections`) and, later, route segments                              |
 | Local UI         | `useState` in the lowest component that needs it (menu open, wishlist heart)     |
-| Filters / toggles | CSS where it can be (`:has`, radios) — see [ADR-0007](./adr/0007-css-only-collection-filter.md) |
+| Filters / toggles / reveals | CSS where it can be (`<details>`, `:has`, radios) — see [ADR-0007](./adr/0007-css-only-collection-filter.md) and [ADR-0012](./adr/0012-home-page-redesign.md) |
 
 No global client store. A concrete need an ADR can describe is the bar.
 

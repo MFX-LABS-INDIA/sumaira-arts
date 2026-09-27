@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { ArtSprite } from "@/components/art/Sprite";
 import { site } from "@/constants/site";
 import "./globals.css";
 
-// Only the weights the design uses: 300 (hero), 400 (headings) and 400 italic (accents).
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const jost = Jost({
-  variable: "--font-jost",
+// One family everywhere: Manrope is a variable font, so headings and body text are both
+// this face, told apart by weight (font-light/normal/medium) rather than a second family.
+// It has no italic face; `italic`/`<em>` render as the browser's synthesised oblique.
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });
@@ -29,7 +23,7 @@ export const metadata: Metadata = {
 /** Root layout: document, fonts, metadata and the shared artwork sprite. Page chrome lives in the route-group layouts. */
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable} h-full antialiased`}>
+    <html lang="en" className={`${manrope.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-white font-sans text-steel">
         <ArtSprite />
         {children}

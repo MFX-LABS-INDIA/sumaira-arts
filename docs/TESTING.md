@@ -37,7 +37,7 @@ Ordered by risk per hour of effort. Each is small; none is built yet.
    an unset endpoint, a failing endpoint, and a success — asserting the message and `status` for each.
    The "never fake success" rule needs evidence.
 3. **End-to-end tests** (Playwright), critical journeys only: the anchor links land under the header,
-   the collection filter shows the right counts, the mobile menu opens and closes with Escape, the
+   "View all collections" reveals the remaining collections, the mobile menu opens and closes with Escape, the
    enquiry form (once it exists) shows the honest "not connected" message, and the 404 renders.
 4. **Accessibility** (axe, inside the Playwright run) on the home page and any form.
 5. **Performance in CI:** a scheduled Lighthouse run against the deployed site, alerting on a drop

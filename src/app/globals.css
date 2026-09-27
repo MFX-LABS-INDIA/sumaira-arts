@@ -40,8 +40,8 @@
   --shadow-artwork: 0 22px 32px -22px color-mix(in srgb, var(--color-deep) 50%, transparent);
 
   /* Editorial serif for headings, clean sans for everything else */
-  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
   /* Elegant entrances. Disabled under prefers-reduced-motion in components. */
   --animate-fade-up: fade-up 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
@@ -102,6 +102,14 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+/* Hide the scrollbar on a horizontally scrolling row (swipe carousels, filter pills). */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 

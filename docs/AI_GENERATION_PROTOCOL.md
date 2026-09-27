@@ -44,7 +44,7 @@ new.** Creating new is the last resort, and the PR says why the four cheaper opt
 ### 1.3 Few-shot from the nearest neighbours
 
 Show the model the full source of the closest existing components — a new section is shown an
-existing section (`Journal`, `Testimonials`) and its `src/data` file; a new primitive is shown
+existing section (`Journal`, `ReviewsWall`) and its `src/data` file; a new primitive is shown
 primitives. Models mimic concrete code far more reliably than they follow style prose.
 
 ### 1.4 Output rules given to the generator

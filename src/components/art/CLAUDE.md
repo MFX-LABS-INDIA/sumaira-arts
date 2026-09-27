@@ -61,13 +61,13 @@ size the box. When the last placeholder is gone, delete this folder and the spri
 - **A new SVG filter.** `feTurbulence` and blurs are rasterised on the CPU. There are seven. Adding one
   needs a measurement (PERFORMANCE §rules 3).
 - **Importing the drawing code into a client component** — for example, a client gallery that imports
-  `ArtImage` and pulls in `variants/*`. Keep the gallery a server component (ADR-0007).
+  `ArtImage` and pulls in `variants/*`. Keep the galleries server components (ADR-0012).
 - **The layout files are 400×500 / 800×600 / 1600×900 / 800×784 in _scene units_**, not pixels. Frame
   coordinates are in the layout's own units; the SVG scales.
 
 ## Decisions that constrain this code
 
 - [ADR-0002](../../../docs/adr/0002-shared-svg-sprite-for-placeholder-art.md) — the shared sprite
-- [ADR-0007](../../../docs/adr/0007-css-only-collection-filter.md) — why the gallery is a server component
+- [ADR-0012](../../../docs/adr/0012-home-page-redesign.md) — why the galleries are server components
 
 Rules: [PERFORMANCE](../../../docs/PERFORMANCE.md) · [DESIGN_SYSTEM](../../../docs/DESIGN_SYSTEM.md)

@@ -28,12 +28,12 @@ export function Journal() {
                   className="aspect-[3/2]"
                 />
                 <Eyebrow className="mt-6">{post.category}</Eyebrow>
-                <h3 className="mt-3 font-serif text-[1.7rem] leading-tight text-deep">
+                <h3 className="mt-3 font-serif text-xl font-light leading-snug tracking-tight text-deep">
                   <SmartLink href={post.href} className="after:absolute after:inset-0">
                     {post.title}
                   </SmartLink>
                 </h3>
-                <p className="mt-3 text-body-sm leading-relaxed text-steel">{post.excerpt}</p>
+                <p className="mt-3 text-sm leading-relaxed text-steel">{post.excerpt}</p>
                 <div className="mt-5">
                   <TextLink href={post.href}>Read Article</TextLink>
                 </div>
