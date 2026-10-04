@@ -7,6 +7,22 @@ export type NavLink = { label: string; href: string };
 
 export type ImageRef = { src: string; alt: string };
 
+/** One slide of the home hero carousel: a photograph, its words and two links. */
+export type HeroSlide = {
+  eyebrow: string;
+  lead: string;
+  /** The italic, accent-coloured tail of the title. */
+  accent: string;
+  description: string;
+  primary: Cta;
+  secondary: Cta;
+  image: ImageRef;
+  /** CSS object-position for the photo, so the artwork stays in view when a phone crops it. */
+  focus?: string;
+  /** Wall label shown at the end edge on large screens. */
+  caption: { kicker: string; title: string };
+};
+
 /**
  * How any card, banner or tile gets its picture. `image` is a real photograph
  * (a path under /public); without it the drawn placeholder `art` is shown,

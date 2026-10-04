@@ -1,17 +1,19 @@
-import Image from "next/image";
 import Link from "next/link";
 
-/** The brand mark is black on transparent; on a dark surface it is flipped to white. */
+const mask = "url(/assets/brand/logo.svg) center / contain no-repeat";
+
+/**
+ * The brand mark is an SVG used as a mask, so one file takes either surface colour:
+ * brand blue on white, white on the dark footer.
+ */
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   const dark = tone === "dark";
   return (
     <Link href="/" aria-label="Sumaira Arts, home" className="inline-flex leading-none">
-      <Image
-        src="/assets/brand/logo.png"
-        alt=""
-        width={400}
-        height={250}
-        className={`h-14 w-auto ${dark ? "brightness-0 invert" : ""}`}
+      <span
+        aria-hidden
+        className={`block aspect-[8/5] h-14 ${dark ? "bg-white" : "bg-brand"}`}
+        style={{ mask, WebkitMask: mask }}
       />
     </Link>
   );

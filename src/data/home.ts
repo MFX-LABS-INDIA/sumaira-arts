@@ -1,15 +1,63 @@
-import type { Cta, Offering } from "@/types/content";
+import type { Cta, HeroSlide, Offering } from "@/types/content";
 
-export const hero = {
-  eyebrow: "Contemporary Art • Curated With Purpose",
-  lead: "Art That Gives Your Space",
-  accent: "Meaning.",
-  description:
-    "Discover refined contemporary artwork created to bring character, depth and timeless beauty into the spaces you live and work in.",
-  primary: { label: "Explore Artwork", href: "#artwork" } satisfies Cta,
-  secondary: { label: "Discover Our Story", href: "#artist" } satisfies Cta,
-  /** Wall label shown bottom-right on desktop. */
-  caption: { kicker: "Featured work", title: "Letters of Light" },
+export const heroSlides: HeroSlide[] = [
+  {
+    eyebrow: "Contemporary Art • Curated With Purpose",
+    lead: "Art That Gives Your Space",
+    accent: "Meaning.",
+    description:
+      "Discover refined contemporary artwork created to bring character, depth and timeless beauty into the spaces you live and work in.",
+    primary: { label: "Explore Artwork", href: "#artwork" },
+    secondary: { label: "Discover Our Story", href: "#artist" },
+    image: {
+      src: "/assets/images/prototype/room-lounge-navy-gold.webp",
+      alt: "A large calligraphy artwork in navy and gold between two armchairs",
+    },
+    focus: "50% 35%",
+    caption: { kicker: "Featured work", title: "Letters of Light" },
+  },
+  {
+    eyebrow: "The 99 Names Collection",
+    lead: "Qur’anic Calligraphy for",
+    accent: "Modern Living.",
+    description:
+      "Hand-embellished canvas artworks that bring the beauty of Arabic script into contemporary interiors.",
+    primary: { label: "Explore Mixed Media", href: "#artwork" },
+    secondary: { label: "View Collections", href: "#collections" },
+    image: {
+      src: "/assets/images/prototype/room-living-surah-triptych.webp",
+      alt: "Three Surah calligraphy panels above a sofa",
+    },
+    focus: "50% 30%",
+    caption: { kicker: "Featured collection", title: "The 99 Names" },
+  },
+  {
+    eyebrow: "Bespoke Art",
+    lead: "Created For",
+    accent: "Your Space.",
+    description:
+      "Commission artwork designed around your vision, preferred dimensions and interior, made specifically for your home or workspace.",
+    primary: { label: "Start a Commission", href: "#commission" },
+    secondary: { label: "Meet the Artist", href: "#artist" },
+    image: {
+      src: "/assets/images/prototype/room-reading-corner-blue-wave.webp",
+      alt: "A tall blue and black calligraphy artwork above a reading chair",
+    },
+    focus: "30% 35%",
+    caption: { kicker: "Featured work", title: "Waves of Light" },
+  },
+];
+
+/** Carousel labels, kept here so the controls component holds no copy. */
+export const heroControls = {
+  label: "Featured artwork",
+  slide: "Slide",
+  of: "of",
+  previous: "Previous slide",
+  next: "Next slide",
+  goTo: "Go to slide",
+  pause: "Pause slideshow",
+  play: "Play slideshow",
 };
 
 export const intro = {

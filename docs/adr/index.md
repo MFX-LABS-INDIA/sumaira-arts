@@ -21,6 +21,8 @@ rather than edited, so the reasoning history stays readable. This index is **han
 | [ADR-0013](./0013-brand-sans-is-manrope.md)                    | The brand sans-serif is Manrope, replacing Jost                              | `superseded` by 0014 | `src/app/layout.tsx`, `src/app/globals.css`                                 |
 | [ADR-0014](./0014-single-font-family-manrope.md)               | One font family everywhere — Manrope replaces Cormorant Garamond too         | `accepted`   | `src/app/layout.tsx`, `src/app/globals.css`                                         |
 
+| [ADR-0015](./0015-hero-carousel-with-a-client-controller.md)  | The hero is an autoplaying carousel, driven by a small client controller     | `accepted`   | `src/components/sections`, `src/components/common`, `src/data`                      |
+
 ## By area
 
 Each of these has a back-link in its folder's `CLAUDE.md`, so the decision surfaces when you edit the code
@@ -31,7 +33,7 @@ it constrains — you do not have to come here.
 - `src/components/art` — [ADR-0002](./0002-shared-svg-sprite-for-placeholder-art.md)
 - `src/components/common`, `src/lib` — [ADR-0005](./0005-forms-are-server-actions-posting-to-a-webhook.md)
 - `src/components/layout` — [ADR-0006](./0006-smooth-scroll-is-lazy-and-desktop-only.md), [ADR-0011](./0011-header-is-always-solid-white.md)
-- `src/components/sections` — [ADR-0012](./0012-home-page-redesign.md) (the home page layout), [ADR-0011](./0011-header-is-always-solid-white.md) (the hero sits below the header)
+- `src/components/sections` — [ADR-0012](./0012-home-page-redesign.md) (the home page layout), [ADR-0011](./0011-header-is-always-solid-white.md) (the hero sits below the header), [ADR-0015](./0015-hero-carousel-with-a-client-controller.md) (the hero carousel)
 - `src/components/ui` — [ADR-0008](./0008-content-visibility-auto-rejected.md)
 - `src/data`, `src/types`, `src/constants` — [ADR-0004](./0004-logical-properties-and-externalised-copy.md), [ADR-0010](./0010-sections-data-and-common-components.md)
 

@@ -20,6 +20,11 @@ const buttonStyles = {
     light: "border-brand bg-brand text-white hover:border-deep hover:bg-deep",
     dark: "border-soft/40 bg-brand text-white hover:border-soft hover:bg-deep",
   },
+  /** A white button for photographs and dark surfaces. */
+  inverse: {
+    light: "border-white bg-white text-deep hover:border-soft hover:bg-soft",
+    dark: "border-white bg-white text-deep hover:border-soft hover:bg-soft",
+  },
   outline: {
     light: "border-steel/50 text-steel hover:border-brand hover:bg-brand hover:text-white",
     dark: "border-white/50 text-white hover:border-white hover:bg-white hover:text-deep",

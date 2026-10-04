@@ -36,7 +36,7 @@ often "extend a section" or "add an item to a `data/` list", not a new file.
 
 - **Repeating a card in JSX** instead of mapping over a `data/` list. The list is the data.
 - **Adding client state to a gallery or carousel.** Carousels are scroll-snap, "View all collections" is a native
-  `<details>`; they ship no JS. See ADR-0012.
+  `<details>`; they ship no JS. See ADR-0012. The one exception is the hero (ADR-0015): server-rendered slides, with a small client controller that only toggles attributes.
 - **An image without `sizes`** or without the wrapper's aspect ratio — the wrong size downloads or the
   layout shifts. PERFORMANCE §Images.
 - **Product prices, the rating, the review count and the testimonials are placeholders.** They are labelled
@@ -48,5 +48,6 @@ often "extend a section" or "add an item to a `data/` list", not a new file.
 - [ADR-0004](../../../docs/adr/0004-logical-properties-and-externalised-copy.md) — logical properties, copy as data
 - [ADR-0012](../../../docs/adr/0012-home-page-redesign.md) — the home page layout
 - [ADR-0011](../../../docs/adr/0011-header-is-always-solid-white.md) — the hero sits below the white header
+- [ADR-0015](../../../docs/adr/0015-hero-carousel-with-a-client-controller.md) — the hero carousel
 
 Rules: [ARCHITECTURE](../../../docs/ARCHITECTURE.md) · [PERFORMANCE](../../../docs/PERFORMANCE.md) · [CONVENTIONS](../../../docs/CONVENTIONS.md)

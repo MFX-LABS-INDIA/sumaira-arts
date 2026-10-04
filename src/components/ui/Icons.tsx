@@ -91,3 +91,15 @@ export const YoutubeIcon = (p: IconProps) => (
     <path d="m10 9.5 4.6 2.5-4.6 2.5v-5Z" />
   </svg>
 );
+
+export const PauseIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M9 6v12M15 6v12" />
+  </svg>
+);
+
+export const PlayIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M8 5.5v13l10-6.5-10-6.5Z" />
+  </svg>
+);

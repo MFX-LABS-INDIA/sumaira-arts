@@ -89,6 +89,7 @@ or a browser API. Today the complete list is:
 | `layout/RevealController`                | one `IntersectionObserver` for every scroll reveal          |
 | `layout/SmoothScroll`, `LenisRoot`       | `matchMedia` gate, then the lazily loaded smooth-scroll lib |
 | `common/WishlistButton`                  | a toggle (local state)                                      |
+| `common/HeroControls`                     | hero carousel: slide state, pause, swipe (ADR-0015)         |
 | `(site)/error.tsx`                       | Next requires an error boundary to be a client component    |
 
 Everything else — including the collection grid, the product cards and every reveal wrapper — is
@@ -152,7 +153,7 @@ untouched. Do not branch on the pathname inside `SiteChrome` to hide things.
 
 Everything visual goes through `components/art/ArtImage`. To replace a placeholder, put the photo in
 `public/assets/images/<group>/` (see `public/assets/README.md`) and set `image: "/assets/images/<group>/..."` on the
-matching item in `src/data/`. The hero uses `heroImage` in `constants/site.ts`. See
+matching item in `src/data/`. The hero photographs are the `heroSlides` in `data/home.ts`. See
 [PERFORMANCE.md](./PERFORMANCE.md#images) for what a photo must carry (`sizes`, dimensions, `priority` only
 for the LCP image).
 
