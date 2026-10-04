@@ -15,5 +15,6 @@ export const commission: Feature & {
   ],
   art: "rings",
   scene: "office",
+  image: "/assets/images/prototype/room-reception-beige-abstract.webp",
   alt: "A commissioned artwork in an office interior",
 };

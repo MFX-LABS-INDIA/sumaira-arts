@@ -10,7 +10,8 @@ are drawn **once**, in a shared SVG sprite, and everything else is a reference t
 ([ADR-0002](../../../docs/adr/0002-shared-svg-sprite-for-placeholder-art.md)).
 
 ```
-variants/        the 15 drawings: _kit (palette + helpers), calligraphy, landscape, abstract, index (registry)
+variants/        the 15 drawings: _kit (palette + helpers), pen (flat-nib stroke engine), script (hand-lettered
+                 Arabic: allah, noor, salaam), calligraphy (star), landscape, abstract, index (registry)
 furniture.tsx    sofa, bed, desk, plant, lamp… drawn inside rooms
 scenes.ts        room LAYOUTS (size, floor, furniture) and scene builders (which art hangs on which wall)
 Sprite.tsx       draws every artwork and room ONCE, as <symbol>s   (mounted in app/layout.tsx)
@@ -31,7 +32,7 @@ Outside this folder, import only `ArtImage`, `ArtPiece`, `RoomScene`, and the `s
 
 ## Adding an artwork
 
-1. Draw it in the file that fits (`calligraphy`, `landscape`, `abstract`) as an exported
+1. Draw it in the file that fits (`script`, `calligraphy`, `landscape`, `abstract`) as an exported
    `(id: string) => ReactNode`, painting a **400×500** canvas. Use `c.*` colours (`var(--color-*)`),
    never a hex.
 2. Give any `<filter>` / `<linearGradient>` an id built from the `id` argument (`` `${id}-blur` ``): the
@@ -39,6 +40,13 @@ Outside this folder, import only `ArtImage`, `ArtPiece`, `RoomScene`, and the `s
 3. Add the name to `ArtVariant` and register it in `variants/index.ts`.
 4. Look at it at several crops: it is drawn with `preserveAspectRatio="xMidYMid slice"`, so a wide card
    shows only the middle band. Keep the subject central.
+
+### Lettering
+
+Arabic text is drawn with `pen.tsx`, not set in a font: write each stroke as a hand-set centreline
+(`s([x, y], [c1, c2, end], …)`) and `<Ink strokes nib color />` sweeps a flat nib along it. That gives
+real thick-and-thin contrast with no filter, no webfont and no font licence. Check the result in the browser:
+a stroke that doubles back on itself looks spiky, so give small marks (a dot, a shadda) a lower `weighted()`.
 
 ## Adding a room or moving a frame
 
@@ -48,7 +56,7 @@ wall). To change a layout, edit `layouts`; to hang different art, edit the build
 
 ## Replacing a placeholder with a real photograph
 
-Put the photo in `public/images/` and set `image: "/images/…"` on the matching item in `src/data/`.
+Put the photo in `public/assets/images/<group>/` and set `image: "/assets/images/<group>/…"` on the matching item in `src/data/`.
 `ArtImage` then renders it with `next/image`. Give it real `sizes` and let the parent's aspect-ratio class
 size the box. When the last placeholder is gone, delete this folder and the sprite mount.
 

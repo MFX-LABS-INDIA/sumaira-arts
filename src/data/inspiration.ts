@@ -9,7 +9,7 @@ export const inspiration = {
 };
 
 export const interiors: (Visual & { label: string })[] = [
-  { label: "Living room", art: "names", scene: "living" },
-  { label: "Bedroom", art: "dunes", scene: "bedroom" },
-  { label: "Office", art: "rings", scene: "office" },
+  { label: "Living room", art: "allah", scene: "living", image: "/assets/images/prototype/room-living-surah-triptych.webp" },
+  { label: "Reading corner", art: "dunes", scene: "bedroom", image: "/assets/images/prototype/room-reading-corner-blue-wave.webp" },
+  { label: "Office", art: "rings", scene: "office", image: "/assets/images/prototype/room-reception-beige-abstract.webp" },
 ];

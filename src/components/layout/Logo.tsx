@@ -1,15 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 
+/** The brand mark is black on transparent; on a dark surface it is flipped to white. */
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   const dark = tone === "dark";
   return (
-    <Link href="/" aria-label="Sumaira Arts, home" className="inline-flex flex-col leading-none">
-      <span className={`font-serif text-[1.7rem] font-normal uppercase tracking-caps ${dark ? "text-white" : "text-deep"}`}>
-        Sumaira
-      </span>
-      <span className={`mt-1.5 text-[0.6rem] font-medium uppercase tracking-[0.5em] ${dark ? "text-white/85" : "text-steel"}`}>
-        Arts
-      </span>
+    <Link href="/" aria-label="Sumaira Arts, home" className="inline-flex leading-none">
+      <Image
+        src="/assets/brand/logo.png"
+        alt=""
+        width={400}
+        height={250}
+        className={`h-14 w-auto ${dark ? "brightness-0 invert" : ""}`}
+      />
     </Link>
   );
 }

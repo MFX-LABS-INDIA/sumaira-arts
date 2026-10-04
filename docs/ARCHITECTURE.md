@@ -151,7 +151,7 @@ untouched. Do not branch on the pathname inside `SiteChrome` to hide things.
 ## Real photographs
 
 Everything visual goes through `components/art/ArtImage`. To replace a placeholder, put the photo in
-`public/images/` (create the folder; there are no photographs yet) and set `image: "/images/..."` on the
+`public/assets/images/<group>/` (see `public/assets/README.md`) and set `image: "/assets/images/<group>/..."` on the
 matching item in `src/data/`. The hero uses `heroImage` in `constants/site.ts`. See
 [PERFORMANCE.md](./PERFORMANCE.md#images) for what a photo must carry (`sizes`, dimensions, `priority` only
 for the LCP image).

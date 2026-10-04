@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { enso, shadow, bloom, ink, orbs, mosaic, rings } from "./abstract";
-import { names, letters, arches, star } from "./calligraphy";
+import { star } from "./calligraphy";
+import { allah, noor, salaam } from "./script";
 import { horizon, seasons, dunes, ash } from "./landscape";
 
 export { palette } from "./_kit";
@@ -14,31 +15,28 @@ export { palette } from "./_kit";
  * `ArtVariant`, and register it below. The sprite picks it up from `variants`.
  */
 export type ArtVariant =
-  | "names"
   | "enso"
   | "shadow"
   | "horizon"
   | "bloom"
   | "ink"
-  | "letters"
-  | "arches"
   | "seasons"
   | "dunes"
   | "ash"
   | "orbs"
   | "mosaic"
   | "rings"
-  | "star";
+  | "star"
+  | "allah"
+  | "noor"
+  | "salaam";
 
 export const variants: Record<ArtVariant, (id: string) => ReactNode> = {
-  names,
   enso,
   shadow,
   horizon,
   bloom,
   ink,
-  letters,
-  arches,
   seasons,
   dunes,
   ash,
@@ -46,4 +44,7 @@ export const variants: Record<ArtVariant, (id: string) => ReactNode> = {
   mosaic,
   rings,
   star,
+  allah,
+  noor,
+  salaam,
 };

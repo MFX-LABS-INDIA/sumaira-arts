@@ -96,21 +96,21 @@ export const layouts: Record<SceneKey, SceneLayout> = {
 };
 
 const companions: Record<ArtVariant, [ArtVariant, ArtVariant]> = {
-  names: ["letters", "star"],
-  enso: ["dunes", "arches"],
+  allah: ["noor", "star"],
+  enso: ["dunes", "salaam"],
   shadow: ["enso", "orbs"],
   horizon: ["dunes", "orbs"],
   bloom: ["ink", "orbs"],
   ink: ["enso", "shadow"],
-  letters: ["names", "star"],
-  arches: ["star", "dunes"],
+  noor: ["allah", "star"],
+  salaam: ["star", "dunes"],
   seasons: ["dunes", "horizon"],
   dunes: ["horizon", "seasons"],
-  ash: ["letters", "enso"],
+  ash: ["noor", "enso"],
   orbs: ["ink", "bloom"],
   mosaic: ["star", "seasons"],
   rings: ["orbs", "ink"],
-  star: ["names", "arches"],
+  star: ["allah", "salaam"],
 };
 
 /** Hangs `art` in one of the four everyday rooms. */
@@ -145,8 +145,8 @@ export function heroScene(layout: "desktop" | "mobile"): Scene {
       key: "heroMobile",
       frames: [
         { art: "dunes", x: 96, y: 268, w: 88, h: 116 },
-        { art: "letters", x: 260, y: 172, w: 280, h: 350, dark: true },
-        { art: "arches", x: 616, y: 268, w: 88, h: 116 },
+        { art: "noor", x: 260, y: 172, w: 280, h: 350, dark: true },
+        { art: "salaam", x: 616, y: 268, w: 88, h: 116 },
       ],
     };
   }
@@ -155,7 +155,7 @@ export function heroScene(layout: "desktop" | "mobile"): Scene {
     frames: [
       { art: "dunes", x: 850, y: 160, w: 130, h: 165, className: "max-xl:hidden" },
       { art: "star", x: 850, y: 350, w: 130, h: 165, className: "max-xl:hidden" },
-      { art: "letters", x: 1036, y: 140, w: 368, h: 460, dark: true },
+      { art: "noor", x: 1036, y: 140, w: 368, h: 460, dark: true },
       { art: "horizon", x: 1448, y: 220, w: 100, h: 132, className: "xl:hidden" },
     ],
   };

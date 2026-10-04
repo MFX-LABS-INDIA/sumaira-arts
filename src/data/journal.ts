@@ -11,8 +11,9 @@ export const journalPosts: JournalPost[] = [
     title: "Calligraphy in the Contemporary Home",
     excerpt: "How a centuries-old script finds new life on the walls of modern interiors.",
     href: "#",
-    art: "letters",
+    art: "noor",
     scene: "hall",
+    image: "/assets/images/prototype/room-reading-corner-blue-wave.webp",
   },
   {
     category: "Interiors",
@@ -21,6 +22,7 @@ export const journalPosts: JournalPost[] = [
     href: "#",
     art: "dunes",
     scene: "living",
+    image: "/assets/images/prototype/room-living-grey-abstract.webp",
   },
   {
     category: "Inspiration",
@@ -29,5 +31,6 @@ export const journalPosts: JournalPost[] = [
     href: "#",
     art: "enso",
     scene: "office",
+    image: "/assets/images/prototype/studio-pastel-canvases.webp",
   },
 ];

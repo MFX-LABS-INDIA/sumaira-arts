@@ -16,8 +16,8 @@ export const artist: {
     "Art should not simply fill a wall. It should create atmosphere, express personality and become part of the story of a space.",
   cta: { label: "Meet the Artist", href: "#" },
   gallery: [
-    { art: "enso", alt: "Brushwork from the studio" },
-    { art: "arches", alt: "Detail of a studio piece" },
-    { art: "ink", alt: "Ink study from the studio" },
+    { art: "enso", image: "/assets/images/prototype/studio-pastel-canvases.webp", alt: "The artist lettering a canvas in the studio" },
+    { art: "salaam", image: "/assets/images/prototype/studio-falaq-canvas.webp", alt: "The artist finishing a Surah Al-Falaq canvas" },
+    { art: "ink", image: "/assets/images/prototype/studio-dhikr-canvases.webp", alt: "The artist beside a set of dhikr canvases" },
   ],
 };

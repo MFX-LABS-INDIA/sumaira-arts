@@ -28,8 +28,9 @@ export const offerings: Offering[] = [
     description:
       "Discover beautifully crafted fine art prints inspired by contemporary design, created to bring sophistication and personality to your space.",
     cta: { label: "Explore Prints", href: "#artwork" },
-    art: "names",
+    art: "allah",
     scene: "living",
+    image: "/assets/images/prototype/room-living-ayatul-kursi.webp",
   },
   {
     number: "02",
@@ -40,6 +41,7 @@ export const offerings: Offering[] = [
     cta: { label: "Explore Artisan Art", href: "#collections" },
     art: "ink",
     scene: "hall",
+    image: "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
   },
   {
     number: "03",
@@ -50,5 +52,6 @@ export const offerings: Offering[] = [
     cta: { label: "Create Your Artwork", href: "#commission" },
     art: "rings",
     scene: "office",
+    image: "/assets/images/prototype/studio-ipad-bismillah.webp",
   },
 ];

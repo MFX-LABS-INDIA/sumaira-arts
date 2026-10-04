@@ -8,9 +8,13 @@ export const site = {
   currency: "USD",
   /**
    * Landing photograph. While this is null the hero shows the drawn gallery interior.
-   * Add a photo to /public and set e.g. { src: "/images/hero.jpg", alt: "..." }.
+   * Add a photo to /public/assets/images/hero and set e.g. { src: "/assets/images/hero/home.webp", alt: "..." }.
+   * PROTOTYPE photo for now; replace it with the final hero.
    */
-  heroImage: null as ImageRef | null,
+  heroImage: {
+    src: "/assets/images/prototype/room-lounge-navy-gold.webp",
+    alt: "A large calligraphy artwork in navy and gold between two armchairs",
+  } as ImageRef | null,
   statement:
     "A contemporary art destination bringing together refined artwork, cultural influence and modern design to create pieces that belong beautifully in the spaces we live and work in.",
 };
