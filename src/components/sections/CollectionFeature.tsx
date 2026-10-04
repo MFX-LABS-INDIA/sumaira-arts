@@ -50,7 +50,7 @@ export function CollectionFeature() {
         {/* No items-start/center: the grid's default stretch makes the banner match the text column's own
             height exactly, so there is no dead space under whichever side happens to be shorter. */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="group relative h-full lg:col-span-7">
+          <Reveal className="group relative h-full min-w-0 lg:col-span-7">
             <ArtImage
               art={content.art}
               scene={content.scene}
@@ -67,7 +67,7 @@ export function CollectionFeature() {
             ) : null}
           </Reveal>
 
-          <div className="lg:col-span-5">
+          <div className="min-w-0 lg:col-span-5">
             <Reveal>
               <h2 className={`${headingClass} text-deep`}>{content.title}</h2>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-steel md:text-base">{content.description}</p>
