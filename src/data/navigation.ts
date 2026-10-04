@@ -16,7 +16,7 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "Collections", href: "#collections" },
       { label: "Artwork", href: "#artwork" },
-      { label: "Limited Editions", href: "#collections" },
+      { label: "Original Artworks", href: "#collections" },
       { label: "Custom Art", href: "#commission" },
     ],
   },

@@ -18,7 +18,7 @@ export type Visual = {
   image?: string;
 };
 
-/** One of the three ways to buy, on the home page. */
+/** One of the two kinds of artwork, on the home page. */
 export type Offering = Visual & {
   number: string;
   eyebrow: string;
@@ -31,7 +31,7 @@ export type Offering = Visual & {
 export type Product = {
   slug: string;
   title: string;
-  category: "Limited Edition" | "Original" | "Fine Art Print" | "Artisan";
+  category: "Mixed Media" | "Original Texture";
   /** PLACEHOLDER prices. Replace with real ones (currency is set in constants/site.ts). */
   price: number;
   art: ArtVariant;

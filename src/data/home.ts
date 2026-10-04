@@ -23,35 +23,24 @@ export const intro = {
 export const offerings: Offering[] = [
   {
     number: "01",
-    eyebrow: "Printed Editions",
-    title: "Fine Art, Made Accessible",
+    eyebrow: "Hand-Embellished Canvas",
+    title: "Mixed Media Artworks",
     description:
-      "Discover beautifully crafted fine art prints inspired by contemporary design, created to bring sophistication and personality to your space.",
-    cta: { label: "Explore Prints", href: "#artwork" },
+      "Hand-embellished printed canvas artworks combining texture, detail, and Qur’anic calligraphy in a contemporary mixed media expression.",
+    cta: { label: "Explore Mixed Media", href: "#artwork" },
     art: "allah",
     scene: "living",
     image: "/assets/images/prototype/room-living-ayatul-kursi.webp",
   },
   {
     number: "02",
-    eyebrow: "Artisan Art",
-    title: "Crafted With an Artist's Touch",
+    eyebrow: "Hand-Textured Originals",
+    title: "Original Texture Artworks",
     description:
-      "Explore hand-finished artworks where texture, detail and artistic craftsmanship transform every piece into something truly distinctive.",
-    cta: { label: "Explore Artisan Art", href: "#collections" },
+      "One-of-a-kind textured artworks created by hand on raw canvas, incorporating Qur’anic verses, surahs, and Arabic letters through layers of sculptural texture.",
+    cta: { label: "Explore Originals", href: "#collections" },
     art: "ink",
     scene: "hall",
     image: "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
-  },
-  {
-    number: "03",
-    eyebrow: "Custom Art",
-    title: "Created For Your Space",
-    description:
-      "Commission artwork designed around your vision, preferred dimensions and interior, created specifically for your home or workspace.",
-    cta: { label: "Create Your Artwork", href: "#commission" },
-    art: "rings",
-    scene: "office",
-    image: "/assets/images/prototype/studio-ipad-bismillah.webp",
   },
 ];
