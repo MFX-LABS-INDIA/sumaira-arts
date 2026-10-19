@@ -2,17 +2,17 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { mainNav } from "@/data/navigation";
-import { BagIcon, CloseIcon, MenuIcon, SearchIcon, UserIcon } from "@/components/ui/Icons";
+import { BagIcon, CloseIcon, MenuIcon, UserIcon } from "@/components/ui/Icons";
 import { SmartLink } from "@/components/ui/Link";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "./Logo";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 const subscribeToScroll = (onChange: () => void) => {
   window.addEventListener("scroll", onChange, { passive: true });
   return () => window.removeEventListener("scroll", onChange);
 };
 
-const iconSize = "h-[1.35rem] w-[1.35rem]";
 const iconLayer = "absolute inset-0 h-6 w-6 transition-[opacity,transform] duration-300 ease-out-soft motion-reduce:transition-none";
 
 /** Each drawer row slides in from the end edge and fades, one after another (delay set inline). */
@@ -64,11 +64,13 @@ export function Header() {
         <Container className="flex h-19 items-center justify-between gap-6">
           <Logo />
 
-          <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-9">
+          <nav aria-label="Primary" className="me-auto hidden lg:block">
+            <ul className="flex items-center gap-7">
               {mainNav.map((link) => (
                 <li key={link.label}>
-                  <SmartLink href={link.href} className={navLink}>
+                  <SmartLink href={link.href} className={`${navLink} inline-flex items-center gap-1.5`}>
+                    {link.label === "Cart" ? <BagIcon className="h-4 w-4" /> : null}
+                    {link.label === "My Orders" ? <UserIcon className="h-4 w-4" /> : null}
                     {link.label}
                   </SmartLink>
                 </li>
@@ -77,15 +79,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-1">
-            <button type="button" aria-label="Search" className={`${iconButton} hidden lg:block`}>
-              <SearchIcon className={iconSize} />
-            </button>
-            <button type="button" aria-label="Account" className={`${iconButton} hidden lg:block`}>
-              <UserIcon className={iconSize} />
-            </button>
-            <button type="button" aria-label="Cart" className={iconButton}>
-              <BagIcon className={iconSize} />
-            </button>
             <button
               type="button"
               aria-label={open ? "Close menu" : "Open menu"}
@@ -142,19 +135,11 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <div
-            style={{ transitionDelay: open ? `${140 + mainNav.length * 55}ms` : "0ms" }}
-            className={`mt-8 flex gap-6 text-label font-medium uppercase tracking-caps text-steel ${drawerItem(open)}`}
-          >
-            <button type="button" className="inline-flex items-center gap-2">
-              <SearchIcon className="h-5 w-5" /> Search
-            </button>
-            <button type="button" className="inline-flex items-center gap-2">
-              <UserIcon className="h-5 w-5" /> Account
-            </button>
-          </div>
         </div>
       </div>
+
+      {/* Slide-over cart drawer */}
+      <CartDrawer />
     </>
   );
 }

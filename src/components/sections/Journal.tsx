@@ -6,7 +6,9 @@ import { SmartLink, TextLink } from "@/components/ui/Link";
 import { Reveal } from "@/components/ui/Reveal";
 import { journalIntro, journalPosts } from "@/data/journal";
 
-export function Journal() {
+export function Journal({ limit = 3 }: { limit?: number }) {
+  const posts = journalPosts.slice(0, limit);
+
   return (
     <Section id="journal" tone="white">
       <Container>
@@ -15,9 +17,9 @@ export function Journal() {
         </Reveal>
 
         <div className="mt-12 grid gap-x-8 gap-y-14 md:mt-16 md:grid-cols-3">
-          {journalPosts.map((post, index) => (
+          {posts.map((post, index) => (
             <Reveal key={post.title} delay={index * 120} className={index === 1 ? "md:mt-14" : ""}>
-              <article className="group relative">
+              <article id={post.slug} className="group relative scroll-mt-24">
                 <ArtImage
                   art={post.art}
                   scene={post.scene}

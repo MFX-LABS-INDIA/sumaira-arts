@@ -2,16 +2,14 @@ import { ArtImage } from "@/components/art/ArtImage";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { SmartLink } from "@/components/ui/Link";
+import { ButtonLink, SmartLink } from "@/components/ui/Link";
 import { collections, collectionsIntro } from "@/data/collections";
 import type { Collection } from "@/types/content";
 
 const INITIAL = 6;
-const gridClass = "grid grid-cols-2 gap-6 lg:grid-cols-3";
-
 function CollectionCard({ collection }: { collection: Collection }) {
   return (
-    <article className="group relative">
+    <article className="group relative w-[72vw] max-w-72 shrink-0 snap-start md:w-72">
       <div className="relative">
         <ArtImage
           art={collection.art}
@@ -33,38 +31,24 @@ function CollectionCard({ collection }: { collection: Collection }) {
 }
 
 /**
- * Six collections, then "View all collections" opens the rest. A native <details>: no JavaScript, keyboard and
- * screen-reader support for free. The summary hides itself once the rest is showing.
+ * A concise collection carousel keeps the home page focused; the CTA opens the complete collection catalogue.
  */
 export function CollectionGrid() {
   const first = collections.slice(0, INITIAL);
-  const rest = collections.slice(INITIAL);
 
   return (
     <Section id="collections" tone="ice">
       <Container>
         <SectionHeading eyebrow={collectionsIntro.eyebrow} title={collectionsIntro.title} description={collectionsIntro.description} />
 
-        <div className={`${gridClass} mt-12 md:mt-16`}>
+        <div className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-3 sm:-mx-8 sm:px-8 md:mt-16 md:mx-0 md:px-0">
           {first.map((collection) => (
             <CollectionCard key={collection.name} collection={collection} />
           ))}
         </div>
-
-        {rest.length > 0 ? (
-          <details className="group/all">
-            <div className={`${gridClass} mt-6`}>
-              {rest.map((collection) => (
-                <CollectionCard key={collection.name} collection={collection} />
-              ))}
-            </div>
-            <summary className="mt-12 flex cursor-pointer list-none justify-center group-open/all:hidden [&::-webkit-details-marker]:hidden">
-              <span className="border-b border-brand/30 pb-1.5 text-label font-medium uppercase tracking-caps text-brand transition-colors hover:border-brand">
-                {collectionsIntro.viewAll}
-              </span>
-            </summary>
-          </details>
-        ) : null}
+        <div className="mt-10 flex justify-center">
+          <ButtonLink href="/products?category=Collections">{collectionsIntro.viewAll}</ButtonLink>
+        </div>
       </Container>
     </Section>
   );

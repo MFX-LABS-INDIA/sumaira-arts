@@ -75,7 +75,7 @@ export const offerings: Offering[] = [
     title: "Mixed Media Artworks",
     description:
       "Hand-embellished printed canvas artworks combining texture, detail, and Qur’anic calligraphy in a contemporary mixed media expression.",
-    cta: { label: "Explore Mixed Media", href: "#artwork" },
+    cta: { label: "Explore Mixed Media", href: "/products?category=Mixed_Media_Canvas" },
     art: "allah",
     scene: "living",
     image: "/assets/images/prototype/room-living-ayatul-kursi.webp",
@@ -86,7 +86,7 @@ export const offerings: Offering[] = [
     title: "Original Texture Artworks",
     description:
       "One-of-a-kind textured artworks created by hand on raw canvas, incorporating Qur’anic verses, surahs, and Arabic letters through layers of sculptural texture.",
-    cta: { label: "Explore Originals", href: "#collections" },
+    cta: { label: "Explore Originals", href: "/products?category=Original_Texture" },
     art: "ink",
     scene: "hall",
     image: "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",

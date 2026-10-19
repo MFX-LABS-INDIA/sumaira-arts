@@ -1,0 +1,1892 @@
+[
+  {
+    "id": "prod-1",
+    "slug": "99-names-golden-edition",
+    "title": "99 Names of Allah – Golden Edition",
+    "titleAr": "أسماء الله الحسنى",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 640,
+    "oldPriceUSD": 720,
+    "rating": 4.9,
+    "reviews": 128,
+    "booked": "340+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "120 x 80 cm (47 x 31 in)",
+    "medium": "Mixed media with 24K genuine gold leaf and textured pigment on canvas",
+    "frame": "Floating brushed champagne aluminium frame",
+    "description": "An exquisite masterpiece featuring the 99 divine names of Allah inscribed with meticulous calligraphic craftsmanship on a textured midnight-lapis canvas highlighted with delicate genuine gold leafing.",
+    "image": "/assets/images/prototype/crops/artwork-surah-ikhlas.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-surah-triptych.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-surah-ikhlas.webp",
+      "/assets/images/prototype/crops/scene-surah-triptych.webp",
+      "/assets/images/prototype/room-living-surah-triptych.webp"
+    ],
+    "artVariant": "allah",
+    "scene": "hall",
+    "features": [
+      "Hand-gilded with genuine 24-karat gold leaf",
+      "Sealed with archival museum UV varnish protection",
+      "Signed and numbered certificate of studio authenticity",
+      "Ready to hang with heavy-duty recessed hanging hardware"
+    ],
+    "sku": "SA-0001",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-2",
+    "slug": "ayatul-kursi",
+    "title": "Ayatul Kursi – The Throne Verse",
+    "titleAr": "آية الكرسي",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 490,
+    "oldPriceUSD": 550,
+    "rating": 4.9,
+    "reviews": 230,
+    "booked": "520+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "100 x 70 cm (39 x 28 in)",
+    "medium": "Deep indigo acrylics, gesso relief, metallic gold leaf accents",
+    "frame": "Minimalist matte black steel profile",
+    "description": "The supreme verse of divine protection and magnificence rendered in fluid contemporary Arabic calligraphy floating over deep lapis gradients and gilded celestial constellations.",
+    "image": "/assets/images/prototype/crops/artwork-ayatul-kursi.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-ayatul-kursi.webp",
+      "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
+      "/assets/images/prototype/room-living-ayatul-kursi.webp"
+    ],
+    "artVariant": "salaam",
+    "scene": "bedroom",
+    "features": [
+      "Calligraphed in fluid Thuluth-inspired modern rhythm",
+      "Layered lapis lazuli and obsidian pigment blend",
+      "Signed and catalogued by the studio master",
+      "Museum anti-reflective framing standard"
+    ],
+    "sku": "SA-0002",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-3",
+    "slug": "dua-collection",
+    "title": "Noor & Dua – Light of Supplication",
+    "titleAr": "دعاء ونور",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 420,
+    "oldPriceUSD": 480,
+    "rating": 4.8,
+    "reviews": 85,
+    "booked": "180+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "90 x 90 cm (35 x 35 in)",
+    "medium": "Rich navy pigments, mica dust, acrylic glaze on museum gallery canvas",
+    "frame": "Solid walnut shadowbox frame",
+    "description": "An intimate visual meditation on supplication. Bold midnight blues juxtaposed with incandescent golden script that catches light with quiet elegance.",
+    "image": "/assets/images/prototype/crops/artwork-navy-gold.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-navy-gold.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-navy-gold.webp",
+      "/assets/images/prototype/crops/scene-navy-gold.webp",
+      "/assets/images/prototype/room-lounge-navy-gold.webp"
+    ],
+    "artVariant": "noor",
+    "scene": "office",
+    "features": [
+      "Natural mica minerals provide subtle ambient shimmer",
+      "Deep gallery edge wrap (1.5 inch profile)",
+      "Accompanied by an embossed collector card",
+      "Suitable for contemporary or transitional interior themes"
+    ],
+    "sku": "SA-0003",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-4",
+    "slug": "al-fatiha",
+    "title": "Surah Al-Fatiha – The Opening",
+    "titleAr": "سورة الفاتحة",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 580,
+    "oldPriceUSD": 650,
+    "rating": 4.9,
+    "reviews": 160,
+    "booked": "310+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "110 x 80 cm (43 x 31 in)",
+    "medium": "Tonal grey mineral washes, raw linen ground, hand-lettered ink calligraphy",
+    "frame": "Raw natural ash wood gallery frame",
+    "description": "The opening chapter of the Holy Quran presented in balanced geometry and ethereal grey tonal transitions, embodying stillness, gratitude and guidance.",
+    "image": "/assets/images/prototype/crops/artwork-grey-abstract.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-grey-abstract.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-grey-abstract.webp",
+      "/assets/images/prototype/crops/scene-grey-abstract.webp",
+      "/assets/images/prototype/room-living-grey-abstract.webp"
+    ],
+    "artVariant": "star",
+    "scene": "living",
+    "features": [
+      "Hand-applied sumi ink with custom bamboo quill pens",
+      "Soft muted tones blend seamlessly into neutral minimalist walls",
+      "Non-fading archival inks tested for 100+ years permanence",
+      "Hand-finished protective satin varnish"
+    ],
+    "sku": "SA-0004",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-5",
+    "slug": "falaq-sanctuary",
+    "title": "Surah Al-Falaq – The Dawn",
+    "titleAr": "سورة الفلق",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 610,
+    "oldPriceUSD": 690,
+    "rating": 4.9,
+    "reviews": 88,
+    "booked": "190+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "110 x 85 cm (43 x 33 in)",
+    "medium": "Textured gesso, gold enamel script, charcoal haze on cotton canvas",
+    "frame": "Dark walnut floating tray frame",
+    "description": "Inspiring calligraphic forms evoking the radiance of dawn breaking through darkness, delivering spiritual peace and safety.",
+    "image": "/assets/images/prototype/studio-falaq-canvas.webp",
+    "sceneImage": "/assets/images/prototype/room-living-surah-triptych.webp",
+    "gallery": [
+      "/assets/images/prototype/studio-falaq-canvas.webp",
+      "/assets/images/prototype/crops/scene-surah-triptych.webp",
+      "/assets/images/prototype/room-living-surah-triptych.webp"
+    ],
+    "artVariant": "rings",
+    "scene": "hall",
+    "features": [
+      "Layered charcoal and warm amber undertones",
+      "Authentic calligraphic rendition of Surah Al-Falaq",
+      "Protected with matte non-reflective varnish",
+      "Framed with sustainable solid walnut"
+    ],
+    "sku": "SA-0005",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-6",
+    "slug": "inkography",
+    "title": "Inkography – Monolith in Motion",
+    "titleAr": "حبر وحركة",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 540,
+    "oldPriceUSD": 600,
+    "rating": 4.7,
+    "reviews": 68,
+    "booked": "140+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "115 x 75 cm (45 x 30 in)",
+    "medium": "Japanese sumi ink, alcohol wash dispersion, archival varnished canvas",
+    "frame": "Satin anthracite wooden profile",
+    "description": "Dynamic fluid dynamics captured at high tension. The organic diffusion of carbon black inks creates an architectural drama suitable for contemporary spaces.",
+    "image": "/assets/images/prototype/ink-angled-wall.webp",
+    "sceneImage": "/assets/images/prototype/room-lounge-navy-gold.webp",
+    "gallery": [
+      "/assets/images/prototype/ink-angled-wall.webp",
+      "/assets/images/prototype/crops/artwork-navy-gold.webp",
+      "/assets/images/prototype/room-lounge-navy-gold.webp"
+    ],
+    "artVariant": "ink",
+    "scene": "hall",
+    "features": [
+      "Fine art carbon sumi ink with resin binder",
+      "High visual contrast suited for feature walls and corridors",
+      "Anti-glare museum UV coating",
+      "Studio certificate of registration"
+    ],
+    "sku": "SA-0006",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-7",
+    "slug": "bismillah-calligraphy-canvas",
+    "title": "Bismillah – The Sacred Prelude",
+    "titleAr": "بسم الله الرحمن الرحيم",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 510,
+    "oldPriceUSD": 570,
+    "rating": 4.9,
+    "reviews": 112,
+    "booked": "280+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "100 x 60 cm (39 x 24 in)",
+    "medium": "Digital sketch study turned fine art acrylic gesso and gold pigment on stretched canvas",
+    "frame": "Natural champagne oak floating profile",
+    "description": "An ethereal modern calligraphic inscription of Bismillah, balancing timeless Arabic heritage with serene contemporary negative space.",
+    "image": "/assets/images/prototype/studio-ipad-bismillah.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
+    "gallery": [
+      "/assets/images/prototype/studio-ipad-bismillah.webp",
+      "/assets/images/prototype/crops/artwork-ayatul-kursi.webp",
+      "/assets/images/prototype/crops/scene-ayatul-kursi.webp"
+    ],
+    "artVariant": "salaam",
+    "scene": "office",
+    "features": [
+      "Dynamic flowing baseline typography",
+      "Warm ivory ground with warm bronze underpainting",
+      "Signed studio archival edition",
+      "Pre-installed hanging bracket"
+    ],
+    "sku": "SA-0007",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-8",
+    "slug": "surah-ikhlas-minimalist",
+    "title": "Surah Al-Ikhlas – Absolute Oneness",
+    "titleAr": "سورة الإخلاص",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 470,
+    "oldPriceUSD": 530,
+    "rating": 4.8,
+    "reviews": 95,
+    "booked": "220+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "80 x 80 cm (31 x 31 in)",
+    "medium": "Golden foil embossing, matte lapis blue gouache on Belgian canvas",
+    "frame": "Brushed graphite shadow frame",
+    "description": "A profound artistic expression of divine unity rendered with minimalist geometric clarity and gilded script.",
+    "image": "/assets/images/prototype/crops/artwork-surah-ikhlas.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-navy-gold.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-surah-ikhlas.webp",
+      "/assets/images/prototype/crops/scene-navy-gold.webp",
+      "/assets/images/prototype/room-lounge-navy-gold.webp"
+    ],
+    "artVariant": "allah",
+    "scene": "living",
+    "features": [
+      "Concentrated circular Thuluth composition",
+      "High-contrast metallic gold over deep midnight",
+      "Protected with museum non-glare coating",
+      "Certificate of studio registry"
+    ],
+    "sku": "SA-0008",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-9",
+    "slug": "surah-an-nas-sanctuary",
+    "title": "Surah An-Nas – The Divine Refuge",
+    "titleAr": "سورة الناس",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 530,
+    "oldPriceUSD": 590,
+    "rating": 4.9,
+    "reviews": 78,
+    "booked": "165+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "100 x 75 cm (39 x 30 in)",
+    "medium": "Acrylic washes, metallic copper script, subtle gesso impasto",
+    "frame": "Dark walnut float frame",
+    "description": "Sacred verses of protection harmonized through soothing charcoal and warm bronze highlights.",
+    "image": "/assets/images/prototype/crops/artwork-navy-gold.webp",
+    "sceneImage": "/assets/images/prototype/room-living-surah-triptych.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-navy-gold.webp",
+      "/assets/images/prototype/crops/scene-surah-triptych.webp",
+      "/assets/images/prototype/room-living-surah-triptych.webp"
+    ],
+    "artVariant": "noor",
+    "scene": "bedroom",
+    "features": [
+      "Subtle metallic copper and raw sienna tones",
+      "Gallery canvas wrapped edges",
+      "Signed by the artist",
+      "Moisture-resistant seal"
+    ],
+    "sku": "SA-0009",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-10",
+    "slug": "surah-ar-rahman-splendor",
+    "title": "Surah Ar-Rahman – Divine Grace",
+    "titleAr": "سورة الرحمن",
+    "category": "Mixed_Media_Canvas",
+    "priceUSD": 680,
+    "oldPriceUSD": 760,
+    "rating": 5,
+    "reviews": 142,
+    "booked": "310+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "130 x 90 cm (51 x 35 in)",
+    "medium": "24K gold foil, turquoise glaze, mineral plaster on heavy canvas",
+    "frame": "Brushed champagne aluminium profile",
+    "description": "Celebrates the recurring verse of divine favors with resplendent calligraphy and jewel-toned lapis accents.",
+    "image": "/assets/images/prototype/crops/artwork-ayatul-kursi.webp",
+    "sceneImage": "/assets/images/prototype/room-reception-beige-abstract.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-ayatul-kursi.webp",
+      "/assets/images/prototype/crops/scene-reception-beige.webp",
+      "/assets/images/prototype/room-reception-beige-abstract.webp"
+    ],
+    "artVariant": "salaam",
+    "scene": "living",
+    "features": [
+      "Luminous multi-layered turquoise and gold leaf",
+      "Museum archival non-reflective surface",
+      "Numbered limited studio edition",
+      "Heavy-duty cleat hanger"
+    ],
+    "sku": "SA-0010",
+    "styles": [
+      {
+        "label": "Rolled Canvas",
+        "priceModifier": 0
+      },
+      {
+        "label": "Stretched Canvas",
+        "priceModifier": 60
+      },
+      {
+        "label": "Framed Canvas",
+        "priceModifier": 120
+      }
+    ],
+    "sizes": [
+      {
+        "label": "72 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "88 cm x 120 cm",
+        "priceModifier": 80
+      },
+      {
+        "label": "102 cm x 140 cm",
+        "priceModifier": 160
+      }
+    ]
+  },
+  {
+    "id": "prod-11",
+    "slug": "spiritual-reflections",
+    "title": "Spiritual Reflections",
+    "titleAr": "تأملات روحية",
+    "category": "Original_Texture",
+    "priceUSD": 980,
+    "oldPriceUSD": 1100,
+    "rating": 5,
+    "reviews": 94,
+    "booked": "210+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "140 x 100 cm (55 x 39 in)",
+    "medium": "Heavy body impasto, natural sand mineral pigments on heavy Belgian linen",
+    "frame": "Natural solid white oak tray frame",
+    "description": "Sculpted mineral plaster and earthen sand pigments evoke an organic tactile relief that shifts dynamically in natural daylight, capturing the stillness of sacred contemplation.",
+    "image": "/assets/images/prototype/crops/artwork-reception-beige.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-reception-beige.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-reception-beige.webp",
+      "/assets/images/prototype/crops/scene-reception-beige.webp",
+      "/assets/images/prototype/room-reception-beige-abstract.webp"
+    ],
+    "artVariant": "orbs",
+    "scene": "living",
+    "features": [
+      "Natural earthen sand and quartz minerals sculpted by palette knife",
+      "Heavyweight Belgian linen stretched over kiln-dried kiln pine",
+      "Deep relief profile creates dramatic shadow shifts in natural light",
+      "Treated with protective matte sealant against humidity and dust"
+    ],
+    "sku": "SA-0011",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-12",
+    "slug": "love-and-devotion",
+    "title": "Love & Devotion – Ocean Hues",
+    "titleAr": "محبة وإخلاص",
+    "category": "Original_Texture",
+    "priceUSD": 760,
+    "oldPriceUSD": 850,
+    "rating": 4.8,
+    "reviews": 72,
+    "booked": "150+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "120 x 90 cm (47 x 35 in)",
+    "medium": "Sculpted palette knife acrylic modeling paste, cerulean & cobalt glazes",
+    "frame": "Brushed silver shadow float frame",
+    "description": "Cascading crests of texture and oceanic blues capture the expansive feeling of pure spiritual devotion and peace.",
+    "image": "/assets/images/prototype/crops/artwork-blue-wave.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-blue-wave.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-blue-wave.webp",
+      "/assets/images/prototype/crops/scene-blue-wave.webp",
+      "/assets/images/prototype/room-reading-corner-blue-wave.webp"
+    ],
+    "artVariant": "bloom",
+    "scene": "bedroom",
+    "features": [
+      "High sculptural relief with peaks up to 18mm",
+      "Luminous multiple glaze passes reflecting subtle daylight shifts",
+      "Certified 1-of-1 original studio texture",
+      "Certificate with gallery wax seal"
+    ],
+    "sku": "SA-0012",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-13",
+    "slug": "dhikr",
+    "title": "Dhikr – Sacred Remembrance",
+    "titleAr": "ذكر وطمأنينة",
+    "category": "Original_Texture",
+    "priceUSD": 820,
+    "oldPriceUSD": 910,
+    "rating": 4.9,
+    "reviews": 110,
+    "booked": "260+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "100 x 100 cm (39 x 39 in)",
+    "medium": "Crushed limestone, earthen binders, sculpted multi-panel relief",
+    "frame": "Museum grade bespoke shadowbox",
+    "description": "Repetitive rhythmic patterns etched into tactile plaster remind the observer of tranquility and mindfulness in sacred remembrance.",
+    "image": "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+    "sceneImage": "/assets/images/prototype/studio-dhikr-canvases.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+      "/assets/images/prototype/studio-dhikr-canvases.webp",
+      "/assets/images/prototype/crops/scene-reception-beige.webp"
+    ],
+    "artVariant": "rings",
+    "scene": "office",
+    "features": [
+      "Natural limestone mixture formulated in-studio",
+      "Minimalist organic circular motifs",
+      "Neutral travertine-tone surface for warm interior palettes",
+      "Comes with mounting template and steel French cleat"
+    ],
+    "sku": "SA-0013",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-14",
+    "slug": "contemporary-enso",
+    "title": "Artisan Enso – Infinite Stillness",
+    "titleAr": "دائرة السكون",
+    "category": "Original_Texture",
+    "priceUSD": 890,
+    "oldPriceUSD": 980,
+    "rating": 5,
+    "reviews": 46,
+    "booked": "115+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "120 x 120 cm (47 x 47 in)",
+    "medium": "Natural stone plaster, organic pumice paste, subtle earthen wash",
+    "frame": "Raw bleached oak tray frame",
+    "description": "A striking circular statement piece embodying harmony, mindfulness and spatial purity through rich tactile impasto relief.",
+    "image": "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-reception-beige.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+      "/assets/images/prototype/crops/scene-reception-beige.webp",
+      "/assets/images/prototype/studio-dhikr-canvases.webp"
+    ],
+    "artVariant": "enso",
+    "scene": "living",
+    "features": [
+      "Single continuous sculpted gestural movement",
+      "Pumice and stone compound with micro-texture",
+      "Solid custom oak frame crafted by artisan joiners",
+      "Each piece individually numbered"
+    ],
+    "sku": "SA-0014",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-15",
+    "slug": "sahara-whispers",
+    "title": "Sahara – Warm Dune Horizons",
+    "titleAr": "رمال الصحراء",
+    "category": "Original_Texture",
+    "priceUSD": 750,
+    "oldPriceUSD": 840,
+    "rating": 4.8,
+    "reviews": 54,
+    "booked": "130+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "130 x 85 cm (51 x 33 in)",
+    "medium": "Warm sandstone aggregate, Venetian plaster, terracotta washes",
+    "frame": "Natural brass metal profile",
+    "description": "Warm undulating textured ridges reflecting the quiet majesty and undulating shadows of Arabian dunes under twilight.",
+    "image": "/assets/images/prototype/studio-pastel-canvases.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-reception-beige.webp",
+    "gallery": [
+      "/assets/images/prototype/studio-pastel-canvases.webp",
+      "/assets/images/prototype/crops/scene-reception-beige.webp",
+      "/assets/images/prototype/room-reception-beige-abstract.webp"
+    ],
+    "artVariant": "dunes",
+    "scene": "living",
+    "features": [
+      "Genuine desert sand mixed into mineral plaster",
+      "Warm earthy tones suitable for contemporary neutral homes",
+      "UV stable mineral pigments resist direct sunlight fading",
+      "Includes wall hanging bracket"
+    ],
+    "sku": "SA-0015",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-16",
+    "slug": "ramad-ash-stone",
+    "title": "Ramad – Mineral Relief & Shadow",
+    "titleAr": "رماد الصخور",
+    "category": "Original_Texture",
+    "priceUSD": 840,
+    "oldPriceUSD": 930,
+    "rating": 4.9,
+    "reviews": 63,
+    "booked": "145+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "115 x 90 cm (45 x 35 in)",
+    "medium": "Ash-toned volcanic stone aggregate, hydraulic lime, dark pigment wash",
+    "frame": "Solid charcoal stained oak frame",
+    "description": "Dramatic dark volcanic textures capturing the silent power of earthen minerals and tectonic balance.",
+    "image": "/assets/images/prototype/crops/artwork-grey-abstract.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-grey-abstract.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-grey-abstract.webp",
+      "/assets/images/prototype/crops/scene-grey-abstract.webp",
+      "/assets/images/prototype/room-living-grey-abstract.webp"
+    ],
+    "artVariant": "ash",
+    "scene": "office",
+    "features": [
+      "High tactile texture with pumice & volcanic basalt",
+      "Natural non-toxic mineral binder",
+      "Protective invisible matte seal",
+      "Hand-signed studio original"
+    ],
+    "sku": "SA-0016",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-17",
+    "slug": "desert-bloom-plaster",
+    "title": "Desert Bloom – Textural Blossom",
+    "titleAr": "زهر الصحراء",
+    "category": "Original_Texture",
+    "priceUSD": 780,
+    "oldPriceUSD": 870,
+    "rating": 4.8,
+    "reviews": 51,
+    "booked": "120+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "100 x 100 cm (39 x 39 in)",
+    "medium": "Sculpted floral impasto, natural travertine dust, pastel earthen tint",
+    "frame": "Natural bleached maple tray frame",
+    "description": "Gentle floral motifs emerging organically from textured stone grounds, evoking rebirth and delicate beauty.",
+    "image": "/assets/images/prototype/studio-pastel-canvases.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-blue-wave.webp",
+    "gallery": [
+      "/assets/images/prototype/studio-pastel-canvases.webp",
+      "/assets/images/prototype/crops/scene-blue-wave.webp",
+      "/assets/images/prototype/room-reading-corner-blue-wave.webp"
+    ],
+    "artVariant": "bloom",
+    "scene": "bedroom",
+    "features": [
+      "Three-dimensional petal ridges up to 22mm",
+      "Soft pastel desert pigments",
+      "Individually hand-sculpted without molds",
+      "Delivered in custom wooden archival crate"
+    ],
+    "sku": "SA-0017",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-18",
+    "slug": "sacred-threshold-texture",
+    "title": "Threshold of Peace – Textural Arch",
+    "titleAr": "محراب السلام",
+    "category": "Original_Texture",
+    "priceUSD": 920,
+    "oldPriceUSD": 1020,
+    "rating": 4.9,
+    "reviews": 76,
+    "booked": "170+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "130 x 95 cm (51 x 37 in)",
+    "medium": "Acoustic mineral plaster, marble dust, subtle gilded edge",
+    "frame": "Warm bronze shadowbox profile",
+    "description": "Architectural arch motifs sculpted with tactile travertine plaster symbolizing entry into serene spiritual realms.",
+    "image": "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+    "sceneImage": "/assets/images/prototype/room-reception-beige-abstract.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+      "/assets/images/prototype/crops/scene-reception-beige.webp",
+      "/assets/images/prototype/room-reception-beige-abstract.webp"
+    ],
+    "artVariant": "salaam",
+    "scene": "hall",
+    "features": [
+      "Sculpted relief arched silhouette",
+      "Marble dust creates subtle ambient luminescence",
+      "Ready to hang with steel cleat kit",
+      "Museum authenticity certificate"
+    ],
+    "sku": "SA-0018",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-19",
+    "slug": "serenity-wave-sculpture",
+    "title": "Serenity Wave – Pure Relief",
+    "titleAr": "موج السكينة",
+    "category": "Original_Texture",
+    "priceUSD": 860,
+    "oldPriceUSD": 950,
+    "rating": 5,
+    "reviews": 69,
+    "booked": "155+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "120 x 80 cm (47 x 31 in)",
+    "medium": "Continuous plaster wave crests, titanium white, matte limestone",
+    "frame": "White float box frame",
+    "description": "Monochromatic white-on-white wave reliefs designed to cast shifting sculptural shadows with every angle of light.",
+    "image": "/assets/images/prototype/crops/artwork-blue-wave.webp",
+    "sceneImage": "/assets/images/prototype/room-reading-corner-blue-wave.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/artwork-blue-wave.webp",
+      "/assets/images/prototype/crops/scene-blue-wave.webp",
+      "/assets/images/prototype/room-reading-corner-blue-wave.webp"
+    ],
+    "artVariant": "bloom",
+    "scene": "living",
+    "features": [
+      "Pure white sculptural plaster profile",
+      "Dynamic play of light throughout the day",
+      "Heavy duty solid wood backing",
+      "Registered in artist catalogue raisonné"
+    ],
+    "sku": "SA-0019",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-20",
+    "slug": "celestial-orbit-texture",
+    "title": "Celestial Orbit – Concentric Plaster",
+    "titleAr": "مدار الفلك",
+    "category": "Original_Texture",
+    "priceUSD": 910,
+    "oldPriceUSD": 1010,
+    "rating": 4.8,
+    "reviews": 43,
+    "booked": "105+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "110 x 110 cm (43 x 43 in)",
+    "medium": "Concentric hand-combed mineral paste, crushed quartz shimmer",
+    "frame": "Natural brass anodised tray frame",
+    "description": "Infinite concentric orbits etched into earthen plaster symbolizing universal order, mindfulness, and cosmic rhythm.",
+    "image": "/assets/images/prototype/studio-dhikr-canvases.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-navy-gold.webp",
+    "gallery": [
+      "/assets/images/prototype/studio-dhikr-canvases.webp",
+      "/assets/images/prototype/crops/scene-navy-gold.webp",
+      "/assets/images/prototype/room-lounge-navy-gold.webp"
+    ],
+    "artVariant": "rings",
+    "scene": "office",
+    "features": [
+      "Natural quartz aggregate provides gentle shimmer",
+      "Precision hand-combed relief work",
+      "Custom anodized metal floating frame",
+      "Wax-sealed studio authenticity dossier"
+    ],
+    "sku": "SA-0020",
+    "styles": [
+      {
+        "label": "Unframed Original",
+        "priceModifier": 0
+      },
+      {
+        "label": "Floating Frame",
+        "priceModifier": 80
+      },
+      {
+        "label": "Shadow Box Frame",
+        "priceModifier": 150
+      }
+    ],
+    "sizes": [
+      {
+        "label": "80 cm x 80 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 120
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 250
+      }
+    ]
+  },
+  {
+    "id": "prod-21",
+    "slug": "99-names-collection-triptych",
+    "title": "99 Names Suite – Grand Triptych",
+    "titleAr": "مجموعة أسماء الله الحسنى",
+    "category": "Collections",
+    "priceUSD": 1450,
+    "oldPriceUSD": 1650,
+    "rating": 5,
+    "reviews": 62,
+    "booked": "90+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "Three panels, 60 x 120 cm each (180 x 120 cm total)",
+    "medium": "Gilded 24K leaf, deep indigo impasto, calligraphed museum triptych",
+    "frame": "Custom matte black shadowbox frames",
+    "description": "The ultimate centerpiece suite featuring 99 names of Allah across three harmonious balanced panels, uniting timeless faith with refined contemporary architectural aesthetics.",
+    "image": "/assets/images/prototype/crops/scene-surah-triptych.webp",
+    "sceneImage": "/assets/images/prototype/room-living-surah-triptych.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/scene-surah-triptych.webp",
+      "/assets/images/prototype/room-living-surah-triptych.webp",
+      "/assets/images/prototype/crops/artwork-surah-ikhlas.webp"
+    ],
+    "artVariant": "allah",
+    "scene": "living",
+    "features": [
+      "Three individual panels forming a coherent panoramic statement",
+      "24-karat gold leafing meticulously hand-gilded",
+      "Archival gallery wrapped profile ready to mount",
+      "Custom numbered master certificates for all 3 pieces"
+    ],
+    "sku": "SA-0021",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-22",
+    "slug": "mirage-suite",
+    "title": "Mirage – Atmosphere & Horizon Suite",
+    "titleAr": "مجموعة السراب",
+    "category": "Collections",
+    "priceUSD": 1280,
+    "oldPriceUSD": 1420,
+    "rating": 4.9,
+    "reviews": 48,
+    "booked": "75+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "150 x 100 cm (59 x 39 in)",
+    "medium": "Soft misty glazes, horizontal sculpted plaster strata, platinum leaf",
+    "frame": "Brushed champagne anodised floating frame",
+    "description": "Soft horizons and shimmering distance, in tones of haze, sky and gentle sand. A monumental collection piece bringing tranquil spatial expansion.",
+    "image": "/assets/images/prototype/room-living-grey-abstract.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-grey-abstract.webp",
+    "gallery": [
+      "/assets/images/prototype/room-living-grey-abstract.webp",
+      "/assets/images/prototype/crops/scene-grey-abstract.webp",
+      "/assets/images/prototype/crops/artwork-grey-abstract.webp"
+    ],
+    "artVariant": "horizon",
+    "scene": "living",
+    "features": [
+      "Horizon inspired gradient with delicate platinum foil highlights",
+      "Organic horizontal striations created by hand spatulas",
+      "Seamless integration with contemporary minimalist spaces",
+      "Full museum provenance documentation"
+    ],
+    "sku": "SA-0022",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-23",
+    "slug": "shadows-collection-piece",
+    "title": "Shadows – Interplay of Tone & Dark",
+    "titleAr": "مجموعة الظلال",
+    "category": "Collections",
+    "priceUSD": 1120,
+    "oldPriceUSD": 1250,
+    "rating": 4.8,
+    "reviews": 38,
+    "booked": "65+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "130 x 95 cm (51 x 37 in)",
+    "medium": "Layered sumi ink, mica dust, charcoal and graphite relief",
+    "frame": "Solid charcoal ash tray frame",
+    "description": "Light and shade layered into quiet abstract compositions. Celebrates negative space and the contemplative beauty of twilight.",
+    "image": "/assets/images/prototype/ink-angled-wall.webp",
+    "sceneImage": "/assets/images/prototype/room-lounge-navy-gold.webp",
+    "gallery": [
+      "/assets/images/prototype/ink-angled-wall.webp",
+      "/assets/images/prototype/crops/artwork-navy-gold.webp",
+      "/assets/images/prototype/room-lounge-navy-gold.webp"
+    ],
+    "artVariant": "shadow",
+    "scene": "hall",
+    "features": [
+      "Rich tonal depth in charcoal, slate and carbon blacks",
+      "Subtle light-catching mineral reflections",
+      "Accompanied by collector certificate of authenticity",
+      "Ready to install with wall cleat"
+    ],
+    "sku": "SA-0023",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-24",
+    "slug": "artisan-contemporary-diptych",
+    "title": "Artisan Contemporary – Earth & Spirit Diptych",
+    "titleAr": "مجموعة الفن المعاصر",
+    "category": "Collections",
+    "priceUSD": 1390,
+    "oldPriceUSD": 1550,
+    "rating": 4.9,
+    "reviews": 41,
+    "booked": "80+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "Two panels, 70 x 100 cm each",
+    "medium": "Crushed limestone, natural travertine plaster, hand-finished gold foil",
+    "frame": "Solid bleached oak tray frames",
+    "description": "Hand-finished works where sculptural texture and sacred geometry carry the story. A twin-panel diptych that anchors modern architectural living spaces.",
+    "image": "/assets/images/prototype/studio-dhikr-canvases.webp",
+    "sceneImage": "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+    "gallery": [
+      "/assets/images/prototype/studio-dhikr-canvases.webp",
+      "/assets/images/prototype/crops/artwork-dhikr-canvases.webp",
+      "/assets/images/prototype/room-reception-beige-abstract.webp"
+    ],
+    "artVariant": "enso",
+    "scene": "office",
+    "features": [
+      "Matching pair designed to hang side-by-side or opposite",
+      "Natural limestone and travertine compound",
+      "Handcrafted solid oak float frames",
+      "Individually authenticated by the artist"
+    ],
+    "sku": "SA-0024",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-25",
+    "slug": "letters-of-light-polyptych",
+    "title": "Letters of Light – Polyptych Quad",
+    "titleAr": "مجموعة حروف النور",
+    "category": "Collections",
+    "priceUSD": 1580,
+    "oldPriceUSD": 1750,
+    "rating": 5,
+    "reviews": 57,
+    "booked": "95+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "Four panels, 50 x 50 cm each (110 x 110 cm grid)",
+    "medium": "Midnight lapis pigment, pure gold powder suspension, heavy acrylic relief",
+    "frame": "Brushed anodized bronze profile frames",
+    "description": "Four complementary square canvases radiating calligraphic fragments inspired by spiritual illumination against deep midnight grounds.",
+    "image": "/assets/images/prototype/crops/scene-navy-gold.webp",
+    "sceneImage": "/assets/images/prototype/room-lounge-navy-gold.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/scene-navy-gold.webp",
+      "/assets/images/prototype/crops/artwork-navy-gold.webp",
+      "/assets/images/prototype/room-lounge-navy-gold.webp"
+    ],
+    "artVariant": "noor",
+    "scene": "living",
+    "features": [
+      "Modular set can be hung in a 2x2 grid or linear gallery row",
+      "Subtle gold dust particles sparkle in evening lighting",
+      "Signed four-part certification plaque",
+      "Pre-spaced hanging template included"
+    ],
+    "sku": "SA-0025",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-26",
+    "slug": "salaam-trilogy",
+    "title": "Salaam – Stillness & Sanctity Trilogy",
+    "titleAr": "ثلاثية السلام",
+    "category": "Collections",
+    "priceUSD": 1350,
+    "oldPriceUSD": 1490,
+    "rating": 4.9,
+    "reviews": 36,
+    "booked": "70+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "Three panels, 50 x 100 cm each",
+    "medium": "Travertine paste, white sand texture, hand-scribed Thuluth script",
+    "frame": "Solid light ash wood box frames",
+    "description": "Three arches inspired by timeless architecture, peace, and inward contemplation. A serene master suite designed for refined modern bedrooms or hallways.",
+    "image": "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
+    "sceneImage": "/assets/images/prototype/room-living-ayatul-kursi.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
+      "/assets/images/prototype/crops/artwork-ayatul-kursi.webp",
+      "/assets/images/prototype/room-living-ayatul-kursi.webp"
+    ],
+    "artVariant": "salaam",
+    "scene": "bedroom",
+    "features": [
+      "Interlocking arched motifs spanning three canvases",
+      "Soothing neutral linen and stone tones",
+      "Hand-embossed artist initials on each canvas reverse",
+      "Anti-glare UV conservation acrylic glazing"
+    ],
+    "sku": "SA-0026",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-27",
+    "slug": "seasons-collection-quad",
+    "title": "Seasons – The Turning Year Suite",
+    "titleAr": "مجموعة الفصول الأربعة",
+    "category": "Collections",
+    "priceUSD": 1420,
+    "oldPriceUSD": 1580,
+    "rating": 4.8,
+    "reviews": 32,
+    "booked": "60+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": false,
+    "inStock": true,
+    "dimensions": "Four panels, 60 x 80 cm each",
+    "medium": "Seasonal mineral tints, gesso impasto, mica shimmer on Belgian linen",
+    "frame": "Minimalist white oak floater frames",
+    "description": "Captures the cyclic poetry of light, flora, harvest and winter stillness through four evocative abstract textural compositions.",
+    "image": "/assets/images/prototype/crops/scene-reception-beige.webp",
+    "sceneImage": "/assets/images/prototype/room-reception-beige-abstract.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/scene-reception-beige.webp",
+      "/assets/images/prototype/crops/artwork-reception-beige.webp",
+      "/assets/images/prototype/room-reception-beige-abstract.webp"
+    ],
+    "artVariant": "seasons",
+    "scene": "living",
+    "features": [
+      "Coordinated four-panel harmonic seasonal palette",
+      "Hand-applied multi-directional impasto strokes",
+      "Registered in Sumaira Arts permanent collection archive",
+      "Solid joinery wood frames"
+    ],
+    "sku": "SA-0027",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-28",
+    "slug": "sahara-panoramic-suite",
+    "title": "Sahara – The Endless Dune Panorama",
+    "titleAr": "بانوراما الصحراء الكبرى",
+    "category": "Collections",
+    "priceUSD": 1490,
+    "oldPriceUSD": 1680,
+    "rating": 5,
+    "reviews": 53,
+    "booked": "85+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "180 x 75 cm (71 x 30 in) panoramic single panel",
+    "medium": "Authentic desert quartz, terracotta washes, sculpted crest relief",
+    "frame": "Solid raw brass edge profile",
+    "description": "A breathtaking panoramic statement capturing the vast majesty and endless golden light of Arabian desert horizons.",
+    "image": "/assets/images/prototype/studio-pastel-canvases.webp",
+    "sceneImage": "/assets/images/prototype/room-reception-beige-abstract.webp",
+    "gallery": [
+      "/assets/images/prototype/studio-pastel-canvases.webp",
+      "/assets/images/prototype/crops/scene-reception-beige.webp",
+      "/assets/images/prototype/room-reception-beige-abstract.webp"
+    ],
+    "artVariant": "dunes",
+    "scene": "living",
+    "features": [
+      "Sweeping continuous horizontal wave relief",
+      "Infused with fine natural desert mineral sand",
+      "Heavy duty aluminum French cleat mounting system",
+      "Full artist studio provenance certificate"
+    ],
+    "sku": "SA-0028",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-29",
+    "slug": "dreams-luminous-diptych",
+    "title": "Dreams – Luminous Orbs Diptych",
+    "titleAr": "ثنائية الأحلام والضياء",
+    "category": "Collections",
+    "priceUSD": 1260,
+    "oldPriceUSD": 1390,
+    "rating": 4.9,
+    "reviews": 39,
+    "booked": "70+ Acquired",
+    "isFeatured": false,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "Two panels, 80 x 100 cm each",
+    "medium": "Soft atmospheric glazes, pearl mica dust, sculpted circular relief",
+    "frame": "Brushed champagne silver floating frames",
+    "description": "Two floating luminous forms drifting between waking calm and imagination, in delicate tones of dawn mist and soft sky blue.",
+    "image": "/assets/images/prototype/crops/scene-blue-wave.webp",
+    "sceneImage": "/assets/images/prototype/room-reading-corner-blue-wave.webp",
+    "gallery": [
+      "/assets/images/prototype/crops/scene-blue-wave.webp",
+      "/assets/images/prototype/crops/artwork-blue-wave.webp",
+      "/assets/images/prototype/room-reading-corner-blue-wave.webp"
+    ],
+    "artVariant": "orbs",
+    "scene": "bedroom",
+    "features": [
+      "Harmonious paired compositions for master suites",
+      "Subtle pearlescent glow in low lighting",
+      "Solid custom shadow floater frames",
+      "Signed and sealed on canvas verso"
+    ],
+    "sku": "SA-0029",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  },
+  {
+    "id": "prod-30",
+    "slug": "sacred-worlds-triptych",
+    "title": "Worlds – Galactic Geometry Triptych",
+    "titleAr": "ثلاثية العوالم والمدارات",
+    "category": "Collections",
+    "priceUSD": 1520,
+    "oldPriceUSD": 1700,
+    "rating": 5,
+    "reviews": 47,
+    "booked": "88+ Acquired",
+    "isFeatured": true,
+    "isMostLoved": true,
+    "inStock": true,
+    "dimensions": "Three panels, 50 x 120 cm each",
+    "medium": "Midnight charcoal impasto, 24K gold foil orbits, textured acrylic compound",
+    "frame": "Anodized matte black steel tray frames",
+    "description": "Rings, celestial orbits, and sacred geometric configurations united across three monumental panels.",
+    "image": "/assets/images/prototype/room-living-surah-triptych.webp",
+    "sceneImage": "/assets/images/prototype/crops/scene-surah-triptych.webp",
+    "gallery": [
+      "/assets/images/prototype/room-living-surah-triptych.webp",
+      "/assets/images/prototype/crops/scene-surah-triptych.webp",
+      "/assets/images/prototype/crops/artwork-surah-ikhlas.webp"
+    ],
+    "artVariant": "rings",
+    "scene": "living",
+    "features": [
+      "Stunning 3-piece grand format focal point",
+      "Genuine gold leafing on textured relief arcs",
+      "Engineered mounting bracket for seamless wall alignment",
+      "Numbered gallery archive registration"
+    ],
+    "sku": "SA-0030",
+    "styles": [
+      {
+        "label": "Standard Finish",
+        "priceModifier": 0
+      },
+      {
+        "label": "Premium Finish",
+        "priceModifier": 100
+      },
+      {
+        "label": "Gallery Finish",
+        "priceModifier": 200
+      }
+    ],
+    "sizes": [
+      {
+        "label": "100 cm x 100 cm",
+        "priceModifier": 0
+      },
+      {
+        "label": "120 cm x 120 cm",
+        "priceModifier": 200
+      },
+      {
+        "label": "140 cm x 140 cm",
+        "priceModifier": 400
+      }
+    ]
+  }
+]

@@ -1,12 +1,12 @@
 import type { NavLink } from "@/types/content";
 
 export const mainNav: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Collections", href: "#collections" },
-  { label: "Artwork", href: "#artwork" },
-  { label: "About", href: "#artist" },
-  { label: "Journal", href: "#journal" },
-  { label: "Contact", href: "#contact" },
+  { label: "Products", href: "/products" },
+  { label: "About", href: "/#artist" },
+  { label: "Contact Us", href: "/#contact" },
+  { label: "Cart", href: "/cart" },
+  { label: "My Orders", href: "/orders" },
+  { label: "Journal", href: "/journal" },
 ];
 
 /** "#" entries are pages that do not exist yet. */

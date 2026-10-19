@@ -1,20 +1,62 @@
-import type { Cta, Product } from "@/types/content";
+import type { Cta } from "@/types/content";
+import productsData from "./products.json";
+import type { Product as StoreProduct } from "@/types/store";
 
 export const featured = {
   eyebrow: "Curated For You",
   title: "Most Loved Artworks",
   description:
     "Explore a selection of distinctive artworks chosen for their beauty, craftsmanship and ability to transform a space.",
-  cta: { label: "View All Artwork", href: "#collections" } satisfies Cta,
+  cta: { label: "View All Artwork", href: "/products" } satisfies Cta,
 };
 
-export const products: Product[] = [
-  { slug: "99-names-golden-edition", title: "99 Names of Allah — Golden Edition", category: "Mixed Media", price: 640, art: "allah", scene: "hall", image: "/assets/images/prototype/crops/artwork-surah-ikhlas.webp", sceneImage: "/assets/images/prototype/crops/scene-surah-triptych.webp" },
-  { slug: "spiritual-reflections", title: "Spiritual Reflections", category: "Original Texture", price: 980, art: "orbs", scene: "living", image: "/assets/images/prototype/crops/artwork-reception-beige.webp", sceneImage: "/assets/images/prototype/crops/scene-reception-beige.webp" },
-  { slug: "ayatul-kursi", title: "Ayatul Kursi", category: "Mixed Media", price: 220, art: "salaam", scene: "bedroom", image: "/assets/images/prototype/crops/artwork-ayatul-kursi.webp", sceneImage: "/assets/images/prototype/crops/scene-ayatul-kursi.webp" },
-  { slug: "dua-collection", title: "Dua Collection", category: "Mixed Media", price: 420, art: "noor", scene: "office", image: "/assets/images/prototype/crops/artwork-navy-gold.webp", sceneImage: "/assets/images/prototype/crops/scene-navy-gold.webp" },
-  { slug: "al-fatiha", title: "Al Fatiha", category: "Mixed Media", price: 240, art: "star", scene: "living", image: "/assets/images/prototype/crops/artwork-grey-abstract.webp", sceneImage: "/assets/images/prototype/crops/scene-grey-abstract.webp" },
-  { slug: "love-and-devotion", title: "Love & Devotion", category: "Original Texture", price: 760, art: "bloom", scene: "bedroom", image: "/assets/images/prototype/crops/artwork-blue-wave.webp", sceneImage: "/assets/images/prototype/crops/scene-blue-wave.webp" },
-  { slug: "dhikr", title: "Dhikr", category: "Original Texture", price: 380, art: "rings", scene: "office", image: "/assets/images/prototype/crops/artwork-dhikr-canvases.webp", sceneImage: "/assets/images/prototype/studio-dhikr-canvases.webp" },
-  { slug: "inkography", title: "Inkography", category: "Mixed Media", price: 540, art: "ink", scene: "hall", image: "/assets/images/prototype/ink-angled-wall.webp", sceneImage: "/assets/images/prototype/ink-angled-wall.webp" },
-];
+// Strongly typed products exported from products.json
+export const allProducts: StoreProduct[] = productsData as unknown as StoreProduct[];
+
+// Helper to format category for UI display
+export const formatCategoryLabel = (category: string) => {
+  switch (category) {
+    case "Mixed_Media_Canvas":
+      return "Mixed Media Canvas";
+    case "Original_Texture":
+      return "Original Texture";
+    case "Collections":
+      return "Collections";
+    default:
+      return category.replace(/_/g, " ");
+  }
+};
+
+// Subsets
+export const mostLovedProducts: StoreProduct[] = allProducts.filter((p) => p.isMostLoved);
+export const featuredProducts: StoreProduct[] = allProducts.filter((p) => p.isFeatured);
+export const mixedMediaProducts: StoreProduct[] = allProducts.filter((p) => p.category === "Mixed_Media_Canvas");
+export const originalTextureProducts: StoreProduct[] = allProducts.filter((p) => p.category === "Original_Texture");
+export const collectionsProducts: StoreProduct[] = allProducts.filter((p) => p.category === "Collections");
+
+// Backward-compatible products list
+export const products = allProducts.map((p) => ({
+  id: p.id,
+  slug: p.slug,
+  title: p.title,
+  titleAr: p.titleAr,
+  category: p.category.includes("Mixed_Media")
+    ? ("Mixed Media" as const)
+    : ("Original Texture" as const),
+  categoryRaw: p.category,
+  price: p.priceUSD,
+  art: (p.artVariant || "allah") as any,
+  scene: (p.scene || "living") as any,
+  image: p.image,
+  sceneImage: p.sceneImage,
+  gallery: p.gallery,
+  rating: p.rating,
+  reviewCount: p.reviews,
+  soldOut: !p.inStock,
+  description: p.description,
+  booked: p.booked,
+  features: p.features,
+  dimensions: p.dimensions,
+  medium: p.medium,
+  frame: p.frame,
+}));

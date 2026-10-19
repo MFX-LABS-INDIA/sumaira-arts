@@ -62,6 +62,10 @@ export type Product = {
   /** Optional rating (0 to 5) and review count. Stars render only when present. */
   rating?: number;
   reviewCount?: number;
+  reviews?: number;
+  booked?: string;
+  collection?: string;
+  oldPriceUSD?: number;
   /** Shows a "Sold out" badge. */
   soldOut?: boolean;
 };
@@ -99,6 +103,7 @@ export type Review = {
 };
 
 export type JournalPost = Visual & {
+  slug: string;
   category: "Art & Design" | "Interiors" | "Inspiration";
   title: string;
   excerpt: string;

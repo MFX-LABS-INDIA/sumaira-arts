@@ -4,4 +4,5 @@
  */
 export const routes = {
   home: "/",
+  journal: "/journal",
 } as const;

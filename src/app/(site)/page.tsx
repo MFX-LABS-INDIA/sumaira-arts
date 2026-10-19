@@ -8,7 +8,6 @@ import { FounderBlock } from "@/components/sections/FounderBlock";
 import { Hero } from "@/components/sections/Hero";
 import { InteriorShowcase } from "@/components/sections/InteriorShowcase";
 import { Journal } from "@/components/sections/Journal";
-import { Mirage } from "@/components/sections/Mirage";
 import { ReviewsWall } from "@/components/sections/ReviewsWall";
 import { SocialGallery } from "@/components/sections/SocialGallery";
 
@@ -22,7 +21,6 @@ export default function Home() {
       <FeaturedProducts />
       <CollectionFeature />
       <Commission />
-      <Mirage />
       <FounderBlock />
       <CollectionGrid />
       <ReviewsWall />

@@ -1,44 +1,12 @@
-import Image from "next/image";
 import { ArtImage } from "@/components/art/ArtImage";
-import { ArtPiece } from "@/components/art/ArtPiece";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { headingClass } from "@/components/ui/SectionHeading";
-import { ArrowIcon } from "@/components/ui/Icons";
-import { ButtonLink, SmartLink } from "@/components/ui/Link";
+import { ButtonLink } from "@/components/ui/Link";
 import { Reveal } from "@/components/ui/Reveal";
-import { formatPrice } from "@/lib/format";
 import { featuredCollection as content } from "@/data/collections";
 import { products } from "@/data/products";
-import type { Product } from "@/types/content";
-
-// TODO: point at `/artwork/${product.slug}` once product pages exist.
-const productHref = "#";
-
-/** One row inside the picks card: a small thumbnail, the title, the price, and an arrow that nudges on hover. */
-function PickRow({ product }: { product: Product }) {
-  return (
-    <SmartLink
-      href={productHref}
-      className="group/pick flex items-center gap-4 px-5 py-3.5 transition-colors duration-300 hover:bg-ice focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-mist"
-    >
-      <div className="relative aspect-square w-14 shrink-0 overflow-hidden rounded-control bg-ice">
-        {product.image ? (
-          <Image src={product.image} alt="" fill sizes="3.5rem" className="object-contain p-1.5" />
-        ) : (
-          <div role="img" aria-label="" className="absolute inset-[14%]">
-            <ArtPiece variant={product.art} className="h-full w-full" />
-          </div>
-        )}
-      </div>
-      <span className="min-w-0 flex-1">
-        <span className="block truncate font-serif text-base font-light tracking-tight text-deep">{product.title}</span>
-        <span className="mt-0.5 block text-sm text-steel">{formatPrice(product.price)}</span>
-      </span>
-      <ArrowIcon className="h-4 w-4 shrink-0 text-brand opacity-0 transition-[opacity,transform] duration-300 group-hover/pick:translate-x-1 group-hover/pick:opacity-100 group-focus-visible/pick:translate-x-1 group-focus-visible/pick:opacity-100 motion-reduce:transition-none" />
-    </SmartLink>
-  );
-}
+import { ProductCard } from "@/components/common/ProductCard";
 
 /** A large banner on the start side, badged with its own name; the excerpt and a curated-picks card on the end side. */
 export function CollectionFeature() {
@@ -74,14 +42,16 @@ export function CollectionFeature() {
             </Reveal>
 
             {picks.length > 0 ? (
-              <Reveal delay={150} className="mt-8 overflow-hidden rounded-card border border-light">
-                <div className="flex items-center justify-between border-b border-light bg-ice px-5 py-3">
-                  <span className="text-label font-medium uppercase tracking-caps text-steel">Featured pieces</span>
-                  <span className="text-label font-medium uppercase tracking-caps text-steel">{picks.length}</span>
-                </div>
-                <div className="divide-y divide-light">
-                  {picks.map((product) => (
-                    <PickRow key={product.slug} product={product} />
+              <Reveal delay={150} className="mt-8">
+                <p className="mb-3 text-label font-medium uppercase tracking-caps text-steel">Six featured works</p>
+                <div className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3">
+                  {picks.map((product, index) => (
+                    <ProductCard
+                      key={product.slug}
+                      product={product}
+                      index={index}
+                      className="w-64 shrink-0 snap-start"
+                    />
                   ))}
                 </div>
               </Reveal>

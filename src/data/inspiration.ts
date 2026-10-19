@@ -5,7 +5,7 @@ export const inspiration = {
   title: "Designed To Belong",
   description:
     "See how carefully selected artwork transforms living rooms, bedrooms, offices and contemporary interiors.",
-  cta: { label: "Explore Inspiration", href: "#" } satisfies Cta,
+  cta: { label: "Explore Inspiration", href: "/products" } satisfies Cta,
 };
 
 export const interiors: (Visual & { label: string })[] = [
