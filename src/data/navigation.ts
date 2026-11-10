@@ -2,7 +2,7 @@ import type { NavLink } from "@/types/content";
 
 export const mainNav: NavLink[] = [
   { label: "Products", href: "/products" },
-  { label: "About", href: "/#artist" },
+  { label: "About", href: "/about" },
   { label: "Contact Us", href: "/#contact" },
   { label: "Cart", href: "/cart" },
   { label: "Wishlist", href: "/wishlist" },
@@ -24,8 +24,8 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Explore",
     links: [
-      { label: "About", href: "#artist" },
-      { label: "Journal", href: "#journal" },
+      { label: "About", href: "/about" },
+      { label: "Journal", href: "/journal" },
       { label: "Contact", href: "#contact" },
     ],
   },
