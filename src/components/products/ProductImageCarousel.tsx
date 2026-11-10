@@ -43,7 +43,7 @@ export function ProductImageCarousel({
     <>
       <div className="space-y-4">
         {/* Main Stage Image / Carousel with navigation */}
-        <div className="group relative aspect-portrait sm:aspect-landscape lg:aspect-portrait w-full overflow-hidden rounded-2xl border border-light bg-white p-4 shadow-sm">
+        <div className="group relative aspect-portrait sm:aspect-landscape lg:aspect-[4/3] w-full overflow-hidden rounded-2xl border border-light bg-white p-4 shadow-sm">
           <div
             className="relative h-full w-full cursor-zoom-in overflow-hidden rounded-xl"
             onClick={() => setIsLightboxOpen(true)}

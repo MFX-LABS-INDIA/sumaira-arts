@@ -1,22 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ProductImageCarousel } from "@/components/products/ProductImageCarousel";
 import {
-  ShieldCheck,
-  Truck,
   ShoppingBag,
   Check,
   ChevronRight,
   Maximize2,
   Palette,
   Frame,
-  Award,
-  Gem,
-  Brush,
-  Star,
 } from "lucide-react";
 import { useAppDispatch } from "@/store/hooks";
 import { addToCart } from "@/store/cartSlice";
@@ -24,17 +18,74 @@ import { formatPrice } from "@/lib/format";
 import { formatCategoryLabel } from "@/data/products";
 import { Container } from "@/components/ui/Container";
 import { StarRating } from "@/components/ui/StarRating";
+import { ProductCard } from "@/components/common/ProductCard";
+import { products } from "@/data/products";
 import type { Product as StoreProduct } from "@/types/store";
 
-type DetailTab = "description" | "reviews";
 const EMPTY_STYLES: NonNullable<StoreProduct["styles"]> = [];
 const EMPTY_SIZES: NonNullable<StoreProduct["sizes"]> = [];
+
+function ArtworkDetails({ product }: { product: StoreProduct }) {
+  return (
+    <section className="rounded-2xl border border-light bg-white p-6 shadow-xs">
+      <p className="text-xs font-semibold uppercase tracking-wider text-brand">About this artwork</p>
+      <p className="mt-3 text-sm leading-relaxed text-steel">{product.description}</p>
+
+      <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
+        {product.dimensions && (
+          <DetailSpec icon={<Maximize2 className="h-4 w-4 text-brand" />} label="Dimensions" value={product.dimensions} />
+        )}
+        {product.medium && (
+          <DetailSpec icon={<Palette className="h-4 w-4 text-brand" />} label="Medium" value={product.medium} />
+        )}
+        {product.frame && (
+          <DetailSpec className="col-span-2" icon={<Frame className="h-4 w-4 text-brand" />} label="Framing" value={product.frame} />
+        )}
+      </div>
+
+      {product.features && product.features.length > 0 && (
+        <div className="mt-5 border-t border-light pt-5">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-deep">Artwork highlights</h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {product.features.map((feature) => (
+              <li key={feature} className="flex items-start gap-2 text-xs text-steel">
+                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function DetailSpec({
+  icon,
+  label,
+  value,
+  className = "",
+}: {
+  icon: ReactNode;
+  label: string;
+  value: string;
+  className?: string;
+}) {
+  return (
+    <div className={`rounded-xl border border-light bg-ice/30 p-3.5 ${className}`}>
+      <div className="mb-1 flex items-center gap-2 text-steel">
+        {icon}
+        <span className="font-semibold uppercase tracking-wider">{label}</span>
+      </div>
+      <p className="font-medium text-deep">{value}</p>
+    </div>
+  );
+}
 
 export function ProductDetailsClient({ product }: { product: StoreProduct }) {
   const dispatch = useAppDispatch();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
-  const [activeTab, setActiveTab] = useState<DetailTab>("description");
 
   // Style & Size selections
   const styles = product.styles ?? EMPTY_STYLES;
@@ -42,10 +93,17 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
   const [selectedStyleIdx, setSelectedStyleIdx] = useState(0);
   const [selectedSizeIdx, setSelectedSizeIdx] = useState(0);
 
-  const images =
-    product.gallery && product.gallery.length > 0
-      ? product.gallery
-      : [product.image];
+  const images = [
+    product.image,
+    ...(product.gallery || []).filter((image) => image !== product.image),
+  ];
+
+  const relatedProducts = products
+    .filter(
+      (candidate) =>
+        candidate.slug !== product.slug && candidate.categoryRaw === product.category
+    )
+    .slice(0, 3);
 
   // Calculate effective price based on style + size modifiers
   const effectivePrice = useMemo(() => {
@@ -124,22 +182,9 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
               categoryLabel={formatCategoryLabel(product.category)}
             />
 
-            {/* In Situ / Room Scene Banner */}
-            {product.sceneImage && (
-              <div className="rounded-2xl border border-light bg-white p-6 shadow-xs">
-                <h3 className="font-serif text-lg font-light text-deep mb-3">
-                  In Situ Interior Preview
-                </h3>
-                <div className="relative aspect-landscape w-full overflow-hidden rounded-xl bg-ice">
-                  <Image
-                    src={product.sceneImage}
-                    alt={`${product.title} installed in modern interior`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            )}
+            <div className="hidden lg:block">
+              <ArtworkDetails product={product} />
+            </div>
           </div>
 
           {/* Details & Acquisition Box (Right Column, 5 cols) */}
@@ -196,22 +241,29 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
 
               {/* ====== Style Selector ====== */}
               {styles.length > 0 && (
-                <div className="rounded-xl border border-light bg-ice/40 p-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-deep mb-3">
-                    Style <span className="normal-case font-medium text-steel">— {styles[selectedStyleIdx]?.label}</span>
-                  </h3>
+                <div className="rounded-xl border border-light bg-white p-4 shadow-xs">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-deep">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ice text-brand">
+                        <Palette className="h-4 w-4" />
+                      </span>
+                      Style
+                    </h3>
+                    <span className="text-xs font-medium text-steel">{styles[selectedStyleIdx]?.label}</span>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {styles.map((style, idx) => (
                       <button
                         key={style.label}
                         type="button"
                         onClick={() => setSelectedStyleIdx(idx)}
-                        className={`rounded-lg border px-4 py-2 text-xs font-medium transition-all ${
+                        className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-all ${
                           selectedStyleIdx === idx
                             ? "border-brand bg-brand text-white shadow-sm"
                             : "border-light bg-white text-deep hover:border-brand/40 hover:bg-ice"
                         }`}
                       >
+                        {selectedStyleIdx === idx && <Check className="h-3.5 w-3.5" />}
                         {style.label}
                       </button>
                     ))}
@@ -221,22 +273,29 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
 
               {/* ====== Size Selector ====== */}
               {sizes.length > 0 && (
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-deep mb-3">
-                    Size <span className="normal-case font-medium text-steel">— {sizes[selectedSizeIdx]?.label}</span>
-                  </h3>
+                <div className="rounded-xl border border-light bg-white p-4 shadow-xs">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-deep">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ice text-brand">
+                        <Maximize2 className="h-4 w-4" />
+                      </span>
+                      Size
+                    </h3>
+                    <span className="text-xs font-medium text-steel">{sizes[selectedSizeIdx]?.label}</span>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {sizes.map((size, idx) => (
                       <button
                         key={size.label}
                         type="button"
                         onClick={() => setSelectedSizeIdx(idx)}
-                        className={`rounded-lg border px-4 py-2 text-xs font-medium transition-all ${
+                        className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-all ${
                           selectedSizeIdx === idx
                             ? "border-brand bg-brand text-white shadow-sm"
                             : "border-light bg-white text-deep hover:border-brand/40 hover:bg-ice"
                         }`}
                       >
+                        {selectedSizeIdx === idx && <Check className="h-3.5 w-3.5" />}
                         {size.label}
                       </button>
                     ))}
@@ -290,77 +349,9 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                 <p className="mt-2 text-center text-xs text-steel">Complimentary insured delivery and certificate of authenticity included.</p>
               </div>
 
-              {/* SKU + Category meta */}
-              <div className="flex items-center gap-4 text-xs text-steel border-b border-light pb-4">
-                {product.sku && (
-                  <span>
-                    <strong className="text-deep">SKU</strong> {product.sku}
-                  </span>
-                )}
-                <span className="text-light">|</span>
-                <span>
-                  <strong className="text-deep">Category</strong>{" "}
-                  <Link
-                    href={`/products?category=${product.category}`}
-                    className="underline hover:text-deep transition-colors"
-                  >
-                    {formatCategoryLabel(product.category)}
-                  </Link>
-                </span>
-              </div>
-
-              {/* Trust Badges — Unique & Handcrafted, Made by Artisans, Highest Quality Material */}
-              <div className="grid grid-cols-3 gap-2">
-                <div className="flex flex-col items-center gap-1.5 rounded-lg border border-light bg-ice/30 px-2 py-3 text-center text-xs text-steel">
-                  <Gem className="h-4 w-4 text-brand" />
-                  <span className="font-semibold uppercase tracking-wider text-deep">
-                    Unique &amp; Handcrafted
-                  </span>
-                </div>
-                <div className="flex flex-col items-center gap-1.5 rounded-lg border border-light bg-ice/30 px-2 py-3 text-center text-xs text-steel">
-                  <Brush className="h-4 w-4 text-brand" />
-                  <span className="font-semibold uppercase tracking-wider text-deep">
-                    Made by Artisans
-                  </span>
-                </div>
-                <div className="flex flex-col items-center gap-1.5 rounded-lg border border-light bg-ice/30 px-2 py-3 text-center text-xs text-steel">
-                  <Award className="h-4 w-4 text-brand" />
-                  <span className="font-semibold uppercase tracking-wider text-deep">
-                    Highest Quality Material
-                  </span>
-                </div>
-              </div>
-
-              {/* Tabs: Description | Reviews */}
-              <div>
-                <div className="flex border-b border-light">
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab("description")}
-                    className={`px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors ${
-                      activeTab === "description"
-                        ? "border-b-2 border-brand text-deep"
-                        : "text-steel hover:text-deep"
-                    }`}
-                  >
-                    Description
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab("reviews")}
-                    className={`px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors ${
-                      activeTab === "reviews"
-                        ? "border-b-2 border-brand text-deep"
-                        : "text-steel hover:text-deep"
-                    }`}
-                  >
-                    Reviews ({product.reviews || 0})
-                  </button>
-                </div>
-
-                <div className="pt-4">
-                  {activeTab === "description" && (
-                    <div className="space-y-4">
+              {/* Artwork details */}
+              <div className="border-t border-light pt-5 lg:hidden">
+                <div className="space-y-4">
                       <div>
                         <h3 className="text-sm font-bold text-deep mb-2">
                           Description
@@ -432,74 +423,44 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                           </ul>
                         </div>
                       )}
-                    </div>
-                  )}
-
-                  {activeTab === "reviews" && (
-                    <div className="space-y-4">
-                      {product.reviews && product.reviews > 0 ? (
-                        <div className="rounded-xl border border-light bg-white p-5">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="flex items-center gap-1">
-                              {Array.from({ length: 5 }).map((_, i) => (
-                                <Star
-                                  key={i}
-                                  className={`h-5 w-5 ${
-                                    i < Math.round(product.rating || 0)
-                                      ? "text-amber-400 fill-amber-400"
-                                      : "text-mist"
-                                  }`}
-                                />
-                              ))}
-                            </div>
-                            <span className="text-sm font-semibold text-deep">
-                              {product.rating?.toFixed(1)}
-                            </span>
-                            <span className="text-xs text-steel">
-                              based on {product.reviews} reviews
-                            </span>
-                          </div>
-                          <p className="text-sm text-steel leading-relaxed">
-                            Our collectors consistently praise the quality and
-                            craftsmanship of this piece. Every artwork is
-                            handmade in our studio with the finest materials and
-                            undergoes rigorous quality checks before shipping.
-                          </p>
-                        </div>
-                      ) : (
-                        <p className="text-sm text-steel">
-                          No reviews yet for this artwork.
-                        </p>
-                      )}
-                    </div>
-                  )}
                 </div>
               </div>
 
-              {/* Studio Guarantees */}
-              <div className="grid grid-cols-2 gap-4 border-t border-light pt-6 text-xs text-steel">
-                <div className="flex items-start gap-2.5">
-                  <Truck className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-semibold text-deep block">
-                      Complimentary Shipping
-                    </span>
-                    <span>Fully insured museum crating.</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <ShieldCheck className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-semibold text-deep block">
-                      Authenticity Certificate
-                    </span>
-                    <span>Signed studio provenance.</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
+
+        {relatedProducts.length > 0 && (
+          <section className="mt-16 border-t border-light pt-12 sm:mt-24 sm:pt-16">
+            <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-brand">
+                  Continue exploring
+                </p>
+                <h2 className="mt-2 font-serif text-2xl font-light tracking-tight text-deep sm:text-3xl">
+                  Similar artworks
+                </h2>
+              </div>
+              <Link
+                href={`/products?category=${product.category}`}
+                className="text-xs font-semibold uppercase tracking-wider text-brand underline underline-offset-4 hover:text-deep"
+              >
+                View all in this category
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+              {relatedProducts.map((related, index) => (
+                <ProductCard
+                  key={related.slug}
+                  product={related}
+                  index={index}
+                  disableReveal
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </Container>
     </div>
   );

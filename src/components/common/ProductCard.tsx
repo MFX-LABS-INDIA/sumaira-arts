@@ -3,8 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArtPiece } from "@/components/art/ArtPiece";
-import { RoomScene } from "@/components/art/RoomScene";
-import { buildScene } from "@/components/art/scenes";
 import { SmartLink } from "@/components/ui/Link";
 import { Reveal } from "@/components/ui/Reveal";
 import { WishlistButton } from "./WishlistButton";
@@ -21,11 +19,14 @@ export function ProductCard({
   index,
   className = "",
   disableReveal = false,
+  homeCard = false,
 }: {
   product: Product;
   index: number;
   className?: string;
   disableReveal?: boolean;
+  /** Home carousel cards use a compact stacked footer; catalogue cards retain their original layout. */
+  homeCard?: boolean;
 }) {
   const dispatch = useAppDispatch();
   const [added, setAdded] = useState(false);
@@ -57,7 +58,7 @@ export function ProductCard({
   const cardContent = (
     <article className="group relative flex min-h-36 h-full flex-row overflow-hidden rounded-2xl border border-light bg-white transition-all duration-300 hover:border-brand/40 hover:shadow-raised sm:flex-col">
       {/* Visual Image Container */}
-      <div className="relative w-[40%] shrink-0 overflow-hidden bg-ice sm:w-auto sm:aspect-[5/4] lg:aspect-[4/3]">
+      <div className="relative w-[40%] shrink-0 overflow-hidden bg-white sm:w-auto sm:aspect-[5/4] lg:aspect-[4/3]">
         {/* Main Artwork Image */}
         <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
           {product.image ? (
@@ -67,7 +68,7 @@ export function ProductCard({
               fill
               sizes={sizes}
               loading="lazy"
-              className="object-contain p-2"
+              className="object-cover"
             />
           ) : (
             <div
@@ -80,27 +81,6 @@ export function ProductCard({
           )}
         </div>
 
-        {/* Hover In-situ Room Preview */}
-        <div
-          className="absolute inset-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
-          aria-hidden
-        >
-          {product.sceneImage ? (
-            <Image
-              src={product.sceneImage}
-              alt=""
-              fill
-              sizes={sizes}
-              className="object-cover"
-            />
-          ) : (
-            <RoomScene
-              scene={buildScene(product.scene, product.art)}
-              className="h-full w-full"
-            />
-          )}
-        </div>
-
         {/* Top Badges */}
         <div className="absolute start-2 top-2 z-10 flex items-center gap-1.5 sm:start-3 sm:top-3">
           <span className="rounded-md bg-white/95 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-deep shadow-xs sm:px-2.5 sm:text-[10px]">
@@ -108,7 +88,7 @@ export function ProductCard({
           </span>
         </div>
 
-        <WishlistButton title={product.title} className="absolute end-2 top-2 z-10 sm:end-3 sm:top-3" />
+        <WishlistButton title={product.title} productSlug={product.slug} className="absolute end-2 top-2 z-10 sm:end-3 sm:top-3" />
 
         {/* Quick Add To Cart Button Overlay */}
         {!product.soldOut && (
@@ -133,7 +113,7 @@ export function ProductCard({
       </div>
 
       {/* Card Body */}
-      <div className="flex flex-1 flex-col justify-between p-3 sm:p-4">
+      <div className={`flex flex-1 flex-col p-3 sm:p-4 ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-5"}`}>
         <div>
           {/* Rating & Acquisition status */}
           <div className="mb-1 flex items-center gap-1.5 text-xs text-steel">
@@ -145,14 +125,12 @@ export function ProductCard({
             <span className="text-[11px] text-steel">
             {product.reviews || product.reviewCount || 80} Reviews
             </span>
-            {product.booked && (
+            {!homeCard && product.booked ? (
               <>
                 <span className="hidden text-light sm:inline">|</span>
-                <span className="hidden text-[11px] text-mist font-medium sm:inline">
-                  {product.booked}
-                </span>
+                <span className="hidden text-[11px] font-medium text-mist sm:inline">{product.booked}</span>
               </>
-            )}
+            ) : null}
           </div>
 
           {/* Title */}
@@ -170,7 +148,7 @@ export function ProductCard({
         </div>
 
         {/* Footer: Pricing matching Arabian Sand Dunes layout */}
-        <div className="mt-3 flex items-end justify-between border-t border-light/60 pt-2">
+        <div className={`flex items-end justify-between border-t border-light/60 ${homeCard ? "mt-4 pt-3" : "mt-3 pt-2 sm:mt-0 sm:min-w-36 sm:border-s sm:border-t-0 sm:ps-5 sm:pt-0"}`}>
           <div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-[10px] text-mist uppercase font-semibold sm:text-[11px]">From</span>

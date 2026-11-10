@@ -21,6 +21,7 @@ export interface Product {
   reviews?: number;
   booked?: string;
   isFeatured?: boolean;
+  isMostFav?: boolean;
   isMostLoved?: boolean;
   inStock?: boolean;
   dimensions?: string;
@@ -35,7 +36,6 @@ export interface Product {
   features?: string[];
   styles?: ProductStyleOption[];
   sizes?: ProductSizeOption[];
-  sku?: string;
 }
 
 export interface CartItem {

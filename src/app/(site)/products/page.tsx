@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Search, Sparkles } from "lucide-react";
-import { allProducts } from "@/data/products";
+import { allProducts, formatCategoryLabel } from "@/data/products";
 import { ProductCard } from "@/components/common/ProductCard";
 import { CategoryFilter, type CategoryOption } from "@/components/products/CategoryFilter";
 import { MobileFilterSortBar } from "@/components/products/MobileFilterSortBar";
@@ -14,9 +14,8 @@ import type { Product } from "@/types/content";
 
 const CATEGORY_OPTIONS: CategoryOption[] = [
   { id: "All", label: "All Products" },
-  { id: "Mixed_Media_Canvas", label: "Mixed Media Canvas" },
-  { id: "Original_Texture", label: "Original Texture" },
-  { id: "Collections", label: "Collections" },
+  { id: "Mixed_Media_Canvas", label: "Mixed Media Collections" },
+  { id: "Mixed_Media_Artworks", label: "Mixed Media Artworks" },
 ];
 
 const INITIAL_LOAD_COUNT = 9;
@@ -98,7 +97,7 @@ function ProductsCatalogContent() {
       .slice(0, 6)
       .map((product) => ({
         label: product.title,
-        detail: product.category.replace(/_/g, " "),
+        detail: formatCategoryLabel(product.category),
       }));
   }, [searchQuery]);
 
@@ -258,8 +257,10 @@ function ProductsCatalogContent() {
                         product={{
                           ...p,
                           price: p.priceUSD,
-                          category: p.category.includes("Mixed_Media")
-                            ? "Mixed Media"
+                          category: p.category === "Mixed_Media_Artworks"
+                            ? "Mixed Media Artworks"
+                            : p.category.includes("Mixed_Media")
+                            ? "Mixed Media Collections"
                             : p.category.includes("Original")
                             ? "Original Texture"
                             : "Collections",

@@ -47,7 +47,7 @@ export type Offering = Visual & {
 export type Product = {
   slug: string;
   title: string;
-  category: "Mixed Media" | "Original Texture";
+  category: "Mixed Media Collections" | "Mixed Media Artworks" | "Original Texture";
   /** PLACEHOLDER prices. Replace with real ones (currency is set in constants/site.ts). */
   price: number;
   art: ArtVariant;
@@ -100,6 +100,18 @@ export type Review = {
   /** The studio's reply. */
   reply?: string;
   photo?: Visual & { alt: string };
+};
+
+export type Testimonial = {
+  id: string;
+  name: string;
+  /** Two-letter avatar initials shown in the collector badge. */
+  avatar: string;
+  rating: number;
+  productName: string;
+  productSlug: string;
+  description: string;
+  date: string;
 };
 
 export type JournalPost = Visual & {

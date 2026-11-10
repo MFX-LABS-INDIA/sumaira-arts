@@ -4,11 +4,13 @@ import { Header } from "./Header";
 import { RevealController } from "./RevealController";
 import { SmoothScroll } from "./SmoothScroll";
 import { ReduxProvider } from "@/components/providers/ReduxProvider";
+import { LanguageTranslator } from "@/components/providers/LanguageTranslator";
 
 /** The frame around every public page: header, footer, and the two small behaviours they share. */
 export function SiteChrome({ children }: { children: ReactNode }) {
   return (
     <ReduxProvider>
+      <LanguageTranslator />
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />

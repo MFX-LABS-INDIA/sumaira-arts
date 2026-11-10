@@ -110,6 +110,7 @@ export default function CheckoutPage() {
         const storedOrders = localStorage.getItem("sumaira-arts-orders");
         const existing = storedOrders ? JSON.parse(storedOrders) : [];
         localStorage.setItem("sumaira-arts-orders", JSON.stringify([orderData, ...existing]));
+        window.dispatchEvent(new Event("sumaira-orders-updated"));
       } catch {
         // ignore
       }

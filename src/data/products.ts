@@ -1,6 +1,8 @@
 import type { Cta } from "@/types/content";
 import productsData from "./products.json";
 import type { Product as StoreProduct } from "@/types/store";
+import type { ArtVariant } from "@/components/art/variants";
+import type { SceneKind } from "@/components/art/scenes";
 
 export const featured = {
   eyebrow: "Curated For You",
@@ -17,7 +19,9 @@ export const allProducts: StoreProduct[] = productsData as unknown as StoreProdu
 export const formatCategoryLabel = (category: string) => {
   switch (category) {
     case "Mixed_Media_Canvas":
-      return "Mixed Media Canvas";
+      return "Mixed Media Collections";
+    case "Mixed_Media_Artworks":
+      return "Mixed Media Artworks";
     case "Original_Texture":
       return "Original Texture";
     case "Collections":
@@ -28,9 +32,14 @@ export const formatCategoryLabel = (category: string) => {
 };
 
 // Subsets
-export const mostLovedProducts: StoreProduct[] = allProducts.filter((p) => p.isMostLoved);
+export const mostLovedProducts: StoreProduct[] = allProducts
+  .filter((p) => p.isMostFav)
+  .sort((a, b) => (b.reviews ?? 0) - (a.reviews ?? 0));
 export const featuredProducts: StoreProduct[] = allProducts.filter((p) => p.isFeatured);
 export const mixedMediaProducts: StoreProduct[] = allProducts.filter((p) => p.category === "Mixed_Media_Canvas");
+export const mixedMediaArtworksProducts: StoreProduct[] = allProducts.filter(
+  (p) => p.category === "Mixed_Media_Artworks"
+);
 export const originalTextureProducts: StoreProduct[] = allProducts.filter((p) => p.category === "Original_Texture");
 export const collectionsProducts: StoreProduct[] = allProducts.filter((p) => p.category === "Collections");
 
@@ -40,13 +49,16 @@ export const products = allProducts.map((p) => ({
   slug: p.slug,
   title: p.title,
   titleAr: p.titleAr,
-  category: p.category.includes("Mixed_Media")
-    ? ("Mixed Media" as const)
-    : ("Original Texture" as const),
+  category:
+    p.category === "Mixed_Media_Artworks"
+      ? ("Mixed Media Artworks" as const)
+      : p.category.includes("Mixed_Media")
+      ? ("Mixed Media Collections" as const)
+      : ("Original Texture" as const),
   categoryRaw: p.category,
   price: p.priceUSD,
-  art: (p.artVariant || "allah") as any,
-  scene: (p.scene || "living") as any,
+  art: (p.artVariant || "allah") as ArtVariant,
+  scene: (p.scene || "living") as SceneKind,
   image: p.image,
   sceneImage: p.sceneImage,
   gallery: p.gallery,

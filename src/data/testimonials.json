@@ -1,0 +1,62 @@
+[
+  {
+    "id": "review-1",
+    "name": "Amina M.",
+    "avatar": "AM",
+    "rating": 5,
+    "productName": "Bliss",
+    "productSlug": "ayatul-kursi",
+    "description": "The piece changed how our living room feels. Quiet, considered and beautifully finished.",
+    "date": "Verified collector"
+  },
+  {
+    "id": "review-2",
+    "name": "Layla R.",
+    "avatar": "LR",
+    "rating": 5,
+    "productName": "Jubilant",
+    "productSlug": "surah-ar-rahman-splendor",
+    "description": "The craftsmanship is immediate. Every detail feels like it was made by hand, for us.",
+    "date": "Verified collector"
+  },
+  {
+    "id": "review-3",
+    "name": "Omar K.",
+    "avatar": "OK",
+    "rating": 5,
+    "productName": "Adaptable",
+    "productSlug": "99-names-golden-edition",
+    "description": "We commissioned a work for our office. It now anchors the entire space.",
+    "date": "Verified collector"
+  },
+  {
+    "id": "review-4",
+    "name": "Sara H.",
+    "avatar": "SH",
+    "rating": 5,
+    "productName": "Ethereal",
+    "productSlug": "bismillah-calligraphy-canvas",
+    "description": "The artwork has a calm presence that makes the entire room feel more personal.",
+    "date": "Verified collector"
+  },
+  {
+    "id": "review-5",
+    "name": "Yusuf A.",
+    "avatar": "YA",
+    "rating": 5,
+    "productName": "Elegant",
+    "productSlug": "al-fatiha",
+    "description": "From the finish to the framing, every detail feels thoughtful and beautifully resolved.",
+    "date": "Verified collector"
+  },
+  {
+    "id": "review-6",
+    "name": "Mariam N.",
+    "avatar": "MN",
+    "rating": 5,
+    "productName": "Reliable",
+    "productSlug": "surah-al-waqiah",
+    "description": "It arrived beautifully presented and has become the focal point of our home.",
+    "date": "Verified collector"
+  }
+]

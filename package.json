@@ -12,7 +12,8 @@
     "contrast": "node scripts/contrast.mjs",
     "docs:check": "node scripts/check-docs.mjs",
     "verify": "npm run lint && npm run typecheck && npm run build && npm run size && npm run contrast && npm run docs:check",
-    "perf": "node scripts/lighthouse.mjs"
+    "perf": "node scripts/lighthouse.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.13.0",
@@ -23,6 +24,7 @@
     "next": "16.3.5",
     "nodemailer": "^10.1.7",
     "react": "19.2.8",
+    "react-country-flag": "^3.1.0",
     "react-dom": "19.2.8",
     "react-redux": "^9.3.0"
   },
@@ -33,6 +35,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "husky": "^9.1.7",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

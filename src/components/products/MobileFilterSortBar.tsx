@@ -16,9 +16,8 @@ interface MobileFilterSortBarProps {
 }
 
 const POPULAR_CATEGORIES = [
-  { label: "Mixed Media", id: "Mixed_Media_Canvas" },
-  { label: "Original Texture", id: "Original_Texture" },
-  { label: "Collections", id: "Collections" },
+  { label: "Mixed Media Collections", id: "Mixed_Media_Canvas" },
+  { label: "Mixed Media Artworks", id: "Mixed_Media_Artworks" },
 ];
 
 const SORT_OPTIONS: { value: "featured" | "price-asc" | "price-desc" | "rating"; label: string }[] = [
