@@ -19,17 +19,15 @@ export function InteractiveArchive() {
 
   return (
     <div>
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-        <div>
-          <SectionHeading
-            eyebrow="Visual Archive"
-            title="Curated Exhibitions & Collaborative Design"
-            description="Selected masterworks, regional retail collections, and juried international showcases."
-          />
-        </div>
+      <div>
+        <SectionHeading
+          eyebrow="Visual Archive"
+          title="Curated Exhibitions & Collaborative Design"
+          description="Selected masterworks, regional retail collections, and juried international showcases."
+        />
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2">
+        {/* Filter Pills in a new line below */}
+        <div className="mt-8 flex flex-wrap items-center gap-2">
           {categories.map((cat) => {
             const active = activeCategory === cat;
             return (
