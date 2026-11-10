@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 import { mainNav } from "@/data/navigation";
 import { BagIcon, CloseIcon, HeartIcon, MenuIcon, UserIcon } from "@/components/ui/Icons";
 import { SmartLink } from "@/components/ui/Link";
@@ -123,6 +124,7 @@ const drawerItem = (open: boolean) =>
 const SHADOW_AFTER = 40;
 
 export function Header() {
+  const pathname = usePathname();
   const cartItemCount = useAppSelector((state) => state.cart.cartItemCount);
   const scrolled = useSyncExternalStore(
     subscribeToScroll,
@@ -169,8 +171,31 @@ export function Header() {
   // Always white. The shadow appears once the page moves (or the menu opens) so the bar reads as raised.
   const raised = scrolled || open;
   const iconButton = "p-2 text-deep transition-colors duration-300 hover:text-brand";
-  const navLink =
-    "relative py-2 text-label font-medium uppercase tracking-caps text-deep after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-brand after:transition-transform after:duration-300 hover:after:scale-x-100";
+  const isLinkActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    if (href.startsWith("/#") || href.startsWith("#")) {
+      return false;
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const navLink = (active: boolean) =>
+    `relative py-2 text-label font-medium uppercase tracking-caps transition-colors duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:bg-brand after:transition-transform after:duration-300 ${
+      active
+        ? "text-brand after:scale-x-100 font-semibold"
+        : "text-deep hover:text-brand after:scale-x-0 hover:after:scale-x-100"
+    }`;
+
+  const iconNavLink = (href: string, baseClass: string) => {
+    const active = isLinkActive(href);
+    return `${baseClass} ${
+      active
+        ? "bg-brand text-white hover:bg-brand hover:text-white"
+        : "text-deep hover:bg-ice hover:text-brand"
+    }`;
+  };
 
   return (
     <>
@@ -182,13 +207,20 @@ export function Header() {
 
           <nav aria-label="Primary" className="absolute start-1/2 hidden -translate-x-1/2 lg:block">
             <ul className="flex items-center gap-7">
-              {mainNav.filter((link) => !["Cart", "Wishlist", "My Orders"].includes(link.label)).map((link) => (
-                <li key={link.label}>
-                  <SmartLink href={link.href} className={navLink}>
-                    {navLabel(link.label)}
-                  </SmartLink>
-                </li>
-              ))}
+              {mainNav.filter((link) => !["Cart", "Wishlist", "My Orders"].includes(link.label)).map((link) => {
+                const active = isLinkActive(link.href);
+                return (
+                  <li key={link.label}>
+                    <SmartLink
+                      href={link.href}
+                      className={navLink(active)}
+                      aria-current={active ? "page" : undefined}
+                    >
+                      {navLabel(link.label)}
+                    </SmartLink>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -221,9 +253,50 @@ export function Header() {
               </div>
               ) : null}
             </div>
-            <SmartLink href="/wishlist" aria-label="Wishlist" className="group relative flex h-10 w-10 items-center justify-center rounded-full text-deep transition-colors hover:bg-ice hover:text-brand"><HeartIcon className="h-5 w-5" /><span className="absolute end-0 top-0"><CountBadge count={wishlistCount} /></span><span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">Wishlist</span></SmartLink>
-            <SmartLink href="/orders" aria-label="My orders" className="group relative flex h-10 w-10 items-center justify-center rounded-full text-deep transition-colors hover:bg-ice hover:text-brand"><UserIcon className="h-5 w-5" /><span className="absolute end-0 top-0"><CountBadge count={orderCount} /></span><span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">My orders</span></SmartLink>
-            <SmartLink href="/cart" aria-label="Cart" className="group relative flex h-10 w-10 items-center justify-center rounded-full text-deep transition-colors hover:bg-ice hover:text-brand"><BagIcon className="h-5 w-5" /><span className="absolute end-0 top-0"><CountBadge count={cartItemCount} /></span><span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">Cart</span></SmartLink>
+            <SmartLink
+              href="/wishlist"
+              aria-label="Wishlist"
+              aria-current={isLinkActive("/wishlist") ? "page" : undefined}
+              className={iconNavLink("/wishlist", "group relative flex h-10 w-10 items-center justify-center rounded-full transition-colors")}
+            >
+              <HeartIcon className="h-5 w-5" />
+              <span className="absolute end-0 top-0">
+                <CountBadge count={wishlistCount} />
+              </span>
+              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
+                Wishlist
+              </span>
+            </SmartLink>
+
+            <SmartLink
+              href="/orders"
+              aria-label="My orders"
+              aria-current={isLinkActive("/orders") ? "page" : undefined}
+              className={iconNavLink("/orders", "group relative flex h-10 w-10 items-center justify-center rounded-full transition-colors")}
+            >
+              <UserIcon className="h-5 w-5" />
+              <span className="absolute end-0 top-0">
+                <CountBadge count={orderCount} />
+              </span>
+              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
+                My orders
+              </span>
+            </SmartLink>
+
+            <SmartLink
+              href="/cart"
+              aria-label="Cart"
+              aria-current={isLinkActive("/cart") ? "page" : undefined}
+              className={iconNavLink("/cart", "group relative flex h-10 w-10 items-center justify-center rounded-full transition-colors")}
+            >
+              <BagIcon className="h-5 w-5" />
+              <span className="absolute end-0 top-0">
+                <CountBadge count={cartItemCount} />
+              </span>
+              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
+                Cart
+              </span>
+            </SmartLink>
           </div>
 
           <div className="flex items-center gap-1">
@@ -270,20 +343,33 @@ export function Header() {
         >
           <nav aria-label="Mobile">
             <ul className="divide-y divide-light">
-              {mainNav.map((link, index) => (
-                <li key={link.label} style={{ transitionDelay: open ? `${140 + index * 55}ms` : "0ms" }} className={drawerItem(open)}>
-                  <SmartLink
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-between gap-4 py-4 font-serif text-3xl text-deep transition-colors hover:text-brand"
-                  >
-                    <span>{navLabel(link.label)}</span>
-                    {link.label === "Cart" ? <CountBadge count={cartItemCount} /> : null}
-                    {link.label === "Wishlist" ? <CountBadge count={wishlistCount} /> : null}
-                    {link.label === "My Orders" ? <CountBadge count={orderCount} /> : null}
-                  </SmartLink>
-                </li>
-              ))}
+              {mainNav.map((link, index) => {
+                const active = isLinkActive(link.href);
+                return (
+                  <li key={link.label} style={{ transitionDelay: open ? `${140 + index * 55}ms` : "0ms" }} className={drawerItem(open)}>
+                    <SmartLink
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={`flex items-center justify-between gap-4 py-4 font-serif text-3xl transition-colors ${
+                        active
+                          ? "text-brand font-medium"
+                          : "text-deep hover:text-brand"
+                      }`}
+                    >
+                      <span className="flex items-center gap-3">
+                        {active && (
+                          <span className="h-2 w-2 rounded-full bg-brand" aria-hidden="true" />
+                        )}
+                        <span>{navLabel(link.label)}</span>
+                      </span>
+                      {link.label === "Cart" ? <CountBadge count={cartItemCount} /> : null}
+                      {link.label === "Wishlist" ? <CountBadge count={wishlistCount} /> : null}
+                      {link.label === "My Orders" ? <CountBadge count={orderCount} /> : null}
+                    </SmartLink>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
           <div className="mt-8 border-t border-light pt-6">
