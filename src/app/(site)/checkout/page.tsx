@@ -9,7 +9,8 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { clearCart } from "@/store/cartSlice";
 import { CountrySelect } from "@/components/checkout/CountrySelect";
 import { formatPrice } from "@/lib/format";
-import type { Country } from "@/constants/countries";
+import { parsePhoneNumberFromString } from "libphonenumber-js/min";
+import { useCountryDetection } from "@/components/checkout/useCountryDetection";
 import type { Order } from "@/types/store";
 
 export default function CheckoutPage() {
@@ -23,12 +24,7 @@ export default function CheckoutPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [country, setCountry] = useState<Country>({
-    name: "Qatar",
-    code: "QA",
-    dialCode: "974",
-    flag: "🇶🇦",
-  });
+  const { country, selectCountry } = useCountryDetection();
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [postalCode, setPostalCode] = useState("");
@@ -51,6 +47,11 @@ export default function CheckoutPage() {
     }
     if (!phone.trim()) {
       errs.phone = "Phone number is required for courier delivery";
+    } else {
+      const parsedPhone = parsePhoneNumberFromString(phone.trim(), country.code);
+      if (!parsedPhone || !parsedPhone.isValid() || parsedPhone.country !== country.code) {
+        errs.phone = `Enter a valid ${country.name} mobile number`;
+      }
     }
     if (!address.trim()) {
       errs.address = "Shipping address is required";
@@ -71,7 +72,8 @@ export default function CheckoutPage() {
     setIsSubmitting(true);
 
     const orderId = `SA-${Date.now().toString().slice(-6)}`;
-    const fullPhone = `+${country.dialCode} ${phone.trim()}`;
+    const parsedPhone = parsePhoneNumberFromString(phone.trim(), country.code);
+    const fullPhone = parsedPhone?.number ?? `+${country.dialCode} ${phone.trim()}`;
 
     const orderData: Order = {
       id: orderId,
@@ -256,7 +258,7 @@ export default function CheckoutPage() {
                   </label>
                   <div className="flex gap-3">
                     <div className="w-36 shrink-0">
-                      <CountrySelect value={country.dialCode} onChange={setCountry} />
+                      <CountrySelect value={country.code} onChange={selectCountry} />
                     </div>
                     <div className="relative flex-1">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />

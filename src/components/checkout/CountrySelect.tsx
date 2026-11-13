@@ -2,10 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Search, X } from "lucide-react";
+import ReactCountryFlag from "react-country-flag";
 import { COUNTRIES, type Country } from "@/constants/countries";
 
 interface CountrySelectProps {
-  value: string; // Dial code e.g. "974" or Country name
+  value: Country["code"];
   onChange: (country: Country) => void;
   className?: string;
 }
@@ -16,7 +17,7 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
   const containerRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const selected = COUNTRIES.find((c) => c.dialCode === value || c.name === value) || COUNTRIES[0];
+  const selected = COUNTRIES.find((c) => c.code === value) || COUNTRIES[0];
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -34,22 +35,25 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
     }
   }, [isOpen]);
 
+  const search = query.trim().toLowerCase();
   const filtered = COUNTRIES.filter(
     (c) =>
-      c.name.toLowerCase().includes(query.toLowerCase()) ||
-      c.dialCode.includes(query) ||
-      c.code.toLowerCase().includes(query.toLowerCase())
+      c.name.toLowerCase().includes(search) ||
+      `+${c.dialCode}`.includes(search) ||
+      c.code.toLowerCase().includes(search)
   );
 
   return (
     <div className={`relative ${className}`} ref={containerRef}>
       <button
         type="button"
+        aria-label={`Country calling code: ${selected.name} +${selected.dialCode}`}
+        aria-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex h-12 w-full items-center justify-between rounded-lg border border-light bg-white px-3 text-sm transition-colors hover:border-brand focus:border-brand focus:outline-none"
       >
         <span className="flex items-center gap-2">
-          <span className="text-lg leading-none">{selected.flag}</span>
+          <ReactCountryFlag svg countryCode={selected.code} aria-label={selected.name} style={{ width: "1.5em", height: "1em" }} />
           <span className="font-medium text-deep">+{selected.dialCode}</span>
         </span>
         <ChevronDown className={`h-4 w-4 text-steel transition-transform ${isOpen ? "rotate-180" : ""}`} />
@@ -65,12 +69,14 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search country..."
+              aria-label="Search country or calling code"
               className="h-9 w-full rounded-md border border-light pl-8 pr-7 text-xs text-deep focus:border-brand focus:outline-none"
             />
             {query && (
               <button
                 type="button"
                 onClick={() => setQuery("")}
+                aria-label="Clear country search"
                 className="absolute right-2 top-1/2 -translate-y-1/2 text-steel hover:text-deep"
               >
                 <X className="h-3 w-3" />
@@ -93,7 +99,7 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <span>{item.flag}</span>
+                  <ReactCountryFlag svg countryCode={item.code} aria-label={item.name} style={{ width: "1.5em", height: "1em", flexShrink: 0 }} />
                   <span className="truncate">{item.name}</span>
                 </div>
                 <span className="text-steel font-mono">+{item.dialCode}</span>

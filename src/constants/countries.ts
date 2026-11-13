@@ -1,29 +1,21 @@
+import { getCountries, getCountryCallingCode, type CountryCode } from "libphonenumber-js/min";
+
 export interface Country {
   name: string;
-  code: string;
+  code: CountryCode;
   dialCode: string;
-  flag: string;
 }
 
-export const COUNTRIES: Country[] = [
-  { name: "Qatar", code: "QA", dialCode: "974", flag: "🇶🇦" },
-  { name: "United Arab Emirates", code: "AE", dialCode: "971", flag: "🇦🇪" },
-  { name: "Saudi Arabia", code: "SA", dialCode: "966", flag: "🇸🇦" },
-  { name: "Kuwait", code: "KW", dialCode: "965", flag: "🇰🇼" },
-  { name: "Bahrain", code: "BH", dialCode: "973", flag: "🇧🇭" },
-  { name: "Oman", code: "OM", dialCode: "968", flag: "🇴🇲" },
-  { name: "United Kingdom", code: "GB", dialCode: "44", flag: "🇬🇧" },
-  { name: "United States", code: "US", dialCode: "1", flag: "🇺🇸" },
-  { name: "Canada", code: "CA", dialCode: "1", flag: "🇨🇦" },
-  { name: "Germany", code: "DE", dialCode: "49", flag: "🇩🇪" },
-  { name: "France", code: "FR", dialCode: "33", flag: "🇫🇷" },
-  { name: "India", code: "IN", dialCode: "91", flag: "🇮🇳" },
-  { name: "Pakistan", code: "PK", dialCode: "92", flag: "🇵🇰" },
-  { name: "Australia", code: "AU", dialCode: "61", flag: "🇦🇺" },
-  { name: "Singapore", code: "SG", dialCode: "65", flag: "🇸🇬" },
-  { name: "Malaysia", code: "MY", dialCode: "60", flag: "🇲🇾" },
-  { name: "Turkey", code: "TR", dialCode: "90", flag: "🇹🇷" },
-  { name: "Egypt", code: "EG", dialCode: "20", flag: "🇪🇬" },
-  { name: "Jordan", code: "JO", dialCode: "962", flag: "🇯🇴" },
-  { name: "Lebanon", code: "LB", dialCode: "961", flag: "🇱🇧" },
-];
+const names = new Intl.DisplayNames(["en"], { type: "region" });
+const preferred: CountryCode[] = ["QA", "AE", "SA", "KW", "BH", "OM"];
+
+export const COUNTRIES: Country[] = getCountries()
+  .map((code) => ({ code, name: names.of(code) ?? code, dialCode: getCountryCallingCode(code) }))
+  .sort((a, b) => {
+    const aRank = preferred.indexOf(a.code);
+    const bRank = preferred.indexOf(b.code);
+    if (aRank !== -1 || bRank !== -1) {
+      return (aRank === -1 ? preferred.length : aRank) - (bRank === -1 ? preferred.length : bRank);
+    }
+    return a.name.localeCompare(b.name, "en");
+  });
