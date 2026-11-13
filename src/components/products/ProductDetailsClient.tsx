@@ -27,29 +27,36 @@ const EMPTY_SIZES: NonNullable<StoreProduct["sizes"]> = [];
 
 function ArtworkDetails({ product }: { product: StoreProduct }) {
   return (
-    <section className="rounded-2xl border border-light bg-white p-6 shadow-xs">
-      <p className="text-xs font-semibold uppercase tracking-wider text-brand">About this artwork</p>
-      <p className="mt-3 text-sm leading-relaxed text-steel">{product.description}</p>
-
-      <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
-        {product.dimensions && (
-          <DetailSpec icon={<Maximize2 className="h-4 w-4 text-brand" />} label="Dimensions" value={product.dimensions} />
-        )}
-        {product.medium && (
-          <DetailSpec icon={<Palette className="h-4 w-4 text-brand" />} label="Medium" value={product.medium} />
-        )}
-        {product.frame && (
-          <DetailSpec className="col-span-2" icon={<Frame className="h-4 w-4 text-brand" />} label="Framing" value={product.frame} />
-        )}
+    <section className="overflow-hidden rounded-2xl border border-light bg-white shadow-xs">
+      <div className="p-6 sm:p-8">
+        <h2 className="text-xl font-semibold tracking-tight text-deep sm:text-2xl">About this artwork</h2>
+        <p className="mt-5 max-w-prose whitespace-pre-line text-base font-normal leading-8 text-deep">{product.description}</p>
       </div>
 
+      {(product.dimensions || product.medium || product.frame) && (
+        <div className="border-t border-light bg-ice/30 px-6 py-6 sm:px-8">
+          <h3 className="text-base font-semibold text-deep">Artwork details</h3>
+          <dl className="mt-4 divide-y divide-light">
+            {product.dimensions && (
+              <DetailSpec icon={<Maximize2 className="h-4 w-4 text-brand" />} label="Dimensions" value={product.dimensions} />
+            )}
+            {product.medium && (
+              <DetailSpec icon={<Palette className="h-4 w-4 text-brand" />} label="Medium" value={product.medium} />
+            )}
+            {product.frame && (
+              <DetailSpec icon={<Frame className="h-4 w-4 text-brand" />} label="Framing" value={product.frame} />
+            )}
+          </dl>
+        </div>
+      )}
+
       {product.features && product.features.length > 0 && (
-        <div className="mt-5 border-t border-light pt-5">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-deep">Artwork highlights</h2>
-          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+        <div className="border-t border-light p-6 sm:p-8">
+          <h3 className="text-base font-semibold text-deep">Artwork highlights</h3>
+          <ul className="mt-4 space-y-3">
             {product.features.map((feature) => (
-              <li key={feature} className="flex items-start gap-2 text-xs text-steel">
-                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
+              <li key={feature} className="flex items-start gap-3 text-base leading-7 text-deep">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ice text-brand" aria-hidden="true"><Check className="h-4 w-4" /></span>
                 <span>{feature}</span>
               </li>
             ))}
@@ -64,20 +71,18 @@ function DetailSpec({
   icon,
   label,
   value,
-  className = "",
 }: {
   icon: ReactNode;
   label: string;
   value: string;
-  className?: string;
 }) {
   return (
-    <div className={`rounded-xl border border-light bg-ice/30 p-3.5 ${className}`}>
-      <div className="mb-1 flex items-center gap-2 text-steel">
-        {icon}
-        <span className="font-semibold uppercase tracking-wider">{label}</span>
-      </div>
-      <p className="font-medium text-deep">{value}</p>
+    <div className="grid gap-2 py-4 first:pt-0 last:pb-0 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-5">
+      <dt className="flex items-center gap-2 self-start text-sm font-medium leading-7 text-steel">
+        <span className="shrink-0" aria-hidden="true">{icon}</span>
+        {label}
+      </dt>
+      <dd className="min-w-0 break-words text-base font-medium leading-7 text-deep">{value}</dd>
     </div>
   );
 }
@@ -188,7 +193,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
           </div>
 
           {/* Details & Acquisition Box (Right Column, 5 cols) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
+          <div className="space-y-6 lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
             <div className="space-y-5 rounded-2xl border border-light bg-white p-5 shadow-sm sm:p-7">
               {/* Title + Rating */}
               <div>
@@ -349,85 +354,12 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                 <p className="mt-2 text-center text-xs text-steel">Complimentary insured delivery and certificate of authenticity included.</p>
               </div>
 
-              {/* Artwork details */}
-              <div className="border-t border-light pt-5 lg:hidden">
-                <div className="space-y-4">
-                      <div>
-                        <h3 className="text-sm font-bold text-deep mb-2">
-                          Description
-                        </h3>
-                        <p className="text-sm leading-relaxed text-steel">
-                          {product.description}
-                        </p>
-                      </div>
-
-                      {/* Specifications */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                        {product.dimensions && (
-                          <div className="rounded-xl border border-light bg-white p-3.5">
-                            <div className="flex items-center gap-2 text-steel mb-1">
-                              <Maximize2 className="h-4 w-4 text-brand" />
-                              <span className="font-semibold uppercase tracking-wider">
-                                Dimensions
-                              </span>
-                            </div>
-                            <p className="text-deep font-medium">
-                              {product.dimensions}
-                            </p>
-                          </div>
-                        )}
-                        {product.medium && (
-                          <div className="rounded-xl border border-light bg-white p-3.5">
-                            <div className="flex items-center gap-2 text-steel mb-1">
-                              <Palette className="h-4 w-4 text-brand" />
-                              <span className="font-semibold uppercase tracking-wider">
-                                Medium
-                              </span>
-                            </div>
-                            <p className="text-deep font-medium line-clamp-2">
-                              {product.medium}
-                            </p>
-                          </div>
-                        )}
-                        {product.frame && (
-                          <div className="rounded-xl border border-light bg-white p-3.5 sm:col-span-2">
-                            <div className="flex items-center gap-2 text-steel mb-1">
-                              <Frame className="h-4 w-4 text-brand" />
-                              <span className="font-semibold uppercase tracking-wider">
-                                Framing
-                              </span>
-                            </div>
-                            <p className="text-deep font-medium">
-                              {product.frame}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Studio Key Features */}
-                      {product.features && product.features.length > 0 && (
-                        <div className="rounded-xl border border-light bg-white p-4">
-                          <h3 className="text-xs font-semibold uppercase tracking-wider text-deep mb-2.5">
-                            Artwork Highlights
-                          </h3>
-                          <ul className="space-y-2">
-                            {product.features.map((feat, idx) => (
-                              <li
-                                key={idx}
-                                className="flex items-start gap-2 text-xs text-steel"
-                              >
-                                <Check className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
-                                <span>{feat}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                </div>
-              </div>
-
             </div>
           </div>
+        </div>
+
+        <div className="mt-6 lg:hidden">
+          <ArtworkDetails product={product} />
         </div>
 
         {relatedProducts.length > 0 && (
