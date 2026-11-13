@@ -1,0 +1,262 @@
+[
+  {
+    "slug": "calligraphy-contemporary-home",
+    "category": "Art & Design",
+    "title": "Calligraphy in the Contemporary Home",
+    "excerpt": "How a centuries-old script finds new life on the walls of modern interiors.",
+    "href": "/journal/calligraphy-contemporary-home",
+    "art": "noor",
+    "scene": "hall",
+    "image": "/assets/images/prototype/room-reading-corner-blue-wave.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "A meeting of old and new",
+        "paragraphs": [
+          "Calligraphy brings movement and meaning into a room. Its flowing lines can sit comfortably beside clean furniture and quiet colours, giving a contemporary space a point of reflection."
+        ]
+      },
+      {
+        "heading": "Give the lettering room",
+        "paragraphs": [
+          "Choose a wall with enough clear space around the work. A simple frame and restrained neighbouring objects help the script remain the focus."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "choosing-art-for-your-room",
+    "category": "Interiors",
+    "title": "Choosing Art for a Room You Live In",
+    "excerpt": "Scale, light and colour: a calm way to decide what belongs on your wall.",
+    "href": "/journal/choosing-art-for-your-room",
+    "art": "dunes",
+    "scene": "living",
+    "image": "/assets/images/prototype/room-living-grey-abstract.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Start with the room",
+        "paragraphs": [
+          "Notice where you spend time and which wall you naturally look towards. Artwork should feel connected to daily life, whether it hangs above a sofa or beside a favourite reading chair."
+        ]
+      },
+      {
+        "heading": "Try the scale first",
+        "paragraphs": [
+          "Mark the proposed dimensions on the wall with removable paper. View the outline from across the room and from nearby before choosing a size."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "inside-the-studio",
+    "category": "Inspiration",
+    "title": "Inside the Studio",
+    "excerpt": "From first sketch to finished piece: how a commission comes to life.",
+    "href": "/journal/inside-the-studio",
+    "art": "enso",
+    "scene": "office",
+    "image": "/assets/images/prototype/studio-pastel-canvases.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "From a first idea",
+        "paragraphs": [
+          "A studio study starts with a question about mood, colour or movement. Small sketches help explore the idea before it reaches the canvas."
+        ]
+      },
+      {
+        "heading": "Building the surface",
+        "paragraphs": [
+          "Layers of texture change how light meets the work. Leaving time between stages allows the composition to be reconsidered as it develops."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "meaningful-gallery-walls",
+    "category": "Interiors",
+    "title": "Building a Meaningful Gallery Wall",
+    "excerpt": "A considered approach to arranging art with balance, rhythm and room to breathe.",
+    "href": "/journal/meaningful-gallery-walls",
+    "art": "allah",
+    "scene": "living",
+    "image": "/assets/images/prototype/room-living-surah-triptych.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Find a common thread",
+        "paragraphs": [
+          "A gallery wall feels connected when its works share something: a colour, a subject or a consistent frame. They do not need to match exactly."
+        ]
+      },
+      {
+        "heading": "Arrange before hanging",
+        "paragraphs": [
+          "Lay the pieces on the floor and try several arrangements. Keep the gaps consistent and let one larger work establish the centre of the group."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "texture-and-light",
+    "category": "Art & Design",
+    "title": "Texture, Light and the Living Room",
+    "excerpt": "Why tactile artwork changes character as daylight moves through your space.",
+    "href": "/journal/texture-and-light",
+    "art": "enso",
+    "scene": "hall",
+    "image": "/assets/images/prototype/ink-angled-wall.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Watch the light",
+        "paragraphs": [
+          "Texture creates small shadows that shift through the day. A surface that feels quiet in morning light can appear more dramatic under an evening lamp."
+        ]
+      },
+      {
+        "heading": "Keep lighting gentle",
+        "paragraphs": [
+          "Avoid harsh glare that hides the surface. Try a soft light from the side and check the result from your usual sitting position."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "art-of-stillness",
+    "category": "Inspiration",
+    "title": "The Art of Stillness",
+    "excerpt": "Creating an interior that feels calm, personal and quietly expressive.",
+    "href": "/journal/art-of-stillness",
+    "art": "salaam",
+    "scene": "bedroom",
+    "image": "/assets/images/prototype/room-living-ayatul-kursi.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Make space for quiet",
+        "paragraphs": [
+          "A calm interior does not have to be empty. One carefully placed artwork can give a room character while leaving enough visual space to rest."
+        ]
+      },
+      {
+        "heading": "Choose with attention",
+        "paragraphs": [
+          "Look for a palette and rhythm you enjoy returning to. Consider how the artwork relates to the room as a whole, rather than filling every available wall."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "scale-before-style",
+    "category": "Interiors",
+    "title": "Choose Scale Before Style",
+    "excerpt": "A simple guide to finding the right canvas proportion for every wall.",
+    "href": "/journal/scale-before-style",
+    "art": "dunes",
+    "scene": "living",
+    "image": "/assets/images/prototype/studio-pastel-canvases.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Measure the setting",
+        "paragraphs": [
+          "Consider the width of nearby furniture and the height of the ceiling. A small work may feel intimate in a reading corner but become lost above a broad sofa."
+        ]
+      },
+      {
+        "heading": "Test the proportions",
+        "paragraphs": [
+          "Use a paper template to compare sizes. Leave clear space around the artwork and check that it feels balanced from the main entrance to the room."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "gold-leaf-craft",
+    "category": "Art & Design",
+    "title": "The Quiet Brilliance of Gold Leaf",
+    "excerpt": "The traditional process behind the luminous detail in selected studio works.",
+    "href": "/journal/gold-leaf-craft",
+    "art": "noor",
+    "scene": "hall",
+    "image": "/assets/images/prototype/room-lounge-navy-gold.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Light on a gilded surface",
+        "paragraphs": [
+          "Gold leaf creates a different effect from flat colour. Its reflections shift with the light, drawing attention to small details and changes in the surface."
+        ]
+      },
+      {
+        "heading": "Balance the brightness",
+        "paragraphs": [
+          "Give luminous work a quiet setting. Soft lighting and restrained accessories allow the gold to become an accent rather than a source of glare."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "collecting-with-intention",
+    "category": "Inspiration",
+    "title": "Collecting Art With Intention",
+    "excerpt": "How to begin a collection that reflects your story rather than a passing trend.",
+    "href": "/journal/collecting-with-intention",
+    "art": "rings",
+    "scene": "office",
+    "image": "/assets/images/prototype/room-reception-beige-abstract.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Begin with a connection",
+        "paragraphs": [
+          "The first work in a collection need not follow a trend. Spend time with pieces that hold your attention and consider what you enjoy about them."
+        ]
+      },
+      {
+        "heading": "Let a collection grow",
+        "paragraphs": [
+          "Keep notes on dimensions, materials and placement. Adding work gradually gives each piece a place in your home and lets your preferences evolve."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "commission-journey",
+    "category": "Art & Design",
+    "title": "From Conversation to Commission",
+    "excerpt": "What to expect when a bespoke work is created around your space and vision.",
+    "href": "/journal/commission-journey",
+    "art": "bloom",
+    "scene": "living",
+    "image": "/assets/images/prototype/room-living-grey-abstract.webp",
+    "author": "Sumaira Arts",
+    "isSample": true,
+    "sections": [
+      {
+        "heading": "Share the starting point",
+        "paragraphs": [
+          "A commission begins with a conversation about the space and the feeling you want to create. Photographs, wall measurements and colour references can make that conversation more useful."
+        ]
+      },
+      {
+        "heading": "Agree on the details",
+        "paragraphs": [
+          "Discuss the proposed composition, materials, dimensions and framing before work begins. Clear expectations help turn a personal idea into a coherent finished piece."
+        ]
+      }
+    ]
+  }
+]

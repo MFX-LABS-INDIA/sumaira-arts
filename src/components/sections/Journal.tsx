@@ -16,27 +16,27 @@ export function Journal({ limit = 3 }: { limit?: number }) {
           <SectionHeading eyebrow={journalIntro.eyebrow} title={journalIntro.title} />
         </Reveal>
 
-        <div className="mt-12 grid gap-x-8 gap-y-14 md:mt-16 md:grid-cols-3">
+        <div className="mt-10 grid items-stretch gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
-            <Reveal key={post.title} delay={index * 120} className={index === 1 ? "md:mt-14" : ""}>
-              <article id={post.slug} className="group relative scroll-mt-24">
+            <Reveal key={post.slug} delay={(index % 3) * 120} className="h-full">
+              <article id={post.slug} className="group relative flex h-full flex-col scroll-mt-24">
                 <ArtImage
                   art={post.art}
                   scene={post.scene}
                   src={post.image}
                   alt={post.title}
                   zoom
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="aspect-[3/2]"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="aspect-[3/2] shrink-0"
                 />
                 <Eyebrow className="mt-6">{post.category}</Eyebrow>
-                <h3 className="mt-3 font-serif text-xl font-light leading-snug tracking-tight text-deep">
+                <h3 className="mt-3 font-serif text-xl font-medium leading-snug tracking-tight text-deep">
                   <SmartLink href={post.href} className="after:absolute after:inset-0">
                     {post.title}
                   </SmartLink>
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-steel">{post.excerpt}</p>
-                <div className="mt-5">
+                <div className="mt-auto pt-6">
                   <TextLink href={post.href}>Read Article</TextLink>
                 </div>
               </article>
