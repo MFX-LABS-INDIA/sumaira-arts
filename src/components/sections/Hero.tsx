@@ -1,114 +1,75 @@
 import Image from "next/image";
-import { HeroControls } from "@/components/common/HeroControls";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
-import { ButtonLink, TextLink } from "@/components/ui/Link";
-import { heroControls, heroSlides } from "@/data/home";
+import { ButtonLink, SmartLink, TextLink } from "@/components/ui/Link";
+import { homeHero } from "@/data/home";
+import { artworkCategories, categoryHref } from "@/data/artwork-categories";
+import { allProducts, formatCategoryLabel } from "@/data/products";
 
-const fade = "opacity-0 transition-opacity duration-1000 ease-out motion-reduce:transition-none data-[active=true]:opacity-100";
-
-/**
- * A full-bleed photograph carousel. The words sit bottom-start on a navy gradient so the artwork above stays
- * clear. Every slide is rendered on the server; `HeroControls` only toggles which one is active (the first
- * slide shows with no JavaScript). Only the first photograph is `priority`: it is the LCP image.
- */
+/** A steady introduction keeps the artwork and the next step visible together. */
 export function Hero() {
-  const count = heroSlides.length;
+  const artwork = allProducts.find((product) => product.slug === homeHero.featuredSlug)!;
 
   return (
-    <section
-      aria-roledescription="carousel"
-      aria-label={heroControls.label}
-      className="relative isolate flex min-h-[max(34rem,calc(100svh-4.75rem))] flex-col overflow-hidden bg-deep text-white"
-    >
-      <div className="absolute inset-0 -z-10">
-        {heroSlides.map((slide, index) => (
-          <div
-            key={slide.image.src}
-            data-hero-slide
-            data-index={index}
-            data-active={index === 0}
-            inert={index !== 0}
-            className={`group/slide absolute inset-0 ${fade}`}
-          >
-            <div className="absolute inset-0 scale-[1.06] transition-transform duration-[8000ms] ease-out group-data-[active=true]/slide:scale-100 motion-reduce:transform-none">
-              <Image
-                src={slide.image.src}
-                alt={slide.image.alt}
-                fill
-                priority={index === 0}
-                fetchPriority={index === 0 ? "high" : "low"}
-                sizes="100vw"
-                className="object-cover"
-                style={slide.focus ? { objectPosition: slide.focus } : undefined}
-              />
+    <section aria-labelledby="home-title" className="overflow-hidden border-b border-light bg-ice/50">
+      <Container className="py-10 sm:py-12 lg:py-14">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="max-w-xl">
+            <Eyebrow>{homeHero.eyebrow}</Eyebrow>
+            <h1 id="home-title" className="mt-5 text-[clamp(2.5rem,4.5vw,4rem)] font-medium leading-[1.12] tracking-tight text-deep text-balance">
+              {homeHero.title}
+              <span className="mt-2 block font-light text-brand">{homeHero.accent}</span>
+            </h1>
+            <p className="mt-6 max-w-lg text-base leading-8 text-steel">{homeHero.description}</p>
+            <div className="mt-8 flex flex-col items-stretch gap-5 sm:flex-row sm:items-center sm:gap-7">
+              <ButtonLink href={homeHero.primary.href} className="min-h-12">{homeHero.primary.label}</ButtonLink>
+              <TextLink href={homeHero.secondary.href} className="min-h-11 self-center">{homeHero.secondary.label}</TextLink>
             </div>
           </div>
-        ))}
-        <div className="absolute inset-0 bg-linear-to-t from-deep/95 via-deep/65 to-deep/10 md:from-deep/90 md:via-deep/35 md:to-deep/5" />
-        <div className="absolute inset-0 bg-linear-to-r from-deep/50 to-transparent max-md:hidden" />
-      </div>
 
-      <Container className="flex flex-1 flex-col justify-end">
-        <div data-hero-content className="grid pb-8 pt-24 md:pb-12">
-          {heroSlides.map((slide, index) => {
-            const Title = index === 0 ? "h1" : "h2";
-            return (
-              <div
-                key={slide.lead}
-                data-hero-slide
-                data-index={index}
-                data-active={index === 0}
-                inert={index !== 0}
-                role="group"
-                aria-roledescription="slide"
-                aria-label={`${index + 1} ${heroControls.of} ${count}`}
-                className="translate-y-5 self-end opacity-0 transition duration-700 ease-out [grid-area:1/1] motion-reduce:transform-none motion-reduce:transition-none data-[active=true]:translate-y-0 data-[active=true]:opacity-100 data-[active=true]:delay-300"
-              >
-                <div className="flex items-center gap-4">
-                  <span aria-hidden className="h-px w-10 bg-soft/70" />
-                  <Eyebrow tone="dark">{slide.eyebrow}</Eyebrow>
-                </div>
-
-                <Title className="mt-5 max-w-4xl font-serif text-[clamp(2.4rem,6vw,5rem)] font-light leading-[1.05] tracking-[-0.03em] text-white">
-                  {slide.lead} <em className="font-normal italic text-soft md:block">{slide.accent}</em>
-                </Title>
-
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">{slide.description}</p>
-
-                <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-                  <ButtonLink href={slide.primary.href} variant="inverse" tone="dark">
-                    {slide.primary.label}
-                  </ButtonLink>
-                  <TextLink href={slide.secondary.href} tone="dark">
-                    {slide.secondary.label}
-                  </TextLink>
-                </div>
+          <figure className="group relative overflow-hidden rounded-2xl border border-light bg-white shadow-artwork">
+            <div className="relative aspect-square">
+              <Image
+                src={artwork.image}
+                alt={homeHero.imageAlt}
+                fill
+                preload
+                sizes="(min-width: 1280px) 564px, (min-width: 1024px) 46vw, (min-width: 640px) 80vw, 100vw"
+                className="object-cover"
+              />
+              <span className="absolute start-4 top-4 rounded-full bg-white px-4 py-2 text-xs font-medium text-brand sm:start-5 sm:top-5">{homeHero.featuredLabel}</span>
+            </div>
+            <figcaption className="flex items-center justify-between gap-4 p-5 sm:px-6">
+              <div>
+                <p className="text-xs leading-relaxed text-steel">{formatCategoryLabel(artwork.category)}</p>
+                <h2 className="mt-1 text-lg font-medium text-deep">
+                  <SmartLink href={`/products/${artwork.slug}`} className="after:absolute after:inset-0 after:rounded-2xl">
+                    {artwork.title}
+                  </SmartLink>
+                </h2>
               </div>
-            );
-          })}
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-light text-brand transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white" aria-hidden="true">
+                <ArrowUpRight className="h-5 w-5 rtl:-rotate-90" />
+              </span>
+            </figcaption>
+          </figure>
         </div>
+
+        <nav aria-label={homeHero.categoryNavLabel} className="mt-10 border-t border-light pt-5 lg:mt-12">
+          <ul className="grid gap-2 md:grid-cols-3 md:gap-6">
+            {artworkCategories.map((category, index) => (
+              <li key={category.id}>
+                <SmartLink href={categoryHref(category.id)} className="group flex min-h-12 items-center gap-3 rounded-control px-2 py-2 text-sm font-medium text-deep transition-colors hover:bg-white hover:text-brand">
+                  <span className="text-xs text-steel" aria-hidden="true">0{index + 1}</span>
+                  <span className="flex-1">{category.title}</span>
+                  <ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0 text-brand rtl:-rotate-90" />
+                </SmartLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </Container>
-
-      {heroSlides.map((slide, index) => (
-        <p
-          key={slide.caption.title}
-          data-hero-slide
-          data-index={index}
-          data-active={index === 0}
-          inert={index !== 0}
-          className={`absolute bottom-24 end-12 z-10 hidden text-end lg:block ${fade}`}
-        >
-          <span className="block text-[0.62rem] font-medium uppercase tracking-eyebrow text-soft">{slide.caption.kicker}</span>
-          <span className="mt-1 block font-serif text-base italic text-white">{slide.caption.title}</span>
-        </p>
-      ))}
-
-      <div className="relative z-10 border-t border-white/20">
-        <Container className="py-3">
-          <HeroControls count={count} labels={heroControls} />
-        </Container>
-      </div>
     </section>
   );
 }

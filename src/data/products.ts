@@ -19,11 +19,11 @@ export const allProducts: StoreProduct[] = productsData as unknown as StoreProdu
 export const formatCategoryLabel = (category: string) => {
   switch (category) {
     case "Mixed_Media_Canvas":
-      return "Mixed Media Collections";
+      return "Collections";
     case "Mixed_Media_Artworks":
-      return "Mixed Media Artworks";
+      return "Mixed Media";
     case "Original_Texture":
-      return "Original Texture Artworks";
+      return "Originals";
     case "Collections":
       return "Collections";
     default:
@@ -51,10 +51,10 @@ export const products = allProducts.map((p) => ({
   titleAr: p.titleAr,
   category:
     p.category === "Mixed_Media_Artworks"
-      ? ("Mixed Media Artworks" as const)
+      ? ("Mixed Media" as const)
       : p.category.includes("Mixed_Media")
-      ? ("Mixed Media Collections" as const)
-      : ("Original Texture Artworks" as const),
+      ? ("Collections" as const)
+      : ("Originals" as const),
   categoryRaw: p.category,
   price: p.priceUSD,
   art: (p.artVariant || "allah") as ArtVariant,

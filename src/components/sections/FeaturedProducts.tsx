@@ -1,60 +1,67 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { featured, mostLovedProducts, products } from "@/data/products";
-import { ProductCard } from "@/components/common/ProductCard";
+import { SmartLink, TextLink } from "@/components/ui/Link";
+import { allProducts, formatCategoryLabel } from "@/data/products";
+import { homeSelection } from "@/data/home-selection";
 
-const AUTO_ADVANCE_MS = 4000;
-
+/** A steady, browsable selection with one artwork from each product category. */
 export function FeaturedProducts() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const lovedSlugs = new Set(mostLovedProducts.map((product) => product.slug));
-  const lovedProducts = products.filter((product) => lovedSlugs.has(product.slug)).sort((a, b) => (b.reviewCount ?? 0) - (a.reviewCount ?? 0));
-
-  const moveTo = (index: number) => {
-    const carousel = carouselRef.current;
-    const item = carousel?.children[index] as HTMLElement | undefined;
-    if (!carousel || !item) return;
-    carousel.scrollTo({ left: item.offsetLeft, behavior: "smooth" });
-    setActiveIndex(index);
-  };
-
-  useEffect(() => {
-    const timer = window.setInterval(() => moveTo(activeIndex === lovedProducts.length - 1 ? 0 : activeIndex + 1), AUTO_ADVANCE_MS);
-    return () => window.clearInterval(timer);
-  }, [activeIndex, lovedProducts.length]);
+  const selection = homeSelection.slugs.flatMap((slug) => {
+    const product = allProducts.find((item) => item.slug === slug);
+    return product ? [product] : [];
+  });
 
   return (
     <Section id="artwork" tone="ice">
       <Container>
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading eyebrow={featured.eyebrow} title={featured.title} description={featured.description} />
-          <div className="flex items-center gap-4">
-            <p className="text-label font-medium uppercase tracking-caps text-steel">Eight collector favourites</p>
-            <button type="button" onClick={() => moveTo(Math.max(0, activeIndex - 1))} disabled={activeIndex === 0} aria-label="Previous most loved artwork" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-light bg-white text-deep hover:border-brand hover:text-brand disabled:pointer-events-none disabled:opacity-35"><ChevronLeft className="h-4 w-4" /></button>
-            <button type="button" onClick={() => moveTo(activeIndex === lovedProducts.length - 1 ? 0 : activeIndex + 1)} aria-label="Next most loved artwork" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-light bg-white text-deep hover:border-brand hover:text-brand"><ChevronRight className="h-4 w-4" /></button>
-          </div>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            eyebrow={homeSelection.eyebrow}
+            title={homeSelection.title}
+            description={homeSelection.description}
+          />
+          <TextLink href="/products" className="min-h-11 self-start lg:shrink-0 lg:self-end">
+            {homeSelection.viewAll}
+          </TextLink>
         </div>
-        <div
-          ref={carouselRef}
-          role="region"
-          aria-label={featured.title}
-          tabIndex={0}
-          onScroll={(event) => {
-            const carousel = event.currentTarget;
-            const firstCard = carousel.children[0] as HTMLElement | undefined;
-            if (!firstCard) return;
-            const gap = Number.parseFloat(getComputedStyle(carousel).gap) || 0;
-            setActiveIndex(Math.max(0, Math.min(lovedProducts.length - 1, Math.round(carousel.scrollLeft / (firstCard.offsetWidth + gap)))));
-          }}
-          className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-5 px-5 pb-4 sm:-mx-8 sm:scroll-px-8 sm:px-8 md:mx-0 md:mt-16 md:px-0"
-        >
-          {lovedProducts.map((product, index) => <ProductCard key={product.slug} product={product} index={index} homeCard className="w-[72vw] max-w-72 shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] sm:max-w-none md:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-4.5rem)/4)]" />)}
+
+        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-3">
+          {selection.map((product) => (
+            <article key={product.slug} className="flex">
+              <SmartLink
+                href={`/products/${product.slug}`}
+                aria-label={`${homeSelection.viewArtwork}: ${product.title}`}
+                className="group flex w-full flex-col overflow-hidden rounded-card border border-light bg-white transition-colors hover:border-brand focus-visible:outline-brand"
+              >
+                <div className="relative aspect-landscape overflow-hidden bg-white">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    sizes="(min-width: 1280px) 379px, (min-width: 768px) 30vw, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-5 lg:p-6">
+                  <p className="text-xs font-medium uppercase leading-5 tracking-wider text-steel md:min-h-10">
+                    {formatCategoryLabel(product.category)}
+                  </p>
+                  <h3 className="mt-2 text-xl font-medium leading-snug tracking-tight text-deep">
+                    {product.title}
+                  </h3>
+                  <div className="mt-auto pt-6">
+                    <span className="flex min-h-11 items-center justify-between gap-3 border-t border-light pt-4 text-sm font-semibold text-brand">
+                      {homeSelection.viewArtwork}
+                      <ArrowUpRight aria-hidden="true" className="h-5 w-5 shrink-0 rtl:-rotate-90" />
+                    </span>
+                  </div>
+                </div>
+              </SmartLink>
+            </article>
+          ))}
         </div>
       </Container>
     </Section>

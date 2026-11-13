@@ -47,7 +47,7 @@ export type Offering = Visual & {
 export type Product = {
   slug: string;
   title: string;
-  category: "Mixed Media Collections" | "Mixed Media Artworks" | "Original Texture Artworks";
+  category: "Collections" | "Mixed Media" | "Originals";
   /** PLACEHOLDER prices. Replace with real ones (currency is set in constants/site.ts). */
   price: number;
   art: ArtVariant;
