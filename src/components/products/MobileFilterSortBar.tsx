@@ -18,6 +18,7 @@ interface MobileFilterSortBarProps {
 const POPULAR_CATEGORIES = [
   { label: "Mixed Media Collections", id: "Mixed_Media_Canvas" },
   { label: "Mixed Media Artworks", id: "Mixed_Media_Artworks" },
+  { label: "Original Texture Artworks", id: "Original_Texture" },
 ];
 
 const SORT_OPTIONS: { value: "featured" | "price-asc" | "price-desc" | "rating"; label: string }[] = [

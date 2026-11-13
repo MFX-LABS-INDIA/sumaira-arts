@@ -23,7 +23,7 @@ export const formatCategoryLabel = (category: string) => {
     case "Mixed_Media_Artworks":
       return "Mixed Media Artworks";
     case "Original_Texture":
-      return "Original Texture";
+      return "Original Texture Artworks";
     case "Collections":
       return "Collections";
     default:
@@ -54,7 +54,7 @@ export const products = allProducts.map((p) => ({
       ? ("Mixed Media Artworks" as const)
       : p.category.includes("Mixed_Media")
       ? ("Mixed Media Collections" as const)
-      : ("Original Texture" as const),
+      : ("Original Texture Artworks" as const),
   categoryRaw: p.category,
   price: p.priceUSD,
   art: (p.artVariant || "allah") as ArtVariant,

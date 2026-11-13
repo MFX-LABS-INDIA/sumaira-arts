@@ -83,6 +83,8 @@ There are no photographs yet (the art is drawn). When they arrive:
   loads. Do not remove it.
 - AVIF/WebP are on (`next.config.ts`) and optimised images cache for 30 days. Export sources at
   no more than ~2× the largest displayed size.
+- A local service worker keeps previously loaded pages and images available while revalidating them
+  in the background. It never caches `/api` responses or non-GET requests.
 - Re-run `npm run perf` when the first real photos land: it will change the LCP element.
 
 ## Scripts and fonts

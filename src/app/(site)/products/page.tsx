@@ -16,6 +16,7 @@ const CATEGORY_OPTIONS: CategoryOption[] = [
   { id: "All", label: "All Products" },
   { id: "Mixed_Media_Canvas", label: "Mixed Media Collections" },
   { id: "Mixed_Media_Artworks", label: "Mixed Media Artworks" },
+  { id: "Original_Texture", label: "Original Texture Artworks" },
 ];
 
 const INITIAL_LOAD_COUNT = 9;
@@ -262,7 +263,7 @@ function ProductsCatalogContent() {
                             : p.category.includes("Mixed_Media")
                             ? "Mixed Media Collections"
                             : p.category.includes("Original")
-                            ? "Original Texture"
+                            ? "Original Texture Artworks"
                             : "Collections",
                           reviewCount: p.reviews,
                           soldOut: !p.inStock,

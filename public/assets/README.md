@@ -7,13 +7,10 @@ Next.js only serves static files from `public/`, which is why this folder lives 
 assets/
 ├── brand/          logo (SVG preferred), logo variants, favicon sources
 └── images/
-    ├── hero/        home page hero
-    ├── artworks/    one photo per artwork (data/products.ts)
-    ├── collections/ collection banners and covers (data/collections.ts)
     ├── artist/      the artist's portrait and studio shots (data/artist.ts)
-    ├── journal/     journal post covers (data/journal.ts)
-    ├── commission/  commission process and examples (data/commission.ts)
-    ├── social/      Open Graph / share image (1200×630)
+    ├── mixed-media-samples/       product galleries, one folder per artwork
+    ├── mixed-media-collections/   product galleries, one folder per artwork
+    ├── original-texture-artworks/ original artwork galleries
     └── prototype/   TEMPORARY stand-ins the site uses until final photos exist (crops/ = artwork and room cut-outs made from them)
 ```
 
@@ -23,13 +20,13 @@ Lowercase, hyphenated, descriptive: `golden-calligraphy-gold-frame.jpg`, not `IM
 
 ## Using a file
 
-Set `image: "/assets/images/artworks/<file>"` on the matching item in `src/data/`. `ArtImage` renders it with
+Set `image: "/assets/images/<group>/<artwork>/1.webp"` on the matching item in `src/data/`. `ArtImage` renders it with
 `next/image`. See [docs/PERFORMANCE.md](../../docs/PERFORMANCE.md#images) for what a photo must carry.
 
 ## Before you upload
 
-- Export photos as JPG or WebP, longest edge about 2400 px. Next.js serves smaller sizes itself.
-- Keep each file under about 500 KB where you can.
+- Export photos as WebP. Keep every image in `images/` below 20,000 bytes.
+- Reduce quality and dimensions as needed to meet the size limit; retain originals outside `public/`.
 - Use SVG for the logo so it stays sharp at every size.
 
 ## Not here

@@ -3,7 +3,7 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { mainNav } from "@/data/navigation";
-import { BagIcon, CloseIcon, HeartIcon, MenuIcon, UserIcon } from "@/components/ui/Icons";
+import { BagIcon, CloseIcon, MenuIcon, UserIcon } from "@/components/ui/Icons";
 import { SmartLink } from "@/components/ui/Link";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "./Logo";
@@ -16,8 +16,6 @@ const ORDERS_STORAGE_KEY = "sumaira-arts-orders";
 const ORDERS_UPDATED_EVENT = "sumaira-orders-updated";
 const LOCALE_STORAGE_KEY = "sumaira-arts-locale";
 const LOCALE_UPDATED_EVENT = "sumaira-locale-updated";
-const WISHLIST_STORAGE_KEY = "sumaira-arts-wishlist";
-const WISHLIST_UPDATED_EVENT = "sumaira-wishlist-updated";
 
 type Locale = "en-GB" | "ar" | "fr" | "es";
 
@@ -31,13 +29,13 @@ const languages: Record<Locale, { label: string; countryCode: string; direction:
 const navTranslations: Record<Locale, Record<string, string>> = {
   "en-GB": {},
   ar: {
-    Products: "المنتجات", About: "حول", "Contact Us": "اتصل بنا", Cart: "السلة", Wishlist: "المفضلة", "My Orders": "طلباتي", Journal: "المجلة",
+    Products: "المنتجات", About: "حول", "Contact Us": "اتصل بنا", Cart: "السلة", "My Orders": "طلباتي", Journal: "المجلة",
   },
   fr: {
-    Products: "Produits", About: "À propos", "Contact Us": "Nous contacter", Cart: "Panier", Wishlist: "Favoris", "My Orders": "Mes commandes", Journal: "Journal",
+    Products: "Produits", About: "À propos", "Contact Us": "Nous contacter", Cart: "Panier", "My Orders": "Mes commandes", Journal: "Journal",
   },
   es: {
-    Products: "Productos", About: "Acerca de", "Contact Us": "Contacto", Cart: "Carrito", Wishlist: "Favoritos", "My Orders": "Mis pedidos", Journal: "Revista",
+    Products: "Productos", About: "Acerca de", "Contact Us": "Contacto", Cart: "Carrito", "My Orders": "Mis pedidos", Journal: "Revista",
   },
 };
 
@@ -67,21 +65,6 @@ const subscribeToOrders = (onChange: () => void) => {
     window.removeEventListener("storage", onStorage);
     window.removeEventListener(ORDERS_UPDATED_EVENT, onChange);
   };
-};
-
-const getWishlistCount = () => {
-  try {
-    const saved = window.localStorage.getItem(WISHLIST_STORAGE_KEY);
-    const wishlist = saved ? JSON.parse(saved) : [];
-    return Array.isArray(wishlist) ? wishlist.length : 0;
-  } catch { return 0; }
-};
-
-const subscribeToWishlist = (onChange: () => void) => {
-  const onStorage = (event: StorageEvent) => event.key === WISHLIST_STORAGE_KEY && onChange();
-  window.addEventListener("storage", onStorage);
-  window.addEventListener(WISHLIST_UPDATED_EVENT, onChange);
-  return () => { window.removeEventListener("storage", onStorage); window.removeEventListener(WISHLIST_UPDATED_EVENT, onChange); };
 };
 
 const getLocale = (): Locale => {
@@ -132,7 +115,6 @@ export function Header() {
     () => false,
   );
   const orderCount = useSyncExternalStore(subscribeToOrders, getOrderCount, () => 0);
-  const wishlistCount = useSyncExternalStore(subscribeToWishlist, getWishlistCount, () => 0);
   const [open, setOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const locale = useSyncExternalStore<Locale>(subscribeToLocale, getLocale, () => "en-GB");
@@ -207,7 +189,7 @@ export function Header() {
 
           <nav aria-label="Primary" className="absolute start-1/2 hidden -translate-x-1/2 lg:block">
             <ul className="flex items-center gap-7">
-              {mainNav.filter((link) => !["Cart", "Wishlist", "My Orders"].includes(link.label)).map((link) => {
+              {mainNav.filter((link) => !["Cart", "My Orders"].includes(link.label)).map((link) => {
                 const active = isLinkActive(link.href);
                 return (
                   <li key={link.label}>
@@ -253,21 +235,6 @@ export function Header() {
               </div>
               ) : null}
             </div>
-            <SmartLink
-              href="/wishlist"
-              aria-label="Wishlist"
-              aria-current={isLinkActive("/wishlist") ? "page" : undefined}
-              className={iconNavLink("/wishlist", "group relative flex h-10 w-10 items-center justify-center rounded-full transition-colors")}
-            >
-              <HeartIcon className="h-5 w-5" />
-              <span className="absolute end-0 top-0">
-                <CountBadge count={wishlistCount} />
-              </span>
-              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
-                Wishlist
-              </span>
-            </SmartLink>
-
             <SmartLink
               href="/orders"
               aria-label="My orders"
@@ -364,7 +331,6 @@ export function Header() {
                         <span>{navLabel(link.label)}</span>
                       </span>
                       {link.label === "Cart" ? <CountBadge count={cartItemCount} /> : null}
-                      {link.label === "Wishlist" ? <CountBadge count={wishlistCount} /> : null}
                       {link.label === "My Orders" ? <CountBadge count={orderCount} /> : null}
                     </SmartLink>
                   </li>

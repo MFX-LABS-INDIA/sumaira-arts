@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ArtPiece } from "@/components/art/ArtPiece";
 import { SmartLink } from "@/components/ui/Link";
 import { Reveal } from "@/components/ui/Reveal";
-import { WishlistButton } from "./WishlistButton";
 import { formatPrice } from "@/lib/format";
 import { useAppDispatch } from "@/store/hooks";
 import { addToCart } from "@/store/cartSlice";
@@ -88,7 +87,6 @@ export function ProductCard({
           </span>
         </div>
 
-        <WishlistButton title={product.title} productSlug={product.slug} className="absolute end-2 top-2 z-10 sm:end-3 sm:top-3" />
 
         {/* Quick Add To Cart Button Overlay */}
         {!product.soldOut && (

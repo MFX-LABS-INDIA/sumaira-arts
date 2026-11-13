@@ -23,7 +23,7 @@ src/
 ├── components/
 │   ├── sections/               The large blocks a page is made of: Hero, Journal, Commission, …
 │   ├── common/                 Composed pieces reused by sections or the layout:
-│   │                           ProductCard, WishlistButton
+│   │                           ProductCard
 │   ├── layout/                 Header, Footer, Logo, SiteChrome, RevealController, SmoothScroll
 │   ├── ui/                     Primitives: Container, Section, SectionHeading, Link, Icons, Reveal
 │   └── art/                    Placeholder artwork: sprite, rooms, ArtImage
@@ -88,7 +88,7 @@ or a browser API. Today the complete list is:
 | `layout/Header`                          | reads scroll position and route, owns the mobile menu state |
 | `layout/RevealController`                | one `IntersectionObserver` for every scroll reveal          |
 | `layout/SmoothScroll`, `LenisRoot`       | `matchMedia` gate, then the lazily loaded smooth-scroll lib |
-| `common/WishlistButton`                  | a toggle (local state)                                      |
+| `providers/ServiceWorkerRegistration`    | registers the browser runtime cache after the first production render |
 | `common/HeroControls`                     | hero carousel: slide state, pause, swipe (ADR-0015)         |
 | `(site)/error.tsx`                       | Next requires an error boundary to be a client component    |
 
@@ -102,7 +102,7 @@ server-rendered with no hydration cost. Adding to this table is an architectural
 | Content          | `src/data`, at build time                                                        |
 | Form result      | `useActionState` + a server action returning `FormState`                        |
 | URL state        | anchors (`#collections`) and, later, route segments                              |
-| Local UI         | `useState` in the lowest component that needs it (menu open, wishlist heart)     |
+| Local UI         | `useState` in the lowest component that needs it (menu open)                     |
 | Filters / toggles / reveals | CSS where it can be (`<details>`, `:has`, radios) — see [ADR-0007](./adr/0007-css-only-collection-filter.md) and [ADR-0012](./adr/0012-home-page-redesign.md) |
 
 No global client store. A concrete need an ADR can describe is the bar.

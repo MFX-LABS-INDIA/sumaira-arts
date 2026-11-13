@@ -43,7 +43,7 @@ app (routes)  →  components (sections · common · layout · ui · art)  →  
 
 - `components/sections/` — the large blocks a page is made of (`Hero`, `Journal`, …).
 - `components/common/` — composed pieces reused by more than one section or by the layout
-  (`ProductCard`, `WishlistButton`, `NewsletterForm`).
+  (`ProductCard`, `NewsletterForm`).
 - `components/layout/` — page chrome and its behaviour. `components/ui/` — primitives.
   `components/art/` — the placeholder-art system (unchanged).
 - `data/` — static content, one file per topic (`home.ts`, `products.ts`, `collections.ts`, …).

@@ -21,7 +21,7 @@ so the layers here are shaped to that:
 | **Primitives** | `src/components/ui`            | The smallest reusable pieces: `Container`, `Section`, `SectionHeading`, `ButtonLink`, `TextLink`, icons, `Reveal`. | No content, no feature knowledge, no data. Accept `className`.        |
 | **Chrome**     | `src/components/layout`        | The frame around a page: `Header`, `Footer`, `Logo`, `SiteChrome`, scroll behaviour.  | Compose primitives. May read the route and scroll.                    |
 | **Art**        | `src/components/art`           | Placeholder artwork and rooms, and the one component that shows either them or a photograph (`ArtImage`). | Special rules — read `components/art/CLAUDE.md`.                       |
-| **Common**     | `src/components/common`        | Composed pieces reused by sections or the layout: `ProductCard`, `WishlistButton`. | Compose primitives and art. Receive data as props. |
+| **Common**     | `src/components/common`        | Composed pieces reused by sections or the layout: `ProductCard`. | Compose primitives and art. Receive data as props. |
 | **Sections**   | `src/components/sections`      | A large block of a page: `Hero`, `Journal`, `Commission`.                             | Compose the layers above. Copy comes from `src/data/`. |
 | **Pages**      | `src/app/(site)/**/page.tsx`   | A route: the order of sections.                                                       | Composition only. The only layer that knows about routing.            |
 
@@ -64,7 +64,7 @@ across everything. Avoid gold and beige as a dominant colour.
 | `text-body-sm`             | 0.95rem               | Card descriptions                               |
 | `tracking-caps`            | 0.22em                | Small-caps labels                               |
 | `tracking-eyebrow`         | 0.3em                 | Eyebrows                                        |
-| `rounded-control` / `rounded-card` | 0.5rem · 1rem | Buttons, inputs, chips · cards and imagery. Pills and the heart button are `rounded-full` |
+| `rounded-control` / `rounded-card` | 0.5rem · 1rem | Buttons, inputs, chips · cards and imagery. Pills are `rounded-full` |
 | `aspect-portrait` / `-landscape` / `-tall` | 4/5 · 4/3 · 3/4 | Artwork shapes                             |
 | `shadow-raised` / `shadow-artwork` | navy-tinted   | Header · matted artwork. Never plain black      |
 | `animate-fade-up` / `-fade-in` / `-scale-in` | —   | Entrances                                       |
