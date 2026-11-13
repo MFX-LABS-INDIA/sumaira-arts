@@ -39,7 +39,6 @@ export function ProductCard({
         productId: product.slug,
         slug: product.slug,
         title: product.title,
-        titleAr: product.titleAr,
         category: product.category,
         collection: product.collection || "Curated Collection",
         priceUSD: product.price,
@@ -138,11 +137,7 @@ export function ProductCard({
             </SmartLink>
           </h3>
 
-          {product.titleAr && (
-            <p lang="ar" dir="rtl" className="mt-1 hidden font-serif text-sm text-steel/80 sm:block">
-              {product.titleAr}
-            </p>
-          )}
+
         </div>
 
         {/* Footer: Pricing matching Arabian Sand Dunes layout */}

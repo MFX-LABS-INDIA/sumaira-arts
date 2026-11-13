@@ -91,7 +91,7 @@ function ProductsCatalogContent() {
 
     return allProducts
       .filter((product) =>
-        [product.title, product.titleAr, product.description, product.medium]
+        [product.title, product.description, product.medium]
           .filter(Boolean)
           .some((value) => value?.toLowerCase().includes(query))
       )

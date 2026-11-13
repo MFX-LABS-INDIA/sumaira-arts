@@ -12,7 +12,6 @@ export interface Product {
   id: string;
   slug: string;
   title: string;
-  titleAr?: string;
   category: "Mixed_Media_Canvas" | "Original_Texture" | "Collections" | string;
   collection?: string;
   priceUSD: number;
@@ -43,7 +42,6 @@ export interface CartItem {
   productId: string;
   slug: string;
   title: string;
-  titleAr?: string;
   category: string;
   collection?: string;
   priceUSD: number;

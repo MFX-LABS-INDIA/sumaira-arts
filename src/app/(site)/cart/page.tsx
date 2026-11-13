@@ -100,11 +100,7 @@ export default function CartPage() {
                         {item.category} {item.collection ? `• ${item.collection}` : ''}
                       </span>
                       <h2 className="mt-1 font-serif text-lg font-normal text-deep">{item.title}</h2>
-                      {item.titleAr && (
-                        <p lang="ar" dir="rtl" className="text-xs text-steel mt-0.5">
-                          {item.titleAr}
-                        </p>
-                      )}
+
                       {(item.selectedStyle || item.selectedSize) && (
                         <div className="mt-1.5 flex flex-wrap gap-1.5">
                           {item.selectedStyle && (

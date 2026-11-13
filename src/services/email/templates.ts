@@ -9,11 +9,7 @@ export const getOrderEmailTemplate = (order: Order): string => {
         <div style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 16px; font-weight: normal; color: #0d182a; line-height: 1.3;">
           ${item.title}
         </div>
-        ${
-          item.titleAr
-            ? `<div style="font-family: Arial, sans-serif; font-size: 13px; color: #6b8cae; direction: rtl; margin-top: 2px;">${item.titleAr}</div>`
-            : ""
-        }
+
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #6b8cae; margin-top: 6px;">
           ${item.category} &nbsp;•&nbsp; ${item.collection}
         </div>

@@ -48,7 +48,6 @@ export const products = allProducts.map((p) => ({
   id: p.id,
   slug: p.slug,
   title: p.title,
-  titleAr: p.titleAr,
   category:
     p.category === "Mixed_Media_Artworks"
       ? ("Mixed Media" as const)

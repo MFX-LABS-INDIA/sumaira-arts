@@ -132,7 +132,6 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
         productId: product.id,
         slug: product.slug,
         title: product.title,
-        titleAr: product.titleAr,
         category: formatCategoryLabel(
           product.category || "Mixed_Media_Canvas"
         ),
@@ -203,15 +202,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                 <h1 className="font-serif text-3xl sm:text-4xl font-light text-deep tracking-tight">
                   {product.title}
                 </h1>
-                {product.titleAr && (
-                  <p
-                    lang="ar"
-                    dir="rtl"
-                    className="mt-1 font-serif text-xl text-steel"
-                  >
-                    {product.titleAr}
-                  </p>
-                )}
+
                 {product.rating && (
                   <div className="mt-3 flex items-center gap-2">
                     <StarRating

@@ -57,8 +57,6 @@ export type Product = {
   image?: string;
   /** Optional photograph of the artwork in a room (hover view). */
   sceneImage?: string;
-  /** Optional Arabic title, shown under the English one. Rendered only when present. */
-  titleAr?: string;
   /** Optional rating (0 to 5) and review count. Stars render only when present. */
   rating?: number;
   reviewCount?: number;

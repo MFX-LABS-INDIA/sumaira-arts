@@ -1,2232 +1,2327 @@
 [
-  {
-    "id": "prod-1",
-    "slug": "99-names-golden-edition",
-    "title": "Adaptable",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 128,
-    "booked": "340+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": true,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "120 x 80 cm (47 x 31 in)",
-    "medium": "Mixed media with 24K genuine gold leaf and textured pigment on canvas",
-    "frame": "Floating brushed champagne aluminium frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/adaptable/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-surah-triptych.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/adaptable/1.webp",
-      "/assets/images/mixed-media-samples/adaptable/2.webp",
-      "/assets/images/mixed-media-samples/adaptable/3.webp",
-      "/assets/images/mixed-media-samples/adaptable/4.webp",
-      "/assets/images/mixed-media-samples/adaptable/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "hall",
-    "features": [
-      "Hand-gilded with genuine 24-karat gold leaf",
-      "Sealed with archival museum UV varnish protection",
-      "Signed and numbered certificate of studio authenticity",
-      "Ready to hang with heavy-duty recessed hanging hardware"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-2",
-    "slug": "ayatul-kursi",
-    "title": "Bliss",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 490,
-    "oldPriceUSD": 550,
-    "rating": 4.9,
-    "reviews": 230,
-    "booked": "520+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": true,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "100 x 70 cm (39 x 28 in)",
-    "medium": "Deep indigo acrylics, gesso relief, metallic gold leaf accents",
-    "frame": "Minimalist matte black steel profile",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/bliss/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/bliss/1.webp",
-      "/assets/images/mixed-media-samples/bliss/2.webp",
-      "/assets/images/mixed-media-samples/bliss/3.webp",
-      "/assets/images/mixed-media-samples/bliss/4.webp",
-      "/assets/images/mixed-media-samples/bliss/5.webp"
-    ],
-    "artVariant": "salaam",
-    "scene": "bedroom",
-    "features": [
-      "Calligraphed in fluid Thuluth-inspired modern rhythm",
-      "Layered lapis lazuli and obsidian pigment blend",
-      "Signed and catalogued by the studio master",
-      "Museum anti-reflective framing standard"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-3",
-    "slug": "dua-collection",
-    "title": "Dynamic",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 420,
-    "oldPriceUSD": 480,
-    "rating": 4.8,
-    "reviews": 85,
-    "booked": "180+ Acquired",
-    "isFeatured": false,
-    "isMostLoved": true,
-    "inStock": true,
-    "dimensions": "90 x 90 cm (35 x 35 in)",
-    "medium": "Rich navy pigments, mica dust, acrylic glaze on museum gallery canvas",
-    "frame": "Solid walnut shadowbox frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/dynamic/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-navy-gold.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/dynamic/1.webp",
-      "/assets/images/mixed-media-samples/dynamic/2.webp",
-      "/assets/images/mixed-media-samples/dynamic/3.webp",
-      "/assets/images/mixed-media-samples/dynamic/4.webp",
-      "/assets/images/mixed-media-samples/dynamic/5.webp"
-    ],
-    "artVariant": "noor",
-    "scene": "office",
-    "features": [
-      "Natural mica minerals provide subtle ambient shimmer",
-      "Deep gallery edge wrap (1.5 inch profile)",
-      "Accompanied by an embossed collector card",
-      "Suitable for contemporary or transitional interior themes"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-4",
-    "slug": "al-fatiha",
-    "title": "Elegant",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 580,
-    "oldPriceUSD": 650,
-    "rating": 4.9,
-    "reviews": 160,
-    "booked": "310+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": false,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "110 x 80 cm (43 x 31 in)",
-    "medium": "Tonal grey mineral washes, raw linen ground, hand-lettered ink calligraphy",
-    "frame": "Raw natural ash wood gallery frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/elegant/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-grey-abstract.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/elegant/1.webp",
-      "/assets/images/mixed-media-samples/elegant/2.webp",
-      "/assets/images/mixed-media-samples/elegant/3.webp"
-    ],
-    "artVariant": "star",
-    "scene": "living",
-    "features": [
-      "Hand-applied sumi ink with custom bamboo quill pens",
-      "Soft muted tones blend seamlessly into neutral minimalist walls",
-      "Non-fading archival inks tested for 100+ years permanence",
-      "Hand-finished protective satin varnish"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-5",
-    "slug": "falaq-sanctuary",
-    "title": "Emerald",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 610,
-    "oldPriceUSD": 690,
-    "rating": 4.9,
-    "reviews": 88,
-    "booked": "190+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": true,
-    "inStock": true,
-    "dimensions": "110 x 85 cm (43 x 33 in)",
-    "medium": "Textured gesso, gold enamel script, charcoal haze on cotton canvas",
-    "frame": "Dark walnut floating tray frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/emerald/1.webp",
-    "sceneImage": "/assets/images/prototype/room-living-surah-triptych.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/emerald/1.webp",
-      "/assets/images/mixed-media-samples/emerald/2.webp",
-      "/assets/images/mixed-media-samples/emerald/3.webp",
-      "/assets/images/mixed-media-samples/emerald/4.webp",
-      "/assets/images/mixed-media-samples/emerald/5.webp"
-    ],
-    "artVariant": "rings",
-    "scene": "hall",
-    "features": [
-      "Layered charcoal and warm amber undertones",
-      "Authentic calligraphic rendition of Surah Al-Falaq",
-      "Protected with matte non-reflective varnish",
-      "Framed with sustainable solid walnut"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-6",
-    "slug": "inkography",
-    "title": "Enchanting",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 540,
-    "oldPriceUSD": 600,
-    "rating": 4.7,
-    "reviews": 68,
-    "booked": "140+ Acquired",
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "115 x 75 cm (45 x 30 in)",
-    "medium": "Japanese sumi ink, alcohol wash dispersion, archival varnished canvas",
-    "frame": "Satin anthracite wooden profile",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/enchanting/1.webp",
-    "sceneImage": "/assets/images/prototype/room-lounge-navy-gold.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/enchanting/1.webp",
-      "/assets/images/mixed-media-samples/enchanting/2.webp",
-      "/assets/images/mixed-media-samples/enchanting/3.webp",
-      "/assets/images/mixed-media-samples/enchanting/4.webp",
-      "/assets/images/mixed-media-samples/enchanting/5.webp"
-    ],
-    "artVariant": "ink",
-    "scene": "hall",
-    "features": [
-      "Fine art carbon sumi ink with resin binder",
-      "High visual contrast suited for feature walls and corridors",
-      "Anti-glare museum UV coating",
-      "Studio certificate of registration"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-7",
-    "slug": "bismillah-calligraphy-canvas",
-    "title": "Ethereal",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 510,
-    "oldPriceUSD": 570,
-    "rating": 4.9,
-    "reviews": 112,
-    "booked": "280+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": true,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "100 x 60 cm (39 x 24 in)",
-    "medium": "Digital sketch study turned fine art acrylic gesso and gold pigment on stretched canvas",
-    "frame": "Natural champagne oak floating profile",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/ethereal/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/ethereal/1.webp",
-      "/assets/images/mixed-media-samples/ethereal/2.webp",
-      "/assets/images/mixed-media-samples/ethereal/3.webp",
-      "/assets/images/mixed-media-samples/ethereal/4.webp",
-      "/assets/images/mixed-media-samples/ethereal/5.webp",
-      "/assets/images/mixed-media-samples/ethereal/6.webp",
-      "/assets/images/mixed-media-samples/ethereal/7.webp"
-    ],
-    "artVariant": "salaam",
-    "scene": "office",
-    "features": [
-      "Dynamic flowing baseline typography",
-      "Warm ivory ground with warm bronze underpainting",
-      "Signed studio archival edition",
-      "Pre-installed hanging bracket"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-8",
-    "slug": "surah-ikhlas-minimalist",
-    "title": "Exquisite",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 470,
-    "oldPriceUSD": 530,
-    "rating": 4.8,
-    "reviews": 95,
-    "booked": "220+ Acquired",
-    "isFeatured": false,
-    "isMostLoved": true,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "80 x 80 cm (31 x 31 in)",
-    "medium": "Golden foil embossing, matte lapis blue gouache on Belgian canvas",
-    "frame": "Brushed graphite shadow frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/exquisite/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-navy-gold.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/exquisite/1.webp",
-      "/assets/images/mixed-media-samples/exquisite/2.webp",
-      "/assets/images/mixed-media-samples/exquisite/3.webp",
-      "/assets/images/mixed-media-samples/exquisite/4.webp",
-      "/assets/images/mixed-media-samples/exquisite/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Concentrated circular Thuluth composition",
-      "High-contrast metallic gold over deep midnight",
-      "Protected with museum non-glare coating",
-      "Certificate of studio registry"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-9",
-    "slug": "surah-an-nas-sanctuary",
-    "title": "Horizon",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 530,
-    "oldPriceUSD": 590,
-    "rating": 4.9,
-    "reviews": 78,
-    "booked": "165+ Acquired",
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "100 x 75 cm (39 x 30 in)",
-    "medium": "Acrylic washes, metallic copper script, subtle gesso impasto",
-    "frame": "Dark walnut float frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/horizon/1.webp",
-    "sceneImage": "/assets/images/prototype/room-living-surah-triptych.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/horizon/1.webp",
-      "/assets/images/mixed-media-samples/horizon/2.webp",
-      "/assets/images/mixed-media-samples/horizon/3.webp",
-      "/assets/images/mixed-media-samples/horizon/4.webp",
-      "/assets/images/mixed-media-samples/horizon/5.webp"
-    ],
-    "artVariant": "noor",
-    "scene": "bedroom",
-    "features": [
-      "Subtle metallic copper and raw sienna tones",
-      "Gallery canvas wrapped edges",
-      "Signed by the artist",
-      "Moisture-resistant seal"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-10",
-    "slug": "surah-ar-rahman-splendor",
-    "title": "Jubilant",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 680,
-    "oldPriceUSD": 760,
-    "rating": 5,
-    "reviews": 142,
-    "booked": "310+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": true,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "130 x 90 cm (51 x 35 in)",
-    "medium": "24K gold foil, turquoise glaze, mineral plaster on heavy canvas",
-    "frame": "Brushed champagne aluminium profile",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/jubilant/1.webp",
-    "sceneImage": "/assets/images/prototype/room-reception-beige-abstract.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/jubilant/1.webp",
-      "/assets/images/mixed-media-samples/jubilant/2.webp",
-      "/assets/images/mixed-media-samples/jubilant/3.webp",
-      "/assets/images/mixed-media-samples/jubilant/4.webp",
-      "/assets/images/mixed-media-samples/jubilant/5.webp"
-    ],
-    "artVariant": "salaam",
-    "scene": "living",
-    "features": [
-      "Luminous multi-layered turquoise and gold leaf",
-      "Museum archival non-reflective surface",
-      "Numbered limited studio edition",
-      "Heavy-duty cleat hanger"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-11",
-    "slug": "spiritual-reflections",
-    "title": "Marine",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 980,
-    "oldPriceUSD": 1100,
-    "rating": 5,
-    "reviews": 94,
-    "booked": "210+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": true,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "140 x 100 cm (55 x 39 in)",
-    "medium": "Heavy body impasto, natural sand mineral pigments on heavy Belgian linen",
-    "frame": "Natural solid white oak tray frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/marine/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-reception-beige.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/marine/1.webp",
-      "/assets/images/mixed-media-samples/marine/2.webp",
-      "/assets/images/mixed-media-samples/marine/3.webp",
-      "/assets/images/mixed-media-samples/marine/4.webp",
-      "/assets/images/mixed-media-samples/marine/5.webp"
-    ],
-    "artVariant": "orbs",
-    "scene": "living",
-    "features": [
-      "Natural earthen sand and quartz minerals sculpted by palette knife",
-      "Heavyweight Belgian linen stretched over kiln-dried kiln pine",
-      "Deep relief profile creates dramatic shadow shifts in natural light",
-      "Treated with protective matte sealant against humidity and dust"
-    ],
-    "styles": [
-      {
-        "label": "Unframed Original",
-        "priceModifier": 0
-      },
-      {
-        "label": "Floating Frame",
-        "priceModifier": 80
-      },
-      {
-        "label": "Shadow Box Frame",
-        "priceModifier": 150
-      }
-    ],
-    "sizes": [
-      {
-        "label": "80 cm x 80 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "100 cm x 100 cm",
-        "priceModifier": 120
-      },
-      {
-        "label": "120 cm x 120 cm",
-        "priceModifier": 250
-      }
-    ]
-  },
-  {
-    "id": "prod-12",
-    "slug": "love-and-devotion",
-    "title": "Phenominal",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 760,
-    "oldPriceUSD": 850,
-    "rating": 4.8,
-    "reviews": 72,
-    "booked": "150+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": true,
-    "inStock": true,
-    "dimensions": "120 x 90 cm (47 x 35 in)",
-    "medium": "Sculpted palette knife acrylic modeling paste, cerulean & cobalt glazes",
-    "frame": "Brushed silver shadow float frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/phenominal/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-blue-wave.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/phenominal/1.webp",
-      "/assets/images/mixed-media-samples/phenominal/2.webp",
-      "/assets/images/mixed-media-samples/phenominal/3.webp",
-      "/assets/images/mixed-media-samples/phenominal/4.webp",
-      "/assets/images/mixed-media-samples/phenominal/5.webp",
-      "/assets/images/mixed-media-samples/phenominal/6.webp",
-      "/assets/images/mixed-media-samples/phenominal/7.webp"
-    ],
-    "artVariant": "bloom",
-    "scene": "bedroom",
-    "features": [
-      "High sculptural relief with peaks up to 18mm",
-      "Luminous multiple glaze passes reflecting subtle daylight shifts",
-      "Certified 1-of-1 original studio texture",
-      "Certificate with gallery wax seal"
-    ],
-    "styles": [
-      {
-        "label": "Unframed Original",
-        "priceModifier": 0
-      },
-      {
-        "label": "Floating Frame",
-        "priceModifier": 80
-      },
-      {
-        "label": "Shadow Box Frame",
-        "priceModifier": 150
-      }
-    ],
-    "sizes": [
-      {
-        "label": "80 cm x 80 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "100 cm x 100 cm",
-        "priceModifier": 120
-      },
-      {
-        "label": "120 cm x 120 cm",
-        "priceModifier": 250
-      }
-    ]
-  },
-  {
-    "id": "prod-13",
-    "slug": "dhikr",
-    "title": "Reliable",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 820,
-    "oldPriceUSD": 910,
-    "rating": 4.9,
-    "reviews": 110,
-    "booked": "260+ Acquired",
-    "isFeatured": false,
-    "isMostLoved": true,
-    "isMostFav": true,
-    "inStock": true,
-    "dimensions": "100 x 100 cm (39 x 39 in)",
-    "medium": "Crushed limestone, earthen binders, sculpted multi-panel relief",
-    "frame": "Museum grade bespoke shadowbox",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/reliable/1.webp",
-    "sceneImage": "/assets/images/prototype/studio-dhikr-canvases.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/reliable/1.webp",
-      "/assets/images/mixed-media-samples/reliable/2.webp",
-      "/assets/images/mixed-media-samples/reliable/3.webp",
-      "/assets/images/mixed-media-samples/reliable/4.webp",
-      "/assets/images/mixed-media-samples/reliable/5.webp"
-    ],
-    "artVariant": "rings",
-    "scene": "office",
-    "features": [
-      "Natural limestone mixture formulated in-studio",
-      "Minimalist organic circular motifs",
-      "Neutral travertine-tone surface for warm interior palettes",
-      "Comes with mounting template and steel French cleat"
-    ],
-    "styles": [
-      {
-        "label": "Unframed Original",
-        "priceModifier": 0
-      },
-      {
-        "label": "Floating Frame",
-        "priceModifier": 80
-      },
-      {
-        "label": "Shadow Box Frame",
-        "priceModifier": 150
-      }
-    ],
-    "sizes": [
-      {
-        "label": "80 cm x 80 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "100 cm x 100 cm",
-        "priceModifier": 120
-      },
-      {
-        "label": "120 cm x 120 cm",
-        "priceModifier": 250
-      }
-    ]
-  },
-  {
-    "id": "prod-14",
-    "slug": "contemporary-enso",
-    "title": "Splendid",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 890,
-    "oldPriceUSD": 980,
-    "rating": 5,
-    "reviews": 46,
-    "booked": "115+ Acquired",
-    "isFeatured": false,
-    "isMostLoved": true,
-    "inStock": true,
-    "dimensions": "120 x 120 cm (47 x 47 in)",
-    "medium": "Natural stone plaster, organic pumice paste, subtle earthen wash",
-    "frame": "Raw bleached oak tray frame",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/splendid/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-reception-beige.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/splendid/1.webp",
-      "/assets/images/mixed-media-samples/splendid/2.webp",
-      "/assets/images/mixed-media-samples/splendid/3.webp",
-      "/assets/images/mixed-media-samples/splendid/4.webp",
-      "/assets/images/mixed-media-samples/splendid/5.webp"
-    ],
-    "artVariant": "enso",
-    "scene": "living",
-    "features": [
-      "Single continuous sculpted gestural movement",
-      "Pumice and stone compound with micro-texture",
-      "Solid custom oak frame crafted by artisan joiners",
-      "Each piece individually numbered"
-    ],
-    "styles": [
-      {
-        "label": "Unframed Original",
-        "priceModifier": 0
-      },
-      {
-        "label": "Floating Frame",
-        "priceModifier": 80
-      },
-      {
-        "label": "Shadow Box Frame",
-        "priceModifier": 150
-      }
-    ],
-    "sizes": [
-      {
-        "label": "80 cm x 80 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "100 cm x 100 cm",
-        "priceModifier": 120
-      },
-      {
-        "label": "120 cm x 120 cm",
-        "priceModifier": 250
-      }
-    ]
-  },
-  {
-    "id": "prod-15",
-    "slug": "sahara-whispers",
-    "title": "Thoughtful",
-    "category": "Mixed_Media_Canvas",
-    "priceUSD": 750,
-    "oldPriceUSD": 840,
-    "rating": 4.8,
-    "reviews": 54,
-    "booked": "130+ Acquired",
-    "isFeatured": true,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "130 x 85 cm (51 x 33 in)",
-    "medium": "Warm sandstone aggregate, Venetian plaster, terracotta washes",
-    "frame": "Natural brass metal profile",
-    "description": "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-samples/thoughtful/1.webp",
-    "sceneImage": "/assets/images/prototype/crops/scene-reception-beige.webp",
-    "gallery": [
-      "/assets/images/mixed-media-samples/thoughtful/1.webp",
-      "/assets/images/mixed-media-samples/thoughtful/2.webp",
-      "/assets/images/mixed-media-samples/thoughtful/3.webp",
-      "/assets/images/mixed-media-samples/thoughtful/4.webp"
-    ],
-    "artVariant": "dunes",
-    "scene": "living",
-    "features": [
-      "Genuine desert sand mixed into mineral plaster",
-      "Warm earthy tones suitable for contemporary neutral homes",
-      "UV stable mineral pigments resist direct sunlight fading",
-      "Includes wall hanging bracket"
-    ],
-    "styles": [
-      {
-        "label": "Unframed Original",
-        "priceModifier": 0
-      },
-      {
-        "label": "Floating Frame",
-        "priceModifier": 80
-      },
-      {
-        "label": "Shadow Box Frame",
-        "priceModifier": 150
-      }
-    ],
-    "sizes": [
-      {
-        "label": "80 cm x 80 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "100 cm x 100 cm",
-        "priceModifier": 120
-      },
-      {
-        "label": "120 cm x 120 cm",
-        "priceModifier": 250
-      }
-    ]
-  }
-,  {
-    "id": "prod-16",
-    "slug": "enlightening",
-    "title": "Enlightening",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/enlightening/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/enlightening/1.webp",
-      "/assets/images/mixed-media-collections/enlightening/2.webp",
-      "/assets/images/mixed-media-collections/enlightening/3.webp",
-      "/assets/images/mixed-media-collections/enlightening/4.webp",
-      "/assets/images/mixed-media-collections/enlightening/5.webp",
-      "/assets/images/mixed-media-collections/enlightening/6.webp",
-      "/assets/images/mixed-media-collections/enlightening/7.webp",
-      "/assets/images/mixed-media-collections/enlightening/8.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-17",
-    "slug": "gracious",
-    "title": "Gracious",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/gracious/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/gracious/1.webp",
-      "/assets/images/mixed-media-collections/gracious/2.webp",
-      "/assets/images/mixed-media-collections/gracious/3.webp",
-      "/assets/images/mixed-media-collections/gracious/4.webp",
-      "/assets/images/mixed-media-collections/gracious/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-18",
-    "slug": "heavenly",
-    "title": "Heavenly",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/heavenly/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/heavenly/1.webp",
-      "/assets/images/mixed-media-collections/heavenly/2.webp",
-      "/assets/images/mixed-media-collections/heavenly/3.webp",
-      "/assets/images/mixed-media-collections/heavenly/4.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-19",
-    "slug": "infinite",
-    "title": "Infinite",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/infinite/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/infinite/1.webp",
-      "/assets/images/mixed-media-collections/infinite/2.webp",
-      "/assets/images/mixed-media-collections/infinite/3.webp",
-      "/assets/images/mixed-media-collections/infinite/4.webp",
-      "/assets/images/mixed-media-collections/infinite/5.webp",
-      "/assets/images/mixed-media-collections/infinite/6.webp",
-      "/assets/images/mixed-media-collections/infinite/7.webp",
-      "/assets/images/mixed-media-collections/infinite/8.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-20",
-    "slug": "mighty",
-    "title": "Mighty",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/mighty/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/mighty/1.webp",
-      "/assets/images/mixed-media-collections/mighty/2.webp",
-      "/assets/images/mixed-media-collections/mighty/3.webp",
-      "/assets/images/mixed-media-collections/mighty/4.webp",
-      "/assets/images/mixed-media-collections/mighty/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-21",
-    "slug": "miraculous",
-    "title": "Miraculous",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/miraculous/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/miraculous/1.webp",
-      "/assets/images/mixed-media-collections/miraculous/2.webp",
-      "/assets/images/mixed-media-collections/miraculous/3.webp",
-      "/assets/images/mixed-media-collections/miraculous/4.webp",
-      "/assets/images/mixed-media-collections/miraculous/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-22",
-    "slug": "precious",
-    "title": "Precious",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/precious/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/precious/1.webp",
-      "/assets/images/mixed-media-collections/precious/2.webp",
-      "/assets/images/mixed-media-collections/precious/3.webp",
-      "/assets/images/mixed-media-collections/precious/4.webp",
-      "/assets/images/mixed-media-collections/precious/5.webp",
-      "/assets/images/mixed-media-collections/precious/6.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-23",
-    "slug": "satisfying",
-    "title": "Satisfying",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/satisfying/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/satisfying/1.webp",
-      "/assets/images/mixed-media-collections/satisfying/2.webp",
-      "/assets/images/mixed-media-collections/satisfying/3.webp",
-      "/assets/images/mixed-media-collections/satisfying/4.webp",
-      "/assets/images/mixed-media-collections/satisfying/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-24",
-    "slug": "soothing",
-    "title": "Soothing",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/soothing/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/soothing/1.webp",
-      "/assets/images/mixed-media-collections/soothing/2.webp",
-      "/assets/images/mixed-media-collections/soothing/3.webp",
-      "/assets/images/mixed-media-collections/soothing/4.webp",
-      "/assets/images/mixed-media-collections/soothing/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-25",
-    "slug": "sparkling",
-    "title": "Sparkling",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/sparkling/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/sparkling/1.webp",
-      "/assets/images/mixed-media-collections/sparkling/2.webp",
-      "/assets/images/mixed-media-collections/sparkling/3.webp",
-      "/assets/images/mixed-media-collections/sparkling/4.webp",
-      "/assets/images/mixed-media-collections/sparkling/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-26",
-    "slug": "spiritual",
-    "title": "Spiritual",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/spiritual/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/spiritual/1.webp",
-      "/assets/images/mixed-media-collections/spiritual/2.webp",
-      "/assets/images/mixed-media-collections/spiritual/3.webp",
-      "/assets/images/mixed-media-collections/spiritual/4.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-27",
-    "slug": "striking",
-    "title": "Striking",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/striking/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/striking/1.webp",
-      "/assets/images/mixed-media-collections/striking/2.webp",
-      "/assets/images/mixed-media-collections/striking/3.webp",
-      "/assets/images/mixed-media-collections/striking/4.webp",
-      "/assets/images/mixed-media-collections/striking/5.webp",
-      "/assets/images/mixed-media-collections/striking/6.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-28",
-    "slug": "the-limits",
-    "title": "The Limits",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/the-limits/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/the-limits/1.webp",
-      "/assets/images/mixed-media-collections/the-limits/2.webp",
-      "/assets/images/mixed-media-collections/the-limits/3.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-29",
-    "slug": "the-purity",
-    "title": "The Purity",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/the-purity/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/the-purity/1.webp",
-      "/assets/images/mixed-media-collections/the-purity/2.webp",
-      "/assets/images/mixed-media-collections/the-purity/3.webp",
-      "/assets/images/mixed-media-collections/the-purity/4.webp",
-      "/assets/images/mixed-media-collections/the-purity/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-30",
-    "slug": "the-quls",
-    "title": "The Quls",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/the-quls/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/the-quls/1.webp",
-      "/assets/images/mixed-media-collections/the-quls/2.webp",
-      "/assets/images/mixed-media-collections/the-quls/3.webp",
-      "/assets/images/mixed-media-collections/the-quls/4.webp",
-      "/assets/images/mixed-media-collections/the-quls/5.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-31",
-    "slug": "ultimate",
-    "title": "Ultimate",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/ultimate/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/ultimate/1.webp",
-      "/assets/images/mixed-media-collections/ultimate/2.webp",
-      "/assets/images/mixed-media-collections/ultimate/3.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-32",
-    "slug": "vibrant",
-    "title": "Vibrant",
-    "category": "Mixed_Media_Artworks",
-    "collection": "Mixed Media",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "isFeatured": false,
-    "isMostLoved": false,
-    "inStock": true,
-    "dimensions": "72 cm x 100 cm",
-    "medium": "Mixed media on canvas",
-    "frame": "Floating frame",
-    "description": "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
-    "image": "/assets/images/mixed-media-collections/vibrant/1.webp",
-    "gallery": [
-      "/assets/images/mixed-media-collections/vibrant/1.webp",
-      "/assets/images/mixed-media-collections/vibrant/2.webp",
-      "/assets/images/mixed-media-collections/vibrant/3.webp",
-      "/assets/images/mixed-media-collections/vibrant/4.webp",
-      "/assets/images/mixed-media-collections/vibrant/5.webp",
-      "/assets/images/mixed-media-collections/vibrant/6.webp",
-      "/assets/images/mixed-media-collections/vibrant/7.webp",
-      "/assets/images/mixed-media-collections/vibrant/8.webp"
-    ],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": [
-      "Hand-finished mixed media artwork",
-      "Ready to hang",
-      "Certificate of authenticity included"
-    ],
-    "styles": [
-      {
-        "label": "Rolled Canvas",
-        "priceModifier": 0
-      },
-      {
-        "label": "Stretched Canvas",
-        "priceModifier": 60
-      },
-      {
-        "label": "Framed Canvas",
-        "priceModifier": 120
-      }
-    ],
-    "sizes": [
-      {
-        "label": "72 cm x 100 cm",
-        "priceModifier": 0
-      },
-      {
-        "label": "88 cm x 120 cm",
-        "priceModifier": 80
-      },
-      {
-        "label": "102 cm x 140 cm",
-        "priceModifier": 160
-      }
-    ]
-  },
-  {
-    "id": "prod-33",
-    "slug": "tides-of-blessing",
-    "title": "Tides of Blessing",
-    "titleAr": "Ø§Ù„Ù’Ø­ÙŽÙ…Ù’Ø¯Ù Ù„ÙÙ„ÙŽÙ‘Ù‡Ù",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "dimensions": "100 x 70 cm",
-    "medium": "Mixed media textured artwork with metallic gold finishing",
-    "frame": "Floating frame",
-    "description": "This artwork expresses the essence of Alhamdulillah â€” a phrase of deep gratitude and appreciation to Allah for all blessings. Flowing ocean-blue textures represent calmness, depth, and the endless nature of gratitude, while golden calligraphy symbolizes the divine beauty and light of thankfulness.",
-    "image": "/assets/images/original-texture-artworks/tides-of-blessing/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/tides-of-blessing/1.webp", "/assets/images/original-texture-artworks/tides-of-blessing/2.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Hand-textured original artwork", "Metallic gold calligraphy finishing", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-34",
-    "slug": "the-throne-of-light",
-    "title": "The Throne of Light",
-    "titleAr": "Ø¢ÙŠØ© Ø§Ù„ÙƒØ±Ø³ÙŠ",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Mixed Media on Canvas",
-    "frame": "Floating frame",
-    "description": "The Throne of Light is a contemporary mixed-media artwork inspired by Ayat al-Kursi, a powerful verse from the Qurâ€™an that speaks of divine sovereignty, knowledge, and protection. The verse reflects the infinite authority of God, whose Throne extends over the heavens and the earth.",
-    "image": "/assets/images/original-texture-artworks/infinite-gratitude/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/infinite-gratitude/1.webp", "/assets/images/original-texture-artworks/infinite-gratitude/2.webp", "/assets/images/original-texture-artworks/infinite-gratitude/3.webp", "/assets/images/original-texture-artworks/infinite-gratitude/4.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Hand-embellished textures", "Metallic gold foil", "Handwritten Arabic calligraphy"]
-  },
-  {
-    "id": "prod-35",
-    "slug": "multiplied-blessings",
-    "title": "Multiplied Blessings",
-    "titleAr": "Ù„ÙŽØ¦ÙÙ† Ø´ÙŽÙƒÙŽØ±Ù’ØªÙÙ…Ù’ Ù„ÙŽØ£ÙŽØ²ÙÙŠØ¯ÙŽÙ†ÙŽÙ‘ÙƒÙÙ…Ù’",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Mixed media textured artwork with elegant calligraphy",
-    "frame": "Floating frame",
-    "description": "This piece features the powerful Quranic phrase Laâ€™in shakartum laâ€™azeedannakum: if you are grateful, I will surely increase you. Calming bluish-grey and white textures symbolize peace, sincerity, and spiritual reflection, while the composition reflects the divine promise that blessings grow when hearts remain thankful.",
-    "image": "/assets/images/original-texture-artworks/multiplied-blessings/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/multiplied-blessings/1.webp", "/assets/images/original-texture-artworks/multiplied-blessings/2.webp", "/assets/images/original-texture-artworks/multiplied-blessings/3.webp", "/assets/images/original-texture-artworks/multiplied-blessings/4.webp", "/assets/images/original-texture-artworks/multiplied-blessings/5.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Hand-textured original artwork", "Contemporary Islamic calligraphy", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-36",
-    "slug": "divine-reliance-texture",
-    "title": "Divine Reliance (or your chosen title)",
-    "titleAr": "Ù„ÙŽØ§ Ø­ÙŽÙˆÙ’Ù„ÙŽ ÙˆÙŽÙ„ÙŽØ§ Ù‚ÙÙˆÙŽÙ‘Ø©ÙŽ Ø¥ÙÙ„ÙŽÙ‘Ø§ Ø¨ÙØ§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø§Ù„Ù’Ø¹ÙŽÙ„ÙÙŠÙÙ‘ Ø§Ù„Ù’Ø¹ÙŽØ¸ÙÙŠÙ…Ù",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Mixed media textured artwork with elegant calligraphy",
-    "frame": "Floating frame",
-    "description": "This artwork features La Hawla Wa La Quwwata Illa Billahil Aliyyil Azeem, a powerful reminder that all strength and ability come only from Allah. Silver and grey textures symbolize calmness, humility, and reflection, while the composition emphasizes spiritual reliance and inner peace through faith.",
-    "image": "/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/1.webp", "/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/2.webp", "/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/3.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Hand-textured original artwork", "Contemporary Islamic calligraphy", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-37",
-    "slug": "golden-praise",
-    "title": "Golden Praise",
-    "titleAr": "Ù…ÙŽØ§ Ø´ÙŽØ§Ø¡ÙŽ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Mixed media textured artwork with metallic finishing",
-    "frame": "Floating frame",
-    "description": "This piece represents admiration and gratitude through the phrase Masha Allah â€” a reminder to acknowledge that every beauty and blessing comes from Allah. The dark textured background symbolizes depth and reflection, while metallic gold calligraphy illuminates the spiritual meaning of the words.",
-    "image": "/assets/images/original-texture-artworks/golden-praise/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/golden-praise/1.webp", "/assets/images/original-texture-artworks/golden-praise/2.webp", "/assets/images/original-texture-artworks/golden-praise/3.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Matte black and metallic gold finish", "Hand-textured original artwork", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-38",
-    "slug": "waves-of-patience",
-    "title": "Waves of Patience",
-    "titleAr": "Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ Ù…ÙŽØ¹ÙŽ Ø§Ù„ØµÙŽÙ‘Ø§Ø¨ÙØ±ÙÙŠÙ†ÙŽ",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Acrylic textures & ink on canvas",
-    "frame": "Floating frame",
-    "description": "Flowing blue textures ripple across the canvas in gentle, wavy motions, accented with touches of gold that catch the light. The handwritten calligraphy of Innallaha Maa As-Saabireen rests harmoniously within the composition, embodying serenity, perseverance, and quiet strength.",
-    "image": "/assets/images/original-texture-artworks/waves-of-patience/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/waves-of-patience/1.webp", "/assets/images/original-texture-artworks/waves-of-patience/2.webp", "/assets/images/original-texture-artworks/waves-of-patience/3.webp", "/assets/images/original-texture-artworks/waves-of-patience/4.webp", "/assets/images/original-texture-artworks/waves-of-patience/5.webp", "/assets/images/original-texture-artworks/waves-of-patience/6.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Acrylic texture and ink on canvas", "Handwritten Arabic calligraphy", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-39",
-    "slug": "promise-after-hardship",
-    "title": "Promise After Hardship",
-    "titleAr": "ÙÙŽØ¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Acrylic textures & ink on canvas",
-    "frame": "Floating frame",
-    "description": "Soft desert-toned textures form subtle arch-like movements across a clean white background, framing the calligraphy of Fa Inna Ma'al Usri Yusra. The composition reflects hope rising through adversityâ€”an elegant reminder that ease follows every hardship.",
-    "image": "/assets/images/original-texture-artworks/promise-after-hardship/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/promise-after-hardship/1.webp", "/assets/images/original-texture-artworks/promise-after-hardship/2.webp", "/assets/images/original-texture-artworks/promise-after-hardship/3.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Acrylic texture and ink on canvas", "Handwritten Arabic calligraphy", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-40",
-    "slug": "divine-reliance",
-    "title": "Divine Reliance",
-    "titleAr": "Ø­ÙŽØ³Ù’Ø¨ÙÙŠÙŽ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ÙˆÙŽÙ†ÙØ¹Ù’Ù…ÙŽ Ø§Ù„Ù’ÙˆÙŽÙƒÙÙŠÙ„Ù",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Acrylic textures & ink on canvas",
-    "frame": "Floating frame",
-    "description": "A vertical abstract divided by flowing texturesâ€”deep black and gold on one side, warm earthy beige with golden accents on the other. Centered calligraphy of Hasbiyallahu wa ni'mal Wakeel anchors the piece, symbolizing strength, surrender, and unwavering trust.",
-    "image": "/assets/images/original-texture-artworks/divine-reliance/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/divine-reliance/1.webp", "/assets/images/original-texture-artworks/divine-reliance/2.webp", "/assets/images/original-texture-artworks/divine-reliance/3.webp", "/assets/images/original-texture-artworks/divine-reliance/4.webp", "/assets/images/original-texture-artworks/divine-reliance/5.webp", "/assets/images/original-texture-artworks/divine-reliance/6.webp", "/assets/images/original-texture-artworks/divine-reliance/7.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Acrylic texture and ink on canvas", "Handwritten Arabic calligraphy", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-41",
-    "slug": "echoes-of-dhikr",
-    "title": "Echoes of Dhikr",
-    "titleAr": "Ø§Ù„Ù’Ø­ÙŽÙ…Ù’Ø¯Ù Ù„ÙÙ„ÙŽÙ‘Ù‡Ù Ø±ÙŽØ¨ÙÙ‘ Ø§Ù„Ù’Ø¹ÙŽØ§Ù„ÙŽÙ…ÙÙŠÙ†ÙŽ",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Acrylic textures & ink on canvas",
-    "frame": "Floating frame",
-    "description": "An abstract interplay of shadow and luminous gold forming a celestial flow in one corner, balanced by intimate handwritten Alhamdulillah. A refined piece symbolizing gratitude as a guiding forceâ€”radiant, grounding, and eternal.",
-    "image": "/assets/images/original-texture-artworks/echoes-of-dhikr/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/echoes-of-dhikr/1.webp", "/assets/images/original-texture-artworks/echoes-of-dhikr/2.webp", "/assets/images/original-texture-artworks/echoes-of-dhikr/3.webp", "/assets/images/original-texture-artworks/echoes-of-dhikr/4.webp", "/assets/images/original-texture-artworks/echoes-of-dhikr/5.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Acrylic texture and ink on canvas", "Luminous gold detailing", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-42",
-    "slug": "depths-of-tawbah",
-    "title": "Depths of Tawbah",
-    "titleAr": "Ù„ÙŽØ§ Ø¥ÙÙ„ÙŽÙ°Ù‡ÙŽ Ø¥ÙÙ„ÙŽÙ‘Ø§ Ø£ÙŽÙ†Ù’ØªÙŽ Ø³ÙØ¨Ù’Ø­ÙŽØ§Ù†ÙŽÙƒÙŽ Ø¥ÙÙ†ÙÙ‘ÙŠ ÙƒÙÙ†Ù’ØªÙ Ù…ÙÙ†ÙŽ Ø§Ù„Ø¸ÙŽÙ‘Ø§Ù„ÙÙ…ÙÙŠÙ†ÙŽ",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "medium": "Acrylic textures & ink on canvas",
-    "frame": "Floating frame",
-    "description": "La ilaha illa Anta, Subhanaka, inni kuntu minaz-zalimin rises in surrender and hope: a moment of repentance suspended between darkness and mercy, where the heart turns inward and finds its way back to Allah.",
-    "image": "/assets/images/original-texture-artworks/depths-of-tawbah/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/depths-of-tawbah/1.webp", "/assets/images/original-texture-artworks/depths-of-tawbah/2.webp", "/assets/images/original-texture-artworks/depths-of-tawbah/3.webp", "/assets/images/original-texture-artworks/depths-of-tawbah/4.webp", "/assets/images/original-texture-artworks/depths-of-tawbah/5.webp", "/assets/images/original-texture-artworks/depths-of-tawbah/6.webp", "/assets/images/original-texture-artworks/depths-of-tawbah/7.webp", "/assets/images/original-texture-artworks/depths-of-tawbah/8.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Acrylic texture and ink on canvas", "Handwritten Arabic calligraphy", "Certificate of authenticity included"]
-  },
-  {
-    "id": "prod-43",
-    "slug": "motion-of-faith",
-    "title": "Motion of Faith",
-    "titleAr": "Ù„Ø§ Ø­ÙˆÙ„ ÙˆÙ„Ø§ Ù‚ÙˆØ© Ø§Ù„Ø§ Ø¨Ø§Ù„Ù„Ù‡",
-    "category": "Original_Texture",
-    "collection": "Originals",
-    "priceUSD": 640,
-    "oldPriceUSD": 720,
-    "rating": 4.9,
-    "reviews": 0,
-    "inStock": true,
-    "dimensions": "100 x 70 cm",
-    "medium": "Acrylic textures & ink on canvas",
-    "frame": "Floating frame",
-    "description": "Flowing in waves of black and white, the sacred words La hawla wa la quwwata illa billah rise and fall like breath: a reminder that all strength, movement, and power return to the One source.",
-    "image": "/assets/images/original-texture-artworks/motion-of-faith/1.webp",
-    "gallery": ["/assets/images/original-texture-artworks/motion-of-faith/1.webp", "/assets/images/original-texture-artworks/motion-of-faith/2.webp", "/assets/images/original-texture-artworks/motion-of-faith/3.webp", "/assets/images/original-texture-artworks/motion-of-faith/4.webp", "/assets/images/original-texture-artworks/motion-of-faith/5.webp", "/assets/images/original-texture-artworks/motion-of-faith/6.webp"],
-    "artVariant": "allah",
-    "scene": "living",
-    "features": ["Acrylic texture and ink on canvas", "Handwritten Arabic calligraphy", "Certificate of authenticity included"]
-  }
+    {
+        "id":  "prod-1",
+        "slug":  "99-names-golden-edition",
+        "title":  "Adaptable",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  128,
+        "booked":  "340+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  true,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "120 x 80 cm (47 x 31 in)",
+        "medium":  "Mixed media with 24K genuine gold leaf and textured pigment on canvas",
+        "frame":  "Floating brushed champagne aluminium frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/adaptable/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-surah-triptych.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/adaptable/1.webp",
+                        "/assets/images/mixed-media-samples/adaptable/2.webp",
+                        "/assets/images/mixed-media-samples/adaptable/3.webp",
+                        "/assets/images/mixed-media-samples/adaptable/4.webp",
+                        "/assets/images/mixed-media-samples/adaptable/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "hall",
+        "features":  [
+                         "Hand-gilded with genuine 24-karat gold leaf",
+                         "Sealed with archival museum UV varnish protection",
+                         "Signed and numbered certificate of studio authenticity",
+                         "Ready to hang with heavy-duty recessed hanging hardware"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-2",
+        "slug":  "ayatul-kursi",
+        "title":  "Bliss",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  490,
+        "oldPriceUSD":  550,
+        "rating":  4.9,
+        "reviews":  230,
+        "booked":  "520+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  true,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "100 x 70 cm (39 x 28 in)",
+        "medium":  "Deep indigo acrylics, gesso relief, metallic gold leaf accents",
+        "frame":  "Minimalist matte black steel profile",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/bliss/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/bliss/1.webp",
+                        "/assets/images/mixed-media-samples/bliss/2.webp",
+                        "/assets/images/mixed-media-samples/bliss/3.webp",
+                        "/assets/images/mixed-media-samples/bliss/4.webp",
+                        "/assets/images/mixed-media-samples/bliss/5.webp"
+                    ],
+        "artVariant":  "salaam",
+        "scene":  "bedroom",
+        "features":  [
+                         "Calligraphed in fluid Thuluth-inspired modern rhythm",
+                         "Layered lapis lazuli and obsidian pigment blend",
+                         "Signed and catalogued by the studio master",
+                         "Museum anti-reflective framing standard"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-3",
+        "slug":  "dua-collection",
+        "title":  "Dynamic",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  420,
+        "oldPriceUSD":  480,
+        "rating":  4.8,
+        "reviews":  85,
+        "booked":  "180+ Acquired",
+        "isFeatured":  false,
+        "isMostLoved":  true,
+        "inStock":  true,
+        "dimensions":  "90 x 90 cm (35 x 35 in)",
+        "medium":  "Rich navy pigments, mica dust, acrylic glaze on museum gallery canvas",
+        "frame":  "Solid walnut shadowbox frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/dynamic/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-navy-gold.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/dynamic/1.webp",
+                        "/assets/images/mixed-media-samples/dynamic/2.webp",
+                        "/assets/images/mixed-media-samples/dynamic/3.webp",
+                        "/assets/images/mixed-media-samples/dynamic/4.webp",
+                        "/assets/images/mixed-media-samples/dynamic/5.webp"
+                    ],
+        "artVariant":  "noor",
+        "scene":  "office",
+        "features":  [
+                         "Natural mica minerals provide subtle ambient shimmer",
+                         "Deep gallery edge wrap (1.5 inch profile)",
+                         "Accompanied by an embossed collector card",
+                         "Suitable for contemporary or transitional interior themes"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-4",
+        "slug":  "al-fatiha",
+        "title":  "Elegant",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  580,
+        "oldPriceUSD":  650,
+        "rating":  4.9,
+        "reviews":  160,
+        "booked":  "310+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  false,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "110 x 80 cm (43 x 31 in)",
+        "medium":  "Tonal grey mineral washes, raw linen ground, hand-lettered ink calligraphy",
+        "frame":  "Raw natural ash wood gallery frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/elegant/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-grey-abstract.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/elegant/1.webp",
+                        "/assets/images/mixed-media-samples/elegant/2.webp",
+                        "/assets/images/mixed-media-samples/elegant/3.webp"
+                    ],
+        "artVariant":  "star",
+        "scene":  "living",
+        "features":  [
+                         "Hand-applied sumi ink with custom bamboo quill pens",
+                         "Soft muted tones blend seamlessly into neutral minimalist walls",
+                         "Non-fading archival inks tested for 100+ years permanence",
+                         "Hand-finished protective satin varnish"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-5",
+        "slug":  "falaq-sanctuary",
+        "title":  "Emerald",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  610,
+        "oldPriceUSD":  690,
+        "rating":  4.9,
+        "reviews":  88,
+        "booked":  "190+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  true,
+        "inStock":  true,
+        "dimensions":  "110 x 85 cm (43 x 33 in)",
+        "medium":  "Textured gesso, gold enamel script, charcoal haze on cotton canvas",
+        "frame":  "Dark walnut floating tray frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/emerald/1.webp",
+        "sceneImage":  "/assets/images/prototype/room-living-surah-triptych.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/emerald/1.webp",
+                        "/assets/images/mixed-media-samples/emerald/2.webp",
+                        "/assets/images/mixed-media-samples/emerald/3.webp",
+                        "/assets/images/mixed-media-samples/emerald/4.webp",
+                        "/assets/images/mixed-media-samples/emerald/5.webp"
+                    ],
+        "artVariant":  "rings",
+        "scene":  "hall",
+        "features":  [
+                         "Layered charcoal and warm amber undertones",
+                         "Authentic calligraphic rendition of Surah Al-Falaq",
+                         "Protected with matte non-reflective varnish",
+                         "Framed with sustainable solid walnut"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-6",
+        "slug":  "inkography",
+        "title":  "Enchanting",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  540,
+        "oldPriceUSD":  600,
+        "rating":  4.7,
+        "reviews":  68,
+        "booked":  "140+ Acquired",
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "115 x 75 cm (45 x 30 in)",
+        "medium":  "Japanese sumi ink, alcohol wash dispersion, archival varnished canvas",
+        "frame":  "Satin anthracite wooden profile",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/enchanting/1.webp",
+        "sceneImage":  "/assets/images/prototype/room-lounge-navy-gold.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/enchanting/1.webp",
+                        "/assets/images/mixed-media-samples/enchanting/2.webp",
+                        "/assets/images/mixed-media-samples/enchanting/3.webp",
+                        "/assets/images/mixed-media-samples/enchanting/4.webp",
+                        "/assets/images/mixed-media-samples/enchanting/5.webp"
+                    ],
+        "artVariant":  "ink",
+        "scene":  "hall",
+        "features":  [
+                         "Fine art carbon sumi ink with resin binder",
+                         "High visual contrast suited for feature walls and corridors",
+                         "Anti-glare museum UV coating",
+                         "Studio certificate of registration"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-7",
+        "slug":  "bismillah-calligraphy-canvas",
+        "title":  "Ethereal",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  510,
+        "oldPriceUSD":  570,
+        "rating":  4.9,
+        "reviews":  112,
+        "booked":  "280+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  true,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "100 x 60 cm (39 x 24 in)",
+        "medium":  "Digital sketch study turned fine art acrylic gesso and gold pigment on stretched canvas",
+        "frame":  "Natural champagne oak floating profile",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/ethereal/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-ayatul-kursi.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/ethereal/1.webp",
+                        "/assets/images/mixed-media-samples/ethereal/2.webp",
+                        "/assets/images/mixed-media-samples/ethereal/3.webp",
+                        "/assets/images/mixed-media-samples/ethereal/4.webp",
+                        "/assets/images/mixed-media-samples/ethereal/5.webp",
+                        "/assets/images/mixed-media-samples/ethereal/6.webp",
+                        "/assets/images/mixed-media-samples/ethereal/7.webp"
+                    ],
+        "artVariant":  "salaam",
+        "scene":  "office",
+        "features":  [
+                         "Dynamic flowing baseline typography",
+                         "Warm ivory ground with warm bronze underpainting",
+                         "Signed studio archival edition",
+                         "Pre-installed hanging bracket"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-8",
+        "slug":  "surah-ikhlas-minimalist",
+        "title":  "Exquisite",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  470,
+        "oldPriceUSD":  530,
+        "rating":  4.8,
+        "reviews":  95,
+        "booked":  "220+ Acquired",
+        "isFeatured":  false,
+        "isMostLoved":  true,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "80 x 80 cm (31 x 31 in)",
+        "medium":  "Golden foil embossing, matte lapis blue gouache on Belgian canvas",
+        "frame":  "Brushed graphite shadow frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/exquisite/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-navy-gold.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/exquisite/1.webp",
+                        "/assets/images/mixed-media-samples/exquisite/2.webp",
+                        "/assets/images/mixed-media-samples/exquisite/3.webp",
+                        "/assets/images/mixed-media-samples/exquisite/4.webp",
+                        "/assets/images/mixed-media-samples/exquisite/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Concentrated circular Thuluth composition",
+                         "High-contrast metallic gold over deep midnight",
+                         "Protected with museum non-glare coating",
+                         "Certificate of studio registry"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-9",
+        "slug":  "surah-an-nas-sanctuary",
+        "title":  "Horizon",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  530,
+        "oldPriceUSD":  590,
+        "rating":  4.9,
+        "reviews":  78,
+        "booked":  "165+ Acquired",
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "100 x 75 cm (39 x 30 in)",
+        "medium":  "Acrylic washes, metallic copper script, subtle gesso impasto",
+        "frame":  "Dark walnut float frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/horizon/1.webp",
+        "sceneImage":  "/assets/images/prototype/room-living-surah-triptych.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/horizon/1.webp",
+                        "/assets/images/mixed-media-samples/horizon/2.webp",
+                        "/assets/images/mixed-media-samples/horizon/3.webp",
+                        "/assets/images/mixed-media-samples/horizon/4.webp",
+                        "/assets/images/mixed-media-samples/horizon/5.webp"
+                    ],
+        "artVariant":  "noor",
+        "scene":  "bedroom",
+        "features":  [
+                         "Subtle metallic copper and raw sienna tones",
+                         "Gallery canvas wrapped edges",
+                         "Signed by the artist",
+                         "Moisture-resistant seal"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-10",
+        "slug":  "surah-ar-rahman-splendor",
+        "title":  "Jubilant",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  680,
+        "oldPriceUSD":  760,
+        "rating":  5,
+        "reviews":  142,
+        "booked":  "310+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  true,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "130 x 90 cm (51 x 35 in)",
+        "medium":  "24K gold foil, turquoise glaze, mineral plaster on heavy canvas",
+        "frame":  "Brushed champagne aluminium profile",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/jubilant/1.webp",
+        "sceneImage":  "/assets/images/prototype/room-reception-beige-abstract.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/jubilant/1.webp",
+                        "/assets/images/mixed-media-samples/jubilant/2.webp",
+                        "/assets/images/mixed-media-samples/jubilant/3.webp",
+                        "/assets/images/mixed-media-samples/jubilant/4.webp",
+                        "/assets/images/mixed-media-samples/jubilant/5.webp"
+                    ],
+        "artVariant":  "salaam",
+        "scene":  "living",
+        "features":  [
+                         "Luminous multi-layered turquoise and gold leaf",
+                         "Museum archival non-reflective surface",
+                         "Numbered limited studio edition",
+                         "Heavy-duty cleat hanger"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-11",
+        "slug":  "spiritual-reflections",
+        "title":  "Marine",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  980,
+        "oldPriceUSD":  1100,
+        "rating":  5,
+        "reviews":  94,
+        "booked":  "210+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  true,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "140 x 100 cm (55 x 39 in)",
+        "medium":  "Heavy body impasto, natural sand mineral pigments on heavy Belgian linen",
+        "frame":  "Natural solid white oak tray frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/marine/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-reception-beige.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/marine/1.webp",
+                        "/assets/images/mixed-media-samples/marine/2.webp",
+                        "/assets/images/mixed-media-samples/marine/3.webp",
+                        "/assets/images/mixed-media-samples/marine/4.webp",
+                        "/assets/images/mixed-media-samples/marine/5.webp"
+                    ],
+        "artVariant":  "orbs",
+        "scene":  "living",
+        "features":  [
+                         "Natural earthen sand and quartz minerals sculpted by palette knife",
+                         "Heavyweight Belgian linen stretched over kiln-dried kiln pine",
+                         "Deep relief profile creates dramatic shadow shifts in natural light",
+                         "Treated with protective matte sealant against humidity and dust"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Unframed Original",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Floating Frame",
+                           "priceModifier":  80
+                       },
+                       {
+                           "label":  "Shadow Box Frame",
+                           "priceModifier":  150
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "80 cm x 80 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "100 cm x 100 cm",
+                          "priceModifier":  120
+                      },
+                      {
+                          "label":  "120 cm x 120 cm",
+                          "priceModifier":  250
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-12",
+        "slug":  "love-and-devotion",
+        "title":  "Phenominal",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  760,
+        "oldPriceUSD":  850,
+        "rating":  4.8,
+        "reviews":  72,
+        "booked":  "150+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  true,
+        "inStock":  true,
+        "dimensions":  "120 x 90 cm (47 x 35 in)",
+        "medium":  "Sculpted palette knife acrylic modeling paste, cerulean \u0026 cobalt glazes",
+        "frame":  "Brushed silver shadow float frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/phenominal/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-blue-wave.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/phenominal/1.webp",
+                        "/assets/images/mixed-media-samples/phenominal/2.webp",
+                        "/assets/images/mixed-media-samples/phenominal/3.webp",
+                        "/assets/images/mixed-media-samples/phenominal/4.webp",
+                        "/assets/images/mixed-media-samples/phenominal/5.webp",
+                        "/assets/images/mixed-media-samples/phenominal/6.webp",
+                        "/assets/images/mixed-media-samples/phenominal/7.webp"
+                    ],
+        "artVariant":  "bloom",
+        "scene":  "bedroom",
+        "features":  [
+                         "High sculptural relief with peaks up to 18mm",
+                         "Luminous multiple glaze passes reflecting subtle daylight shifts",
+                         "Certified 1-of-1 original studio texture",
+                         "Certificate with gallery wax seal"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Unframed Original",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Floating Frame",
+                           "priceModifier":  80
+                       },
+                       {
+                           "label":  "Shadow Box Frame",
+                           "priceModifier":  150
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "80 cm x 80 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "100 cm x 100 cm",
+                          "priceModifier":  120
+                      },
+                      {
+                          "label":  "120 cm x 120 cm",
+                          "priceModifier":  250
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-13",
+        "slug":  "dhikr",
+        "title":  "Reliable",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  820,
+        "oldPriceUSD":  910,
+        "rating":  4.9,
+        "reviews":  110,
+        "booked":  "260+ Acquired",
+        "isFeatured":  false,
+        "isMostLoved":  true,
+        "isMostFav":  true,
+        "inStock":  true,
+        "dimensions":  "100 x 100 cm (39 x 39 in)",
+        "medium":  "Crushed limestone, earthen binders, sculpted multi-panel relief",
+        "frame":  "Museum grade bespoke shadowbox",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/reliable/1.webp",
+        "sceneImage":  "/assets/images/prototype/studio-dhikr-canvases.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/reliable/1.webp",
+                        "/assets/images/mixed-media-samples/reliable/2.webp",
+                        "/assets/images/mixed-media-samples/reliable/3.webp",
+                        "/assets/images/mixed-media-samples/reliable/4.webp",
+                        "/assets/images/mixed-media-samples/reliable/5.webp"
+                    ],
+        "artVariant":  "rings",
+        "scene":  "office",
+        "features":  [
+                         "Natural limestone mixture formulated in-studio",
+                         "Minimalist organic circular motifs",
+                         "Neutral travertine-tone surface for warm interior palettes",
+                         "Comes with mounting template and steel French cleat"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Unframed Original",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Floating Frame",
+                           "priceModifier":  80
+                       },
+                       {
+                           "label":  "Shadow Box Frame",
+                           "priceModifier":  150
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "80 cm x 80 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "100 cm x 100 cm",
+                          "priceModifier":  120
+                      },
+                      {
+                          "label":  "120 cm x 120 cm",
+                          "priceModifier":  250
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-14",
+        "slug":  "contemporary-enso",
+        "title":  "Splendid",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  890,
+        "oldPriceUSD":  980,
+        "rating":  5,
+        "reviews":  46,
+        "booked":  "115+ Acquired",
+        "isFeatured":  false,
+        "isMostLoved":  true,
+        "inStock":  true,
+        "dimensions":  "120 x 120 cm (47 x 47 in)",
+        "medium":  "Natural stone plaster, organic pumice paste, subtle earthen wash",
+        "frame":  "Raw bleached oak tray frame",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/splendid/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-reception-beige.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/splendid/1.webp",
+                        "/assets/images/mixed-media-samples/splendid/2.webp",
+                        "/assets/images/mixed-media-samples/splendid/3.webp",
+                        "/assets/images/mixed-media-samples/splendid/4.webp",
+                        "/assets/images/mixed-media-samples/splendid/5.webp"
+                    ],
+        "artVariant":  "enso",
+        "scene":  "living",
+        "features":  [
+                         "Single continuous sculpted gestural movement",
+                         "Pumice and stone compound with micro-texture",
+                         "Solid custom oak frame crafted by artisan joiners",
+                         "Each piece individually numbered"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Unframed Original",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Floating Frame",
+                           "priceModifier":  80
+                       },
+                       {
+                           "label":  "Shadow Box Frame",
+                           "priceModifier":  150
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "80 cm x 80 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "100 cm x 100 cm",
+                          "priceModifier":  120
+                      },
+                      {
+                          "label":  "120 cm x 120 cm",
+                          "priceModifier":  250
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-15",
+        "slug":  "sahara-whispers",
+        "title":  "Thoughtful",
+        "category":  "Mixed_Media_Canvas",
+        "priceUSD":  750,
+        "oldPriceUSD":  840,
+        "rating":  4.8,
+        "reviews":  54,
+        "booked":  "130+ Acquired",
+        "isFeatured":  true,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "130 x 85 cm (51 x 33 in)",
+        "medium":  "Warm sandstone aggregate, Venetian plaster, terracotta washes",
+        "frame":  "Natural brass metal profile",
+        "description":  "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-samples/thoughtful/1.webp",
+        "sceneImage":  "/assets/images/prototype/crops/scene-reception-beige.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-samples/thoughtful/1.webp",
+                        "/assets/images/mixed-media-samples/thoughtful/2.webp",
+                        "/assets/images/mixed-media-samples/thoughtful/3.webp",
+                        "/assets/images/mixed-media-samples/thoughtful/4.webp"
+                    ],
+        "artVariant":  "dunes",
+        "scene":  "living",
+        "features":  [
+                         "Genuine desert sand mixed into mineral plaster",
+                         "Warm earthy tones suitable for contemporary neutral homes",
+                         "UV stable mineral pigments resist direct sunlight fading",
+                         "Includes wall hanging bracket"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Unframed Original",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Floating Frame",
+                           "priceModifier":  80
+                       },
+                       {
+                           "label":  "Shadow Box Frame",
+                           "priceModifier":  150
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "80 cm x 80 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "100 cm x 100 cm",
+                          "priceModifier":  120
+                      },
+                      {
+                          "label":  "120 cm x 120 cm",
+                          "priceModifier":  250
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-16",
+        "slug":  "enlightening",
+        "title":  "Enlightening",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/enlightening/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/enlightening/1.webp",
+                        "/assets/images/mixed-media-collections/enlightening/2.webp",
+                        "/assets/images/mixed-media-collections/enlightening/3.webp",
+                        "/assets/images/mixed-media-collections/enlightening/4.webp",
+                        "/assets/images/mixed-media-collections/enlightening/5.webp",
+                        "/assets/images/mixed-media-collections/enlightening/6.webp",
+                        "/assets/images/mixed-media-collections/enlightening/7.webp",
+                        "/assets/images/mixed-media-collections/enlightening/8.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-17",
+        "slug":  "gracious",
+        "title":  "Gracious",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/gracious/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/gracious/1.webp",
+                        "/assets/images/mixed-media-collections/gracious/2.webp",
+                        "/assets/images/mixed-media-collections/gracious/3.webp",
+                        "/assets/images/mixed-media-collections/gracious/4.webp",
+                        "/assets/images/mixed-media-collections/gracious/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-18",
+        "slug":  "heavenly",
+        "title":  "Heavenly",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/heavenly/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/heavenly/1.webp",
+                        "/assets/images/mixed-media-collections/heavenly/2.webp",
+                        "/assets/images/mixed-media-collections/heavenly/3.webp",
+                        "/assets/images/mixed-media-collections/heavenly/4.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-19",
+        "slug":  "infinite",
+        "title":  "Infinite",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/infinite/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/infinite/1.webp",
+                        "/assets/images/mixed-media-collections/infinite/2.webp",
+                        "/assets/images/mixed-media-collections/infinite/3.webp",
+                        "/assets/images/mixed-media-collections/infinite/4.webp",
+                        "/assets/images/mixed-media-collections/infinite/5.webp",
+                        "/assets/images/mixed-media-collections/infinite/6.webp",
+                        "/assets/images/mixed-media-collections/infinite/7.webp",
+                        "/assets/images/mixed-media-collections/infinite/8.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-20",
+        "slug":  "mighty",
+        "title":  "Mighty",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/mighty/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/mighty/1.webp",
+                        "/assets/images/mixed-media-collections/mighty/2.webp",
+                        "/assets/images/mixed-media-collections/mighty/3.webp",
+                        "/assets/images/mixed-media-collections/mighty/4.webp",
+                        "/assets/images/mixed-media-collections/mighty/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-21",
+        "slug":  "miraculous",
+        "title":  "Miraculous",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/miraculous/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/miraculous/1.webp",
+                        "/assets/images/mixed-media-collections/miraculous/2.webp",
+                        "/assets/images/mixed-media-collections/miraculous/3.webp",
+                        "/assets/images/mixed-media-collections/miraculous/4.webp",
+                        "/assets/images/mixed-media-collections/miraculous/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-22",
+        "slug":  "precious",
+        "title":  "Precious",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/precious/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/precious/1.webp",
+                        "/assets/images/mixed-media-collections/precious/2.webp",
+                        "/assets/images/mixed-media-collections/precious/3.webp",
+                        "/assets/images/mixed-media-collections/precious/4.webp",
+                        "/assets/images/mixed-media-collections/precious/5.webp",
+                        "/assets/images/mixed-media-collections/precious/6.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-23",
+        "slug":  "satisfying",
+        "title":  "Satisfying",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/satisfying/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/satisfying/1.webp",
+                        "/assets/images/mixed-media-collections/satisfying/2.webp",
+                        "/assets/images/mixed-media-collections/satisfying/3.webp",
+                        "/assets/images/mixed-media-collections/satisfying/4.webp",
+                        "/assets/images/mixed-media-collections/satisfying/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-24",
+        "slug":  "soothing",
+        "title":  "Soothing",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/soothing/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/soothing/1.webp",
+                        "/assets/images/mixed-media-collections/soothing/2.webp",
+                        "/assets/images/mixed-media-collections/soothing/3.webp",
+                        "/assets/images/mixed-media-collections/soothing/4.webp",
+                        "/assets/images/mixed-media-collections/soothing/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-25",
+        "slug":  "sparkling",
+        "title":  "Sparkling",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/sparkling/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/sparkling/1.webp",
+                        "/assets/images/mixed-media-collections/sparkling/2.webp",
+                        "/assets/images/mixed-media-collections/sparkling/3.webp",
+                        "/assets/images/mixed-media-collections/sparkling/4.webp",
+                        "/assets/images/mixed-media-collections/sparkling/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-26",
+        "slug":  "spiritual",
+        "title":  "Spiritual",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/spiritual/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/spiritual/1.webp",
+                        "/assets/images/mixed-media-collections/spiritual/2.webp",
+                        "/assets/images/mixed-media-collections/spiritual/3.webp",
+                        "/assets/images/mixed-media-collections/spiritual/4.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-27",
+        "slug":  "striking",
+        "title":  "Striking",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/striking/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/striking/1.webp",
+                        "/assets/images/mixed-media-collections/striking/2.webp",
+                        "/assets/images/mixed-media-collections/striking/3.webp",
+                        "/assets/images/mixed-media-collections/striking/4.webp",
+                        "/assets/images/mixed-media-collections/striking/5.webp",
+                        "/assets/images/mixed-media-collections/striking/6.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-28",
+        "slug":  "the-limits",
+        "title":  "The Limits",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/the-limits/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/the-limits/1.webp",
+                        "/assets/images/mixed-media-collections/the-limits/2.webp",
+                        "/assets/images/mixed-media-collections/the-limits/3.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-29",
+        "slug":  "the-purity",
+        "title":  "The Purity",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/the-purity/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/the-purity/1.webp",
+                        "/assets/images/mixed-media-collections/the-purity/2.webp",
+                        "/assets/images/mixed-media-collections/the-purity/3.webp",
+                        "/assets/images/mixed-media-collections/the-purity/4.webp",
+                        "/assets/images/mixed-media-collections/the-purity/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-30",
+        "slug":  "the-quls",
+        "title":  "The Quls",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/the-quls/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/the-quls/1.webp",
+                        "/assets/images/mixed-media-collections/the-quls/2.webp",
+                        "/assets/images/mixed-media-collections/the-quls/3.webp",
+                        "/assets/images/mixed-media-collections/the-quls/4.webp",
+                        "/assets/images/mixed-media-collections/the-quls/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-31",
+        "slug":  "ultimate",
+        "title":  "Ultimate",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/ultimate/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/ultimate/1.webp",
+                        "/assets/images/mixed-media-collections/ultimate/2.webp",
+                        "/assets/images/mixed-media-collections/ultimate/3.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-32",
+        "slug":  "vibrant",
+        "title":  "Vibrant",
+        "category":  "Mixed_Media_Artworks",
+        "collection":  "Mixed Media",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "isFeatured":  false,
+        "isMostLoved":  false,
+        "inStock":  true,
+        "dimensions":  "72 cm x 100 cm",
+        "medium":  "Mixed media on canvas",
+        "frame":  "Floating frame",
+        "description":  "A contemporary mixed media collection artwork thoughtfully created to bring texture, colour and character to modern interiors.",
+        "image":  "/assets/images/mixed-media-collections/vibrant/1.webp",
+        "gallery":  [
+                        "/assets/images/mixed-media-collections/vibrant/1.webp",
+                        "/assets/images/mixed-media-collections/vibrant/2.webp",
+                        "/assets/images/mixed-media-collections/vibrant/3.webp",
+                        "/assets/images/mixed-media-collections/vibrant/4.webp",
+                        "/assets/images/mixed-media-collections/vibrant/5.webp",
+                        "/assets/images/mixed-media-collections/vibrant/6.webp",
+                        "/assets/images/mixed-media-collections/vibrant/7.webp",
+                        "/assets/images/mixed-media-collections/vibrant/8.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-finished mixed media artwork",
+                         "Ready to hang",
+                         "Certificate of authenticity included"
+                     ],
+        "styles":  [
+                       {
+                           "label":  "Rolled Canvas",
+                           "priceModifier":  0
+                       },
+                       {
+                           "label":  "Stretched Canvas",
+                           "priceModifier":  60
+                       },
+                       {
+                           "label":  "Framed Canvas",
+                           "priceModifier":  120
+                       }
+                   ],
+        "sizes":  [
+                      {
+                          "label":  "72 cm x 100 cm",
+                          "priceModifier":  0
+                      },
+                      {
+                          "label":  "88 cm x 120 cm",
+                          "priceModifier":  80
+                      },
+                      {
+                          "label":  "102 cm x 140 cm",
+                          "priceModifier":  160
+                      }
+                  ]
+    },
+    {
+        "id":  "prod-33",
+        "slug":  "tides-of-blessing",
+        "title":  "Tides of Blessing",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "dimensions":  "100 x 70 cm",
+        "medium":  "Mixed media textured artwork with metallic gold finishing",
+        "frame":  "Floating frame",
+        "description":  "This artwork expresses the essence of Alhamdulillah â€” a phrase of deep gratitude and appreciation to Allah for all blessings. Flowing ocean-blue textures represent calmness, depth, and the endless nature of gratitude, while golden calligraphy symbolizes the divine beauty and light of thankfulness.",
+        "image":  "/assets/images/original-texture-artworks/tides-of-blessing/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/tides-of-blessing/1.webp",
+                        "/assets/images/original-texture-artworks/tides-of-blessing/2.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-textured original artwork",
+                         "Metallic gold calligraphy finishing",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-34",
+        "slug":  "the-throne-of-light",
+        "title":  "The Throne of Light",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Mixed Media on Canvas",
+        "frame":  "Floating frame",
+        "description":  "The Throne of Light is a contemporary mixed-media artwork inspired by Ayat al-Kursi, a powerful verse from the Qurâ€™an that speaks of divine sovereignty, knowledge, and protection. The verse reflects the infinite authority of God, whose Throne extends over the heavens and the earth.",
+        "image":  "/assets/images/original-texture-artworks/infinite-gratitude/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/infinite-gratitude/1.webp",
+                        "/assets/images/original-texture-artworks/infinite-gratitude/2.webp",
+                        "/assets/images/original-texture-artworks/infinite-gratitude/3.webp",
+                        "/assets/images/original-texture-artworks/infinite-gratitude/4.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-embellished textures",
+                         "Metallic gold foil",
+                         "Handwritten Arabic calligraphy"
+                     ]
+    },
+    {
+        "id":  "prod-35",
+        "slug":  "multiplied-blessings",
+        "title":  "Multiplied Blessings",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Mixed media textured artwork with elegant calligraphy",
+        "frame":  "Floating frame",
+        "description":  "This piece features the powerful Quranic phrase Laâ€™in shakartum laâ€™azeedannakum: if you are grateful, I will surely increase you. Calming bluish-grey and white textures symbolize peace, sincerity, and spiritual reflection, while the composition reflects the divine promise that blessings grow when hearts remain thankful.",
+        "image":  "/assets/images/original-texture-artworks/multiplied-blessings/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/multiplied-blessings/1.webp",
+                        "/assets/images/original-texture-artworks/multiplied-blessings/2.webp",
+                        "/assets/images/original-texture-artworks/multiplied-blessings/3.webp",
+                        "/assets/images/original-texture-artworks/multiplied-blessings/4.webp",
+                        "/assets/images/original-texture-artworks/multiplied-blessings/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-textured original artwork",
+                         "Contemporary Islamic calligraphy",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-36",
+        "slug":  "divine-reliance-texture",
+        "title":  "Divine Reliance (or your chosen title)",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Mixed media textured artwork with elegant calligraphy",
+        "frame":  "Floating frame",
+        "description":  "This artwork features La Hawla Wa La Quwwata Illa Billahil Aliyyil Azeem, a powerful reminder that all strength and ability come only from Allah. Silver and grey textures symbolize calmness, humility, and reflection, while the composition emphasizes spiritual reliance and inner peace through faith.",
+        "image":  "/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/1.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/2.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance-(choosen-title)/3.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-textured original artwork",
+                         "Contemporary Islamic calligraphy",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-37",
+        "slug":  "golden-praise",
+        "title":  "Golden Praise",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Mixed media textured artwork with metallic finishing",
+        "frame":  "Floating frame",
+        "description":  "This piece represents admiration and gratitude through the phrase Masha Allah â€” a reminder to acknowledge that every beauty and blessing comes from Allah. The dark textured background symbolizes depth and reflection, while metallic gold calligraphy illuminates the spiritual meaning of the words.",
+        "image":  "/assets/images/original-texture-artworks/golden-praise/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/golden-praise/1.webp",
+                        "/assets/images/original-texture-artworks/golden-praise/2.webp",
+                        "/assets/images/original-texture-artworks/golden-praise/3.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Matte black and metallic gold finish",
+                         "Hand-textured original artwork",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-38",
+        "slug":  "waves-of-patience",
+        "title":  "Waves of Patience",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Acrylic textures \u0026 ink on canvas",
+        "frame":  "Floating frame",
+        "description":  "Flowing blue textures ripple across the canvas in gentle, wavy motions, accented with touches of gold that catch the light. The handwritten calligraphy of Innallaha Maa As-Saabireen rests harmoniously within the composition, embodying serenity, perseverance, and quiet strength.",
+        "image":  "/assets/images/original-texture-artworks/waves-of-patience/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/waves-of-patience/1.webp",
+                        "/assets/images/original-texture-artworks/waves-of-patience/2.webp",
+                        "/assets/images/original-texture-artworks/waves-of-patience/3.webp",
+                        "/assets/images/original-texture-artworks/waves-of-patience/4.webp",
+                        "/assets/images/original-texture-artworks/waves-of-patience/5.webp",
+                        "/assets/images/original-texture-artworks/waves-of-patience/6.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Acrylic texture and ink on canvas",
+                         "Handwritten Arabic calligraphy",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-39",
+        "slug":  "promise-after-hardship",
+        "title":  "Promise After Hardship",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Acrylic textures \u0026 ink on canvas",
+        "frame":  "Floating frame",
+        "description":  "Soft desert-toned textures form subtle arch-like movements across a clean white background, framing the calligraphy of Fa Inna Ma\u0027al Usri Yusra. The composition reflects hope rising through adversityâ€”an elegant reminder that ease follows every hardship.",
+        "image":  "/assets/images/original-texture-artworks/promise-after-hardship/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/promise-after-hardship/1.webp",
+                        "/assets/images/original-texture-artworks/promise-after-hardship/2.webp",
+                        "/assets/images/original-texture-artworks/promise-after-hardship/3.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Acrylic texture and ink on canvas",
+                         "Handwritten Arabic calligraphy",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-40",
+        "slug":  "divine-reliance",
+        "title":  "Divine Reliance",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Acrylic textures \u0026 ink on canvas",
+        "frame":  "Floating frame",
+        "description":  "A vertical abstract divided by flowing texturesâ€”deep black and gold on one side, warm earthy beige with golden accents on the other. Centered calligraphy of Hasbiyallahu wa ni\u0027mal Wakeel anchors the piece, symbolizing strength, surrender, and unwavering trust.",
+        "image":  "/assets/images/original-texture-artworks/divine-reliance/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/divine-reliance/1.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance/2.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance/3.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance/4.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance/5.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance/6.webp",
+                        "/assets/images/original-texture-artworks/divine-reliance/7.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Acrylic texture and ink on canvas",
+                         "Handwritten Arabic calligraphy",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-41",
+        "slug":  "echoes-of-dhikr",
+        "title":  "Echoes of Dhikr",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Acrylic textures \u0026 ink on canvas",
+        "frame":  "Floating frame",
+        "description":  "An abstract interplay of shadow and luminous gold forming a celestial flow in one corner, balanced by intimate handwritten Alhamdulillah. A refined piece symbolizing gratitude as a guiding forceâ€”radiant, grounding, and eternal.",
+        "image":  "/assets/images/original-texture-artworks/echoes-of-dhikr/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/echoes-of-dhikr/1.webp",
+                        "/assets/images/original-texture-artworks/echoes-of-dhikr/2.webp",
+                        "/assets/images/original-texture-artworks/echoes-of-dhikr/3.webp",
+                        "/assets/images/original-texture-artworks/echoes-of-dhikr/4.webp",
+                        "/assets/images/original-texture-artworks/echoes-of-dhikr/5.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Acrylic texture and ink on canvas",
+                         "Luminous gold detailing",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-42",
+        "slug":  "depths-of-tawbah",
+        "title":  "Depths of Tawbah",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "medium":  "Acrylic textures \u0026 ink on canvas",
+        "frame":  "Floating frame",
+        "description":  "La ilaha illa Anta, Subhanaka, inni kuntu minaz-zalimin rises in surrender and hope: a moment of repentance suspended between darkness and mercy, where the heart turns inward and finds its way back to Allah.",
+        "image":  "/assets/images/original-texture-artworks/depths-of-tawbah/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/1.webp",
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/2.webp",
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/3.webp",
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/4.webp",
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/5.webp",
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/6.webp",
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/7.webp",
+                        "/assets/images/original-texture-artworks/depths-of-tawbah/8.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Acrylic texture and ink on canvas",
+                         "Handwritten Arabic calligraphy",
+                         "Certificate of authenticity included"
+                     ]
+    },
+    {
+        "id":  "prod-43",
+        "slug":  "motion-of-faith",
+        "title":  "Motion of Faith",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "rating":  4.9,
+        "reviews":  0,
+        "inStock":  true,
+        "dimensions":  "100 x 70 cm",
+        "medium":  "Acrylic textures \u0026 ink on canvas",
+        "frame":  "Floating frame",
+        "description":  "Flowing in waves of black and white, the sacred words La hawla wa la quwwata illa billah rise and fall like breath: a reminder that all strength, movement, and power return to the One source.",
+        "image":  "/assets/images/original-texture-artworks/motion-of-faith/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/motion-of-faith/1.webp",
+                        "/assets/images/original-texture-artworks/motion-of-faith/2.webp",
+                        "/assets/images/original-texture-artworks/motion-of-faith/3.webp",
+                        "/assets/images/original-texture-artworks/motion-of-faith/4.webp",
+                        "/assets/images/original-texture-artworks/motion-of-faith/5.webp",
+                        "/assets/images/original-texture-artworks/motion-of-faith/6.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Acrylic texture and ink on canvas",
+                         "Handwritten Arabic calligraphy",
+                         "Certificate of authenticity included"
+                     ]
+    }
 ]
-
