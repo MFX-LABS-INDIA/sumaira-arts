@@ -88,41 +88,41 @@ export default function CartPage() {
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-col sm:flex-row gap-5 rounded-xl border border-light bg-white p-5 shadow-xs transition-colors hover:border-soft"
+                className="flex flex-row gap-3.5 sm:gap-5 rounded-xl border border-light bg-white p-3.5 sm:p-5 shadow-xs transition-colors hover:border-soft"
               >
-                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-lg bg-ice border border-light">
+                <div className="relative h-24 w-24 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-lg bg-ice border border-light">
                   <Image src={item.image} alt={item.title} fill className="object-cover" />
                 </div>
 
-                <div className="flex flex-1 flex-col justify-between">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="text-[10px] font-semibold uppercase tracking-caps text-mist">
+                <div className="flex flex-1 flex-col justify-between min-w-0">
+                  <div className="flex items-start justify-between gap-2 sm:gap-4">
+                    <div className="min-w-0">
+                      <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-caps text-mist truncate block">
                         {item.category} {item.collection ? `• ${item.collection}` : ''}
                       </span>
-                      <h2 className="mt-1 font-serif text-lg font-normal text-deep">{item.title}</h2>
+                      <h2 className="mt-0.5 sm:mt-1 font-serif text-sm sm:text-lg font-normal text-deep truncate">{item.title}</h2>
 
                       {(item.selectedStyle || item.selectedSize) && (
-                        <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        <div className="mt-1 sm:mt-1.5 flex flex-wrap gap-1 sm:gap-1.5">
                           {item.selectedStyle && (
-                            <span className="inline-flex items-center rounded-md bg-ice px-2 py-0.5 text-[10px] font-medium text-deep border border-light">
+                            <span className="inline-flex items-center rounded-md bg-ice px-1.5 py-0.5 sm:px-2 text-[9px] sm:text-[10px] font-medium text-deep border border-light">
                               {item.selectedStyle}
                             </span>
                           )}
                           {item.selectedSize && (
-                            <span className="inline-flex items-center rounded-md bg-ice px-2 py-0.5 text-[10px] font-medium text-deep border border-light">
+                            <span className="inline-flex items-center rounded-md bg-ice px-1.5 py-0.5 sm:px-2 text-[9px] sm:text-[10px] font-medium text-deep border border-light">
                               {item.selectedSize}
                             </span>
                           )}
                         </div>
                       )}
                     </div>
-                    <span className="text-lg font-semibold text-deep">
+                    <span className="text-sm sm:text-lg font-semibold text-deep shrink-0">
                       {formatPrice(item.priceUSD * item.quantity)}
                     </span>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-between border-t border-light/60 pt-3">
+                  <div className="mt-2.5 sm:mt-4 flex items-center justify-between border-t border-light/60 pt-2 sm:pt-3">
                     {/* Quantity controls */}
                     <div className="flex items-center rounded-md border border-light bg-ice/40">
                       <button
@@ -135,12 +135,12 @@ export default function CartPage() {
                             })
                           )
                         }
-                        className="px-2.5 py-1 text-steel hover:text-deep transition-colors"
+                        className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-steel hover:text-deep transition-colors"
                         aria-label="Decrease quantity"
                       >
-                        <Minus className="h-3.5 w-3.5" />
+                        <Minus className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       </button>
-                      <span className="w-8 text-center font-mono text-xs font-bold text-deep">
+                      <span className="w-6 sm:w-8 text-center font-mono text-[11px] sm:text-xs font-bold text-deep">
                         {item.quantity}
                       </span>
                       <button
@@ -153,17 +153,17 @@ export default function CartPage() {
                             })
                           )
                         }
-                        className="px-2.5 py-1 text-steel hover:text-deep transition-colors"
+                        className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-steel hover:text-deep transition-colors"
                         aria-label="Increase quantity"
                       >
-                        <Plus className="h-3.5 w-3.5" />
+                        <Plus className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       </button>
                     </div>
 
                     <button
                       type="button"
                       onClick={() => dispatch(removeFromCart(item.id))}
-                      className="flex items-center gap-1.5 text-xs text-steel hover:text-red-500 transition-colors"
+                      className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs text-steel hover:text-red-500 transition-colors"
                     >
                       <Trash2 className="h-3.5 w-3.5" />
                       <span>Remove</span>
