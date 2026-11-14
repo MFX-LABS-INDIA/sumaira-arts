@@ -75,7 +75,8 @@ export default function CheckoutPage() {
     const fullPhone = parsedPhone?.number ?? `+${country.dialCode} ${phone.trim()}`;
     const namePrefix = name.trim().replace(/[^\p{L}]/gu, "").slice(0, 4).toUpperCase();
     const phoneSuffix = fullPhone.replace(/\D/g, "").slice(-4);
-    const orderId = `${namePrefix || "NAME"}${phoneSuffix}`;
+    const uniqueSuffix = crypto.randomUUID().replace(/-/g, "").slice(0, 8).toUpperCase();
+    const orderId = `${namePrefix || "NAME"}${phoneSuffix}-${uniqueSuffix}`;
 
     const orderData: Order = {
       id: orderId,
