@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { containerClassName } from "@/components/ui/Container";
 import Link from "next/link";
 import { Trash2, Plus, Minus, ArrowRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
@@ -22,7 +23,7 @@ export default function CartPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-ice/40 py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className={containerClassName}>
           <div className="h-8 w-48 animate-pulse rounded bg-light mb-8" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-4">
@@ -64,7 +65,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-ice/30 py-10 sm:py-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className={containerClassName}>
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-light pb-6 gap-4">
           <div>
             <h1 className="font-serif text-3xl sm:text-4xl font-light text-deep">Shopping Bag</h1>

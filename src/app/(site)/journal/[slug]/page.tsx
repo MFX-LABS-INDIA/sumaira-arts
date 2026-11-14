@@ -32,7 +32,7 @@ export default async function JournalArticlePage({ params }: Props) {
 
   return (
     <Container className="py-6 sm:py-10 lg:py-12">
-      <div className="mx-auto max-w-3xl">
+      <div>
         <nav aria-label="Journal navigation" className="mb-7 sm:mb-10">
           <Link href="/journal" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-brand transition-colors hover:text-deep">
             <ArrowLeft className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
@@ -51,7 +51,7 @@ export default async function JournalArticlePage({ params }: Props) {
           </header>
           {post.image && (
             <div className="relative my-8 aspect-[3/2] overflow-hidden rounded-xl bg-ice sm:my-10 sm:rounded-2xl">
-              <Image src={post.image} alt={post.title} fill sizes="(min-width: 832px) 768px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" className="object-cover" />
+              <Image src={post.image} alt={post.title} fill sizes="(min-width: 1280px) 1184px, (min-width: 1024px) calc(100vw - 96px), (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" className="object-cover" />
             </div>
           )}
           <div className="space-y-8 sm:space-y-10">

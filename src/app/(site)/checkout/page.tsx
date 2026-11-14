@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { containerClassName } from "@/components/ui/Container";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { User, Mail, Phone, MapPin, Building, ShieldCheck, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
@@ -131,7 +132,7 @@ export default function CheckoutPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-ice/30 py-16">
-        <div className="mx-auto max-w-4xl px-4 animate-pulse">
+        <div className={`${containerClassName} animate-pulse`}>
           <div className="h-8 w-48 rounded bg-light mb-8" />
           <div className="h-96 rounded-xl bg-white border border-light" />
         </div>
@@ -196,7 +197,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-ice/30 py-10 sm:py-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className={containerClassName}>
         <h1 className="font-serif text-3xl sm:text-4xl font-light text-deep border-b border-light pb-6">
           Collector & Shipping Details
         </h1>
