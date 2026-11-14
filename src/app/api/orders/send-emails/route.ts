@@ -1,39 +1,51 @@
 import { NextRequest, NextResponse } from "next/server";
-import type { Order } from "@/types/store";
 import { emailService } from "@/services/email";
+import { getOrderFromPayload } from "@/lib/orders";
 
 export const runtime = "nodejs";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const order: Order = body.order;
+    let payload: unknown;
+    try {
+      payload = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid order request." }, { status: 400 });
+    }
 
-    if (!order || !order.email || !order.items || order.items.length === 0) {
+    const order = getOrderFromPayload(payload);
+    if (!order) {
       return NextResponse.json(
-        { error: "Invalid order data. Customer email and items are required." },
+        { error: "Valid customer and artwork details are required." },
         { status: 400 }
       );
     }
 
-    // Process email sending
     const emailResult = await emailService.sendOrderConfirmation(order);
+    if (!emailResult.success) {
+      return NextResponse.json(
+        { error: "Order confirmation email is not connected. Please contact the studio." },
+        { status: 503 }
+      );
+    }
 
     return NextResponse.json(
       {
         success: true,
         orderId: order.id,
-        message: "Order placed and confirmation email sent successfully.",
+        message: "Artwork request received and confirmation email sent successfully.",
         simulated: emailResult.simulated ?? false,
       },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Order processing API error:", error);
+    console.error(
+      "Order processing API error:",
+      error instanceof Error ? error.name : "Unknown error"
+    );
     return NextResponse.json(
       {
-        error: "Failed to process order or dispatch confirmation email.",
-        details: error instanceof Error ? error.message : String(error),
+        error: "We could not send your request confirmation. Please contact the studio.",
       },
       { status: 500 }
     );

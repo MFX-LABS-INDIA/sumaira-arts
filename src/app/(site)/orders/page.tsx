@@ -52,7 +52,7 @@ export default function MyOrdersPage() {
             )}
           </div>
           <p className="mt-1 text-xs sm:text-sm text-steel">
-            View your order history, delivery details, and authenticity certificates.
+            View your artwork requests and the pieces you selected.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function MyOrdersPage() {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-light/60 pb-4">
                   <div>
-                    <span className="font-mono text-xs font-bold text-brand">Order #{order.id}</span>
+                    <span className="font-mono text-xs font-bold text-brand">Order ID: {order.id}</span>
                     <p className="text-xs text-steel mt-0.5 flex items-center gap-1.5">
                       <Clock className="h-3.5 w-3.5" />
                       <span>{new Date(order.orderDate).toLocaleDateString("en-US", { dateStyle: "medium", timeStyle: "short" })}</span>
@@ -96,9 +96,13 @@ export default function MyOrdersPage() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                    <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
+                      order.status === "pending"
+                        ? "bg-amber-50 text-amber-700"
+                        : "bg-emerald-50 text-emerald-700"
+                    }`}>
                       <CheckCircle2 className="h-3.5 w-3.5" />
-                      <span>Order Confirmed</span>
+                      <span>{order.status === "pending" ? "Under Review" : "Order Confirmed"}</span>
                     </span>
                     <span className="font-serif text-lg font-normal text-deep">
                       {formatPrice(order.total)}
@@ -128,8 +132,10 @@ export default function MyOrdersPage() {
 
                 {/* Footer details */}
                 <div className="mt-4 pt-3 border-t border-light/60 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-steel gap-2">
-                  <span>Shipping Destination: {order.address}, {order.city}, {order.country}</span>
-                  <span className="text-brand font-medium">Tracking will be dispatched via email</span>
+                  <span>Contact: {order.email} · {order.phoneNumber}</span>
+                  <span className="text-brand font-medium">
+                    {order.status === "pending" ? "Our studio will contact you after review" : "We’ll be in touch with updates"}
+                  </span>
                 </div>
               </div>
             ))}

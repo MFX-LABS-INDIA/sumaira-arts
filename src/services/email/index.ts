@@ -16,7 +16,7 @@ class EmailService {
 
     if (!user || !pass) {
       console.warn(
-        "SMTP_USER or SMTP_PASS not set. Emails will be logged to console in development mode."
+        "SMTP_USER or SMTP_PASS not set. Email was not sent."
       );
       return null;
     }
@@ -43,13 +43,8 @@ class EmailService {
     const htmlContent = getOrderEmailTemplate(order);
 
     if (!transporter) {
-      // Development simulated fallback
-      console.log(`\n======================================================`);
-      console.log(`[SIMULATED EMAIL] To: ${order.email}`);
-      console.log(`[SIMULATED EMAIL] Subject: Sumaira Arts Order Confirmation - #${order.id}`);
-      console.log(`[SIMULATED EMAIL] Total: $${order.total} USD for ${order.items.length} items`);
-      console.log(`======================================================\n`);
-      return { success: true, simulated: true };
+      console.warn("[SIMULATED EMAIL] SMTP is not configured; no email was sent.");
+      return { success: false, simulated: true };
     }
 
     try {
@@ -57,13 +52,16 @@ class EmailService {
         from: `"${fromName}" <${fromEmail}>`,
         to: order.email,
         cc: adminEmailCC,
-        subject: `Your Sumaira Arts Order #${order.id} Confirmation`,
+        subject: `Order ID ${order.id} - Artwork Request Received | Sumaira Arts`,
         html: htmlContent,
       });
 
       return { success: true };
     } catch (error) {
-      console.error("Failed to dispatch email:", error);
+      console.error(
+        "Failed to dispatch email:",
+        error instanceof Error ? error.name : "Unknown error"
+      );
       throw error;
     }
   }

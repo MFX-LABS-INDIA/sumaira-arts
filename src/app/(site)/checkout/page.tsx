@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { containerClassName } from "@/components/ui/Container";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { User, Mail, Phone, MapPin, Building, ShieldCheck, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { User, Mail, Phone, MapPin, ShieldCheck, CheckCircle2, Loader2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { clearCart } from "@/store/cartSlice";
 import { CountrySelect } from "@/components/checkout/CountrySelect";
@@ -15,7 +14,6 @@ import { useCountryDetection } from "@/components/checkout/useCountryDetection";
 import type { Order } from "@/types/store";
 
 export default function CheckoutPage() {
-  const router = useRouter();
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.cart);
   const cartTotal = useAppSelector((state) => state.cart.cartTotal);
@@ -25,15 +23,13 @@ export default function CheckoutPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const { country, selectCountry } = useCountryDetection();
   const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [notes, setNotes] = useState("");
+  const { country, selectCountry } = useCountryDetection();
   const [honeypot, setHoneypot] = useState("");
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
   const [orderSuccess, setOrderSuccess] = useState<Order | null>(null);
 
   useEffect(() => {
@@ -43,22 +39,24 @@ export default function CheckoutPage() {
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!name.trim()) errs.name = "Full name is required";
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    else if (name.trim().length > 120) errs.name = "Full name must be 120 characters or fewer";
+    if (
+      !email.trim() ||
+      email.trim().length > 254 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+    ) {
       errs.email = "Please provide a valid email address";
     }
     if (!phone.trim()) {
-      errs.phone = "Phone number is required for courier delivery";
+      errs.phone = "Mobile number is required";
     } else {
       const parsedPhone = parsePhoneNumberFromString(phone.trim(), country.code);
       if (!parsedPhone || !parsedPhone.isValid() || parsedPhone.country !== country.code) {
         errs.phone = `Enter a valid ${country.name} mobile number`;
       }
     }
-    if (!address.trim()) {
-      errs.address = "Shipping address is required";
-    }
-    if (!city.trim()) {
-      errs.city = "City is required";
+    if (address.trim().length > 300) {
+      errs.address = "Address must be 300 characters or fewer";
     }
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -71,32 +69,29 @@ export default function CheckoutPage() {
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setSubmissionError("");
 
-    const orderId = `SA-${Date.now().toString().slice(-6)}`;
     const parsedPhone = parsePhoneNumberFromString(phone.trim(), country.code);
     const fullPhone = parsedPhone?.number ?? `+${country.dialCode} ${phone.trim()}`;
+    const namePrefix = name.trim().replace(/[^\p{L}]/gu, "").slice(0, 4).toUpperCase();
+    const phoneSuffix = fullPhone.replace(/\D/g, "").slice(-4);
+    const orderId = `${namePrefix || "NAME"}${phoneSuffix}`;
 
     const orderData: Order = {
       id: orderId,
       customerName: name.trim(),
       email: email.trim(),
       phoneNumber: fullPhone,
-      country: country.name,
-      address: address.trim(),
-      city: city.trim(),
-      postalCode: postalCode.trim(),
-      notes: notes.trim(),
+      ...(address.trim() ? { address: address.trim() } : {}),
       items: cart,
       total: cartTotal,
       subtotal: cartTotal,
       currency: "USD",
       orderDate: new Date().toISOString(),
-      status: "confirmed",
+      status: "pending",
     };
-
     try {
-      // Dispatch emails and save to Google Sheets in parallel for speed and resilience
-      await Promise.allSettled([
+      const [emailResponse, sheetResponse] = await Promise.all([
         fetch("/api/orders/send-emails", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -109,21 +104,29 @@ export default function CheckoutPage() {
         }),
       ]);
 
+      if (!emailResponse.ok || !sheetResponse.ok) {
+        setSubmissionError(
+          "We couldn’t complete your request. Please contact the studio before trying again."
+        );
+        return;
+      }
+
       try {
         const storedOrders = localStorage.getItem("sumaira-arts-orders");
         const existing = storedOrders ? JSON.parse(storedOrders) : [];
         localStorage.setItem("sumaira-arts-orders", JSON.stringify([orderData, ...existing]));
         window.dispatchEvent(new Event("sumaira-orders-updated"));
-      } catch {
-        // ignore
+      } catch (error) {
+        console.warn("Could not cache order history in this browser.", error);
       }
 
       setOrderSuccess(orderData);
       dispatch(clearCart());
     } catch (err) {
       console.error("Order submission error:", err);
-      setOrderSuccess(orderData);
-      dispatch(clearCart());
+      setSubmissionError(
+        "We couldn’t complete your request. Please contact the studio before trying again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -148,16 +151,18 @@ export default function CheckoutPage() {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
             <CheckCircle2 className="h-10 w-10" />
           </div>
-          <h1 className="mt-6 font-serif text-3xl font-light text-deep">Artwork Order Received</h1>
+          <h1 className="mt-6 font-serif text-3xl font-light text-deep">Request Received</h1>
           <p className="mt-2 text-sm text-steel">
-            Thank you, <strong className="text-deep">{orderSuccess.customerName}</strong>. Your acquisition order <span className="font-mono font-bold text-brand">#{orderSuccess.id}</span> has been confirmed.
+            Thank you, <strong className="text-deep">{orderSuccess.customerName}</strong>. Your artwork request is under review.
           </p>
 
           <div className="mt-6 rounded-xl bg-ice/50 p-4 text-left text-xs text-steel space-y-1.5 border border-light">
+            <p><strong>Order ID:</strong> <span className="font-mono">{orderSuccess.id}</span></p>
             <p><strong>Confirmation sent to:</strong> {orderSuccess.email}</p>
-            <p><strong>Courier contact:</strong> {orderSuccess.phoneNumber}</p>
-            <p><strong>Shipping to:</strong> {orderSuccess.address}, {orderSuccess.city}, {orderSuccess.country}</p>
-            <p><strong>Total Value:</strong> ${orderSuccess.total.toLocaleString()} USD</p>
+            <p><strong>Mobile number:</strong> {orderSuccess.phoneNumber}</p>
+            {orderSuccess.address && <p><strong>Address:</strong> {orderSuccess.address}</p>}
+            <p><strong>Request total:</strong> ${orderSuccess.total.toLocaleString()} USD</p>
+            <p>Our studio will contact you after checking artwork availability.</p>
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -199,7 +204,7 @@ export default function CheckoutPage() {
     <div className="min-h-screen bg-ice/30 py-10 sm:py-16">
       <div className={containerClassName}>
         <h1 className="font-serif text-3xl sm:text-4xl font-light text-deep border-b border-light pb-6">
-          Collector & Shipping Details
+          Artwork Request
         </h1>
 
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -208,22 +213,27 @@ export default function CheckoutPage() {
             <form onSubmit={handleSubmit} className="rounded-xl border border-light bg-white p-6 sm:p-8 shadow-xs space-y-6">
               <div>
                 <h2 className="text-base font-semibold uppercase tracking-wider text-deep mb-4">
-                  Collector Information
+                  Contact Details
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-4">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
+                    <label htmlFor="full-name" className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
                       Full Name *
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
                       <input
+                        id="full-name"
+                        name="name"
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="e.g. Sheikha Fatima"
-                        className={`h-11 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
+                        autoComplete="name"
+                        maxLength={120}
+                        required
+                        className={`h-12 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
                           errors.name ? "border-red-400 bg-red-50/20" : "border-light bg-white"
                         }`}
                       />
@@ -231,18 +241,53 @@ export default function CheckoutPage() {
                     {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                   </div>
 
+                  {/* Mobile Number */}
+                  <div>
+                    <label htmlFor="mobile-number" className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
+                      Mobile Number *
+                    </label>
+                    <div className="flex gap-3">
+                      <div className="w-36 shrink-0">
+                        <CountrySelect value={country.code} onChange={selectCountry} />
+                      </div>
+                      <div className="relative flex-1">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
+                        <input
+                          id="mobile-number"
+                          name="phone"
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="33986777"
+                          autoComplete="tel"
+                          maxLength={30}
+                          required
+                          className={`h-12 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
+                            errors.phone ? "border-red-400 bg-red-50/20" : "border-light bg-white"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                    {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+                  </div>
+
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
-                      Email Address *
+                    <label htmlFor="email" className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
+                      Email *
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
                       <input
+                        id="email"
+                        name="email"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="collector@example.com"
+                        autoComplete="email"
+                        maxLength={254}
+                        required
                         className={`h-11 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
                           errors.email ? "border-red-400 bg-red-50/20" : "border-light bg-white"
                         }`}
@@ -251,106 +296,30 @@ export default function CheckoutPage() {
                     {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                   </div>
                 </div>
-
-                {/* Phone & Country */}
-                <div className="mt-4">
-                  <label className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
-                    Mobile Phone (For Delivery Courier) *
-                  </label>
-                  <div className="flex gap-3">
-                    <div className="w-36 shrink-0">
-                      <CountrySelect value={country.code} onChange={selectCountry} />
-                    </div>
-                    <div className="relative flex-1">
-                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
-                      <input
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="33986777"
-                        className={`h-12 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
-                          errors.phone ? "border-red-400 bg-red-50/20" : "border-light bg-white"
-                        }`}
-                      />
-                    </div>
-                  </div>
-                  {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
-                </div>
               </div>
 
-              {/* Shipping Address */}
-              <div className="border-t border-light pt-6">
-                <h2 className="text-base font-semibold uppercase tracking-wider text-deep mb-4">
-                  Delivery Destination
-                </h2>
-
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
-                      Street Address / Villa Number *
-                    </label>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
-                      <input
-                        type="text"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        placeholder="e.g. Villa 14, Al Waab Street, Zone 55"
-                        className={`h-11 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
-                          errors.address ? "border-red-400 bg-red-50/20" : "border-light bg-white"
-                        }`}
-                      />
-                    </div>
-                    {errors.address && <p className="mt-1 text-xs text-red-500">{errors.address}</p>}
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
-                        City / Region *
-                      </label>
-                      <div className="relative">
-                        <Building className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
-                        <input
-                          type="text"
-                          value={city}
-                          onChange={(e) => setCity(e.target.value)}
-                          placeholder="e.g. Doha"
-                          className={`h-11 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
-                            errors.city ? "border-red-400 bg-red-50/20" : "border-light bg-white"
-                          }`}
-                        />
-                      </div>
-                      {errors.city && <p className="mt-1 text-xs text-red-500">{errors.city}</p>}
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
-                        Postal Code / P.O. Box (Optional)
-                      </label>
-                      <input
-                        type="text"
-                        value={postalCode}
-                        onChange={(e) => setPostalCode(e.target.value)}
-                        placeholder="e.g. 12345"
-                        className="h-11 w-full rounded-lg border border-light bg-white px-3 text-sm text-deep focus:border-brand focus:outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
-                      Special Framing or Delivery Instructions
-                    </label>
-                    <textarea
-                      rows={3}
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
-                      placeholder="e.g. Please leave with concierge or call before arrival"
-                      className="w-full rounded-lg border border-light bg-white p-3 text-sm text-deep focus:border-brand focus:outline-none"
-                    />
-                  </div>
+              {/* Optional Address */}
+              <div>
+                <label htmlFor="address" className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
+                  Address (Optional)
+                </label>
+                <div className="relative">
+                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
+                  <input
+                    id="address"
+                    name="address"
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    placeholder="Street, city, country"
+                    autoComplete="street-address"
+                    maxLength={300}
+                    className={`h-11 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
+                      errors.address ? "border-red-400 bg-red-50/20" : "border-light bg-white"
+                    }`}
+                  />
                 </div>
+                {errors.address && <p className="mt-1 text-xs text-red-500">{errors.address}</p>}
               </div>
 
               {/* Bot honeypot */}
@@ -364,6 +333,12 @@ export default function CheckoutPage() {
                 autoComplete="off"
               />
 
+              {submissionError && (
+                <p role="alert" className="text-sm text-red-600">
+                  {submissionError}
+                </p>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -372,10 +347,10 @@ export default function CheckoutPage() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    <span>Processing Acquisition...</span>
+                    <span>Submitting Request...</span>
                   </>
                 ) : (
-                  <span>Place Artwork Order ({formatPrice(cartTotal)})</span>
+                  <span>Submit Artwork Request ({formatPrice(cartTotal)})</span>
                 )}
               </button>
             </form>
@@ -407,15 +382,11 @@ export default function CheckoutPage() {
 
               <div className="border-t border-light pt-4 mt-4 space-y-2 text-xs">
                 <div className="flex justify-between text-steel">
-                  <span>Subtotal</span>
+                  <span>Artwork total</span>
                   <span className="font-semibold text-deep">{formatPrice(cartTotal)}</span>
                 </div>
-                <div className="flex justify-between text-steel">
-                  <span>Museum Insured Shipping</span>
-                  <span className="text-brand font-medium">Free</span>
-                </div>
                 <div className="flex justify-between text-base font-bold text-deep border-t border-light pt-3">
-                  <span>Total Due</span>
+                  <span>Request total</span>
                   <span className="text-brand font-serif">{formatPrice(cartTotal)}</span>
                 </div>
               </div>
@@ -423,7 +394,7 @@ export default function CheckoutPage() {
               <div className="mt-6 flex items-start gap-2.5 rounded-lg bg-ice/60 p-3 text-[11px] text-steel">
                 <ShieldCheck className="h-4 w-4 text-brand shrink-0 mt-0.5" />
                 <span>
-                  After submission, our studio coordinator will verify availability and send an email confirmation.
+                  Our studio will review availability and contact you to confirm your request. No purchase is confirmed at this stage.
                 </span>
               </div>
             </div>

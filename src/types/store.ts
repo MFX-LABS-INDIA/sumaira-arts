@@ -57,11 +57,6 @@ export interface OrderCustomer {
   name: string;
   email: string;
   phone: string;
-  country: string;
-  address?: string;
-  city?: string;
-  postalCode?: string;
-  notes?: string;
 }
 
 export interface Order {
@@ -69,11 +64,7 @@ export interface Order {
   customerName: string;
   email: string;
   phoneNumber: string;
-  country: string;
   address?: string;
-  city?: string;
-  postalCode?: string;
-  notes?: string;
   items: CartItem[];
   total: number;
   subtotal: number;
