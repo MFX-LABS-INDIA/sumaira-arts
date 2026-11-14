@@ -123,7 +123,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
   };
 
   return (
-    <div className="min-h-screen bg-ice/20 py-8 sm:py-14">
+    <div className="min-h-screen bg-ice/20 pt-8 pb-[calc(8rem+env(safe-area-inset-bottom))] sm:py-14">
       <Container>
         {/* Breadcrumb Navigation */}
         <nav
@@ -209,13 +209,18 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
               </div>
 
               {/* Quantity + Add to Cart */}
-              <div className="rounded-xl border border-light bg-white p-3">
+              <div
+                role="region"
+                aria-label="Purchase this artwork"
+                className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white px-4 pt-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] shadow-raised sm:static sm:rounded-xl sm:border sm:p-3 sm:shadow-none"
+              >
               <div className="flex items-center gap-3">
                 <div className="flex h-12 items-center rounded-lg border border-light bg-white">
                   <button
                     type="button"
                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                    className="px-3 py-2 text-steel hover:text-deep text-sm font-semibold"
+                    disabled={quantity === 1}
+                    className="min-h-11 min-w-11 px-3 py-2 text-steel hover:text-deep text-sm font-semibold disabled:opacity-40"
                     aria-label="Decrease quantity"
                   >
                     −
@@ -226,7 +231,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                   <button
                     type="button"
                     onClick={() => setQuantity((q) => q + 1)}
-                    className="px-3 py-2 text-steel hover:text-deep text-sm font-semibold"
+                    className="min-h-11 min-w-11 px-3 py-2 text-steel hover:text-deep text-sm font-semibold"
                     aria-label="Increase quantity"
                   >
                     +
@@ -236,12 +241,13 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                 <button
                   type="button"
                   onClick={handleAdd}
-                  className="flex h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-all"
+                  aria-live="polite"
+                  className="flex h-12 min-w-0 flex-1 items-center justify-center gap-2 rounded-lg bg-brand px-3 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors sm:px-6"
                 >
                   {added ? (
                     <>
                       <Check className="h-4 w-4 text-emerald-400" />
-                      <span>Added to Collection</span>
+                      <span>Added to Cart</span>
                     </>
                   ) : (
                     <>
