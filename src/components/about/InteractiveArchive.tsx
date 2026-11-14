@@ -82,6 +82,7 @@ export function InteractiveArchive() {
 
               <dialog
                 data-archive-dialog={story.id}
+                data-lenis-prevent
                 aria-labelledby={`archive-title-${story.id}`}
                 className="m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto rounded-card border border-light bg-white p-5 text-start shadow-artwork backdrop:bg-deep/60 backdrop:backdrop-blur-sm sm:p-8"
               >
