@@ -56,6 +56,7 @@ export const products = allProducts.map((p) => ({
       : ("Originals" as const),
   categoryRaw: p.category,
   price: p.priceUSD,
+  oldPriceUSD: p.oldPriceUSD,
   art: (p.artVariant || "allah") as ArtVariant,
   scene: (p.scene || "living") as SceneKind,
   image: p.image,

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
-import { TextLink } from "@/components/ui/Link";
 import { artist, type ArchiveStory } from "@/data/artist";
 
 const categories = ["All", "Exhibitions", "Product Design", "Workshops", "Awards"] as const;
@@ -34,8 +33,9 @@ export function InteractiveArchive() {
               <button
                 key={cat}
                 type="button"
+                aria-pressed={active}
                 onClick={() => setActiveCategory(cat)}
-                className={`rounded-control px-4 py-2 text-label font-medium uppercase tracking-caps transition-colors duration-300 ${
+                className={`min-h-11 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 ${
                   active
                     ? "border border-brand bg-brand text-white"
                     : "border border-light bg-white text-steel hover:border-soft hover:text-deep"
@@ -69,10 +69,10 @@ export function InteractiveArchive() {
             </div>
 
             <div className="flex flex-1 flex-col p-7 md:p-8">
-              <span className="text-micro font-medium uppercase tracking-caps text-mist">
+              <span className="text-xs font-medium leading-6 text-steel">
                 {story.location}
               </span>
-              <h3 className="mt-3 font-serif text-xl font-light leading-snug tracking-tight text-deep">
+              <h3 className="mt-3 text-xl font-medium leading-snug tracking-tight text-deep">
                 {story.title}
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-steel">
@@ -82,7 +82,7 @@ export function InteractiveArchive() {
                 <button
                   type="button"
                   onClick={() => setSelectedStory(story)}
-                  className="inline-flex items-center gap-2 text-label font-medium uppercase tracking-caps text-brand transition-colors hover:text-deep"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-brand transition-colors hover:text-deep"
                 >
                   View Details &rarr;
                 </button>

@@ -51,7 +51,7 @@ export function ProductCard({
     setTimeout(() => setAdded(false), 2000);
   };
 
-  const oldPrice = product.oldPriceUSD || Math.round(product.price * 1.15);
+  const reviewCount = product.reviewCount ?? product.reviews ?? 0;
 
   const cardContent = (
     <article className="group relative flex min-h-36 h-full flex-row overflow-hidden rounded-2xl border border-light bg-white transition-all duration-300 hover:border-brand/40 hover:shadow-raised sm:flex-col">
@@ -112,23 +112,14 @@ export function ProductCard({
       {/* Card Body */}
       <div className={`flex flex-1 flex-col p-3 sm:p-4 ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-5"}`}>
         <div>
-          {/* Rating & Acquisition status */}
-          <div className="mb-1 flex items-center gap-1.5 text-xs text-steel">
-            <div className="flex items-center gap-0.5 text-amber-500 font-bold">
-              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-              <span>{product.rating !== undefined ? product.rating.toFixed(1) : "4.9"}</span>
+          {product.rating !== undefined && reviewCount > 0 && (
+            <div className="mb-2 flex items-center gap-1.5 text-xs text-steel">
+              <Star aria-hidden="true" className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+              <span>{product.rating.toFixed(1)}</span>
+              <span aria-hidden="true">·</span>
+              <span>{reviewCount} reviews</span>
             </div>
-            <span className="text-light">|</span>
-            <span className="text-[11px] text-steel">
-            {product.reviews || product.reviewCount || 80} Reviews
-            </span>
-            {!homeCard && product.booked ? (
-              <>
-                <span className="hidden text-light sm:inline">|</span>
-                <span className="hidden text-[11px] font-medium text-mist sm:inline">{product.booked}</span>
-              </>
-            ) : null}
-          </div>
+          )}
 
           {/* Title */}
           <h3 className="font-serif text-sm font-semibold leading-snug tracking-tight text-deep transition-colors group-hover:text-brand line-clamp-2 sm:text-base sm:font-medium">
@@ -140,14 +131,14 @@ export function ProductCard({
 
         </div>
 
-        {/* Footer: Pricing matching Arabian Sand Dunes layout */}
+        {/* Fixed artwork price */}
         <div className={`flex items-end justify-between border-t border-light/60 ${homeCard ? "mt-4 pt-3" : "mt-3 pt-2 sm:mt-0 sm:min-w-36 sm:border-s sm:border-t-0 sm:ps-5 sm:pt-0"}`}>
           <div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] text-mist uppercase font-semibold sm:text-[11px]">From</span>
-              {oldPrice && (
+              <span className="text-[10px] text-steel uppercase font-semibold sm:text-[11px]">Price</span>
+              {product.oldPriceUSD && (
                 <span className="text-xs text-steel line-through">
-                  {formatPrice(oldPrice)}
+                  {formatPrice(product.oldPriceUSD)}
                 </span>
               )}
             </div>

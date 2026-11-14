@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ProductImageCarousel } from "@/components/products/ProductImageCarousel";
@@ -21,9 +21,6 @@ import { StarRating } from "@/components/ui/StarRating";
 import { ProductCard } from "@/components/common/ProductCard";
 import { products } from "@/data/products";
 import type { Product as StoreProduct } from "@/types/store";
-
-const EMPTY_STYLES: NonNullable<StoreProduct["styles"]> = [];
-const EMPTY_SIZES: NonNullable<StoreProduct["sizes"]> = [];
 
 function ArtworkDetails({ product }: { product: StoreProduct }) {
   return (
@@ -92,12 +89,6 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
-  // Style & Size selections
-  const styles = product.styles ?? EMPTY_STYLES;
-  const sizes = product.sizes ?? EMPTY_SIZES;
-  const [selectedStyleIdx, setSelectedStyleIdx] = useState(0);
-  const [selectedSizeIdx, setSelectedSizeIdx] = useState(0);
-
   const images = [
     product.image,
     ...(product.gallery || []).filter((image) => image !== product.image),
@@ -109,22 +100,6 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
         candidate.slug !== product.slug && candidate.categoryRaw === product.category
     )
     .slice(0, 3);
-
-  // Calculate effective price based on style + size modifiers
-  const effectivePrice = useMemo(() => {
-    const base = product.priceUSD;
-    const styleMod = styles[selectedStyleIdx]?.priceModifier || 0;
-    const sizeMod = sizes[selectedSizeIdx]?.priceModifier || 0;
-    return base + styleMod + sizeMod;
-  }, [product.priceUSD, styles, selectedStyleIdx, sizes, selectedSizeIdx]);
-
-  const effectiveOldPrice = useMemo(() => {
-    if (!product.oldPriceUSD) return undefined;
-    const base = product.oldPriceUSD;
-    const styleMod = styles[selectedStyleIdx]?.priceModifier || 0;
-    const sizeMod = sizes[selectedSizeIdx]?.priceModifier || 0;
-    return base + styleMod + sizeMod;
-  }, [product.oldPriceUSD, styles, selectedStyleIdx, sizes, selectedSizeIdx]);
 
   const handleAdd = () => {
     dispatch(
@@ -138,11 +113,9 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
         collection: product.collection
           ? formatCategoryLabel(product.collection)
           : undefined,
-        priceUSD: effectivePrice,
+        priceUSD: product.priceUSD,
         image: product.image,
         quantity,
-        selectedStyle: styles[selectedStyleIdx]?.label,
-        selectedSize: sizes[selectedSizeIdx]?.label,
       })
     );
     setAdded(true);
@@ -203,7 +176,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                   {product.title}
                 </h1>
 
-                {product.rating && (
+                {product.rating && product.reviews && product.reviews > 0 && (
                   <div className="mt-3 flex items-center gap-2">
                     <StarRating
                       rating={product.rating}
@@ -218,86 +191,22 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                 )}
               </div>
 
-              {/* Price Range */}
+              {/* Artwork price */}
               <div className="rounded-xl bg-ice/60 px-4 py-3">
-                <p className="text-xs font-semibold uppercase tracking-wider text-steel">Your selected edition</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-steel">Artwork price</p>
                 <div className="mt-1 flex items-baseline gap-3">
                 <span className="font-serif text-2xl sm:text-3xl font-light text-deep">
-                  {formatPrice(effectivePrice)}
+                  {formatPrice(product.priceUSD)}
                 </span>
-                {effectiveOldPrice && (
+                {product.oldPriceUSD && (
                   <>
                     <span className="text-sm text-steel">–</span>
                     <span className="text-base text-steel line-through">
-                      {formatPrice(effectiveOldPrice)}
+                      {formatPrice(product.oldPriceUSD)}
                     </span>
                   </>
                 )}</div>
               </div>
-
-              {/* ====== Style Selector ====== */}
-              {styles.length > 0 && (
-                <div className="rounded-xl border border-light bg-white p-4 shadow-xs">
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-deep">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ice text-brand">
-                        <Palette className="h-4 w-4" />
-                      </span>
-                      Style
-                    </h3>
-                    <span className="text-xs font-medium text-steel">{styles[selectedStyleIdx]?.label}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {styles.map((style, idx) => (
-                      <button
-                        key={style.label}
-                        type="button"
-                        onClick={() => setSelectedStyleIdx(idx)}
-                        className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-all ${
-                          selectedStyleIdx === idx
-                            ? "border-brand bg-brand text-white shadow-sm"
-                            : "border-light bg-white text-deep hover:border-brand/40 hover:bg-ice"
-                        }`}
-                      >
-                        {selectedStyleIdx === idx && <Check className="h-3.5 w-3.5" />}
-                        {style.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* ====== Size Selector ====== */}
-              {sizes.length > 0 && (
-                <div className="rounded-xl border border-light bg-white p-4 shadow-xs">
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-deep">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ice text-brand">
-                        <Maximize2 className="h-4 w-4" />
-                      </span>
-                      Size
-                    </h3>
-                    <span className="text-xs font-medium text-steel">{sizes[selectedSizeIdx]?.label}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {sizes.map((size, idx) => (
-                      <button
-                        key={size.label}
-                        type="button"
-                        onClick={() => setSelectedSizeIdx(idx)}
-                        className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-all ${
-                          selectedSizeIdx === idx
-                            ? "border-brand bg-brand text-white shadow-sm"
-                            : "border-light bg-white text-deep hover:border-brand/40 hover:bg-ice"
-                        }`}
-                      >
-                        {selectedSizeIdx === idx && <Check className="h-3.5 w-3.5" />}
-                        {size.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {/* Quantity + Add to Cart */}
               <div className="rounded-xl border border-light bg-white p-3">

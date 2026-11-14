@@ -5,7 +5,7 @@ export const homeHero = {
   title: "Art with meaning.",
   accent: "A space that feels like you.",
   description:
-    "Discover mixed media collections, expressive artworks and original textured canvases by Sumaira. Find the piece that speaks to you and belongs in your space.",
+    "Discover original textured canvases, expressive mixed media artworks and curated collections by Sumaira. Find the piece that speaks to you and belongs in your space.",
   primary: { label: "Find your artwork", href: "#offerings" },
   secondary: { label: "Meet the artist", href: "#artist" },
   featuredSlug: "tides-of-blessing",

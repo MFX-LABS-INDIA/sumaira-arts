@@ -6,12 +6,12 @@ export const commission: Feature & {
   eyebrow: "Bespoke Art",
   title: "Create Something Unique",
   description:
-    "Bring your vision to life with artwork created specifically for your home, office or commercial space. From concept and curation to the finished piece, create something that belongs uniquely to you.",
-  cta: { label: "Start a Commission", href: "#contact" },
+    "An artwork begins with your space and the feeling you want to create. Explore how your ideas, colours and personal meaning can become a piece made for you.",
+  cta: { label: "Explore the commission process", href: "/journal/commission-journey" },
   steps: [
-    { number: "01", title: "Concept", text: "Your vision, space and dimensions." },
-    { number: "02", title: "Curation", text: "Palette, form and materials chosen with you." },
-    { number: "03", title: "The finished piece", text: "Made by hand, finished and delivered." },
+    { number: "01", title: "Begin with your space", text: "Bring together room photographs, wall measurements and the ideas that matter to you." },
+    { number: "02", title: "Shape the direction", text: "Explore a palette, composition and materials that complement your interior." },
+    { number: "03", title: "Bring it to life", text: "Follow the journey from the first concept to the finished artwork." },
   ],
   art: "rings",
   scene: "office",

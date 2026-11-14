@@ -24,7 +24,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-white font-sans text-steel">
+      {/* Browser extensions may add attributes to body before React hydrates it. */}
+      <body suppressHydrationWarning className="flex min-h-full flex-col bg-white font-sans text-steel">
         <ArtSprite />
         {children}
       </body>

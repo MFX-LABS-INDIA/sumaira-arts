@@ -12,7 +12,7 @@ export function CategoryCards() {
   return (
     <Section id="offerings" tone="white">
       <Container>
-        <div id="collections" className="scroll-mt-24">
+        <div>
           <SectionHeading {...categoryIntro} />
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">

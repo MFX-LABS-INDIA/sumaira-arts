@@ -1,116 +1,114 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { ArtImage } from "@/components/art/ArtImage";
+import Image from "next/image";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ButtonLink, SmartLink } from "@/components/ui/Link";
+import { SmartLink, TextLink } from "@/components/ui/Link";
 import { collectionsIntro } from "@/data/collections";
 import { mixedMediaProducts } from "@/data/products";
 import type { Product } from "@/types/store";
 
-const INITIAL = 6;
-const mixedMediaCollectionHref = "/products?category=Mixed_Media_Canvas";
+const collectionArtworks = mixedMediaProducts.slice(0, 6);
+const collectionHref = "/products?category=Mixed_Media_Canvas";
 
-function CollectionCard({ product }: { product: Product }) {
+function CollectionCard({ product, index }: { product: Product; index: number }) {
   return (
-    <article className="group relative w-[72vw] max-w-72 shrink-0 snap-start md:w-72">
-      <div className="relative">
-        <ArtImage
-          art={(product.artVariant || "allah") as never}
+    <article className="group relative flex w-[82vw] max-w-sm shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-light bg-white shadow-xs transition-[border-color,box-shadow] duration-300 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]">
+      <div className="relative aspect-[4/5] overflow-hidden bg-ice">
+        <Image
           src={product.image}
-          alt=""
-          zoom
-          sizes="(min-width: 1024px) 30vw, 46vw"
-          className="aspect-portrait"
+          alt={`${product.title} artwork in the Collections range`}
+          fill
+          sizes="(min-width: 1280px) 379px, (min-width: 1024px) 31vw, (min-width: 640px) 45vw, 82vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:transform-none"
         />
-        <h3 className="absolute inset-x-3 bottom-3 rounded-control bg-white/95 px-4 py-2.5 text-center font-serif text-base font-light leading-snug tracking-tight text-deep">
-          <SmartLink href={mixedMediaCollectionHref} className="after:absolute after:inset-0 after:content-['']">
+        <span className="absolute start-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-medium text-brand shadow-xs">
+          {String(index + 1).padStart(2, "0")} / {String(collectionArtworks.length).padStart(2, "0")}
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <p className="text-xs font-medium uppercase tracking-widest text-steel">Collections</p>
+        <h3 className="mt-2 text-xl font-medium leading-snug tracking-tight text-deep sm:text-2xl">
+          <SmartLink href={`/products/${product.slug}`} className="after:absolute after:inset-0 after:rounded-2xl">
             {product.title}
           </SmartLink>
         </h3>
+        {product.medium && <p className="mt-3 line-clamp-2 text-sm leading-6 text-steel">{product.medium}</p>}
+        <div className="mt-auto pt-6">
+          <span className="flex min-h-11 items-center justify-between gap-3 border-t border-light pt-4 text-sm font-semibold text-brand" aria-hidden="true">
+            {collectionsIntro.viewArtwork}
+            <ArrowUpRight className="h-5 w-5 rtl:-rotate-90" />
+          </span>
+        </div>
       </div>
-      <p className="mt-4 line-clamp-2 text-sm text-steel">{product.description}</p>
     </article>
   );
 }
 
-/**
- * A concise collection carousel keeps the home page focused; the CTA opens the complete collection catalogue.
- */
 export function CollectionGrid() {
-  const first = mixedMediaProducts.slice(0, INITIAL);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
 
-  const moveTo = (index: number) => {
+  const updateControls = () => {
     const carousel = carouselRef.current;
-    const item = carousel?.children[index] as HTMLElement | undefined;
-    if (!carousel || !item) return;
-    carousel.scrollTo({ left: item.offsetLeft, behavior: "smooth" });
-    setActiveIndex(index);
+    const first = carousel?.firstElementChild;
+    const last = carousel?.lastElementChild;
+    if (!carousel || !first || !last) return;
+
+    const frame = carousel.getBoundingClientRect();
+    const firstCard = first.getBoundingClientRect();
+    const lastCard = last.getBoundingClientRect();
+    const isRtl = getComputedStyle(carousel).direction === "rtl";
+    setCanPrev(isRtl ? firstCard.right > frame.right + 4 : firstCard.left < frame.left - 4);
+    setCanNext(isRtl ? lastCard.left < frame.left - 4 : lastCard.right > frame.right + 4);
   };
 
-  const moveBy = (direction: -1 | 1) => {
-    moveTo(Math.max(0, Math.min(first.length - 1, activeIndex + direction)));
+  const move = (direction: -1 | 1) => {
+    const carousel = carouselRef.current;
+    const card = carousel?.firstElementChild as HTMLElement | null;
+    if (!carousel || !card) return;
+
+    const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
+    const isRtl = getComputedStyle(carousel).direction === "rtl";
+    carousel.scrollBy({
+      left: (card.offsetWidth + gap) * direction * (isRtl ? -1 : 1),
+      behavior: "smooth",
+    });
   };
 
   return (
-    <Section id="collections" tone="ice">
+    <Section id="collections" tone="white" className="border-t border-light">
       <Container>
-        <SectionHeading eyebrow={collectionsIntro.eyebrow} title={collectionsIntro.title} description={collectionsIntro.description} />
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeading eyebrow={collectionsIntro.eyebrow} title={collectionsIntro.title} description={collectionsIntro.description} />
+          <div className="flex items-center gap-2 sm:shrink-0">
+            <button type="button" onClick={() => move(-1)} disabled={!canPrev} aria-label="Previous collection artwork" aria-controls="collection-carousel" className="flex h-12 w-12 items-center justify-center rounded-full border border-light bg-white text-brand transition-colors hover:border-brand hover:bg-ice disabled:cursor-not-allowed disabled:opacity-40">
+              <ChevronLeft className="h-5 w-5 rtl:rotate-180" />
+            </button>
+            <button type="button" onClick={() => move(1)} disabled={!canNext} aria-label="Next collection artwork" aria-controls="collection-carousel" className="flex h-12 w-12 items-center justify-center rounded-full border border-light bg-white text-brand transition-colors hover:border-brand hover:bg-ice disabled:cursor-not-allowed disabled:opacity-40">
+              <ChevronRight className="h-5 w-5 rtl:rotate-180" />
+            </button>
+          </div>
+        </div>
 
         <div
+          id="collection-carousel"
           ref={carouselRef}
-          onScroll={(event) => {
-            const carousel = event.currentTarget;
-            const firstCard = carousel.children[0] as HTMLElement | undefined;
-            if (!firstCard) return;
-            const gap = Number.parseFloat(getComputedStyle(carousel).gap) || 0;
-            setActiveIndex(Math.max(0, Math.min(first.length - 1, Math.round(carousel.scrollLeft / (firstCard.offsetWidth + gap)))));
-          }}
-          className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-3 sm:-mx-8 sm:px-8 md:mt-16 md:mx-0 md:px-0"
+          role="region"
+          aria-label="Collection artworks"
+          tabIndex={0}
+          onScroll={updateControls}
+          className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-5 px-5 pb-5 sm:-mx-8 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:px-0 lg:scroll-px-0"
         >
-          {first.map((product) => (
-            <CollectionCard key={product.id} product={product} />
-          ))}
+          {collectionArtworks.map((product, index) => <CollectionCard key={product.id} product={product} index={index} />)}
         </div>
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <button
-            type="button"
-            onClick={() => moveBy(-1)}
-            disabled={activeIndex === 0}
-            aria-label="Previous collection"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-light bg-white text-deep transition-colors hover:border-brand hover:text-brand disabled:pointer-events-none disabled:opacity-35"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <div className="flex items-center gap-2" aria-label="Collection carousel pages">
-            {first.map((product, index) => (
-              <button
-                key={product.id}
-                type="button"
-                onClick={() => moveTo(index)}
-                aria-label={`Show ${product.title}`}
-                aria-current={activeIndex === index ? "true" : undefined}
-                className={`h-2 rounded-full transition-all ${activeIndex === index ? "w-6 bg-brand" : "w-2 bg-mist hover:bg-steel"}`}
-              />
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={() => moveBy(1)}
-            disabled={activeIndex === first.length - 1}
-            aria-label="Next collection"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-light bg-white text-deep transition-colors hover:border-brand hover:text-brand disabled:pointer-events-none disabled:opacity-35"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        </div>
-        <div className="mt-8 flex justify-center">
-          <ButtonLink href={mixedMediaCollectionHref}>{collectionsIntro.viewAll}</ButtonLink>
+
+        <div className="mt-5 flex justify-start sm:mt-7">
+          <TextLink href={collectionHref} className="min-h-11">{collectionsIntro.viewAll}</TextLink>
         </div>
       </Container>
     </Section>

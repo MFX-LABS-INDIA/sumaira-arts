@@ -14,10 +14,11 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Shop",
     links: [
-      { label: "Collections", href: "#collections" },
-      { label: "Artwork", href: "#artwork" },
-      { label: "Original Artworks", href: "#collections" },
-      { label: "Custom Art", href: "#commission" },
+      { label: "Originals", href: "/products?category=Original_Texture" },
+      { label: "Mixed Media", href: "/products?category=Mixed_Media_Artworks" },
+      { label: "Collections", href: "/products?category=Mixed_Media_Canvas" },
+      { label: "All Artworks", href: "/products" },
+      { label: "Commission Process", href: "/journal/commission-journey" },
     ],
   },
   {
