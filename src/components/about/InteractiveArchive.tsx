@@ -1,178 +1,147 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
-import { artist, type ArchiveStory } from "@/data/artist";
+import { ChevronRight, MapPin } from "lucide-react";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { artist } from "@/data/artist";
+import { ArchiveCarouselController } from "./ArchiveCarouselController";
 
 const categories = ["All", "Exhibitions", "Product Design", "Workshops", "Awards"] as const;
 
 export function InteractiveArchive() {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [selectedStory, setSelectedStory] = useState<ArchiveStory | null>(null);
-
-  const filteredStories =
-    activeCategory === "All"
-      ? artist.archiveStories
-      : artist.archiveStories.filter((s) => s.category === activeCategory);
+  const categoryCounts = categories.map((category) => ({
+    name: category,
+    count:
+      category === "All"
+        ? artist.archiveStories.length
+        : artist.archiveStories.filter((story) => story.category === category).length,
+  }));
 
   return (
     <div>
-      <div>
-        <SectionHeading
-          eyebrow="Visual Archive"
-          title="Curated Exhibitions & Collaborative Design"
-          description="Selected masterworks, regional retail collections, and juried international showcases."
-        />
+      <SectionHeading
+        eyebrow="Visual Archive"
+        title="Curated Exhibitions & Collaborative Design"
+        description="A closer look at the exhibitions, collections and creative work that bring calligraphy into the world."
+      />
 
-        {/* Filter Pills in a new line below */}
-        <div className="mt-4 sm:mt-8 flex flex-wrap items-center gap-1.5 sm:gap-2">
-          {categories.map((cat) => {
-            const active = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                type="button"
-                aria-pressed={active}
-                onClick={() => setActiveCategory(cat)}
-                className={`min-h-9 sm:min-h-11 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-300 ${
-                  active
-                    ? "border border-brand bg-brand text-white"
-                    : "border border-light bg-white text-steel hover:border-soft hover:text-deep"
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Grid of Archive Cards */}
-      <div className="mt-6 sm:mt-12 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-        {filteredStories.map((story) => (
-          <article
-            key={story.id}
-            className="group flex flex-col overflow-hidden rounded-card border border-light bg-white transition-colors duration-500 hover:border-soft"
-          >
-            <div className="relative aspect-[16/11] sm:aspect-landscape overflow-hidden bg-ice">
-              <Image
-                src={story.image}
-                alt={story.title}
-                fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-              <span className="absolute start-3 top-3 sm:start-4 sm:top-4 rounded-control bg-white/95 px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-micro font-medium uppercase tracking-caps text-deep shadow-sm">
-                {story.category}
-              </span>
-            </div>
-
-            <div className="flex flex-1 flex-col p-4 sm:p-7 md:p-8">
-              <span className="text-[11px] sm:text-xs font-medium leading-relaxed sm:leading-6 text-steel">
-                {story.location}
-              </span>
-              <h3 className="mt-1.5 sm:mt-3 text-base sm:text-xl font-medium leading-snug tracking-tight text-deep">
-                {story.title}
-              </h3>
-              <p className="mt-1.5 sm:mt-3 flex-1 text-xs sm:text-sm leading-relaxed text-steel line-clamp-3 sm:line-clamp-none">
-                {story.description}
-              </p>
-              <div className="mt-3 sm:mt-6">
-                <button
-                  type="button"
-                  onClick={() => setSelectedStory(story)}
-                  className="inline-flex min-h-9 sm:min-h-11 items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-brand transition-colors hover:text-deep"
-                >
-                  View Details &rarr;
-                </button>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      {/* Modal Dialog */}
-      {selectedStory && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-deep/60 p-4 backdrop-blur-sm"
-          onClick={() => setSelectedStory(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-card border border-light bg-white p-6 shadow-artwork sm:p-10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              type="button"
-              onClick={() => setSelectedStory(null)}
-              className="absolute end-6 top-6 flex h-9 w-9 items-center justify-center rounded-control border border-light text-steel transition-colors hover:border-brand hover:text-deep"
-              aria-label="Close dialog"
+      <ArchiveCarouselController categories={categoryCounts}>
+        {artist.archiveStories.map((story, index) => (
+            <article
+              key={story.id}
+              data-archive-slide
+              data-category={story.category}
+              className="group flex w-[84vw] max-w-96 shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-[border-color,box-shadow] duration-500 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]"
             >
-              ✕
-            </button>
-
-            <div className="relative aspect-landscape w-full overflow-hidden rounded-control bg-ice">
-              <Image
-                src={selectedStory.image}
-                alt={selectedStory.title}
-                fill
-                sizes="(min-width: 640px) 600px, 90vw"
-                className="object-cover"
-              />
-            </div>
-
-            <div className="mt-7">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <Eyebrow>{selectedStory.category}</Eyebrow>
-                <span className="text-micro font-medium uppercase tracking-caps text-mist">
-                  {selectedStory.location}
+              <button
+                type="button"
+                data-archive-open={story.id}
+                aria-label={`View details: ${story.title}`}
+                className="relative block aspect-[16/11] w-full overflow-hidden bg-ice text-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-brand"
+              >
+                <Image
+                  src={story.image}
+                  alt={story.title}
+                  fill
+                  sizes="(min-width: 1024px) 31vw, (min-width: 640px) 45vw, 84vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-deep/65 via-transparent to-deep/10 opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
+                <span className="absolute start-3 top-3 rounded-full bg-white/95 px-3 py-1.5 text-micro font-semibold uppercase tracking-caps text-brand shadow-sm sm:start-4 sm:top-4">
+                  {story.category}
                 </span>
-              </div>
-
-              <h3 className="mt-3 font-serif text-2xl font-light tracking-tight text-deep sm:text-3xl">
-                {selectedStory.title}
-              </h3>
-              <p className="mt-2 text-sm italic text-steel">
-                {selectedStory.subtitle}
-              </p>
-
-              <p className="mt-5 text-sm leading-relaxed text-steel md:text-base">
-                {selectedStory.description}
-              </p>
-
-              <div className="mt-6 rounded-control border border-light bg-ice/60 p-5">
-                <span className="block text-micro font-semibold uppercase tracking-caps text-deep">
-                  Exhibition & Design Highlights
+                <span className="absolute end-3 top-3 rounded-full bg-deep/50 px-3 py-1.5 font-mono text-micro text-white backdrop-blur-sm sm:end-4 sm:top-4">
+                  {String(index + 1).padStart(2, "0")} / {String(artist.archiveStories.length).padStart(2, "0")}
                 </span>
-                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-steel">
-                  {selectedStory.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <span className="text-brand font-serif italic" aria-hidden="true">
-                        —
-                      </span>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <span className="absolute inset-x-4 bottom-4 flex translate-y-2 items-center justify-between gap-3 text-start text-xs font-semibold text-white opacity-0 transition-[opacity,transform] duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 sm:inset-x-5 sm:bottom-5 sm:text-sm motion-reduce:translate-y-0 motion-reduce:transition-none">
+                  Explore this project
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/60">
+                    <ChevronRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+                  </span>
+                </span>
+              </button>
 
-              <div className="mt-8 flex justify-end">
+              <div className="flex flex-1 flex-col p-4 sm:p-6">
+                <span className="flex items-center gap-1.5 text-xs leading-relaxed text-steel">
+                  <MapPin className="h-3.5 w-3.5 shrink-0 text-brand" aria-hidden="true" />
+                  {story.location}
+                </span>
+                <h3 className="mt-2 text-lg font-medium leading-snug tracking-tight text-deep sm:mt-3 sm:text-xl">
+                  {story.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 flex-1 text-xs leading-relaxed text-steel sm:mt-3 sm:text-sm">
+                  {story.description}
+                </p>
                 <button
                   type="button"
-                  onClick={() => setSelectedStory(null)}
-                  className="rounded-control border border-steel/40 px-6 py-3 text-label font-medium uppercase tracking-caps text-steel transition-colors hover:border-brand hover:bg-brand hover:text-white"
+                  data-archive-open={story.id}
+                  className="mt-4 inline-flex min-h-10 items-center gap-2 self-start border-t border-light pt-3 text-xs font-semibold text-brand transition-colors hover:text-deep sm:mt-5 sm:text-sm"
                 >
-                  Close
+                  View project details
+                  <ChevronRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+
+              <dialog
+                data-archive-dialog={story.id}
+                aria-labelledby={`archive-title-${story.id}`}
+                className="m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto rounded-card border border-light bg-white p-5 text-start shadow-artwork backdrop:bg-deep/60 backdrop:backdrop-blur-sm sm:p-8"
+              >
+                <div className="relative aspect-landscape w-full overflow-hidden rounded-control bg-ice">
+                  <Image
+                    src={story.image}
+                    alt={story.title}
+                    fill
+                    sizes="(min-width: 640px) 600px, 90vw"
+                    className="object-cover"
+                  />
+                </div>
+
+                <div className="mt-6 sm:mt-7">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-micro font-semibold uppercase tracking-caps text-brand">
+                      {story.category}
+                    </span>
+                    <span className="text-micro font-medium uppercase tracking-caps text-steel">
+                      {story.location}
+                    </span>
+                  </div>
+
+                  <h3
+                    id={`archive-title-${story.id}`}
+                    className="mt-3 font-serif text-2xl font-light tracking-tight text-deep sm:text-3xl"
+                  >
+                    {story.title}
+                  </h3>
+                  <p className="mt-2 text-sm italic text-steel">{story.subtitle}</p>
+                  <p className="mt-5 text-sm leading-relaxed text-steel md:text-base">
+                    {story.description}
+                  </p>
+
+                  <div className="mt-6 rounded-control border border-light bg-ice/60 p-5">
+                    <span className="block text-micro font-semibold uppercase tracking-caps text-deep">
+                      Exhibition & Design Highlights
+                    </span>
+                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-steel">
+                      {story.details.map((detail) => (
+                        <li key={detail} className="flex items-start gap-2.5">
+                          <span className="font-serif italic text-brand" aria-hidden="true">—</span>
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <button
+                    type="button"
+                    data-archive-close
+                    className="mt-6 min-h-11 rounded-control border border-light px-5 text-sm font-medium text-brand transition-colors hover:border-brand hover:bg-ice"
+                  >
+                    Close project details
+                  </button>
+                </div>
+              </dialog>
+            </article>
+        ))}
+      </ArchiveCarouselController>
     </div>
   );
 }
-

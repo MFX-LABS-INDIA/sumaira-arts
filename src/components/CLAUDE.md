@@ -35,8 +35,11 @@ A library with three buttons has no design system, however good each button is.
   fine for a glyph that must mirror (an arrow). Known LTR-only spots: INTERNATIONALIZATION §1.
 - **Copy comes in as props.** Never hard-code marketing text. (UI microcopy — "Subscribe", aria-labels —
   is recorded debt; do not add to it.)
-- **Server by default.** Only `layout/Header`, `RevealController`, `SmoothScroll`/`LenisRoot`, `providers/ServiceWorkerRegistration`, and `common/HeroControls` are client
-  components, each for a stated reason. Anything new needs one.
+- **Server by default.** `layout/Header`, `RevealController`, `SmoothScroll`/`LenisRoot`,
+  `providers/ServiceWorkerRegistration`, `common/HeroControls`, and the interaction-only
+  `about/RecognitionCarouselController` and `about/ArchiveCarouselController` are client
+  components, each for a stated reason. About page sections, including `about/ArtistFounderHero`,
+  stay server-rendered; their controllers own interaction only. Anything new needs a stated reason.
 - `className` is always accepted and merged. Shared class strings are named constants next to their
   component (`buttonBase`, `headingClass`), not copied.
 - Accessibility is part of done: real `<button>`/`<a>`, a visible focus ring (set globally, `mist`), labels,

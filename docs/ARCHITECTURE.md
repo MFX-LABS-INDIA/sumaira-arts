@@ -90,10 +90,13 @@ or a browser API. Today the complete list is:
 | `layout/SmoothScroll`, `LenisRoot`       | `matchMedia` gate, then the lazily loaded smooth-scroll lib |
 | `providers/ServiceWorkerRegistration`    | registers the browser runtime cache after the first production render |
 | `common/HeroControls`                     | hero carousel: slide state, pause, swipe (ADR-0015)         |
+| `about/RecognitionCarouselController`    | milestone autoplay, navigation, pause and reduced-motion state |
+| `about/ArchiveCarouselController`        | archive filters, horizontal navigation and native-dialog controls |
 | `(site)/error.tsx`                       | Next requires an error boundary to be a client component    |
 
-Everything else — including the collection grid, the product cards and every reveal wrapper — is
-server-rendered with no hydration cost. Adding to this table is an architectural decision: say why in the PR.
+Everything else — including the collection grid, product cards, About page sections, archive content,
+milestone slides and every reveal wrapper — is server-rendered with no hydration cost. The About client
+controllers contain interaction only; their content and data remain server-rendered.
 
 ## State
 
