@@ -1,9 +1,9 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import Link from "next/link";
 import { CountrySelect } from "@/components/checkout/CountrySelect";
-import type { Country } from "@/constants/countries";
+import { useCountryDetection } from "@/components/checkout/useCountryDetection";
 import { idleForm } from "@/lib/forms";
 import { submitEnquiry } from "@/lib/actions/enquiry";
 
@@ -13,7 +13,7 @@ const labelClassName = "mb-1.5 block text-xs font-medium uppercase tracking-caps
 
 export function EnquiryForm() {
   const [formState, formAction, isPending] = useActionState(submitEnquiry, idleForm);
-  const [countryCode, setCountryCode] = useState<Country["code"]>("AE");
+  const { country, selectCountry } = useCountryDetection();
 
   return (
     <form action={formAction} className="space-y-4 px-5 pb-6 sm:px-8 sm:pb-8">
@@ -55,11 +55,11 @@ export function EnquiryForm() {
           <div className="flex gap-2">
             <div className="w-32 shrink-0">
               <CountrySelect
-                value={countryCode}
-                onChange={(country) => setCountryCode(country.code)}
+                value={country.code}
+                onChange={selectCountry}
               />
             </div>
-            <input type="hidden" name="countryCode" value={countryCode} />
+            <input type="hidden" name="countryCode" value={country.code} />
             <input
               id="enquiry-phone"
               name="phone"
@@ -67,7 +67,7 @@ export function EnquiryForm() {
               autoComplete="tel"
               maxLength={30}
               required
-              placeholder="Mobile number"
+              placeholder={`e.g. ${country.code === "AE" ? "50 123 4567" : "Mobile number"}`}
               className={`${fieldClassName} min-w-0 flex-1`}
             />
           </div>
