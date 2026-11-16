@@ -42,5 +42,7 @@ Checklist in [ARCHITECTURE.md](../../docs/ARCHITECTURE.md#add-a-page). In short:
 
 - [ADR-0010](../../docs/adr/0010-sections-data-and-common-components.md) — routes compose sections; data lives in `src/data`
 - [ADR-0014](../../docs/adr/0014-single-font-family-manrope.md) — one font family, Manrope, everywhere (`layout.tsx`)
+- [ADR-0016](../../docs/adr/0016-journal-feature-removed.md) — Journal routes are retired
+- [ADR-0017](../../docs/adr/0017-contact-enquiries-use-email-and-google-sheets.md) — enquiries use the email and sheet integrations
 
 Rules: [ARCHITECTURE](../../docs/ARCHITECTURE.md) · [PERFORMANCE](../../docs/PERFORMANCE.md) · [ERROR_HANDLING](../../docs/ERROR_HANDLING.md)

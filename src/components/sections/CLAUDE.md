@@ -6,7 +6,7 @@ Auto-loaded when you work in `src/components/sections`.
 
 One file per large block a page places: `Hero`, `BrandStatement`, `CategoryCards`, `FeaturedProducts`,
 `CollectionFeature`, `Commission`, `Mirage`, `FounderBlock`, `CollectionGrid`, `ReviewsWall`,
-`InteriorShowcase`, `Journal`, `SocialGallery`. A page (`src/app/(site)/**/page.tsx`) composes them.
+`InteriorShowcase`, `SocialGallery`, `PrivacyPolicy`. A page (`src/app/(site)/**/page.tsx`) composes them.
 
 A section **reads its words from `src/data/`** and renders them with `ui`, `common` and `art` pieces. It
 does not fetch, and it holds no marketing text of its own.
@@ -28,8 +28,8 @@ often "extend a section" or "add an item to a `data/` list", not a new file.
   real photograph must be a one-field swap in `data/`.
 - **Compose primitives; do not restyle them.** A new look is a new `variant` on the primitive — a
   `components/ui` change.
-- **A form validates on the server** (`lib/forms.ts`, `lib/webhook.ts`): (`lib/actions/`), `postToWebhook`, return a
-  `FormState`, never report a success that did not happen. Read ERROR_HANDLING and SECURITY_HYGIENE first.
+- **A form validates on the server** (`lib/actions/`), returns a `FormState`, and never reports a
+  success that did not happen. Read ERROR_HANDLING and SECURITY_HYGIENE first.
 - Use `Reveal` for scroll entrances and give each section an `id` if a nav link targets it.
 
 ## What people get wrong
@@ -49,5 +49,7 @@ often "extend a section" or "add an item to a `data/` list", not a new file.
 - [ADR-0012](../../../docs/adr/0012-home-page-redesign.md) — the home page layout
 - [ADR-0011](../../../docs/adr/0011-header-is-always-solid-white.md) — the hero sits below the white header
 - [ADR-0015](../../../docs/adr/0015-hero-carousel-with-a-client-controller.md) — the hero carousel
+- [ADR-0016](../../../docs/adr/0016-journal-feature-removed.md) — the Journal feature is retired
+- [ADR-0017](../../../docs/adr/0017-contact-enquiries-use-email-and-google-sheets.md) — enquiry delivery and privacy
 
 Rules: [ARCHITECTURE](../../../docs/ARCHITECTURE.md) · [PERFORMANCE](../../../docs/PERFORMANCE.md) · [CONVENTIONS](../../../docs/CONVENTIONS.md)

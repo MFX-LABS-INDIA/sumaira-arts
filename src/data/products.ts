@@ -12,8 +12,7 @@ export const featured = {
   cta: { label: "View All Artwork", href: "/products" } satisfies Cta,
 };
 
-// Strongly typed products exported from products.json
-export const allProducts: StoreProduct[] = productsData as unknown as StoreProduct[];
+export const allProducts: StoreProduct[] = productsData;
 
 // Helper to format category for UI display
 export const formatCategoryLabel = (category: string) => {
@@ -63,6 +62,7 @@ export const products = allProducts.map((p) => ({
   sceneImage: p.sceneImage,
   gallery: p.gallery,
   rating: p.rating,
+  ratingLabel: p.ratingLabel,
   reviewCount: p.reviews,
   soldOut: !p.inStock,
   description: p.description,

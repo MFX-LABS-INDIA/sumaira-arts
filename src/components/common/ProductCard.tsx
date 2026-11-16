@@ -112,12 +112,19 @@ export function ProductCard({
       {/* Card Body */}
       <div className={`flex flex-1 flex-col p-3 sm:p-4 ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-5"}`}>
         <div>
-          {product.rating !== undefined && reviewCount > 0 && (
+          {product.rating !== undefined && (
             <div className="mb-2 flex items-center gap-1.5 text-xs text-steel">
               <Star aria-hidden="true" className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
               <span>{product.rating.toFixed(1)}</span>
-              <span aria-hidden="true">·</span>
-              <span>{reviewCount} reviews</span>
+              {reviewCount > 0 && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span>{reviewCount} reviews</span>
+                </>
+              )}
+              {/* {product.ratingLabel && (
+                <span className="text-micro text-steel">{product.ratingLabel}</span>
+              )} */}
             </div>
           )}
 

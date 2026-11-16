@@ -6,7 +6,6 @@ import { ChevronUp, X } from "lucide-react";
 export interface CategoryOption {
   id: string;
   label: string;
-  count?: number;
 }
 
 interface CategoryFilterProps {
@@ -63,15 +62,6 @@ const CategoryListItem = memo<{
         {category.label}
       </span>
 
-      {category.count !== undefined && (
-        <span
-          className={`text-xs font-mono px-2 py-0.5 rounded-full ${
-            isSelected ? "bg-brand text-white" : "bg-ice text-steel"
-          }`}
-        >
-          {category.count}
-        </span>
-      )}
     </label>
   );
 });

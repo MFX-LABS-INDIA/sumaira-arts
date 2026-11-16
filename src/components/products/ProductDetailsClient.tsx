@@ -176,17 +176,15 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                   {product.title}
                 </h1>
 
-                {product.rating && product.reviews && product.reviews > 0 && (
+                {product.rating !== undefined && (
                   <div className="mt-2 sm:mt-3 flex items-center gap-2">
                     <StarRating
                       rating={product.rating}
-                      count={product.reviews}
+                      count={product.reviews && product.reviews > 0 ? product.reviews : undefined}
                     />
-                    {product.booked && (
-                      <span className="text-xs text-steel">
-                        • {product.booked}
-                      </span>
-                    )}
+                    {/* {product.ratingLabel && (
+                      <span className="text-micro text-steel">{product.ratingLabel}</span>
+                    )} */}
                   </div>
                 )}
               </div>

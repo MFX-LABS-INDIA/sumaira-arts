@@ -21,7 +21,7 @@ src/
 │   └── sitemap.ts, robots.ts   Generated from constants/
 │
 ├── components/
-│   ├── sections/               The large blocks a page is made of: Hero, Journal, Commission, …
+│   ├── sections/               The large blocks a page is made of: Hero, Commission, …
 │   ├── common/                 Composed pieces reused by sections or the layout:
 │   │                           ProductCard
 │   ├── layout/                 Header, Footer, Logo, SiteChrome, RevealController, SmoothScroll
@@ -30,10 +30,10 @@ src/
 │
 ├── data/                       Static content, one file per topic:
 │                               home, products, collections, inspiration, commission, artist,
-│                               reviews, journal, social, navigation
+│                               reviews, social, navigation
 ├── constants/                  site.ts (name, url, currency, hero photo), routes.ts
 ├── types/                      Shared TypeScript types (content.ts)
-└── lib/                        Helpers: format, forms, webhook — and actions/ (server actions)
+└── lib/                        Helpers: format, forms — and actions/ (server actions)
 docs/                           The rules; read before writing code
 scripts/                        Machine checks: size, contrast, docs, Lighthouse
 ```
@@ -61,7 +61,7 @@ Nothing in `components/`, `data/`, `lib/` or `constants/` imports from `app/`.
 | Anything drawn as placeholder artwork               | `src/components/art`                               |
 | Site name, canonical URL, currency, route list      | `src/constants`                                    |
 | Colours, type scale, shadows, animation             | `src/app/globals.css` (tokens)                     |
-| Helpers with no UI (formatting, form state, webhook) | `src/lib`                                          |
+| Helpers with no UI (formatting, form state)           | `src/lib`                                          |
 
 `sections` vs `common`: a **section** is a block a page places; **common** is a piece that sections (or
 the layout) place inside themselves. If you find yourself importing one section from another, the shared
@@ -88,6 +88,7 @@ or a browser API. Today the complete list is:
 | `layout/Header`                          | reads scroll position and route, owns the mobile menu state |
 | `layout/RevealController`                | one `IntersectionObserver` for every scroll reveal          |
 | `layout/SmoothScroll`, `LenisRoot`       | `matchMedia` gate, then the lazily loaded smooth-scroll lib |
+| `layout/ContactDialog`, `EnquiryForm`     | Opens a native dialog; the country selector and form state are needed only after intent |
 | `providers/ServiceWorkerRegistration`    | registers the browser runtime cache after the first production render |
 | `common/HeroControls`                     | hero carousel: slide state, pause, swipe (ADR-0015)         |
 | `about/RecognitionCarouselController`    | milestone autoplay, navigation, pause and reduced-motion state |
@@ -131,21 +132,19 @@ wrong place.
 1. Write its data first: `src/data/<topic>.ts` (and its types in `src/types/content.ts`).
 2. Write `src/components/sections/<Name>.tsx` that renders it. Reuse `ui`, `common` and `art`; do not restyle them.
 3. Compose it in a page. If it needs a piece another section also needs, put that piece in `common/`.
-4. If it has a form, follow [Add an enquiry form](#add-an-enquiry-form) — there is no form on the site yet.
+4. If it has a form, follow [Contact enquiry form](#contact-enquiry-form) and the security/privacy rules.
 
-## Add an enquiry form (the main conversion path)
+## Contact enquiry form
 
-There is no form on the site today (the newsletter was removed). `lib/forms.ts` (`FormState`) and
-`lib/webhook.ts` (`postToWebhook`) are the shared plumbing kept for the enquiry form. To build it:
+The shared Contact Us links open a lazily loaded dialog containing `src/components/layout/EnquiryForm.tsx`.
+its server action (`src/lib/actions/enquiry.ts`) validates the name, email, country calling code, mobile
+number and optional address, then sends the enquiry to `ENQUIRY_ADMIN_EMAIL` and appends it to the separate
+`enquiries` tab in the configured Google Sheet. Success is returned only when both operations succeed.
+The sheet handler owns its headers and never runs the order-sheet migration. The in-memory per-IP limiter
+is process-local; it is a basic spam control, not a distributed quota.
 
-1. `src/lib/actions/enquiry.ts` — a server action that validates on the **server**, then
-   `postToWebhook(process.env.ENQUIRY_ENDPOINT, data)` and returns a `FormState`. Handle all three
-   `WebhookResult`s (`sent`, `not-configured`, `failed`) so the UI never claims a success it does not have.
-   See [ERROR_HANDLING.md](./ERROR_HANDLING.md).
-2. `src/components/common/EnquiryForm.tsx` — `useActionState(action, idleForm)`.
-3. `src/app/(site)/contact/page.tsx`, then point the "Start a commission" buttons at `/contact`.
-4. Walk [SECURITY_HYGIENE.md](./SECURITY_HYGIENE.md) end to end: this form collects personal data, and
-   there is no spam protection yet (see its known gaps).
+The `/privacy` page describes the data destinations, access permissions and the lack of an automatic
+retention schedule. Keep the public notice aligned with any future change to those systems or policies.
 
 ## Page with different chrome
 
@@ -167,7 +166,10 @@ Copy `.env.example` to `.env.local`.
 | Variable               | Purpose                                                         |
 | ---------------------- | --------------------------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL` | Public origin — metadata, sitemap, robots. `NEXT_PUBLIC_*` is published to every visitor |
-| `ENQUIRY_ENDPOINT`     | Same pattern, for the future enquiry form. Server-only          |
+| `ADMIN_EMAIL_CC`       | Server-only admin copy on order notifications |
+| `ENQUIRY_ADMIN_EMAIL`  | Contact Us destination; intentionally shown as the public privacy contact |
+| `SMTP_*`               | Server-only SMTP delivery settings for notifications and enquiries |
+| `GOOGLE_SHEETS_*`      | Server-only credentials and document ID for order and enquiry rows |
 
 Env vars are read directly from `process.env` today. A validated env module (schema, fail at boot) is the
 next step once there are more than a handful — see the gaps in [ERROR_HANDLING.md](./ERROR_HANDLING.md).

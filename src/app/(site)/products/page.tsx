@@ -46,17 +46,6 @@ function ProductsCatalogContent() {
     }
   };
 
-  // Counts for sidebar badges
-  const categoriesWithCounts = useMemo(() => {
-    return CATEGORY_OPTIONS.map((opt) => {
-      if (opt.id === "All") {
-        return { ...opt, count: allProducts.length };
-      }
-      const count = allProducts.filter((p) => p.category === opt.id).length;
-      return { ...opt, count };
-    });
-  }, []);
-
   // Filter and sort items
   const filteredProducts = useMemo(() => {
     return allProducts
@@ -135,7 +124,7 @@ function ProductsCatalogContent() {
     <div className="min-h-screen bg-ice/30 pb-24">
       {/* Mobile Sticky Bar identical to Arabian Sand Dunes */}
       <MobileFilterSortBar
-        categories={categoriesWithCounts}
+        categories={CATEGORY_OPTIONS}
         selectedCategory={selectedCategory}
         onSelectCategory={handleSelectCategory}
         sortBy={sortBy}
@@ -191,7 +180,7 @@ function ProductsCatalogContent() {
                   </div>
                 </div>
                 <CategoryFilter
-                  categories={categoriesWithCounts}
+                  categories={CATEGORY_OPTIONS}
                   selectedCategory={selectedCategory}
                   onSelectCategory={handleSelectCategory}
                   isMobile={false}

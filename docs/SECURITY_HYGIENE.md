@@ -20,10 +20,9 @@ Sections 1–7 are the reference. The **Completion Checklist** at the bottom is 
 - `NEXT_PUBLIC_*` is a **publication**, not a config prefix. Anything with that prefix is public
   forever. Today the only one is `NEXT_PUBLIC_SITE_URL` (a public origin, so fine). Confirm each
   new one deliberately.
-- Server-only values (`ENQUIRY_ENDPOINT`) are read only in server actions or
+- Server-only values (`SMTP_*`, `GOOGLE_SHEETS_*`, `ADMIN_EMAIL_CC`) are read only in server actions or
   server components — never passed to a client component, an error message or a log line.
-- A webhook URL is a credential: anyone who has it can post to it. Treat it like a key; rotate it
-  if it leaks.
+- `ENQUIRY_ADMIN_EMAIL` is intentionally shown as the public privacy contact; it is not a credential.
 - Every new env var is added to `.env.example` and to the table in ARCHITECTURE.md.
 
 ## 2. Transport and headers
@@ -48,10 +47,8 @@ Sections 1–7 are the reference. The **Completion Checklist** at the bottom is 
   from input, which is why it is safe. Keep it that way.)
 - No dynamic `import()` of a user-controlled path. No string-built shell or URL from user input.
 - Redirects go to an allowlist. An open redirect is a phishing primitive.
-- **Known gap — no spam protection.** A public form with no honeypot, rate limit or challenge will
-  be found by bots. Add at least a honeypot field and a per-IP rate limit before the enquiry form
-  goes live; a challenge (Turnstile/hCaptcha) if it is not enough. That is a third-party script, so
-  it needs an ADR (section 5).
+- The Contact Us form uses a honeypot and a process-local per-IP rate limit. The limit is not shared
+  across server instances; revisit it if abuse appears or traffic grows.
 
 ## 4. Visitor data and privacy
 
@@ -60,16 +57,17 @@ The site is subject to personal-data law wherever its visitors are (DPDP, GDPR a
 the obligations start the day a form goes live.
 
 - **Collect the minimum.** If a field is not needed to answer the enquiry, do not ask for it.
-- Submissions go only to the configured endpoint. They are **not** logged, not echoed back in an
+- Submissions go to the configured studio email account and Google Sheet `enquiries` tab. They are
+  **not** logged, not echoed back in an
   error, and not put in a URL or query string.
-- Know where the data lands (the webhook's destination), who can read it, how long it is kept,
-  and how to delete it on request. Write that down before launch.
+- The `/privacy` page documents the destinations, that access follows the permissions on those
+  accounts, that no automatic deletion schedule exists, and the email address for access/deletion
+  requests. Confirm the studio's access permissions and retention practices before launch.
 - Any mailing-list signup (should one be added) is **consent**: explicit action, clear purpose, and an unsubscribe in every
   email. Do not pre-tick, and do not reuse the list for anything else.
 - No analytics, tracker or advertising pixel without a decision recorded in an ADR and, where the
   law requires it, a consent banner that actually blocks the script until accepted.
-- A privacy policy page exists and is linked from the footer before the first form goes live.
-  (The footer links are `#` placeholders today.)
+- A privacy policy page exists and is linked from the footer.
 
 ## 5. Third-party scripts, embeds and fonts
 

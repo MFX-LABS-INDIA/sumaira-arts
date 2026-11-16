@@ -1,5 +1,6 @@
 import { google } from "googleapis";
 import type { Order } from "@/types/store";
+import type { Enquiry } from "@/types/enquiry";
 
 class SheetsService {
   private readonly orderHeaders = [
@@ -14,6 +15,13 @@ class SheetsService {
     "Product Name",
     "Quantity",
     "Price (USD)",
+  ];
+  private readonly enquiryHeaders = [
+    "Received At",
+    "Name",
+    "Email",
+    "Mobile Number",
+    "Address",
   ];
 
   private sheets: ReturnType<typeof google.sheets> | null = null;
@@ -64,12 +72,52 @@ class SheetsService {
         return;
       }
     } catch (error) {
-      console.error(
-        "[SHEETS SERVICE] Failed to initialize Google Sheets:",
-        error instanceof Error ? error.name : "Unknown error"
-      );
       this.sheets = null;
       throw error;
+    }
+  }
+
+  private async ensureEnquiryHeaders(): Promise<void> {
+    if (!this.sheets || !this.spreadsheetId) return;
+
+    const spreadsheet = await this.sheets.spreadsheets.get({
+      spreadsheetId: this.spreadsheetId,
+    });
+    const sheetExists = spreadsheet.data.sheets?.some(
+      (sheet) => sheet.properties?.title === "enquiries",
+    );
+
+    if (!sheetExists) {
+      await this.sheets.spreadsheets.batchUpdate({
+        spreadsheetId: this.spreadsheetId,
+        requestBody: {
+          requests: [{ addSheet: { properties: { title: "enquiries" } } }],
+        },
+      });
+    }
+
+    const response = await this.sheets.spreadsheets.values.get({
+      spreadsheetId: this.spreadsheetId,
+      range: "enquiries!A:E",
+    });
+    const rows = response.data.values ?? [];
+    const existingHeaders = rows[0]?.map(String) ?? [];
+
+    if (rows.length === 0) {
+      await this.sheets.spreadsheets.values.update({
+        spreadsheetId: this.spreadsheetId,
+        range: "enquiries!A1:E1",
+        valueInputOption: "RAW",
+        requestBody: { values: [this.enquiryHeaders] },
+      });
+      return;
+    }
+
+    if (
+      existingHeaders.length !== this.enquiryHeaders.length ||
+      !this.enquiryHeaders.every((header, index) => existingHeaders[index] === header)
+    ) {
+      throw new Error("The enquiries sheet has an unrecognised column layout.");
     }
   }
 
@@ -254,6 +302,30 @@ class SheetsService {
       );
       throw error;
     }
+  }
+
+  async saveEnquiry(enquiry: Enquiry): Promise<boolean> {
+    await this.initializeSheets();
+    if (!this.sheets || !this.spreadsheetId) return false;
+
+    await this.ensureEnquiryHeaders();
+    await this.sheets.spreadsheets.values.append({
+      spreadsheetId: this.spreadsheetId,
+      range: "enquiries!A:E",
+      valueInputOption: "RAW",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: {
+        values: [[
+          new Date().toISOString(),
+          enquiry.name,
+          enquiry.email,
+          enquiry.phoneNumber,
+          enquiry.address,
+        ]],
+      },
+    });
+
+    return true;
   }
 }
 

@@ -57,9 +57,10 @@ export type Product = {
   image?: string;
   /** Optional photograph of the artwork in a room (hover view). */
   sceneImage?: string;
-  /** Optional rating (0 to 5) and review count. Stars render only when present. */
+  /** Optional verified rating (0 to 5) and review count. */
   rating?: number;
   reviewCount?: number;
+  ratingLabel?: string;
   reviews?: number;
   booked?: string;
   collection?: string;
@@ -110,12 +111,4 @@ export type Testimonial = {
   productSlug: string;
   description: string;
   date: string;
-};
-
-export type JournalPost = Visual & {
-  slug: string;
-  category: "Art & Design" | "Interiors" | "Inspiration";
-  title: string;
-  excerpt: string;
-  href: string;
 };

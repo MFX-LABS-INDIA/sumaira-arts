@@ -6,7 +6,6 @@ export const mainNav: NavLink[] = [
   { label: "Contact Us", href: "/#contact" },
   { label: "Cart", href: "/cart" },
   { label: "My Orders", href: "/orders" },
-  { label: "Journal", href: "/journal" },
 ];
 
 /** "#" entries are pages that do not exist yet. */
@@ -18,14 +17,13 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: "Mixed Media", href: "/products?category=Mixed_Media_Artworks" },
       { label: "Collections", href: "/products?category=Mixed_Media_Canvas" },
       { label: "All Artworks", href: "/products" },
-      { label: "Commission Process", href: "/journal/commission-journey" },
+      { label: "Commission Process", href: "/#commission" },
     ],
   },
   {
     title: "Explore",
     links: [
       { label: "About", href: "/about" },
-      { label: "Journal", href: "/journal" },
       { label: "Contact", href: "#contact" },
     ],
   },
@@ -35,7 +33,7 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: "Shipping", href: "#" },
       { label: "FAQ", href: "#" },
       { label: "Returns", href: "#" },
-      { label: "Privacy", href: "#" },
+      { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "#" },
     ],
   },

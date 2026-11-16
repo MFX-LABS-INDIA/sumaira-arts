@@ -7,7 +7,7 @@ Small, boring, non-negotiable. Consistency here is worth more than any individua
 | Thing                         | Convention                                  | Example                                   |
 | ----------------------------- | ------------------------------------------- | ----------------------------------------- |
 | Component file and export     | PascalCase, identical                       | `ProductCard.tsx` → `ProductCard`         |
-| Non-component module          | lowercase, one word where possible          | `products.ts`, `journal.ts`, `webhook.ts`   |
+| Non-component module          | lowercase, one word where possible          | `products.ts`, `collections.ts`, `webhook.ts` |
 | Folder                        | lowercase, by kind of file                  | `components/sections`, `data`             |
 | Type                          | PascalCase, no `I` prefix; `type` over `interface` | `Collection`, `FormState`          |
 | Constant                      | SCREAMING_SNAKE at module scope only when it is a true constant | `SOLID_AFTER`         |
@@ -83,4 +83,4 @@ write toward the ceiling. `components/art/variants/` is the worked example: one 
 became a shared kit and three themed files.
 
 One component per file. Give a topic the same name across `data/`, `components/sections/` and `lib/actions/`
-(`journal.ts`, `Journal.tsx`) so the three are easy to find together.
+(`commission.ts`, `Commission.tsx`) so the three are easy to find together.

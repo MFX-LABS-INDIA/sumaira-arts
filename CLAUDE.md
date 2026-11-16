@@ -124,8 +124,7 @@ One word per concept. Synonyms in a domain model are how the same feature gets b
 | **artwork**    | painting, piece, item, product (copy)  | UI copy says artwork; the type is `Product`; data in `data/products.ts` |
 | **collection** | series, range, category                | `Collection`; `data/collections.ts`                  |
 | **commission** | custom order, bespoke request          | `data/commission.ts`, `sections/Commission`; a submission is an _enquiry_ |
-| **enquiry**    | inquiry, lead, contact request, ticket | `lib/actions/enquiry.ts` (planned)                  |
-| **journal**    | blog, news, articles                   | `data/journal.ts`, `sections/Journal`               |
+| **enquiry**    | inquiry, lead, contact request, ticket | `lib/actions/enquiry.ts`                             |
 | **collector**  | customer, buyer, user                  | reviews copy                                         |
 | **the artist** | owner, founder                         | `data/artist.ts`, `sections/FounderBlock`           |
 

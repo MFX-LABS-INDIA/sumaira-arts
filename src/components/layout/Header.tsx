@@ -29,13 +29,13 @@ const languages: Record<Locale, { label: string; countryCode: string; direction:
 const navTranslations: Record<Locale, Record<string, string>> = {
   "en-GB": {},
   ar: {
-    Products: "المنتجات", About: "حول", "Contact Us": "اتصل بنا", Cart: "السلة", "My Orders": "طلباتي", Journal: "المجلة",
+    Products: "المنتجات", About: "حول", "Contact Us": "اتصل بنا", Cart: "السلة", "My Orders": "طلباتي",
   },
   fr: {
-    Products: "Produits", About: "À propos", "Contact Us": "Nous contacter", Cart: "Panier", "My Orders": "Mes commandes", Journal: "Journal",
+    Products: "Produits", About: "À propos", "Contact Us": "Nous contacter", Cart: "Panier", "My Orders": "Mes commandes",
   },
   es: {
-    Products: "Productos", About: "Acerca de", "Contact Us": "Contacto", Cart: "Carrito", "My Orders": "Mis pedidos", Journal: "Revista",
+    Products: "Productos", About: "Acerca de", "Contact Us": "Contacto", Cart: "Carrito", "My Orders": "Mis pedidos",
   },
 };
 

@@ -5,7 +5,7 @@ Auto-loaded when you work anywhere under `src/components`.
 ## What this folder is
 
 ```
-components/sections/  the large blocks a page is made of (Hero, Journal, …) — see sections/CLAUDE.md
+components/sections/  the large blocks a page is made of (Hero, Commission, …) — see sections/CLAUDE.md
 components/common/    pieces reused by sections or the layout: ProductCard
 components/layout/    page chrome: Header, Footer, Logo, SiteChrome, RevealController, SmoothScroll
 components/ui/        primitives: Container, Section, SectionHeading, ButtonLink, TextLink, Icons, Reveal
@@ -37,7 +37,8 @@ A library with three buttons has no design system, however good each button is.
   is recorded debt; do not add to it.)
 - **Server by default.** `layout/Header`, `RevealController`, `SmoothScroll`/`LenisRoot`,
   `providers/ServiceWorkerRegistration`, `common/HeroControls`, and the interaction-only
-  `about/RecognitionCarouselController` and `about/ArchiveCarouselController` are client
+  `about/RecognitionCarouselController`, `about/ArchiveCarouselController`, and the lazily loaded
+  `layout/ContactDialog`/`layout/EnquiryForm` are client
   components, each for a stated reason. About page sections, including `about/ArtistFounderHero`,
   stay server-rendered; their controllers own interaction only. Anything new needs a stated reason.
 - `className` is always accepted and merged. Shared class strings are named constants next to their
@@ -66,5 +67,6 @@ A library with three buttons has no design system, however good each button is.
 - [ADR-0006](../../docs/adr/0006-smooth-scroll-is-lazy-and-desktop-only.md) — smooth scroll (`layout`)
 - [ADR-0008](../../docs/adr/0008-content-visibility-auto-rejected.md) — no `content-visibility` (`ui/Section`)
 - [ADR-0011](../../docs/adr/0011-header-is-always-solid-white.md) — the header (`layout`)
+- [ADR-0017](../../docs/adr/0017-contact-enquiries-use-email-and-google-sheets.md) — contact dialog delivery and privacy
 
 Rules: [DESIGN_SYSTEM](../../docs/DESIGN_SYSTEM.md) · [COMPONENT_CONTRACT](../../docs/COMPONENT_CONTRACT.md) · [PERFORMANCE](../../docs/PERFORMANCE.md)

@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { ButtonLink, SmartLink, TextLink } from "@/components/ui/Link";
 import { homeHero } from "@/data/home";
-import { artworkCategories, categoryHref } from "@/data/artwork-categories";
 import { allProducts, formatCategoryLabel } from "@/data/products";
 
 /** A steady introduction keeps the artwork and the next step visible together. */
@@ -55,20 +54,6 @@ export function Hero() {
             </figcaption>
           </figure>
         </div>
-
-        <nav aria-label={homeHero.categoryNavLabel} className="mt-6 border-t border-light pt-3.5 sm:mt-10 sm:pt-5 lg:mt-12">
-          <ul className="grid gap-1.5 sm:gap-2 md:grid-cols-3 md:gap-6">
-            {artworkCategories.map((category, index) => (
-              <li key={category.id}>
-                <SmartLink href={categoryHref(category.id)} className="group flex min-h-10 sm:min-h-12 items-center gap-2.5 sm:gap-3 rounded-control px-2 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-deep transition-colors hover:bg-white hover:text-brand">
-                  <span className="text-[11px] sm:text-xs text-steel" aria-hidden="true">0{index + 1}</span>
-                  <span className="flex-1">{category.title}</span>
-                  <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-brand rtl:-rotate-90" />
-                </SmartLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </Container>
     </section>
   );

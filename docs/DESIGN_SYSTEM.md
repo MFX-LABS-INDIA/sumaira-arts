@@ -22,7 +22,7 @@ so the layers here are shaped to that:
 | **Chrome**     | `src/components/layout`        | The frame around a page: `Header`, `Footer`, `Logo`, `SiteChrome`, scroll behaviour.  | Compose primitives. May read the route and scroll.                    |
 | **Art**        | `src/components/art`           | Placeholder artwork and rooms, and the one component that shows either them or a photograph (`ArtImage`). | Special rules — read `components/art/CLAUDE.md`.                       |
 | **Common**     | `src/components/common`        | Composed pieces reused by sections or the layout: `ProductCard`. | Compose primitives and art. Receive data as props. |
-| **Sections**   | `src/components/sections`      | A large block of a page: `Hero`, `Journal`, `Commission`.                             | Compose the layers above. Copy comes from `src/data/`. |
+| **Sections**   | `src/components/sections`      | A large block of a page: `Hero`, `CategoryCards`, `Commission`.                      | Compose the layers above. Copy comes from `src/data/`. |
 | **Pages**      | `src/app/(site)/**/page.tsx`   | A route: the order of sections.                                                       | Composition only. The only layer that knows about routing.            |
 
 **Dependency direction is one-way:**

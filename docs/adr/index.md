@@ -10,7 +10,7 @@ rather than edited, so the reasoning history stays readable. This index is **han
 | [ADR-0002](./0002-shared-svg-sprite-for-placeholder-art.md)    | Placeholder artwork is drawn once in a shared SVG sprite, referenced with `<use>` | `accepted` | `src/components/art`, `src/app/layout.tsx`                                    |
 | [ADR-0003](./0003-content-lives-in-feature-content-files.md)   | Copy and data live in each feature's `content.ts`, not in components        | `superseded` by 0010 | (historical) per-feature `content.ts`; the principle carries over to `src/data` |
 | [ADR-0004](./0004-logical-properties-and-externalised-copy.md) | Logical CSS properties only; LTR today, RTL-ready by convention             | `accepted`   | `src/components`, `src/data`, `src/app/globals.css`                                 |
-| [ADR-0005](./0005-forms-are-server-actions-posting-to-a-webhook.md) | Forms are server actions that post to a webhook, and never fake success | `accepted`   | `src/lib`, `src/components/common`                                                  |
+| [ADR-0005](./0005-forms-are-server-actions-posting-to-a-webhook.md) | Forms are server actions that post to a webhook, and never fake success | `superseded` by 0017 | `src/lib`, `src/components/common`                                        |
 | [ADR-0006](./0006-smooth-scroll-is-lazy-and-desktop-only.md)   | Smooth scrolling is lazy-loaded and for mouse and trackpad visitors only    | `accepted`   | `src/components/layout`                                                             |
 | [ADR-0007](./0007-css-only-collection-filter.md)               | The collection filter is CSS-only, with no client JavaScript                | `superseded` by 0012 | (historical) the gallery filter |
 | [ADR-0008](./0008-content-visibility-auto-rejected.md)         | `content-visibility: auto` on page sections — tried and rejected            | `rejected`   | `src/components/ui`                                                                 |
@@ -22,20 +22,23 @@ rather than edited, so the reasoning history stays readable. This index is **han
 | [ADR-0014](./0014-single-font-family-manrope.md)               | One font family everywhere — Manrope replaces Cormorant Garamond too         | `accepted`   | `src/app/layout.tsx`, `src/app/globals.css`                                         |
 
 | [ADR-0015](./0015-hero-carousel-with-a-client-controller.md)  | The hero is an autoplaying carousel, driven by a small client controller     | `accepted`   | `src/components/sections`, `src/components/common`, `src/data`                      |
+| [ADR-0016](./0016-journal-feature-removed.md)                 | The Journal feature and its routes are removed                               | `accepted`   | `src/app`, `src/components/sections`, `src/data`, `src/constants`, `src/types`        |
+| [ADR-0017](./0017-contact-enquiries-use-email-and-google-sheets.md) | Contact enquiries are emailed and stored in a dedicated sheet tab | `accepted` | `src/app`, `src/components/layout`, `src/components/sections`, `src/lib`, `src/services`, `src/data` |
 
 ## By area
 
 Each of these has a back-link in its folder's `CLAUDE.md`, so the decision surfaces when you edit the code
 it constrains — you do not have to come here.
 
-- `src/app` — [ADR-0010](./0010-sections-data-and-common-components.md), [ADR-0013](./0013-brand-sans-is-manrope.md)
+- `src/app` — [ADR-0010](./0010-sections-data-and-common-components.md), [ADR-0013](./0013-brand-sans-is-manrope.md), [ADR-0016](./0016-journal-feature-removed.md), [ADR-0017](./0017-contact-enquiries-use-email-and-google-sheets.md)
 - `src/components` — [ADR-0004](./0004-logical-properties-and-externalised-copy.md), [ADR-0010](./0010-sections-data-and-common-components.md)
 - `src/components/art` — [ADR-0002](./0002-shared-svg-sprite-for-placeholder-art.md)
-- `src/components/common`, `src/lib` — [ADR-0005](./0005-forms-are-server-actions-posting-to-a-webhook.md)
+- `src/components/common`, `src/lib` — [ADR-0005](./0005-forms-are-server-actions-posting-to-a-webhook.md), [ADR-0017](./0017-contact-enquiries-use-email-and-google-sheets.md)
 - `src/components/layout` — [ADR-0006](./0006-smooth-scroll-is-lazy-and-desktop-only.md), [ADR-0011](./0011-header-is-always-solid-white.md)
-- `src/components/sections` — [ADR-0012](./0012-home-page-redesign.md) (the home page layout), [ADR-0011](./0011-header-is-always-solid-white.md) (the hero sits below the header), [ADR-0015](./0015-hero-carousel-with-a-client-controller.md) (the hero carousel)
+- `src/services` — [ADR-0017](./0017-contact-enquiries-use-email-and-google-sheets.md)
+- `src/components/sections` — [ADR-0012](./0012-home-page-redesign.md) (the home page layout), [ADR-0011](./0011-header-is-always-solid-white.md) (the hero sits below the header), [ADR-0015](./0015-hero-carousel-with-a-client-controller.md) (the hero carousel), [ADR-0016](./0016-journal-feature-removed.md), [ADR-0017](./0017-contact-enquiries-use-email-and-google-sheets.md)
 - `src/components/ui` — [ADR-0008](./0008-content-visibility-auto-rejected.md)
-- `src/data`, `src/types`, `src/constants` — [ADR-0004](./0004-logical-properties-and-externalised-copy.md), [ADR-0010](./0010-sections-data-and-common-components.md)
+- `src/data`, `src/types`, `src/constants` — [ADR-0004](./0004-logical-properties-and-externalised-copy.md), [ADR-0010](./0010-sections-data-and-common-components.md), [ADR-0016](./0016-journal-feature-removed.md), [ADR-0017](./0017-contact-enquiries-use-email-and-google-sheets.md)
 
 ## Not carried over from Jethur
 

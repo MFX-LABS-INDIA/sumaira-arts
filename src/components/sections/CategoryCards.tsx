@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
-import { SmartLink, TextLink } from "@/components/ui/Link";
+import { SmartLink } from "@/components/ui/Link";
 import { artworkCategories, categoryHref } from "@/data/artwork-categories";
 import { categoryIntro } from "@/data/home";
 import { allProducts } from "@/data/products";
@@ -49,10 +49,6 @@ export function CategoryCards() {
               </article>
             );
           })}
-        </div>
-        <div className="mt-5 sm:mt-8 flex flex-col gap-2 sm:gap-3 rounded-card bg-ice/60 px-4 py-3 sm:px-6 sm:py-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs sm:text-base text-deep">{categoryIntro.help}</p>
-          <TextLink href={categoryIntro.helpLink.href} className="min-h-9 sm:min-h-11 self-start sm:self-auto text-xs sm:text-sm">{categoryIntro.helpLink.label}</TextLink>
         </div>
       </Container>
     </Section>

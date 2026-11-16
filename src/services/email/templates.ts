@@ -1,4 +1,5 @@
 import type { Order } from "@/types/store";
+import type { Enquiry } from "@/types/enquiry";
 
 const escapeHtml = (value: string): string =>
   value.replace(/[&<>"']/g, (character) => {
@@ -144,3 +145,13 @@ export const getOrderEmailTemplate = (order: Order): string => {
   </body>
 </html>`;
 };
+
+export const getEnquiryEmailTemplate = (enquiry: Enquiry): string =>
+  [
+    "New website enquiry",
+    "",
+    `Name: ${enquiry.name}`,
+    `Email: ${enquiry.email}`,
+    `Mobile number: ${enquiry.phoneNumber}`,
+    `Address: ${enquiry.address || "Not provided"}`,
+  ].join("\n");

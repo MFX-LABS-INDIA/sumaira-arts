@@ -5,7 +5,7 @@ Auto-loaded when you work in `src/data`.
 ## What this folder is
 
 Static content, one file per topic: `home`, `products`, `collections`, `inspiration`, `commission`,
-`artist`, `reviews`, `journal`, `social`, `navigation`. Each exports the copy and lists a
+`artist`, `reviews`, `social`, `navigation`, `privacy`. Each exports the copy and lists a
 section renders. The **shapes** live in `src/types/content.ts`; site-wide facts (name, URL, currency, the
 hero photo, the route list) live in `src/constants/`.
 
@@ -18,8 +18,9 @@ hero photo, the route list) live in `src/constants/`.
 - **One topic per file, named for the topic** — never `content.ts`. If a file passes ~300 lines, split it by
   sub-topic.
 - **Cards carry a `Visual`** (`art`, optional `scene`, optional `image`). `image` is a path under `/public`.
-- **Placeholders are labelled.** Prices, the rating and count, and the testimonials are not real; keep the
-  `PLACEHOLDER` comments until they are replaced.
+- **Placeholders are labelled.** Prices, ratings and testimonials are not real; keep the `PLACEHOLDER`
+  comments until they are replaced. Mock product scores in `products.json` are labelled "Sample rating";
+  do not add mock review counts.
 - **British spelling**, and the vocabulary in the root `CLAUDE.md` (artwork, collection, commission, enquiry).
 
 ## What people get wrong
@@ -34,5 +35,7 @@ hero photo, the route list) live in `src/constants/`.
 
 - [ADR-0010](../../docs/adr/0010-sections-data-and-common-components.md) — data lives here
 - [ADR-0004](../../docs/adr/0004-logical-properties-and-externalised-copy.md) — copy as data
+- [ADR-0016](../../docs/adr/0016-journal-feature-removed.md) — the Journal feature is retired
+- [ADR-0017](../../docs/adr/0017-contact-enquiries-use-email-and-google-sheets.md) — enquiry data destinations and privacy copy
 
 Rules: [ARCHITECTURE §Content](../../docs/ARCHITECTURE.md#content) · [INTERNATIONALIZATION](../../docs/INTERNATIONALIZATION.md)

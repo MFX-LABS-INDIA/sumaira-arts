@@ -17,6 +17,7 @@ export interface Product {
   priceUSD: number;
   oldPriceUSD?: number;
   rating?: number;
+  ratingLabel?: string;
   reviews?: number;
   booked?: string;
   isFeatured?: boolean;

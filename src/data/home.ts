@@ -11,7 +11,6 @@ export const homeHero = {
   featuredSlug: "tides-of-blessing",
   featuredLabel: "In the spotlight",
   imageAlt: "Tides of Blessing, a textured calligraphy artwork displayed above a dining table",
-  categoryNavLabel: "Explore by category",
 };
 
 export const categoryIntro = {
@@ -19,8 +18,6 @@ export const categoryIntro = {
   title: "Start with what speaks to you.",
   description: "A colour, a composition, a texture. Discover the different expressions of Sumaira’s work and choose your own starting point.",
   browse: "Explore category",
-  help: "Choosing for a particular room?",
-  helpLink: { label: "Read our guide to choosing art", href: "/journal/choosing-art-for-your-room" },
 };
 
 export const homeArtist = {
@@ -28,13 +25,6 @@ export const homeArtist = {
   description:
     "From her Dubai studio, Sumaira brings contemporary Arabic calligraphy together with expressive colour and sculptural texture. Explore the ideas, materials and stories behind her work.",
   cta: { label: "Discover Sumaira’s story", href: "/about" },
-};
-
-export const homeClosing = {
-  eyebrow: "Make room for meaning",
-  title: "Find a piece you’ll love living with.",
-  description: "Explore all three categories, take a closer look at the details, and discover what belongs in your space.",
-  cta: { label: "Explore all artworks", href: "/products" },
 };
 
 /** Retained for the reusable brand statement section. */

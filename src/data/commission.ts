@@ -7,7 +7,7 @@ export const commission: Feature & {
   title: "Create Something Unique",
   description:
     "An artwork begins with your space and the feeling you want to create. Explore how your ideas, colours and personal meaning can become a piece made for you.",
-  cta: { label: "Explore the commission process", href: "/journal/commission-journey" },
+  cta: { label: "Contact Us", href: "/#contact" },
   steps: [
     { number: "01", title: "Begin with your space", text: "Bring together room photographs, wall measurements and the ideas that matter to you." },
     { number: "02", title: "Shape the direction", text: "Explore a palette, composition and materials that complement your interior." },

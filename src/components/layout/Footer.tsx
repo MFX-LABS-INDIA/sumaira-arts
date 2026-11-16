@@ -58,9 +58,9 @@ export function Footer() {
           </ul>
           <ul className="flex gap-6">
             <li>
-              <a href="#" className="text-light transition-colors hover:text-white">
+              <SmartLink href="/privacy" className="text-light transition-colors hover:text-white">
                 Privacy
-              </a>
+              </SmartLink>
             </li>
             <li>
               <a href="#" className="text-light transition-colors hover:text-white">

@@ -71,7 +71,7 @@ language, or a CMS, a swap of data rather than a rewrite of components.
 These strings are welded into markup today and must move into `src/data/` (or a `messages` prop)
 **before** a second language ships:
 
-- Button and link verbs: "Explore Collection", "Read Article", "View artwork →", "Try again", "Back to home"
+- Button and link verbs: "Explore Collection", "View artwork →", "Try again", "Back to home"
 - Form: "Your email address", "Subscribe", "Sending"
 - Accessible names: "Search", "Account", "Cart", "Open menu", "Close menu", "Filter collections"
 - Footer: the "Privacy" and "Terms" labels; the page-not-found and error copy.

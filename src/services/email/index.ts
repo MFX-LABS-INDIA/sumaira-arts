@@ -1,6 +1,7 @@
 import nodemailer, { type Transporter } from "nodemailer";
 import type { Order } from "@/types/store";
-import { getOrderEmailTemplate } from "./templates";
+import type { Enquiry } from "@/types/enquiry";
+import { getEnquiryEmailTemplate, getOrderEmailTemplate } from "./templates";
 
 class EmailService {
   private transporter: Transporter | null = null;
@@ -64,6 +65,22 @@ class EmailService {
       );
       throw error;
     }
+  }
+
+  async sendEnquiry(enquiry: Enquiry): Promise<boolean> {
+    const transporter = this.getTransporter();
+    const adminEmail = process.env.ENQUIRY_ADMIN_EMAIL;
+    if (!transporter || !adminEmail) return false;
+
+    await transporter.sendMail({
+      from: `"${process.env.SMTP_FROM_NAME || "Sumaira Arts Studio"}" <${process.env.SMTP_USER}>`,
+      to: adminEmail,
+      replyTo: enquiry.email,
+      subject: "New website enquiry | Sumaira Arts",
+      text: getEnquiryEmailTemplate(enquiry),
+    });
+
+    return true;
   }
 }
 

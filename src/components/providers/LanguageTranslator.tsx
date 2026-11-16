@@ -16,7 +16,6 @@ const copy: Record<string, Translation> = {
   "Contact Us": { ar: "اتصل بنا", fr: "Nous contacter", es: "Contacto" },
   "Cart": { ar: "السلة", fr: "Panier", es: "Carrito" },
   "My Orders": { ar: "طلباتي", fr: "Mes commandes", es: "Mis pedidos" },
-  "Journal": { ar: "المجلة", fr: "Journal", es: "Revista" },
   "Language": { ar: "اللغة", fr: "Langue", es: "Idioma" },
   "Collections": { ar: "مجموعات الوسائط المختلطة", fr: "Collections multimédias", es: "Colecciones mixtas" },
   "Mixed Media": { ar: "أعمال الوسائط المختلطة", fr: "Œuvres multimédias", es: "Obras multimedia" },
@@ -129,8 +128,6 @@ const copy: Record<string, Translation> = {
   "Art collector": { ar: "مقتنٍ فني", fr: "Collectionneur d’art", es: "Coleccionista de arte" },
   "Most Loved Artworks": { ar: "الأعمال الفنية الأكثر حباً", fr: "Œuvres les plus appréciées", es: "Obras más queridas" },
   "Designed To Belong": { ar: "مصممة لتنتمي إلى مساحتك", fr: "Conçues pour s’intégrer", es: "Diseñadas para pertenecer" },
-  "Stories & Inspiration": { ar: "قصص وإلهام", fr: "Histoires et inspiration", es: "Historias e inspiración" },
-  "Read Article": { ar: "اقرأ المقال", fr: "Lire l’article", es: "Leer artículo" },
   "A contemporary mixed media artwork thoughtfully created to bring texture, colour and character to modern interiors.": { ar: "عمل فني معاصر بالوسائط المختلطة صُمم بعناية ليمنح الديكورات الحديثة ملمساً ولوناً وشخصية.", fr: "Une œuvre contemporaine en techniques mixtes, créée avec soin pour apporter texture, couleur et caractère aux intérieurs modernes.", es: "Una obra contemporánea de técnica mixta creada cuidadosamente para aportar textura, color y carácter a interiores modernos." },
 };
 
