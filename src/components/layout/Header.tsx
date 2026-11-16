@@ -318,7 +318,7 @@ export function Header() {
                       href={link.href}
                       onClick={() => setOpen(false)}
                       aria-current={active ? "page" : undefined}
-                      className={`flex items-center justify-between gap-4 py-4 font-serif text-3xl transition-colors ${
+                      className={`flex items-center justify-between gap-4 py-4 font-serif text-base transition-colors ${
                         active
                           ? "text-brand font-medium"
                           : "text-deep hover:text-brand"
