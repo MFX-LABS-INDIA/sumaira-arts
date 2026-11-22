@@ -8,9 +8,9 @@ export const homeHero = {
     "Discover original textured canvases, expressive mixed media artworks and curated collections by Sumaira. Find the piece that speaks to you and belongs in your space.",
   primary: { label: "Find your artwork", href: "#offerings" },
   secondary: { label: "Meet the artist", href: "#artist" },
-  featuredSlug: "the-throne-of-light",
+  featuredSlug: "promise-after-hardship",
   featuredLabel: "In the spotlight",
-  imageAlt: "The Throne of Light, a contemporary mixed-media calligraphy artwork inspired by Ayat al-Kursi",
+  imageAlt: "Promise After Hardship, a textured Arabic calligraphy artwork featuring Fa Inna Ma'al Usri Yusra",
 };
 
 export const categoryIntro = {

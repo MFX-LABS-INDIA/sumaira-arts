@@ -6,7 +6,7 @@ export const artworkCategories = [
     eyebrow: "Discover depth and texture",
     description:
       "Explore original canvases with sculptural surfaces and flowing calligraphy. Choose a piece whose texture is part of the story.",
-    productSlug: "the-throne-of-light",
+    productSlug: "promise-after-hardship",
   },
   {
     id: "Mixed_Media_Artworks",
@@ -14,7 +14,7 @@ export const artworkCategories = [
     eyebrow: "Make a statement",
     description:
       "Discover individual pieces where Arabic script, colour and layered detail come together. Find a focal point with a meaning of its own.",
-    productSlug: "enlightening",
+    productSlug: "the-purity",
   },
   {
     id: "Mixed_Media_Canvas",
