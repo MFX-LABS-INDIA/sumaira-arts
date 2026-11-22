@@ -1997,34 +1997,6 @@
     },
     {
         "id":  "prod-33",
-        "rating":  4.8,
-        "ratingLabel":  "Sample rating",
-        "slug":  "tides-of-blessing",
-        "title":  "Tides of Blessing",
-        "category":  "Original_Texture",
-        "collection":  "Originals",
-        "priceUSD":  640,
-        "oldPriceUSD":  720,
-        "inStock":  true,
-        "dimensions":  "100 x 70 cm",
-        "medium":  "Mixed media textured artwork with metallic gold finishing",
-        "frame":  "Floating frame",
-        "description":  "This artwork expresses the essence of Alhamdulillah â€” a phrase of deep gratitude and appreciation to Allah for all blessings. Flowing ocean-blue textures represent calmness, depth, and the endless nature of gratitude, while golden calligraphy symbolizes the divine beauty and light of thankfulness.",
-        "image":  "/assets/images/original-texture-artworks/tides-of-blessing/1.webp",
-        "gallery":  [
-                        "/assets/images/original-texture-artworks/tides-of-blessing/1.webp",
-                        "/assets/images/original-texture-artworks/tides-of-blessing/2.webp"
-                    ],
-        "artVariant":  "allah",
-        "scene":  "living",
-        "features":  [
-                         "Hand-textured original artwork",
-                         "Metallic gold calligraphy finishing",
-                         "Certificate of authenticity included"
-                     ]
-    },
-    {
-        "id":  "prod-34",
         "rating":  4.9,
         "ratingLabel":  "Sample rating",
         "slug":  "the-throne-of-light",
@@ -2036,7 +2008,7 @@
         "inStock":  true,
         "medium":  "Mixed Media on Canvas",
         "frame":  "Floating frame",
-        "description":  "The Throne of Light is a contemporary mixed-media artwork inspired by Ayat al-Kursi, a powerful verse from the Qurâ€™an that speaks of divine sovereignty, knowledge, and protection. The verse reflects the infinite authority of God, whose Throne extends over the heavens and the earth.",
+        "description":  "The Throne of Light is a contemporary mixed-media artwork inspired by Ayat al-Kursi, a powerful verse from the Qur’an that speaks of divine sovereignty, knowledge, and protection. The verse reflects the infinite authority of God, whose Throne extends over the heavens and the earth.",
         "image":  "/assets/images/original-texture-artworks/infinite-gratitude/1.webp",
         "gallery":  [
                         "/assets/images/original-texture-artworks/infinite-gratitude/1.webp",
@@ -2050,6 +2022,34 @@
                          "Hand-embellished textures",
                          "Metallic gold foil",
                          "Handwritten Arabic calligraphy"
+                     ]
+    },
+    {
+        "id":  "prod-34",
+        "rating":  4.8,
+        "ratingLabel":  "Sample rating",
+        "slug":  "tides-of-blessing",
+        "title":  "Tides of Blessing",
+        "category":  "Original_Texture",
+        "collection":  "Originals",
+        "priceUSD":  640,
+        "oldPriceUSD":  720,
+        "inStock":  true,
+        "dimensions":  "100 x 70 cm",
+        "medium":  "Mixed media textured artwork with metallic gold finishing",
+        "frame":  "Floating frame",
+        "description":  "This artwork expresses the essence of Alhamdulillah — a phrase of deep gratitude and appreciation to Allah for all blessings. Flowing ocean-blue textures represent calmness, depth, and the endless nature of gratitude, while golden calligraphy symbolizes the divine beauty and light of thankfulness.",
+        "image":  "/assets/images/original-texture-artworks/tides-of-blessing/1.webp",
+        "gallery":  [
+                        "/assets/images/original-texture-artworks/tides-of-blessing/1.webp",
+                        "/assets/images/original-texture-artworks/tides-of-blessing/2.webp"
+                    ],
+        "artVariant":  "allah",
+        "scene":  "living",
+        "features":  [
+                         "Hand-textured original artwork",
+                         "Metallic gold calligraphy finishing",
+                         "Certificate of authenticity included"
                      ]
     },
     {

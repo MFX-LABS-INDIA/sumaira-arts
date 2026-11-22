@@ -8,9 +8,9 @@ export const homeHero = {
     "Discover original textured canvases, expressive mixed media artworks and curated collections by Sumaira. Find the piece that speaks to you and belongs in your space.",
   primary: { label: "Find your artwork", href: "#offerings" },
   secondary: { label: "Meet the artist", href: "#artist" },
-  featuredSlug: "tides-of-blessing",
+  featuredSlug: "the-throne-of-light",
   featuredLabel: "In the spotlight",
-  imageAlt: "Tides of Blessing, a textured calligraphy artwork displayed above a dining table",
+  imageAlt: "The Throne of Light, a contemporary mixed-media calligraphy artwork inspired by Ayat al-Kursi",
 };
 
 export const categoryIntro = {

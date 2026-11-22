@@ -6,7 +6,7 @@ export const artworkCategories = [
     eyebrow: "Discover depth and texture",
     description:
       "Explore original canvases with sculptural surfaces and flowing calligraphy. Choose a piece whose texture is part of the story.",
-    productSlug: "waves-of-patience",
+    productSlug: "the-throne-of-light",
   },
   {
     id: "Mixed_Media_Artworks",
