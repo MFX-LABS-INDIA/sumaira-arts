@@ -3,6 +3,44 @@
 import { useEffect, useRef, useState } from "react";
 import { COUNTRIES, type Country } from "@/constants/countries";
 
+const STORAGE_KEY = "sumaira-arts-country";
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+const DEFAULT_COUNTRY = COUNTRIES.find((item) => item.code === "AE")!;
+
+let memoryCachedCountry: Country | null = null;
+let inflightDetection: Promise<Country> | null = null;
+
+function readStoredCountry(): Country | null {
+  try {
+    if (typeof window === "undefined") return null;
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { code?: string; ts?: number };
+    if (!parsed?.code || typeof parsed.ts !== "number") return null;
+    if (Date.now() - parsed.ts > CACHE_TTL_MS) {
+      window.localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+    return COUNTRIES.find((item) => item.code === parsed.code) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function saveCountry(country: Country) {
+  memoryCachedCountry = country;
+  try {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ code: country.code, ts: Date.now() }),
+      );
+    }
+  } catch {
+    // Ignore storage quota / privacy mode errors
+  }
+}
+
 function detectCountryFromBrowser(): Country | undefined {
   try {
     // 1. Check navigator language region (e.g., "en-AE" -> "AE", "ar-SA" -> "SA")
@@ -51,57 +89,85 @@ function detectCountryFromBrowser(): Country | undefined {
   return undefined;
 }
 
-/** Coarse IP lookup with browser-level fallback; default is always UAE (AE). */
-export function useCountryDetection() {
-  const [country, setCountry] = useState<Country>(
-    COUNTRIES.find((item) => item.code === "AE")!,
-  );
-  const manuallySelected = useRef(false);
+async function detectCountryOnce(): Promise<Country> {
+  if (memoryCachedCountry) return memoryCachedCountry;
 
-  useEffect(() => {
+  const stored = readStoredCountry();
+  if (stored) {
+    memoryCachedCountry = stored;
+    return stored;
+  }
+
+  if (inflightDetection) return inflightDetection;
+
+  inflightDetection = (async () => {
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 5000);
 
-    async function detect() {
-      try {
-        const response = await fetch("https://api.country.is/", {
-          signal: controller.signal,
-          credentials: "omit",
-          referrerPolicy: "no-referrer",
-          cache: "no-store",
-        });
-        if (!response.ok) throw new Error("IP lookup response not ok");
-        const data: unknown = await response.json();
-        if (!data || typeof data !== "object" || !("country" in data)) {
-          throw new Error("Invalid country data");
-        }
-        const detected = COUNTRIES.find((item) => item.code === data.country);
-        if (detected && !controller.signal.aborted && !manuallySelected.current) {
-          setCountry(detected);
-        }
-      } catch {
-        // Fallback: try detecting via browser locale/timezone
-        if (!controller.signal.aborted && !manuallySelected.current) {
-          const fallback = detectCountryFromBrowser();
-          if (fallback) {
-            setCountry(fallback);
-          }
-          // If no fallback matches, keeps UAE ("AE") default
-        }
-      } finally {
-        window.clearTimeout(timeout);
+    try {
+      const response = await fetch("https://api.country.is/", {
+        signal: controller.signal,
+        credentials: "omit",
+        referrerPolicy: "no-referrer",
+      });
+      if (!response.ok) throw new Error("IP lookup response not ok");
+      const data: unknown = await response.json();
+      if (!data || typeof data !== "object" || !("country" in data)) {
+        throw new Error("Invalid country data");
       }
+      const detected =
+        COUNTRIES.find((item) => item.code === data.country) ??
+        detectCountryFromBrowser() ??
+        DEFAULT_COUNTRY;
+      saveCountry(detected);
+      return detected;
+    } catch {
+      const fallback = detectCountryFromBrowser() ?? DEFAULT_COUNTRY;
+      saveCountry(fallback);
+      return fallback;
+    } finally {
+      window.clearTimeout(timeout);
+      inflightDetection = null;
+    }
+  })();
+
+  return inflightDetection;
+}
+
+/** Coarse IP lookup with persistent cache and browser fallback; default is UAE (AE). */
+export function useCountryDetection() {
+  const [country, setCountry] = useState<Country>(() => memoryCachedCountry ?? DEFAULT_COUNTRY);
+  const manuallySelected = useRef(false);
+
+  useEffect(() => {
+    let active = true;
+
+    if (memoryCachedCountry) {
+      setCountry((prev) => (prev.code === memoryCachedCountry!.code ? prev : memoryCachedCountry!));
+      return;
     }
 
-    void detect();
+    const stored = readStoredCountry();
+    if (stored) {
+      memoryCachedCountry = stored;
+      setCountry(stored);
+      return;
+    }
+
+    void detectCountryOnce().then((detected) => {
+      if (active && !manuallySelected.current) {
+        setCountry(detected);
+      }
+    });
+
     return () => {
-      controller.abort();
-      window.clearTimeout(timeout);
+      active = false;
     };
   }, []);
 
   const selectCountry = (next: Country) => {
     manuallySelected.current = true;
+    saveCountry(next);
     setCountry(next);
   };
 
