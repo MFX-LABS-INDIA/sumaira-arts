@@ -6,4 +6,8 @@ export const site = {
   currency: "USD",
   statement:
     "A contemporary art destination bringing together refined artwork, cultural influence and modern design to create pieces that belong beautifully in the spaces we live and work in.",
+  instagram: {
+    main: "https://www.instagram.com/sumaira_arts/?hl=en",
+    events: "https://www.instagram.com/sumevents.ae",
+  },
 };

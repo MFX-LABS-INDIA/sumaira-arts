@@ -29,13 +29,31 @@ const languages: Record<Locale, { label: string; countryCode: string; direction:
 const navTranslations: Record<Locale, Record<string, string>> = {
   "en-GB": {},
   ar: {
-    Products: "المنتجات", About: "حول", "Contact Us": "اتصل بنا", Cart: "السلة", "My Orders": "طلباتي",
+    Products: "المنتجات",
+    "Live Events": "فعاليات مباشرة",
+    Workshops: "ورش الخط",
+    About: "حول",
+    "Contact Us": "اتصل بنا",
+    Cart: "السلة",
+    "My Orders": "طلباتي",
   },
   fr: {
-    Products: "Produits", About: "À propos", "Contact Us": "Nous contacter", Cart: "Panier", "My Orders": "Mes commandes",
+    Products: "Produits",
+    "Live Events": "Événements",
+    Workshops: "Ateliers",
+    About: "À propos",
+    "Contact Us": "Nous contacter",
+    Cart: "Panier",
+    "My Orders": "Mes commandes",
   },
   es: {
-    Products: "Productos", About: "Acerca de", "Contact Us": "Contacto", Cart: "Carrito", "My Orders": "Mis pedidos",
+    Products: "Productos",
+    "Live Events": "Eventos",
+    Workshops: "Talleres",
+    About: "Acerca de",
+    "Contact Us": "Contacto",
+    Cart: "Carrito",
+    "My Orders": "Mis pedidos",
   },
 };
 
@@ -188,7 +206,7 @@ export function Header() {
           <Logo />
 
           <nav aria-label="Primary" className="absolute start-1/2 hidden -translate-x-1/2 lg:block">
-            <ul className="flex items-center gap-7">
+            <ul className="flex items-center gap-5 whitespace-nowrap xl:gap-7">
               {mainNav.filter((link) => !["Cart", "My Orders"].includes(link.label)).map((link) => {
                 const active = isLinkActive(link.href);
                 return (

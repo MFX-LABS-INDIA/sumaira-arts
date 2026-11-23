@@ -6,6 +6,7 @@ import Link from "next/link";
 import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCartOpen, removeFromCart, updateQuantity } from "@/store/cartSlice";
+import { useScrollLock } from "@/lib/scroll-lock";
 import { formatPrice } from "@/lib/format";
 
 export function CartDrawer() {
@@ -16,20 +17,11 @@ export function CartDrawer() {
   const cartItemCount = useAppSelector((state) => state.cart.cartItemCount);
   const [mounted, setMounted] = useState(false);
 
+  useScrollLock(isOpen);
+
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
 
   if (!mounted) return null;
 
@@ -37,8 +29,10 @@ export function CartDrawer() {
     <>
       {/* Backdrop */}
       <div
+        aria-hidden="true"
+        data-lenis-prevent
         onClick={() => dispatch(setCartOpen(false))}
-        className={`fixed inset-0 z-50 bg-deep/40 backdrop-blur-xs transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 touch-none bg-deep/40 backdrop-blur-xs transition-opacity duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 pointer-events-none invisible"
         }`}
       />
@@ -69,7 +63,7 @@ export function CartDrawer() {
         </div>
 
         {/* Cart Item List */}
-        <div className="flex-1 overflow-y-auto px-6 py-4">
+        <div data-lenis-prevent className="subtle-scrollbar flex-1 overflow-y-auto overscroll-contain px-6 py-4">
           {cart.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-ice text-mist">

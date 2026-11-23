@@ -48,13 +48,22 @@ export function Footer() {
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
           <ul className="flex items-center gap-5">
-            {socialLinks.map((social) => (
-              <li key={social.label}>
-                <a href={social.href} aria-label={social.label} className="text-light transition-colors hover:text-white">
-                  {socialIcons[social.label]}
-                </a>
-              </li>
-            ))}
+            {socialLinks.map((social) => {
+              const isExternal = social.href.startsWith("http");
+              return (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    aria-label={social.label}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className="text-light transition-colors hover:text-white"
+                  >
+                    {socialIcons[social.label]}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <ul className="flex gap-6">
             <li>
