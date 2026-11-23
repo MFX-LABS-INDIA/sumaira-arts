@@ -12,7 +12,20 @@ export const featured = {
   cta: { label: "View All Artwork", href: "/products" } satisfies Cta,
 };
 
-export const allProducts: StoreProduct[] = productsData;
+const CATEGORY_SORT_ORDER: Record<string, number> = {
+  Original_Texture: 0,
+  Mixed_Media_Artworks: 1,
+  Mixed_Media_Canvas: 2,
+  Collections: 2,
+};
+
+export function getCategorySortRank(category: string): number {
+  return CATEGORY_SORT_ORDER[category] ?? 3;
+}
+
+export const allProducts: StoreProduct[] = [...productsData].sort(
+  (a, b) => getCategorySortRank(a.category) - getCategorySortRank(b.category),
+);
 
 // Helper to format category for UI display
 export const formatCategoryLabel = (category: string) => {

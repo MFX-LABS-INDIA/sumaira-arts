@@ -85,7 +85,7 @@ export function CollectionGrid() {
       <Container>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading eyebrow={collectionsIntro.eyebrow} title={collectionsIntro.title} description={collectionsIntro.description} />
-          <div className="flex items-center gap-2 sm:shrink-0">
+          <div className="hidden md:flex md:shrink-0 md:items-center md:gap-2">
             <button type="button" onClick={() => move(-1)} disabled={!canPrev} aria-label="Previous collection artwork" aria-controls="collection-carousel" className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-light bg-white text-brand transition-colors hover:border-brand hover:bg-ice disabled:cursor-not-allowed disabled:opacity-40">
               <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 rtl:rotate-180" />
             </button>

@@ -284,14 +284,30 @@ export function Header() {
             </SmartLink>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5 lg:hidden">
+            <SmartLink
+              href="/cart"
+              aria-label="Cart"
+              aria-current={isLinkActive("/cart") ? "page" : undefined}
+              onClick={() => setOpen(false)}
+              className={iconNavLink(
+                "/cart",
+                "relative flex h-10 w-10 items-center justify-center rounded-full transition-colors",
+              )}
+            >
+              <BagIcon className="h-5 w-5" />
+              <span className="absolute end-0 top-0">
+                <CountBadge count={cartItemCount} />
+              </span>
+            </SmartLink>
+
             <button
               type="button"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen((value) => !value)}
-              className={`${iconButton} lg:hidden`}
+              className={iconButton}
             >
               <span className="relative block h-6 w-6">
                 <MenuIcon className={`${iconLayer} ${open ? "rotate-90 scale-75 opacity-0" : ""}`} />

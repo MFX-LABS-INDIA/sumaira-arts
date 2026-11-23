@@ -202,7 +202,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-ice/30 py-10 sm:py-16">
+    <div className="min-h-screen bg-ice/30 pt-8 pb-28 sm:pt-12 lg:py-16">
       <div className={containerClassName}>
         <h1 className="font-serif text-3xl sm:text-4xl font-light text-deep border-b border-light pb-6">
           Artwork Request
@@ -211,7 +211,11 @@ export default function CheckoutPage() {
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Checkout Form */}
           <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="rounded-xl border border-light bg-white p-6 sm:p-8 shadow-xs space-y-6">
+            <form
+              id="checkout-form"
+              onSubmit={handleSubmit}
+              className="rounded-xl border border-light bg-white p-5 sm:p-8 shadow-xs space-y-6"
+            >
               <div>
                 <h2 className="text-base font-semibold uppercase tracking-wider text-deep mb-4">
                   Contact Details
@@ -343,7 +347,7 @@ export default function CheckoutPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand px-6 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep disabled:opacity-50 transition-all"
+                className="hidden lg:flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-brand px-6 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep disabled:opacity-50 transition-all"
               >
                 {isSubmitting ? (
                   <>
@@ -364,7 +368,7 @@ export default function CheckoutPage() {
                 Selected Pieces ({cart.length})
               </h2>
 
-              <div className="mt-4 divide-y divide-light max-h-72 overflow-y-auto pr-1">
+              <div className="subtle-scrollbar mt-4 divide-y divide-light max-h-72 overflow-y-auto pr-1">
                 {cart.map((item) => (
                   <div key={item.id} className="py-3 flex gap-3 items-center">
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded bg-ice border border-light">
@@ -400,6 +404,27 @@ export default function CheckoutPage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile & Tablet Sticky Checkout Action Bar */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 px-4 pt-3 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-[0_-8px_24px_-12px_rgba(13,24,42,0.2)] backdrop-blur-xs lg:hidden">
+        <div className="mx-auto max-w-2xl">
+          <button
+            type="submit"
+            form="checkout-form"
+            disabled={isSubmitting}
+            className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-brand px-5 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-deep disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                <span>Submitting...</span>
+              </>
+            ) : (
+              <span>Submit Request ({formatPrice(cartTotal)})</span>
+            )}
+          </button>
         </div>
       </div>
     </div>

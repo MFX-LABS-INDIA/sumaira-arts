@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { LiveEventBookingForm } from "@/components/events/LiveEventBookingForm";
 import { FormDrawer } from "@/components/ui/FormDrawer";
+import { StickyBookingBar } from "@/components/ui/StickyBookingBar";
 import type { EventBookingTab } from "@/types/event-booking";
 
 export function LiveEventBookingSection() {
@@ -56,20 +57,31 @@ export function LiveEventBookingSection() {
   }, []);
 
   return (
-    <FormDrawer
-      isOpen={isModalOpen}
-      onClose={() => setIsModalOpen(false)}
-      title="Book Live Event"
-      subtitle="Select a station and reserve your event date"
-      icon={<Sparkles className="h-4 w-4 shrink-0 text-brand" aria-hidden="true" />}
-    >
-      {isModalOpen && (
-        <LiveEventBookingForm
-          initialTab={modalTab}
-          idPrefix="ev-modal"
-          stickySubmit
-        />
-      )}
-    </FormDrawer>
+    <>
+      <StickyBookingBar
+        title="Live Calligraphy, Engraving & Sketching"
+        subtitle="From 500 AED/hr · Weddings, brand launches & VIP events across UAE & GCC"
+        buttonLabel="Book Live Event"
+        icon={<Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
+        hidden={isModalOpen}
+        onAction={() => setIsModalOpen(true)}
+      />
+
+      <FormDrawer
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Book Live Event"
+        subtitle="Select a station and reserve your event date"
+        icon={<Sparkles className="h-4 w-4 shrink-0 text-brand" aria-hidden="true" />}
+      >
+        {isModalOpen && (
+          <LiveEventBookingForm
+            initialTab={modalTab}
+            idPrefix="ev-modal"
+            stickySubmit
+          />
+        )}
+      </FormDrawer>
+    </>
   );
 }

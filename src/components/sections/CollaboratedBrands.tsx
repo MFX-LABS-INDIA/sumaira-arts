@@ -3,11 +3,74 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { liveEventsData } from "@/data/live-events";
+import { liveEventsData, type CollaboratedBrand } from "@/data/live-events";
 
 interface CollaboratedBrandsProps {
   id?: string;
   tone?: "ice" | "white";
+}
+
+function BrandMarqueeRow({
+  rowKey,
+  items,
+  direction,
+  duration,
+  compact = false,
+}: {
+  rowKey: string;
+  items: CollaboratedBrand[];
+  direction: "left" | "right";
+  duration?: string;
+  compact?: boolean;
+}) {
+  const trackClass =
+    direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
+  const tileSizeClass = compact
+    ? "h-14 w-28 p-2 sm:h-16 sm:w-36 sm:p-2.5"
+    : "h-20 w-40 p-3 lg:h-24 lg:w-44 lg:p-3.5";
+
+  return (
+    <div className="marquee-row overflow-hidden py-1 motion-reduce:overflow-x-auto no-scrollbar sm:py-1.5">
+      <div
+        className={`flex w-max ${trackClass}`}
+        style={duration ? { animationDuration: duration } : undefined}
+      >
+        {[0, 1].map((dupIndex) => (
+          <ul
+            key={dupIndex}
+            aria-hidden={dupIndex === 1 ? "true" : undefined}
+            className={`flex shrink-0 items-center gap-2.5 pr-2.5 sm:gap-3.5 sm:pr-3.5 lg:gap-4 lg:pr-4 ${
+              dupIndex === 1 ? "motion-reduce:hidden" : ""
+            }`}
+          >
+            {items.map((brand) => (
+              <li
+                key={`${rowKey}-${dupIndex}-${brand.name}`}
+                title={brand.name}
+                className={`flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-light transition-all duration-300 ease-out-soft hover:-translate-y-0.5 hover:border-brand/35 hover:shadow-raised motion-reduce:transform-none ${tileSizeClass} ${
+                  brand.darkSurface ? "bg-[#163020]" : "bg-white"
+                }`}
+              >
+                <div className="relative h-full w-full">
+                  <Image
+                    src={brand.logo}
+                    alt={dupIndex === 1 ? "" : brand.name}
+                    fill
+                    sizes={
+                      compact
+                        ? "(min-width: 640px) 124px, 96px"
+                        : "(min-width: 1024px) 150px, 136px"
+                    }
+                    className="object-contain"
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export function CollaboratedBrands({
@@ -15,6 +78,18 @@ export function CollaboratedBrands({
   tone = "ice",
 }: CollaboratedBrandsProps) {
   const { brandsIntro, brands } = liveEventsData;
+
+  const mobileRows = [
+    { key: "m-1", items: brands.slice(0, 9), direction: "left" as const, duration: "26s" },
+    { key: "m-2", items: brands.slice(9, 18), direction: "right" as const, duration: "29s" },
+    { key: "m-3", items: brands.slice(18, 27), direction: "left" as const, duration: "27s" },
+    { key: "m-4", items: brands.slice(27), direction: "right" as const, duration: "30s" },
+  ];
+
+  const desktopRows = [
+    { key: "d-1", items: brands.slice(0, 18), direction: "left" as const },
+    { key: "d-2", items: brands.slice(18), direction: "right" as const },
+  ];
 
   return (
     <Section id={id} tone={tone} className="overflow-x-clip">
@@ -24,48 +99,32 @@ export function CollaboratedBrands({
         </Reveal>
 
         <Reveal delay={90}>
-          <div dir="ltr" className="marquee-mask mt-6 -my-1.5 flex flex-col gap-0 sm:mt-10 sm:gap-1">
-            {[
-              { items: brands.slice(0, 18), trackClass: "animate-marquee-left", key: "row-1" },
-              { items: brands.slice(18), trackClass: "animate-marquee-right", key: "row-2" },
-            ].map((row) => (
-              <div
-                key={row.key}
-                className="marquee-row overflow-hidden py-1.5 motion-reduce:overflow-x-auto no-scrollbar"
-              >
-                <div className={`flex w-max ${row.trackClass}`}>
-                  {[0, 1].map((dupIndex) => (
-                    <ul
-                      key={dupIndex}
-                      aria-hidden={dupIndex === 1 ? "true" : undefined}
-                      className={`flex shrink-0 items-center gap-3 pr-3 sm:gap-4 sm:pr-4 ${
-                        dupIndex === 1 ? "motion-reduce:hidden" : ""
-                      }`}
-                    >
-                      {row.items.map((brand) => (
-                        <li
-                          key={`${row.key}-${dupIndex}-${brand.name}`}
-                          title={brand.name}
-                          className={`flex h-16 w-32 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-light p-2.5 transition-all duration-300 ease-out-soft hover:-translate-y-0.5 hover:border-brand/35 hover:shadow-raised sm:h-20 sm:w-40 sm:p-3 lg:h-24 lg:w-44 lg:p-3.5 motion-reduce:transform-none ${
-                            brand.darkSurface ? "bg-[#163020]" : "bg-white"
-                          }`}
-                        >
-                          <div className="relative h-full w-full">
-                            <Image
-                              src={brand.logo}
-                              alt={dupIndex === 1 ? "" : brand.name}
-                              fill
-                              sizes="(min-width: 1024px) 150px, (min-width: 640px) 136px, 108px"
-                              className="object-contain"
-                            />
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div dir="ltr" className="marquee-mask mt-6 -my-1 sm:mt-10 sm:-my-1.5">
+            {/* 4 rows on mobile & sm */}
+            <div className="flex flex-col gap-0.5 md:hidden">
+              {mobileRows.map((row) => (
+                <BrandMarqueeRow
+                  key={row.key}
+                  rowKey={row.key}
+                  items={row.items}
+                  direction={row.direction}
+                  duration={row.duration}
+                  compact
+                />
+              ))}
+            </div>
+
+            {/* 2 rows on md+ desktop */}
+            <div className="hidden md:flex md:flex-col md:gap-1">
+              {desktopRows.map((row) => (
+                <BrandMarqueeRow
+                  key={row.key}
+                  rowKey={row.key}
+                  items={row.items}
+                  direction={row.direction}
+                />
+              ))}
+            </div>
           </div>
         </Reveal>
       </Container>

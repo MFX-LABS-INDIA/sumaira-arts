@@ -172,7 +172,7 @@ export function ArchiveCarouselController({
             <span className="mx-1.5 text-mist" aria-hidden="true">/</span>
             {String(visibleCount).padStart(2, "0")} projects
           </p>
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex md:items-center md:gap-2">
             <button
               type="button"
               onClick={() => moveBy(-1)}

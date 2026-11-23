@@ -64,7 +64,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-ice/30 py-10 sm:py-16">
+    <div className="min-h-screen bg-ice/30 pt-8 pb-36 sm:pt-12 lg:py-16">
       <div className={containerClassName}>
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-light pb-6 gap-4">
           <div>
@@ -230,23 +230,44 @@ export default function CartPage() {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-3">
+              <div className="mt-5 lg:mt-6 space-y-3">
                 <Link
                   href="/checkout"
-                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-all"
+                  className="hidden lg:flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-all"
                 >
                   <span>Proceed to Checkout</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/#artwork"
-                  className="block w-full text-center py-2 text-xs font-medium uppercase tracking-wider text-steel hover:text-brand transition-colors"
+                  className="block w-full rounded-lg border border-light bg-ice/35 py-2.5 text-center text-xs font-medium uppercase tracking-wider text-steel transition-colors hover:border-brand/40 hover:text-brand lg:border-0 lg:bg-transparent lg:py-2"
                 >
                   Continue Browsing
                 </Link>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile & Tablet Sticky Checkout Bar */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 px-4 pt-2.5 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-[0_-8px_24px_-12px_rgba(13,24,42,0.2)] backdrop-blur-xs lg:hidden">
+        <div className="mx-auto max-w-2xl space-y-2">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-medium text-steel">
+              Estimated Total ({cartItemCount} {cartItemCount === 1 ? "item" : "items"})
+            </span>
+            <span className="font-serif text-base font-semibold text-deep">
+              {formatPrice(cartTotal)}
+            </span>
+          </div>
+          <Link
+            href="/checkout"
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand px-5 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-deep"
+          >
+            <span>Proceed to Checkout</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </div>

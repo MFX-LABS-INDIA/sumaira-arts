@@ -198,7 +198,7 @@ function BookingTabPanel({
 
   const activeIndex = EVENT_BOOKING_TABS.findIndex((t) => t.id === tabId);
   const hintVisibility = compactTabs ? "flex" : "flex sm:hidden";
-  const arrowVisibility = compactTabs ? "flex" : "flex sm:hidden";
+  const arrowVisibility = compactTabs ? "hidden md:flex" : "hidden";
 
   if (formState.status === "success") {
     return (

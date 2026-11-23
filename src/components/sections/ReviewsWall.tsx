@@ -76,11 +76,11 @@ export function ReviewsWall() {
           ))}
         </div>
         <div className="mt-8 flex items-center justify-center gap-4">
-          <button type="button" onClick={() => moveBy(-1)} disabled={activeIndex === 0} aria-label="Previous testimonial" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-light bg-white text-deep transition-colors hover:border-brand hover:text-brand disabled:pointer-events-none disabled:opacity-35"><ChevronLeft className="h-5 w-5" /></button>
+          <button type="button" onClick={() => moveBy(-1)} disabled={activeIndex === 0} aria-label="Previous testimonial" className="hidden h-10 w-10 items-center justify-center rounded-full border border-light bg-white text-deep transition-colors hover:border-brand hover:text-brand disabled:pointer-events-none disabled:opacity-35 md:inline-flex"><ChevronLeft className="h-5 w-5" /></button>
           <div className="flex items-center gap-2" aria-label="Testimonial carousel pages">
             {reviews.slice(0, maxIndex + 1).map((review, index) => <button key={review.id} type="button" onClick={() => moveTo(index)} aria-label={`Show testimonial from ${review.name}`} aria-current={activeIndex === index ? "true" : undefined} className={`h-2 rounded-full transition-all ${activeIndex === index ? "w-6 bg-brand" : "w-2 bg-mist hover:bg-steel"}`} />)}
           </div>
-          <button type="button" onClick={() => moveBy(1)} disabled={activeIndex === maxIndex} aria-label="Next testimonial" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-light bg-white text-deep transition-colors hover:border-brand hover:text-brand disabled:pointer-events-none disabled:opacity-35"><ChevronRight className="h-5 w-5" /></button>
+          <button type="button" onClick={() => moveBy(1)} disabled={activeIndex === maxIndex} aria-label="Next testimonial" className="hidden h-10 w-10 items-center justify-center rounded-full border border-light bg-white text-deep transition-colors hover:border-brand hover:text-brand disabled:pointer-events-none disabled:opacity-35 md:inline-flex"><ChevronRight className="h-5 w-5" /></button>
         </div>
       </Container>
     </Section>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Calendar } from "lucide-react";
 import { FormDrawer } from "@/components/ui/FormDrawer";
+import { StickyBookingBar } from "@/components/ui/StickyBookingBar";
 import { WorkshopBookingForm } from "@/components/workshops/WorkshopBookingForm";
 import { WORKSHOP_FORMATS } from "@/types/workshop-booking";
 
@@ -55,20 +56,31 @@ export function WorkshopBookingSection() {
   }, []);
 
   return (
-    <FormDrawer
-      isOpen={isModalOpen}
-      onClose={() => setIsModalOpen(false)}
-      title="Book a Workshop"
-      subtitle="Dubai studio, onsite UAE, or online live sessions"
-      icon={<Calendar className="h-4 w-4 shrink-0 text-brand" aria-hidden="true" />}
-    >
-      {isModalOpen && (
-        <WorkshopBookingForm
-          initialFormat={modalFormat || undefined}
-          idPrefix="ws-modal"
-          stickySubmit
-        />
-      )}
-    </FormDrawer>
+    <>
+      <StickyBookingBar
+        title="Arabic Calligraphy & Art Workshops"
+        subtitle="All materials included · Studio classes in Jumeirah, UAE corporate & online live"
+        buttonLabel="Book a Workshop"
+        icon={<Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
+        hidden={isModalOpen}
+        onAction={() => setIsModalOpen(true)}
+      />
+
+      <FormDrawer
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Book a Workshop"
+        subtitle="Dubai studio, onsite UAE, or online live sessions"
+        icon={<Calendar className="h-4 w-4 shrink-0 text-brand" aria-hidden="true" />}
+      >
+        {isModalOpen && (
+          <WorkshopBookingForm
+            initialFormat={modalFormat || undefined}
+            idPrefix="ws-modal"
+            stickySubmit
+          />
+        )}
+      </FormDrawer>
+    </>
   );
 }

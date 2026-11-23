@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Search, Sparkles } from "lucide-react";
-import { allProducts, formatCategoryLabel } from "@/data/products";
+import { allProducts, formatCategoryLabel, getCategorySortRank } from "@/data/products";
 import { ProductCard } from "@/components/common/ProductCard";
 import { CategoryFilter, type CategoryOption } from "@/components/products/CategoryFilter";
 import { MobileFilterSortBar } from "@/components/products/MobileFilterSortBar";
@@ -70,7 +70,7 @@ function ProductsCatalogContent() {
         if (sortBy === "price-asc") return a.priceUSD - b.priceUSD;
         if (sortBy === "price-desc") return b.priceUSD - a.priceUSD;
         if (sortBy === "rating") return (b.rating || 0) - (a.rating || 0);
-        return 0;
+        return getCategorySortRank(a.category) - getCategorySortRank(b.category);
       });
   }, [selectedCategory, searchQuery, sortBy]);
 

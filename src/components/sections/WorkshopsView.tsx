@@ -23,16 +23,16 @@ export function WorkshopsView() {
   return (
     <div className="overflow-x-clip">
       {/* Hero */}
-      <Section id="workshops-hero" tone="ice" className="overflow-hidden py-8 sm:py-12 lg:py-16">
+      <Section id="workshops-hero" tone="ice" className="overflow-hidden py-6 sm:py-10 lg:py-16">
         <Container>
-          <div className="grid grid-cols-1 items-center gap-6 sm:gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="grid grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="min-w-0 lg:col-span-6">
               <Reveal>
-                <div className="flex items-center gap-3">
-                  <span className="h-px w-8 bg-brand" aria-hidden="true" />
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <span className="h-px w-6 bg-brand sm:w-8" aria-hidden="true" />
                   <Eyebrow>{hero.eyebrow}</Eyebrow>
                 </div>
-                <h1 className="mt-3 max-w-2xl font-serif text-3xl font-light leading-[1.1] tracking-tight text-deep text-balance sm:mt-4 sm:text-5xl lg:text-[3.25rem]">
+                <h1 className="mt-3 max-w-2xl font-serif text-[1.85rem] font-light leading-[1.12] tracking-tight text-deep text-balance sm:mt-4 sm:text-4xl lg:text-[3.25rem]">
                   {hero.title}
                 </h1>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-steel sm:mt-5 sm:text-base sm:leading-7">
@@ -41,16 +41,19 @@ export function WorkshopsView() {
               </Reveal>
 
               <Reveal delay={120}>
-                <div className="mt-5 flex flex-col items-stretch gap-3 sm:mt-7 sm:flex-row sm:items-center sm:gap-5">
+                <div className="mt-5 grid grid-cols-1 gap-2.5 sm:mt-7 sm:flex sm:flex-row sm:items-center sm:gap-5">
                   <ButtonLink
                     href={hero.primaryCta.href}
                     variant="solid"
                     tone="light"
-                    className="min-h-11 text-center"
+                    className="min-h-12 w-full justify-center shadow-sm sm:w-auto"
                   >
                     {hero.primaryCta.label}
                   </ButtonLink>
-                  <TextLink href={hero.secondaryCta.href} className="min-h-10 self-center">
+                  <TextLink
+                    href={hero.secondaryCta.href}
+                    className="min-h-11 w-full justify-center rounded-control border border-light bg-white/90 px-4 sm:w-auto sm:rounded-none sm:border-0 sm:border-b sm:bg-transparent sm:px-0"
+                  >
                     {hero.secondaryCta.label}
                   </TextLink>
                 </div>
@@ -60,19 +63,21 @@ export function WorkshopsView() {
             <Reveal delay={150} className="min-w-0 lg:col-span-6">
               <figure className="relative mx-auto w-full max-w-xl">
                 <div
-                  className="absolute -inset-2 rounded-card border border-soft/70 sm:-inset-3"
+                  className="pointer-events-none absolute -inset-3 hidden rounded-card border border-soft/70 sm:block"
                   aria-hidden="true"
                 />
-                <div className="relative aspect-[16/10] overflow-hidden rounded-card border border-light bg-white shadow-artwork sm:aspect-[4/3]">
-                  <Image
-                    src={hero.image}
-                    alt={hero.imageAlt}
-                    fill
-                    preload
-                    sizes="(min-width: 1280px) 576px, (min-width: 1024px) 46vw, 92vw"
-                    className="object-cover object-top"
-                  />
-                  <figcaption className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-3 rounded-control border border-white/70 bg-white/95 p-2.5 shadow-sm sm:inset-x-4 sm:bottom-4 sm:p-3">
+                <div className="relative overflow-hidden rounded-card border border-light bg-white shadow-artwork">
+                  <div className="relative aspect-[16/10] sm:aspect-[4/3]">
+                    <Image
+                      src={hero.image}
+                      alt={hero.imageAlt}
+                      fill
+                      preload
+                      sizes="(min-width: 1280px) 576px, (min-width: 1024px) 46vw, 92vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <figcaption className="flex items-center justify-between gap-3 border-t border-light bg-white p-3 sm:absolute sm:inset-x-4 sm:bottom-4 sm:rounded-control sm:border sm:border-white/70 sm:bg-white/95 sm:p-3 sm:shadow-sm sm:backdrop-blur-xs">
                     <span>
                       <span className="block text-micro font-medium uppercase tracking-caps text-steel">
                         Resident Tutor · The Workshop Dubai, Jumeirah
@@ -88,14 +93,14 @@ export function WorkshopsView() {
           </div>
 
           <Reveal delay={200}>
-            <div className="mt-7 overflow-hidden rounded-card border border-light bg-white sm:mt-10">
+            <div className="mt-6 overflow-hidden rounded-card border border-light bg-white sm:mt-10">
               <div className="grid grid-cols-2 divide-x divide-y divide-light sm:grid-cols-4 sm:divide-y-0">
                 {hero.stats.map((stat) => (
-                  <div key={stat.label} className="px-4 py-3.5 sm:px-6 sm:py-5">
-                    <span className="block font-serif text-xl font-light tracking-tight text-deep sm:text-2xl">
+                  <div key={stat.label} className="px-3.5 py-3 sm:px-5 sm:py-4 lg:px-6 lg:py-5">
+                    <span className="block truncate font-serif text-lg font-light tracking-tight text-deep sm:text-xl lg:text-2xl">
                       {stat.value}
                     </span>
-                    <span className="mt-1 block text-xs leading-snug text-steel">
+                    <span className="mt-0.5 block text-[11px] leading-snug text-steel sm:mt-1 sm:text-xs">
                       {stat.label}
                     </span>
                   </div>
