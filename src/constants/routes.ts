@@ -4,8 +4,10 @@
  */
 export const routes = {
   home: "/",
-  about: "/about",
   products: "/products",
+  liveEvents: "/live-events",
+  workshops: "/workshops",
+  about: "/about",
   cart: "/cart",
   orders: "/orders",
   privacy: "/privacy",

@@ -1,6 +1,27 @@
 import { google } from "googleapis";
 import type { Order } from "@/types/store";
 import type { Enquiry } from "@/types/enquiry";
+import type { EventBooking } from "@/types/event-booking";
+import type { WorkshopBooking } from "@/types/workshop-booking";
+
+export const SHEET_TABS = {
+  orders: "Orders",
+  liveEvents: "Live Events",
+  bookWorkshops: "Book Workshops",
+  contactUs: "Contact Us",
+} as const;
+
+function quoteSheetName(title: string): string {
+  return `'${title.replace(/'/g, "''")}'`;
+}
+
+function formatDubaiTimestamp(value: string | Date = new Date()): string {
+  return new Date(value).toLocaleString("en-GB", {
+    timeZone: "Asia/Dubai",
+    dateStyle: "medium",
+    timeStyle: "medium",
+  });
+}
 
 class SheetsService {
   private readonly orderHeaders = [
@@ -16,7 +37,38 @@ class SheetsService {
     "Quantity",
     "Price (USD)",
   ];
-  private readonly enquiryHeaders = [
+
+  private readonly liveEventHeaders = [
+    "Booking ID",
+    "Submitted At",
+    "Station",
+    "Full Name",
+    "Email",
+    "Mobile Number",
+    "Event Date",
+    "Duration",
+    "Hourly Rate (AED)",
+    "Est. Pieces / Portraits",
+    "Venue / Location",
+    "Notes",
+  ];
+
+  private readonly workshopHeaders = [
+    "Booking ID",
+    "Submitted At",
+    "Full Name",
+    "Email",
+    "Mobile Number",
+    "Workshop Format",
+    "Session Mode",
+    "Group Size",
+    "Skill Level",
+    "Preferred Date",
+    "Venue / City",
+    "Notes",
+  ];
+
+  private readonly contactHeaders = [
     "Received At",
     "Name",
     "Email",
@@ -44,7 +96,6 @@ class SheetsService {
 
     try {
       if (clientEmail && privateKey) {
-        // Clean private key: convert escaped newlines into real ones
         let formattedKey = privateKey;
         if (formattedKey.startsWith('"') && formattedKey.endsWith('"')) {
           formattedKey = formattedKey.slice(1, -1);
@@ -77,28 +128,112 @@ class SheetsService {
     }
   }
 
-  private async ensureEnquiryHeaders(): Promise<void> {
-    if (!this.sheets || !this.spreadsheetId) return;
+  private async resolveOrCreateSheet(
+    requestedTitle: string,
+  ): Promise<{ title: string; sheetId: number | null; created: boolean } | null> {
+    if (!this.sheets || !this.spreadsheetId) return null;
 
     const spreadsheet = await this.sheets.spreadsheets.get({
       spreadsheetId: this.spreadsheetId,
     });
-    const sheetExists = spreadsheet.data.sheets?.some(
-      (sheet) => sheet.properties?.title === "enquiries",
+
+    const existing = spreadsheet.data.sheets?.find(
+      (sheet) =>
+        sheet.properties?.title?.trim().toLowerCase() ===
+        requestedTitle.trim().toLowerCase(),
     );
 
-    if (!sheetExists) {
+    if (existing?.properties?.title) {
+      return {
+        title: existing.properties.title,
+        sheetId: existing.properties.sheetId ?? null,
+        created: false,
+      };
+    }
+
+    const created = await this.sheets.spreadsheets.batchUpdate({
+      spreadsheetId: this.spreadsheetId,
+      requestBody: {
+        requests: [{ addSheet: { properties: { title: requestedTitle } } }],
+      },
+    });
+
+    const sheetId =
+      created.data.replies?.[0]?.addSheet?.properties?.sheetId ?? null;
+
+    return { title: requestedTitle, sheetId, created: true };
+  }
+
+  private async applyBrandHeaderStyle(
+    sheetId: number | null,
+    columnCount: number,
+  ): Promise<void> {
+    if (!this.sheets || !this.spreadsheetId || sheetId === null) return;
+
+    try {
       await this.sheets.spreadsheets.batchUpdate({
         spreadsheetId: this.spreadsheetId,
         requestBody: {
-          requests: [{ addSheet: { properties: { title: "enquiries" } } }],
+          requests: [
+            {
+              updateSheetProperties: {
+                properties: {
+                  sheetId,
+                  gridProperties: { frozenRowCount: 1 },
+                },
+                fields: "gridProperties.frozenRowCount",
+              },
+            },
+            {
+              repeatCell: {
+                range: {
+                  sheetId,
+                  startRowIndex: 0,
+                  endRowIndex: 1,
+                  startColumnIndex: 0,
+                  endColumnIndex: columnCount,
+                },
+                cell: {
+                  userEnteredFormat: {
+                    backgroundColor: {
+                      red: 27 / 255,
+                      green: 58 / 255,
+                      blue: 107 / 255,
+                    },
+                    textFormat: {
+                      foregroundColor: { red: 1, green: 1, blue: 1 },
+                      bold: true,
+                    },
+                  },
+                },
+                fields: "userEnteredFormat(backgroundColor,textFormat)",
+              },
+            },
+          ],
         },
       });
+    } catch {
+      // Non-fatal formatting enhancement
     }
+  }
+
+  private async ensureTabWithHeaders(
+    requestedTitle: string,
+    headers: string[],
+  ): Promise<string | null> {
+    await this.initializeSheets();
+    if (!this.sheets || !this.spreadsheetId) return null;
+
+    const resolved = await this.resolveOrCreateSheet(requestedTitle);
+    if (!resolved) return null;
+
+    const quoted = quoteSheetName(resolved.title);
+    const endCol = String.fromCharCode(64 + headers.length);
+    const headerRange = `${quoted}!A1:${endCol}1`;
 
     const response = await this.sheets.spreadsheets.values.get({
       spreadsheetId: this.spreadsheetId,
-      range: "enquiries!A:E",
+      range: headerRange,
     });
     const rows = response.data.values ?? [];
     const existingHeaders = rows[0]?.map(String) ?? [];
@@ -106,27 +241,28 @@ class SheetsService {
     if (rows.length === 0) {
       await this.sheets.spreadsheets.values.update({
         spreadsheetId: this.spreadsheetId,
-        range: "enquiries!A1:E1",
+        range: headerRange,
         valueInputOption: "RAW",
-        requestBody: { values: [this.enquiryHeaders] },
+        requestBody: { values: [headers] },
       });
-      return;
+      await this.applyBrandHeaderStyle(resolved.sheetId, headers.length);
+      return resolved.title;
     }
 
     if (
-      existingHeaders.length !== this.enquiryHeaders.length ||
-      !this.enquiryHeaders.every((header, index) => existingHeaders[index] === header)
+      existingHeaders.length !== headers.length ||
+      !headers.every((header, index) => existingHeaders[index] === header)
     ) {
-      throw new Error("The enquiries sheet has an unrecognised column layout.");
+      throw new Error(
+        `The "${resolved.title}" sheet has an unrecognised column layout.`,
+      );
     }
+
+    return resolved.title;
   }
 
   private formatOrderRows(order: Order): Array<Array<string | number>> {
-    const timestamp = new Date(order.orderDate).toLocaleString("en-GB", {
-      timeZone: "Asia/Qatar",
-      dateStyle: "medium",
-      timeStyle: "medium",
-    });
+    const timestamp = formatDubaiTimestamp(order.orderDate);
 
     return order.items.map((item) => [
       order.id,
@@ -145,35 +281,16 @@ class SheetsService {
     ]);
   }
 
-  private async ensureHeaders(sheetName: string): Promise<void> {
-    if (!this.sheets || !this.spreadsheetId) return;
+  private async ensureOrderHeaders(requestedTitle: string): Promise<string | null> {
+    if (!this.sheets || !this.spreadsheetId) return null;
 
-    const spreadsheet = await this.sheets.spreadsheets.get({
-      spreadsheetId: this.spreadsheetId,
-    });
+    const resolved = await this.resolveOrCreateSheet(requestedTitle);
+    if (!resolved) return null;
 
-    const sheetExists = spreadsheet.data.sheets?.some(
-      (s) => s.properties?.title === sheetName
-    );
-
-    if (!sheetExists) {
-      await this.sheets.spreadsheets.batchUpdate({
-        spreadsheetId: this.spreadsheetId,
-        requestBody: {
-          requests: [
-            {
-              addSheet: {
-                properties: { title: sheetName },
-              },
-            },
-          ],
-        },
-      });
-    }
-
+    const quoted = quoteSheetName(resolved.title);
     const response = await this.sheets.spreadsheets.values.get({
       spreadsheetId: this.spreadsheetId,
-      range: `${sheetName}!A1:K`,
+      range: `${quoted}!A1:K`,
     });
     const existingRows = response.data.values ?? [];
     const existingHeaders = existingRows[0]?.map(String) ?? [];
@@ -182,7 +299,18 @@ class SheetsService {
       existingHeaders.length === this.orderHeaders.length &&
       this.orderHeaders.every((header, index) => existingHeaders[index] === header)
     ) {
-      return;
+      return resolved.title;
+    }
+
+    if (existingRows.length === 0) {
+      await this.sheets.spreadsheets.values.update({
+        spreadsheetId: this.spreadsheetId,
+        range: `${quoted}!A1:K1`,
+        valueInputOption: "RAW",
+        requestBody: { values: [this.orderHeaders] },
+      });
+      await this.applyBrandHeaderStyle(resolved.sheetId, this.orderHeaders.length);
+      return resolved.title;
     }
 
     const legacyHeaders = [
@@ -220,7 +348,7 @@ class SheetsService {
     const isPreviousAdminLayoutWithRequestIdAndPrice =
       existingHeaders.length === previousHeadersWithRequestIdAndPrice.length &&
       previousHeadersWithRequestIdAndPrice.every(
-        (header, index) => existingHeaders[index] === header
+        (header, index) => existingHeaders[index] === header,
       );
     const hasAdminLayout =
       isPreviousAdminLayoutWithoutPrice ||
@@ -233,7 +361,7 @@ class SheetsService {
       !isLegacyLayoutWithoutAddress &&
       !hasAdminLayout
     ) {
-      throw new Error("The order enquiry sheet has an unrecognised column layout.");
+      throw new Error(`The "${resolved.title}" sheet has an unrecognised column layout.`);
     }
 
     const migratedRows = existingRows.slice(1).map((row) => {
@@ -262,15 +390,21 @@ class SheetsService {
 
     await this.sheets.spreadsheets.values.update({
       spreadsheetId: this.spreadsheetId,
-      range: `${sheetName}!A1:K${Math.max(existingRows.length, 1)}`,
+      range: `${quoted}!A1:K${Math.max(existingRows.length, 1)}`,
       valueInputOption: "RAW",
       requestBody: {
         values: [this.orderHeaders, ...migratedRows],
       },
     });
+    await this.applyBrandHeaderStyle(resolved.sheetId, this.orderHeaders.length);
+
+    return resolved.title;
   }
 
-  async saveOrder(order: Order, sheetName: string = "Order Enquiries"): Promise<boolean> {
+  async saveOrder(
+    order: Order,
+    sheetName: string = SHEET_TABS.orders,
+  ): Promise<boolean> {
     try {
       await this.initializeSheets();
 
@@ -279,13 +413,14 @@ class SheetsService {
         return false;
       }
 
-      await this.ensureHeaders(sheetName);
+      const resolvedTab = await this.ensureOrderHeaders(sheetName);
+      if (!resolvedTab) return false;
 
       const rows = this.formatOrderRows(order);
 
       await this.sheets.spreadsheets.values.append({
         spreadsheetId: this.spreadsheetId,
-        range: `${sheetName}!A:K`,
+        range: `${quoteSheetName(resolvedTab)}!A:K`,
         valueInputOption: "RAW",
         insertDataOption: "INSERT_ROWS",
         requestBody: {
@@ -293,35 +428,115 @@ class SheetsService {
         },
       });
 
-      console.log(`[SHEETS SERVICE] Order ${order.id} saved to Google Sheets successfully.`);
+      console.log(
+        `[SHEETS SERVICE] Order ${order.id} saved to Google Sheets (${resolvedTab}) successfully.`,
+      );
       return true;
     } catch (error) {
       console.error(
         "[SHEETS SERVICE] Error saving order to Google Sheets:",
-        error instanceof Error ? error.name : "Unknown error"
+        error instanceof Error ? error.name : "Unknown error",
       );
       throw error;
     }
   }
 
   async saveEnquiry(enquiry: Enquiry): Promise<boolean> {
-    await this.initializeSheets();
-    if (!this.sheets || !this.spreadsheetId) return false;
+    const resolvedTab = await this.ensureTabWithHeaders(
+      SHEET_TABS.contactUs,
+      this.contactHeaders,
+    );
+    if (!resolvedTab || !this.sheets || !this.spreadsheetId) return false;
 
-    await this.ensureEnquiryHeaders();
     await this.sheets.spreadsheets.values.append({
       spreadsheetId: this.spreadsheetId,
-      range: "enquiries!A:E",
+      range: `${quoteSheetName(resolvedTab)}!A:E`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
-        values: [[
-          new Date().toISOString(),
-          enquiry.name,
-          enquiry.email,
-          enquiry.phoneNumber,
-          enquiry.address,
-        ]],
+        values: [
+          [
+            formatDubaiTimestamp(),
+            enquiry.name,
+            enquiry.email,
+            enquiry.phoneNumber,
+            enquiry.address || "",
+          ],
+        ],
+      },
+    });
+
+    return true;
+  }
+
+  async saveEventBooking(booking: EventBooking): Promise<boolean> {
+    const resolvedTab = await this.ensureTabWithHeaders(
+      SHEET_TABS.liveEvents,
+      this.liveEventHeaders,
+    );
+    if (!resolvedTab || !this.sheets || !this.spreadsheetId) return false;
+
+    const submittedLabel = formatDubaiTimestamp(booking.submittedAt);
+
+    await this.sheets.spreadsheets.values.append({
+      spreadsheetId: this.spreadsheetId,
+      range: `${quoteSheetName(resolvedTab)}!A:L`,
+      valueInputOption: "RAW",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: {
+        values: [
+          [
+            booking.bookingId,
+            submittedLabel,
+            booking.stationTitle,
+            booking.name,
+            booking.email,
+            booking.phoneNumber,
+            booking.eventDate,
+            booking.duration,
+            booking.hourlyRateAed,
+            booking.guestCount || "",
+            booking.location,
+            booking.notes || "",
+          ],
+        ],
+      },
+    });
+
+    return true;
+  }
+
+  async saveWorkshopBooking(booking: WorkshopBooking): Promise<boolean> {
+    const resolvedTab = await this.ensureTabWithHeaders(
+      SHEET_TABS.bookWorkshops,
+      this.workshopHeaders,
+    );
+    if (!resolvedTab || !this.sheets || !this.spreadsheetId) return false;
+
+    const submittedLabel = formatDubaiTimestamp(booking.submittedAt);
+
+    await this.sheets.spreadsheets.values.append({
+      spreadsheetId: this.spreadsheetId,
+      range: `${quoteSheetName(resolvedTab)}!A:L`,
+      valueInputOption: "RAW",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: {
+        values: [
+          [
+            booking.bookingId,
+            submittedLabel,
+            booking.name,
+            booking.email,
+            booking.phoneNumber,
+            booking.workshopFormat,
+            booking.sessionMode,
+            booking.groupSize,
+            booking.skillLevel,
+            booking.preferredDate,
+            booking.location || "",
+            booking.notes || "",
+          ],
+        ],
       },
     });
 

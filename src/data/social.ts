@@ -1,9 +1,10 @@
 import type { Cta, Visual } from "@/types/content";
+import { site } from "@/constants/site";
 
 export const social = {
   eyebrow: "Follow the Art",
   title: "Discover new work, interiors and inspiration.",
-  cta: { label: "Follow Us", href: "#" } satisfies Cta,
+  cta: { label: "Follow Us", href: site.instagram.main } satisfies Cta,
 };
 
 /** Six tiles for the social grid. */

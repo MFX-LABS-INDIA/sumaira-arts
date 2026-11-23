@@ -50,7 +50,11 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
         aria-label={`Country calling code: ${selected.name} +${selected.dialCode}`}
         aria-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex h-12 w-full items-center justify-between rounded-lg border border-light bg-white px-3 text-sm transition-colors hover:border-brand focus:border-brand focus:outline-none"
+        className={`flex h-11 w-full cursor-pointer items-center justify-between rounded-control border bg-white px-3 text-sm transition-all duration-200 sm:h-12 ${
+          isOpen
+            ? "border-brand ring-2 ring-brand/15 outline-none"
+            : "border-light hover:border-brand/50 focus:border-brand focus:ring-2 focus:ring-brand/15 focus:outline-none"
+        }`}
       >
         <span className="flex items-center gap-2">
           <ReactCountryFlag svg countryCode={selected.code} aria-label={selected.name} style={{ width: "1.5em", height: "1em" }} />
@@ -60,7 +64,7 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-1 max-h-64 w-72 rounded-xl border border-light bg-white p-2 shadow-raised">
+        <div className="absolute left-0 top-full z-50 mt-1 max-h-64 w-72 max-w-[calc(100vw-2.5rem)] rounded-xl border border-light bg-white p-2 shadow-raised">
           <div className="relative mb-2">
             <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-steel" />
             <input
@@ -84,7 +88,10 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
             )}
           </div>
 
-          <div className="max-h-48 overflow-y-auto divide-y divide-light/50">
+          <div
+            data-lenis-prevent
+            className="max-h-48 divide-y divide-light/50 overflow-y-auto"
+          >
             {filtered.map((item) => (
               <button
                 key={item.code}

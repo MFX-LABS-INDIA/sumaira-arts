@@ -18,7 +18,13 @@ export function SocialGallery() {
         <div className="mt-12 grid grid-cols-2 gap-2 sm:grid-cols-3 md:mt-16 md:gap-3 lg:grid-cols-6">
           {socialTiles.map((tile, index) => (
             <Reveal key={tile.label} delay={(index % 3) * 90}>
-              <a href={social.cta.href} aria-label={tile.label} className="group relative block">
+              <a
+                href={social.cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={tile.label}
+                className="group relative block"
+              >
                 <ArtImage
                   art={tile.art}
                   scene={tile.scene}

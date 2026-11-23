@@ -1,7 +1,10 @@
 import type { NavLink } from "@/types/content";
+import { site } from "@/constants/site";
 
 export const mainNav: NavLink[] = [
   { label: "Products", href: "/products" },
+  { label: "Live Events", href: "/live-events" },
+  { label: "Workshops", href: "/workshops" },
   { label: "About", href: "/about" },
   { label: "Contact Us", href: "/#contact" },
   { label: "Cart", href: "/cart" },
@@ -23,6 +26,8 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Explore",
     links: [
+      { label: "Live Events", href: "/live-events" },
+      { label: "Calligraphy Workshops", href: "/workshops" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "#contact" },
     ],
@@ -39,9 +44,9 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   },
 ];
 
-/** Replace each "#" with the real profile URL. */
+/** Official social profiles. */
 export const socialLinks = [
-  { label: "Instagram", href: "#" },
+  { label: "Instagram", href: site.instagram.main },
   { label: "Facebook", href: "#" },
   { label: "Pinterest", href: "#" },
   { label: "YouTube", href: "#" },
