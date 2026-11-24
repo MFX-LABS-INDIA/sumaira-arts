@@ -4,6 +4,7 @@ import { Section } from "@/components/atoms/Section";
 import { Eyebrow, SectionHeading } from "@/components/molecules/SectionHeading";
 import { Reveal } from "@/components/atoms/Reveal";
 import { WorkshopBookingSection } from "@/components/organisms/WorkshopBookingSection";
+import { WorkshopsGallery } from "@/components/organisms/WorkshopsGallery";
 import { workshopsData } from "@/data/workshops";
 
 export function WorkshopsView() {
@@ -135,28 +136,7 @@ export function WorkshopsView() {
             <SectionHeading {...galleryIntro} />
           </Reveal>
 
-          <div className="mt-6 -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 no-scrollbar sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-px-0 lg:grid-cols-3">
-            {gallery.map((item) => (
-              <figure
-                key={item.id}
-                className="group relative flex w-[78vw] max-w-[320px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-colors hover:border-brand/40 sm:w-auto sm:max-w-none"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-ice">
-                  <SkeletonImage
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="(min-width: 1280px) 380px, (min-width: 1024px) 30vw, (min-width: 640px) 46vw, 78vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
-                  />
-                </div>
-                <figcaption className="p-4 sm:p-5">
-                  <p className="text-sm font-medium text-deep sm:text-base">{item.title}</p>
-                  <p className="mt-1 text-xs text-steel">{item.caption}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <WorkshopsGallery items={gallery} />
         </Container>
       </Section>
 

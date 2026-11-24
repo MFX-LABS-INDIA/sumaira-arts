@@ -3,7 +3,7 @@ import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { Container } from "@/components/atoms/Container";
 import { Section } from "@/components/atoms/Section";
 import { Eyebrow, SectionHeading, headingClass } from "@/components/molecules/SectionHeading";
-import { ButtonLink, TextLink } from "@/components/atoms/Link";
+import { ButtonLink } from "@/components/atoms/Link";
 import { Reveal } from "@/components/atoms/Reveal";
 import { artist } from "@/data/artist";
 import { InteractiveArchive } from "@/components/organisms/InteractiveArchive";
@@ -21,22 +21,6 @@ export default function AboutPage() {
   return (
     <div>
       <ArtistFounderHero />
-      <nav aria-label="About page sections" className="border-b border-light bg-white">
-        <Container className="no-scrollbar flex gap-2 overflow-x-auto py-3 sm:gap-3 sm:py-4">
-          <TextLink href="#story" className="min-h-11 shrink-0 rounded-full border border-light border-b-0 px-4 py-2">
-            The story
-          </TextLink>
-          <TextLink href="#craft" className="min-h-11 shrink-0 rounded-full border border-light border-b-0 px-4 py-2">
-            The craft
-          </TextLink>
-          <TextLink href="#archive" className="min-h-11 shrink-0 rounded-full border border-light border-b-0 px-4 py-2">
-            Selected projects
-          </TextLink>
-          <TextLink href="#timeline" className="min-h-11 shrink-0 rounded-full border border-light border-b-0 px-4 py-2">
-            Milestones
-          </TextLink>
-        </Container>
-      </nav>
 
       <Section id="story" tone="white" className="py-8 sm:py-10 lg:py-16">
         <Container>

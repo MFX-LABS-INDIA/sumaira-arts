@@ -110,10 +110,10 @@ export function ProductCard({
       </div>
 
       {/* Card Body */}
-      <div className={`flex flex-1 flex-col p-3 sm:p-4 ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-5"}`}>
-        <div>
+      <div className={`flex flex-1 flex-col p-3 sm:p-4 ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-3"}`}>
+        <div className="min-w-0">
           {product.rating !== undefined && (
-            <div className="mb-2 flex items-center gap-1.5 text-xs text-steel">
+            <div className="mb-1.5 flex items-center gap-1.5 text-xs text-steel">
               <Star aria-hidden="true" className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
               <span>{product.rating.toFixed(1)}</span>
               {reviewCount > 0 && (
@@ -122,34 +122,29 @@ export function ProductCard({
                   <span>{reviewCount} reviews</span>
                 </>
               )}
-              {/* {product.ratingLabel && (
-                <span className="text-micro text-steel">{product.ratingLabel}</span>
-              )} */}
             </div>
           )}
 
-          {/* Title */}
-          <h3 className="font-serif text-sm font-semibold leading-snug tracking-tight text-deep transition-colors group-hover:text-brand line-clamp-2 sm:text-base sm:font-medium">
+          {/* Title (auto-tooltipped globally when truncated) */}
+          <h3 className="font-serif text-xs font-semibold leading-snug tracking-tight text-deep transition-colors group-hover:text-brand line-clamp-2 sm:text-sm sm:font-medium">
             <SmartLink href={`/products/${product.slug}`} className="after:absolute after:inset-0">
               {product.title}
             </SmartLink>
           </h3>
-
-
         </div>
 
         {/* Fixed artwork price */}
-        <div className={`flex items-end justify-between border-t border-light/60 ${homeCard ? "mt-4 pt-3" : "mt-3 pt-2 sm:mt-0 sm:min-w-36 sm:border-s sm:border-t-0 sm:ps-5 sm:pt-0"}`}>
+        <div className={`flex items-end justify-between gap-2 border-t border-light/60 ${homeCard ? "mt-4 pt-3" : "mt-3 pt-2 sm:mt-0 sm:min-w-28 sm:border-s sm:border-t-0 sm:ps-3 sm:pt-0"}`}>
           <div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[10px] text-steel uppercase font-semibold sm:text-[11px]">Price</span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-[9px] text-steel uppercase font-semibold sm:text-[10px]">Price</span>
               {product.oldPriceUSD && (
-                <span className="text-xs text-steel line-through">
+                <span className="text-[10px] font-medium text-red-500 line-through">
                   {formatPrice(product.oldPriceUSD)}
                 </span>
               )}
             </div>
-            <p className="font-serif text-xl font-semibold text-deep leading-none mt-0.5 sm:text-xl sm:font-medium">
+            <p className="font-serif text-lg font-semibold text-deep leading-none mt-0.5 sm:text-lg sm:font-medium">
               {formatPrice(product.price)}
             </p>
           </div>

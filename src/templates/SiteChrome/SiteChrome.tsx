@@ -3,6 +3,7 @@ import { Footer } from "@/components/organisms/Footer";
 import { Header } from "@/components/organisms/Header";
 import { RevealController } from "@/components/providers/RevealController";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { TruncatedTooltipProvider } from "@/components/providers/TruncatedTooltipProvider";
 import { ReduxProvider } from "@/components/providers/ReduxProvider";
 import { LanguageTranslator } from "@/components/providers/LanguageTranslator";
 import { ServiceWorkerRegistration } from "@/components/providers/ServiceWorkerRegistration";
@@ -20,6 +21,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
       <Footer />
       <RevealController />
       <SmoothScroll />
+      <TruncatedTooltipProvider />
     </ReduxProvider>
   );
 }

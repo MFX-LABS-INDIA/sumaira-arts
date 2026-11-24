@@ -33,3 +33,4 @@ export * from "./SocialGallery";
 export * from "./StudioTechnique";
 export * from "./WorkshopBookingForm";
 export * from "./WorkshopBookingSection";
+export * from "./WorkshopsGallery";
