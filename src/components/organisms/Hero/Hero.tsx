@@ -118,7 +118,7 @@ export function Hero() {
 
         <nav
           aria-label="Browse artwork categories"
-          className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-2xl border border-white/30 bg-white/15 shadow-artwork backdrop-blur-md sm:mt-10"
+          className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-2xl border border-white/30 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_14px_34px_-14px_rgba(13,24,42,0.55)] backdrop-blur-xs sm:mt-10"
         >
           <ul className="grid grid-cols-2 divide-x divide-y divide-white/25 sm:grid-cols-4 sm:divide-y-0">
             {homeHero.quickCategories.map((item) => {

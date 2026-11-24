@@ -10,25 +10,54 @@ export function ArtistFounderHero() {
   return (
     <Section id="artist-hero" tone="ice" className="overflow-hidden py-8 sm:py-12 lg:py-16">
       <Container>
-        <div className="grid items-center gap-6 sm:gap-9 md:grid-cols-12 md:gap-8 lg:gap-12">
-          <div className="md:col-span-6">
+        <div className="grid grid-cols-1 gap-5 sm:gap-7 md:grid-cols-12 md:gap-x-8 md:gap-y-4 lg:gap-x-12">
+          <div className="md:col-span-6 md:col-start-1 md:row-start-1 md:self-end">
             <Reveal>
-              <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-brand" aria-hidden="true" />
-                <Eyebrow>{artist.eyebrow}</Eyebrow>
-              </div>
+              <Eyebrow>{artist.eyebrow}</Eyebrow>
               <h1 className="mt-3 max-w-2xl font-serif text-3xl font-light leading-[1.08] tracking-tight text-deep text-balance sm:mt-4 sm:text-5xl lg:text-6xl">
                 {artist.name}
               </h1>
               <p className="mt-3 max-w-lg text-sm font-medium leading-relaxed text-brand sm:mt-4 sm:text-base lg:text-lg">
                 {artist.role}
               </p>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-steel sm:mt-4 sm:text-base sm:leading-7">
+            </Reveal>
+          </div>
+
+          <Reveal delay={150} className="md:col-span-6 md:col-start-7 md:row-span-2 md:row-start-1 md:self-center">
+            <figure className="relative mx-auto w-full max-w-lg">
+              <div className="absolute -inset-2 rounded-card border border-soft/70 sm:-inset-3" aria-hidden="true" />
+              <div className="relative aspect-[16/10] overflow-hidden rounded-card border border-light bg-white sm:aspect-[4/3]">
+                <SkeletonImage
+                  src="/assets/images/artist/sumaira-studio-calligraphy.webp"
+                  alt="Sumaira Mohammed Ashik at her easel in Dubai"
+                  fill
+                  preload
+                  instantReveal
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  className="object-cover object-top"
+                />
+                <figcaption className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-3 rounded-control border border-white/70 bg-white/95 p-2.5 shadow-sm sm:inset-x-4 sm:bottom-4 sm:p-3">
+                  <span>
+                    <span className="block text-micro font-medium uppercase tracking-caps text-steel">
+                      Studio Practice · Dubai, UAE
+                    </span>
+                    <span className="mt-1 block font-serif text-xs font-light text-deep sm:text-sm">
+                      Metallic textured acrylics &amp; contemporary Arabic script.
+                    </span>
+                  </span>
+                  <span className="shrink-0 font-mono text-xs text-brand" aria-hidden="true">
+                    01 / 01
+                  </span>
+                </figcaption>
+              </div>
+            </figure>
+          </Reveal>
+
+          <div className="md:col-span-6 md:col-start-1 md:row-start-2 md:self-start">
+            <Reveal delay={120}>
+              <p className="max-w-xl text-sm leading-relaxed text-steel sm:text-base sm:leading-7">
                 {artist.tagline}
               </p>
-            </Reveal>
-
-            <Reveal delay={120}>
               <div className="mt-5 flex flex-col items-stretch gap-2.5 sm:mt-6 sm:flex-row sm:items-center sm:gap-3">
                 <ButtonLink
                   href="/products"
@@ -49,36 +78,6 @@ export function ArtistFounderHero() {
               </div>
             </Reveal>
           </div>
-
-          <Reveal delay={150} className="md:col-span-6">
-            <figure className="relative mx-auto w-full max-w-lg">
-              <div className="absolute -inset-2 rounded-card border border-soft/70 sm:-inset-3" aria-hidden="true" />
-              <div className="relative aspect-[16/10] overflow-hidden rounded-card border border-light bg-white shadow-artwork sm:aspect-[4/3]">
-                <SkeletonImage
-                  src="/assets/images/artist/sumaira-studio-calligraphy.webp"
-                  alt="Sumaira Mohammed Ashik at her easel in Dubai"
-                  fill
-                  preload
-                  instantReveal
-                  sizes="(min-width: 1024px) 40vw, 90vw"
-                  className="object-cover object-top"
-                />
-                <figcaption className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-3 rounded-control border border-white/70 bg-white/95 p-2.5 shadow-sm sm:inset-x-4 sm:bottom-4 sm:p-3">
-                  <span>
-                    <span className="block text-micro font-medium uppercase tracking-caps text-steel">
-                      Studio Practice · Dubai, UAE
-                    </span>
-                    <span className="mt-1 block font-serif text-xs font-light text-deep sm:text-sm">
-                      Metallic textured acrylics &amp; contemporary Arabic script.
-                    </span>
-                  </span>
-                  <span className="font-mono text-xs text-brand" aria-hidden="true">
-                    01 / 01
-                  </span>
-                </figcaption>
-              </div>
-            </figure>
-          </Reveal>
         </div>
 
         <Reveal delay={220}>

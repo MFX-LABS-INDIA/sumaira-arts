@@ -2,7 +2,7 @@ import type { Cta } from "@/types/content";
 
 export const homeHero = {
   eyebrow: "Contemporary Arabic calligraphy",
-  title: "Heritage That Touches the Soul",
+  title: "Heritage in Every Stroke",
   accent: "A space that feels like you.",
   description:
     "Discover timeless calligraphy and artistic creations inspired by culture and tradition.",
@@ -21,9 +21,10 @@ export const homeHero = {
 };
 
 export const categoryIntro = {
-  title: "Discover the Art of Many Expressions.",
+  eyebrow: "Discover",
+  title: "The Art of Many Expressions",
   description:
-    "Explore thoughtfully curated collections, original artworks and expressive mixed media creations. From intricate calligraphy to captivating textures, find the artistic expression that speaks to you.",
+    "Explore thoughtfully curated collections, original artworks and expressive mixed media creations.",
   browse: "Explore category",
 };
 

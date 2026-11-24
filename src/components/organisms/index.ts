@@ -20,6 +20,7 @@ export * from "./InteractiveArchive";
 export * from "./InteriorShowcase";
 export * from "./LiveEventBookingForm";
 export * from "./LiveEventBookingSection";
+export * from "./LiveEventsGallery";
 export * from "./Mirage";
 export * from "./MobileFilterSortBar";
 export * from "./PrivacyPolicy";

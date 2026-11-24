@@ -1,82 +1,68 @@
-export type EventBookingTab = "engraving" | "products" | "sketching";
+export type EventCategoryId =
+  | "on-site-engraving"
+  | "live-calligraphy-station"
+  | "calligraphy-on-products"
+  | "live-sketching-station"
+  | "other";
 
 export const LIVE_EVENTS_SHEET_TAB = "Live Events";
 
-export interface EventBookingTabConfig {
-  id: EventBookingTab;
+export interface EventCategoryOption {
+  id: EventCategoryId;
   title: string;
-  shortTitle: string;
-  sheetTabName: string;
+  subtitle: string;
   idPrefix: string;
-  hourlyRateAed: number;
-  capacitySummary: string;
-  scriptBadge: string;
-  tagline: string;
+  image?: string;
 }
 
-export const EVENT_BOOKING_TABS: readonly EventBookingTabConfig[] = [
+export const EVENT_CATEGORY_OPTIONS: readonly EventCategoryOption[] = [
   {
-    id: "engraving",
+    id: "on-site-engraving",
     title: "On-Site Engraving",
-    shortTitle: "Engraving",
-    sheetTabName: LIVE_EVENTS_SHEET_TAB,
+    subtitle: "Perfume · Glass · Crystal",
     idPrefix: "ENG",
-    hourlyRateAed: 600,
-    capacitySummary: "50 pieces · 3 Hours",
-    scriptBadge: "Eng / Arabic Calligraphy",
-    tagline: "Diamond-tip engraving on perfume bottles, crystal flutes & glass",
+    image: "/assets/images/events/service-engraving.webp",
   },
   {
-    id: "products",
-    title: "Calligraphy on Products",
-    shortTitle: "Products",
-    sheetTabName: LIVE_EVENTS_SHEET_TAB,
+    id: "live-calligraphy-station",
+    title: "Live Calligraphy Station",
+    subtitle: "Finjan · Mugs · VIP Cards",
     idPrefix: "CAL",
-    hourlyRateAed: 500,
-    capacitySummary: "100 pieces · 3 Hours",
-    scriptBadge: "Eng / Arabic Calligraphy",
-    tagline: "Live lettering on Finjan cups, mugs, mabkhara, fans & gifts",
+    image: "/assets/images/events/service-station.webp",
   },
   {
-    id: "sketching",
+    id: "calligraphy-on-products",
+    title: "Calligraphy on Products",
+    subtitle: "Weddings · Retail · Corporate",
+    idPrefix: "PRD",
+    image: "/assets/images/events/service-products.webp",
+  },
+  {
+    id: "live-sketching-station",
     title: "Live Sketching Station",
-    shortTitle: "Sketching",
-    sheetTabName: LIVE_EVENTS_SHEET_TAB,
+    subtitle: "Digital & Original Portraits",
     idPrefix: "SKT",
-    hourlyRateAed: 500,
-    capacitySummary: "25–30 portraits · 3 Hours",
-    scriptBadge: "Digital / Original",
-    tagline: "Live guest & couple illustrations with optional gold & Arabic script",
+    image: "/assets/images/events/service-sketching.webp",
+  },
+  {
+    id: "other",
+    title: "Other",
+    subtitle: "Custom live art activation",
+    idPrefix: "EVT",
   },
 ] as const;
 
-export const BOOKING_DURATIONS = [
-  { label: "1 Hour", hours: 1 },
-  { label: "2 Hours", hours: 2 },
-  { label: "3 Hours (Standard)", hours: 3 },
-  { label: "4 Hours", hours: 4 },
-  { label: "5 Hours", hours: 5 },
-  { label: "6 Hours (Full Day)", hours: 6 },
-  { label: "Custom / Multi-Day", hours: null },
-] as const;
-
-export function getTabConfig(tabId: EventBookingTab): EventBookingTabConfig {
-  return EVENT_BOOKING_TABS.find((t) => t.id === tabId) ?? EVENT_BOOKING_TABS[0];
+export function getEventCategoryOption(id: EventCategoryId): EventCategoryOption {
+  return EVENT_CATEGORY_OPTIONS.find((opt) => opt.id === id) ?? EVENT_CATEGORY_OPTIONS[0];
 }
 
 export type EventBooking = {
   bookingId: string;
   submittedAt: string;
-  tab: EventBookingTab;
-  stationTitle: string;
+  categoryId: EventCategoryId;
+  categoryTitle: string;
   sheetTabName: string;
-  hourlyRateAed: number;
   name: string;
   email: string;
   phoneNumber: string;
-  eventDate: string;
-  duration: string;
-  guestCount: string;
-  location: string;
-  notes: string;
 };

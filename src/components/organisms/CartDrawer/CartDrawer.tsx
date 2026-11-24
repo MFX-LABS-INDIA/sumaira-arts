@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
@@ -9,19 +9,17 @@ import { setCartOpen, removeFromCart, updateQuantity } from "@/store/cartSlice";
 import { useScrollLock } from "@/lib/scroll-lock";
 import { formatPrice } from "@/lib/format";
 
+const emptySubscribe = () => () => {};
+
 export function CartDrawer() {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.cart.isOpen);
   const cart = useAppSelector((state) => state.cart.cart);
   const cartTotal = useAppSelector((state) => state.cart.cartTotal);
   const cartItemCount = useAppSelector((state) => state.cart.cartItemCount);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   useScrollLock(isOpen);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) return null;
 

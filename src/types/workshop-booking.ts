@@ -6,30 +6,44 @@ export const WORKSHOP_FORMATS = [
   "Online Live Calligraphy Cohort",
 ] as const;
 
+export type WorkshopFormatOption = (typeof WORKSHOP_FORMATS)[number];
+
 export const WORKSHOP_SESSION_MODES = [
   "Studio Class (The Workshop Dubai, Jumeirah)",
   "Onsite Corporate / Private Venue (UAE)",
   "Online Live Session (Worldwide)",
+  "Other",
 ] as const;
 
-export const WORKSHOP_GROUP_SIZES = [
-  "Individual",
-  "Small Group",
-  "Private / Boutique",
-  "Corporate / Event",
-  "Large Group / Mural",
-] as const;
-
-export const WORKSHOP_SKILL_LEVELS = [
-  "Complete Beginner (No prior experience)",
-  "Intermediate (Some lettering / painting experience)",
-  "Mixed Group Levels",
-] as const;
-
-export type WorkshopFormatOption = (typeof WORKSHOP_FORMATS)[number];
 export type WorkshopSessionMode = (typeof WORKSHOP_SESSION_MODES)[number];
-export type WorkshopGroupSize = (typeof WORKSHOP_GROUP_SIZES)[number];
-export type WorkshopSkillLevel = (typeof WORKSHOP_SKILL_LEVELS)[number];
+
+export interface WorkshopSessionModeCard {
+  value: WorkshopSessionMode;
+  shortTitle: string;
+  image?: string;
+}
+
+export const WORKSHOP_SESSION_MODE_CARDS: readonly WorkshopSessionModeCard[] = [
+  {
+    value: "Studio Class (The Workshop Dubai, Jumeirah)",
+    shortTitle: "Studio Class (Dubai)",
+    image: "/assets/images/workshops/workshop-practice.webp",
+  },
+  {
+    value: "Onsite Corporate / Private Venue (UAE)",
+    shortTitle: "Onsite / Private (UAE)",
+    image: "/assets/images/workshops/workshop-mural.webp",
+  },
+  {
+    value: "Online Live Session (Worldwide)",
+    shortTitle: "Online Live",
+    image: "/assets/images/workshops/workshop-group.webp",
+  },
+  {
+    value: "Other",
+    shortTitle: "Other",
+  },
+] as const;
 
 export type WorkshopBooking = {
   bookingId: string;
@@ -38,10 +52,4 @@ export type WorkshopBooking = {
   email: string;
   phoneNumber: string;
   workshopFormat: string;
-  sessionMode: string;
-  groupSize: string;
-  skillLevel: string;
-  preferredDate: string;
-  location: string;
-  notes: string;
 };

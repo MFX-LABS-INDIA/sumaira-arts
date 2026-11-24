@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
 import { X } from "lucide-react";
 import { Skeleton } from "@/components/atoms/Skeleton";
 import { useScrollLock } from "@/lib/scroll-lock";
+
+const emptySubscribe = () => () => {};
 
 const EnquiryForm = dynamic(
   () => import("@/components/organisms/EnquiryForm").then((module) => module.EnquiryForm),
@@ -21,14 +23,10 @@ const EnquiryForm = dynamic(
 );
 
 export function ContactDialog() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const [isOpen, setIsOpen] = useState(false);
 
   useScrollLock(isOpen);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleContactClick = (event: MouseEvent) => {

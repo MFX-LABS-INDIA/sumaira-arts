@@ -1,27 +1,14 @@
-import type { EventBookingTab } from "@/types/event-booking";
+import type { EventCategoryId } from "@/types/event-booking";
 import { site } from "@/constants/site";
 
 export interface LiveEventService {
-  id: string;
-  bookingTab: EventBookingTab;
+  id: EventCategoryId;
   eyebrow: string;
   title: string;
   description: string;
   highlights: string[];
   image: string;
   alt: string;
-}
-
-export interface EventPackage {
-  id: string;
-  bookingTab: EventBookingTab;
-  title: string;
-  rate: string;
-  unit: string;
-  durationSummary: string;
-  scriptSupport: string;
-  featured?: boolean;
-  includes: string[];
 }
 
 export interface EventGalleryItem {
@@ -45,7 +32,7 @@ export const liveEventsData = {
     description:
       "UAE-licensed professional calligraphy and engraving artist Sumaira Mohammed Ashik brings live personalization, hand-lettered keepsakes, and portrait sketching to luxury brand launches, Emirati weddings, royal gatherings, and corporate activations across the UAE and GCC.",
     primaryCta: { label: "Book Live Event", href: "#book-event" },
-    secondaryCta: { label: "View Packages & Rates", href: "#packages" },
+    secondaryCta: { label: "Explore Services", href: "#services" },
     image: "/assets/images/events/hero-live-engraving.webp",
     imageAlt:
       "Sumaira Mohammed Ashik performing live calligraphy and engraving at an activation table",
@@ -62,7 +49,6 @@ export const liveEventsData = {
   },
   navPills: [
     { label: "Services", href: "#services" },
-    { label: "Packages & Rates", href: "#packages" },
     { label: "Event Gallery", href: "#gallery" },
     { label: "Collaborated Brands", href: "#brands" },
     { label: "Book Event", href: "#book-event" },
@@ -76,7 +62,6 @@ export const liveEventsData = {
   services: [
     {
       id: "on-site-engraving",
-      bookingTab: "engraving",
       eyebrow: "Perfume · Glass · Crystal",
       title: "On-Site Engraving",
       description:
@@ -91,7 +76,6 @@ export const liveEventsData = {
     },
     {
       id: "live-calligraphy-station",
-      bookingTab: "products",
       eyebrow: "Finjan · Mugs · VIP Cards",
       title: "Live Calligraphy Station",
       description:
@@ -106,7 +90,6 @@ export const liveEventsData = {
     },
     {
       id: "calligraphy-on-products",
-      bookingTab: "products",
       eyebrow: "Weddings · Retail · Corporate",
       title: "Calligraphy on Products",
       description:
@@ -121,7 +104,6 @@ export const liveEventsData = {
     },
     {
       id: "live-sketching-station",
-      bookingTab: "sketching",
       eyebrow: "Digital & Original Portraits",
       title: "Live Sketching Station",
       description:
@@ -135,62 +117,6 @@ export const liveEventsData = {
       alt: "Framed live portrait sketch of an Emirati wedding couple with gold dress details and Arabic calligraphy",
     },
   ] satisfies LiveEventService[],
-  packagesIntro: {
-    eyebrow: "Standard Quote & Packages",
-    title: "Transparent event pricing in AED.",
-    description:
-      "Standard 3-hour English & Arabic live calligraphy, engraving, and sketching activations across Dubai and the UAE. Custom full-day, multi-artist, and VIP wedding bookings are tailored on request.",
-  },
-  packages: [
-    {
-      id: "quote-engraving",
-      bookingTab: "engraving",
-      title: "On-Site Engraving",
-      rate: "600 AED",
-      unit: "per hour",
-      durationSummary: "50 pieces · 3 Hours",
-      scriptSupport: "Eng / Arabic Calligraphy",
-      featured: true,
-      includes: [
-        "Diamond-tip hand engraving on perfume bottles, glass & metal",
-        "Choice of luminous metallic gold or silver ink fill",
-        "Approx. 50 personalized pieces across a 3-hour activation",
-        "Ideal for fragrance launches, luxury retail & VIP gifting",
-      ],
-    },
-    {
-      id: "quote-products",
-      bookingTab: "products",
-      title: "Calligraphy on Products",
-      rate: "500 AED",
-      unit: "per hour",
-      durationSummary: "100 pieces · 3 Hours",
-      scriptSupport: "Eng / Arabic Calligraphy",
-      includes: [
-        "Live hand-lettering on Finjan cups, mugs, mabkhara & hand fans",
-        "Compatible with paper bags, bottles, boxes & corporate gifts",
-        "Approx. 100 personalized pieces across a 3-hour activation",
-        "Ideal for brand pop-ups, corporate events & Emirati weddings",
-      ],
-    },
-    {
-      id: "quote-sketching",
-      bookingTab: "sketching",
-      title: "Live Sketching Station",
-      rate: "500 AED",
-      unit: "per hour",
-      durationSummary: "25–30 guest portraits · 3 Hours",
-      scriptSupport: "Digital / Original",
-      includes: [
-        "Live guest & couple fashion/portrait illustration on site",
-        "Choice of sleek Digital artwork or framed Original painting",
-        "25–30 bespoke guest portraits across a 3-hour session",
-        "Optional Arabic name calligraphy & metallic embellishments",
-      ],
-    },
-  ] satisfies EventPackage[],
-  packageFootnote:
-    "Need full-day coverage, multiple stations, or pre-event bulk customization? Share your event date, venue, and guest count when requesting a quote.",
   galleryIntro: {
     eyebrow: "Portfolio Highlights",
     title: "Crafted live across weddings, luxury retail & galas.",

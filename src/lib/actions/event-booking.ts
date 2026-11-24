@@ -7,10 +7,11 @@ import { EMAIL_PATTERN, type FormState } from "@/lib/forms";
 import { emailService } from "@/services/email";
 import { sheetsService } from "@/services/sheets";
 import {
-  BOOKING_DURATIONS,
-  getTabConfig,
+  EVENT_CATEGORY_OPTIONS,
+  getEventCategoryOption,
+  LIVE_EVENTS_SHEET_TAB,
   type EventBooking,
-  type EventBookingTab,
+  type EventCategoryId,
 } from "@/types/event-booking";
 
 const rateLimitWindowMs = 15 * 60 * 1000;
@@ -25,8 +26,8 @@ function readField(formData: FormData, name: string): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
-function isValidTab(value: string): value is EventBookingTab {
-  return value === "engraving" || value === "products" || value === "sketching";
+function isValidCategory(value: string): value is EventCategoryId {
+  return EVENT_CATEGORY_OPTIONS.some((opt) => opt.id === value);
 }
 
 function isRateLimited(address: string): boolean {
@@ -72,12 +73,6 @@ export async function submitEventBooking(
     return { status: "error", message: "We couldn't submit your booking request. Please try again." };
   }
 
-  const tabRaw = readField(formData, "tab");
-  if (!isValidTab(tabRaw)) {
-    return { status: "error", message: "Please select a valid live event station tab." };
-  }
-  const tabConfig = getTabConfig(tabRaw);
-
   const name = readField(formData, "name");
   if (!name || name.length > 120 || /[\u0000-\u001f\u007f]/.test(name)) {
     return { status: "error", message: "Please enter a valid name of 120 characters or fewer." };
@@ -102,31 +97,11 @@ export async function submitEventBooking(
     };
   }
 
-  const eventDate = readField(formData, "eventDate");
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(eventDate) || Number.isNaN(Date.parse(eventDate))) {
-    return { status: "error", message: "Please choose a valid event date." };
+  const categoryRaw = readField(formData, "eventCategory");
+  if (!isValidCategory(categoryRaw)) {
+    return { status: "error", message: "Please select an event category." };
   }
-
-  const duration = readField(formData, "duration");
-  const durationLabels = BOOKING_DURATIONS.map((d) => d.label);
-  if (!durationLabels.includes(duration as (typeof durationLabels)[number])) {
-    return { status: "error", message: "Please select a valid event duration." };
-  }
-
-  const guestCount = readField(formData, "guestCount");
-  if (guestCount.length > 80 || /[\u0000-\u001f\u007f]/.test(guestCount)) {
-    return { status: "error", message: "Please keep estimated quantity to 80 characters or fewer." };
-  }
-
-  const location = readField(formData, "location");
-  if (location.length < 2 || location.length > 200 || /[\u0000-\u001f\u007f]/.test(location)) {
-    return { status: "error", message: "Please enter your event venue or city (2–200 characters)." };
-  }
-
-  const notes = readField(formData, "notes");
-  if (notes.length > 1000) {
-    return { status: "error", message: "Please keep additional notes to 1000 characters or fewer." };
-  }
+  const categoryOption = getEventCategoryOption(categoryRaw);
 
   try {
     const requestHeaders = await headers();
@@ -142,40 +117,31 @@ export async function submitEventBooking(
     }
 
     const booking: EventBooking = {
-      bookingId: generateBookingId(tabConfig.idPrefix),
+      bookingId: generateBookingId(categoryOption.idPrefix),
       submittedAt: new Date().toISOString(),
-      tab: tabRaw,
-      stationTitle: tabConfig.title,
-      sheetTabName: tabConfig.sheetTabName,
-      hourlyRateAed: tabConfig.hourlyRateAed,
+      categoryId: categoryRaw,
+      categoryTitle: categoryOption.title,
+      sheetTabName: LIVE_EVENTS_SHEET_TAB,
       name,
       email,
       phoneNumber: parsedPhone.number,
-      eventDate,
-      duration,
-      guestCount,
-      location,
-      notes,
     };
 
-    const [emailSent, savedToSheet] = await Promise.all([
-      emailService.sendEventBooking(booking),
+    const [sheetSaved, emailSent] = await Promise.all([
       sheetsService.saveEventBooking(booking),
+      emailService.sendEventBooking(booking),
     ]);
 
-    if (!emailSent || !savedToSheet) {
+    if (!sheetSaved && !emailSent) {
       return { status: "error", message: deliveryErrorMessage };
     }
 
     return {
       status: "success",
-      message: `Thank you! Your ${booking.stationTitle} booking (${booking.bookingId}) has been sent to Sumaira Arts Studio. We will confirm availability for ${booking.eventDate} shortly.`,
+      message: `Thank you, ${name}. Your ${categoryOption.title} request (${booking.bookingId}) has been received. Our team will reach out shortly.`,
     };
   } catch (error) {
-    console.error(
-      "[EVENT BOOKING ACTION] Delivery failed:",
-      error instanceof Error ? error.name : "Unknown error",
-    );
+    console.error("[EVENT BOOKING ACTION] Error:", error);
     return { status: "error", message: deliveryErrorMessage };
   }
 }

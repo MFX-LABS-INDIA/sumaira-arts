@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { CartPageSkeleton } from "@/components/molecules/PageSkeletons";
 import { containerClassName } from "@/components/atoms/Container";
@@ -10,16 +10,14 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { removeFromCart, updateQuantity, clearCart } from "@/store/cartSlice";
 import { formatPrice } from "@/lib/format";
 
+const emptySubscribe = () => () => {};
+
 export default function CartPage() {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.cart);
   const cartTotal = useAppSelector((state) => state.cart.cartTotal);
   const cartItemCount = useAppSelector((state) => state.cart.cartItemCount);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   if (!mounted) {
     return <CartPageSkeleton />;

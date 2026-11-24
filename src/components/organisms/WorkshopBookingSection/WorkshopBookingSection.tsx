@@ -58,8 +58,6 @@ export function WorkshopBookingSection() {
   return (
     <>
       <StickyBookingBar
-        title="Arabic Calligraphy & Art Workshops"
-        subtitle="All materials included · Studio classes in Jumeirah, UAE corporate & online live"
         buttonLabel="Book a Workshop"
         icon={<Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
         hidden={isModalOpen}

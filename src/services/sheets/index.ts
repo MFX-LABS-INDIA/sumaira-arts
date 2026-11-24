@@ -41,31 +41,19 @@ class SheetsService {
   private readonly liveEventHeaders = [
     "Booking ID",
     "Submitted At",
-    "Station",
+    "Event Category",
     "Full Name",
     "Email",
     "Mobile Number",
-    "Event Date",
-    "Duration",
-    "Hourly Rate (AED)",
-    "Est. Pieces / Portraits",
-    "Venue / Location",
-    "Notes",
   ];
 
   private readonly workshopHeaders = [
     "Booking ID",
     "Submitted At",
+    "Workshop Session",
     "Full Name",
     "Email",
     "Mobile Number",
-    "Workshop Format",
-    "Session Mode",
-    "Group Size",
-    "Skill Level",
-    "Preferred Date",
-    "Venue / City",
-    "Notes",
   ];
 
   private readonly contactHeaders = [
@@ -480,7 +468,7 @@ class SheetsService {
 
     await this.sheets.spreadsheets.values.append({
       spreadsheetId: this.spreadsheetId,
-      range: `${quoteSheetName(resolvedTab)}!A:L`,
+      range: `${quoteSheetName(resolvedTab)}!A:F`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
@@ -488,16 +476,10 @@ class SheetsService {
           [
             booking.bookingId,
             submittedLabel,
-            booking.stationTitle,
+            booking.categoryTitle,
             booking.name,
             booking.email,
             booking.phoneNumber,
-            booking.eventDate,
-            booking.duration,
-            booking.hourlyRateAed,
-            booking.guestCount || "",
-            booking.location,
-            booking.notes || "",
           ],
         ],
       },
@@ -517,7 +499,7 @@ class SheetsService {
 
     await this.sheets.spreadsheets.values.append({
       spreadsheetId: this.spreadsheetId,
-      range: `${quoteSheetName(resolvedTab)}!A:L`,
+      range: `${quoteSheetName(resolvedTab)}!A:F`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
@@ -525,16 +507,10 @@ class SheetsService {
           [
             booking.bookingId,
             submittedLabel,
+            booking.workshopFormat,
             booking.name,
             booking.email,
             booking.phoneNumber,
-            booking.workshopFormat,
-            booking.sessionMode,
-            booking.groupSize,
-            booking.skillLevel,
-            booking.preferredDate,
-            booking.location || "",
-            booking.notes || "",
           ],
         ],
       },

@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useSyncExternalStore, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { useScrollLock } from "@/lib/scroll-lock";
+
+const emptySubscribe = () => () => {};
 
 interface FormDrawerProps {
   isOpen: boolean;
@@ -24,14 +26,10 @@ export function FormDrawer({
   children,
   bodyClassName = "subtle-scrollbar flex-1 overflow-y-auto overscroll-contain px-5 pt-5 pb-0 sm:px-6",
 }: FormDrawerProps) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const titleId = useId();
 
   useScrollLock(isOpen);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isOpen) return;

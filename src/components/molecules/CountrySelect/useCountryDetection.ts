@@ -142,21 +142,19 @@ export function useCountryDetection() {
   useEffect(() => {
     let active = true;
 
-    if (memoryCachedCountry) {
-      setCountry((prev) => (prev.code === memoryCachedCountry!.code ? prev : memoryCachedCountry!));
-      return;
-    }
+    const resolveCountry = async () => {
+      if (memoryCachedCountry) return memoryCachedCountry;
+      const stored = readStoredCountry();
+      if (stored) {
+        memoryCachedCountry = stored;
+        return stored;
+      }
+      return detectCountryOnce();
+    };
 
-    const stored = readStoredCountry();
-    if (stored) {
-      memoryCachedCountry = stored;
-      setCountry(stored);
-      return;
-    }
-
-    void detectCountryOnce().then((detected) => {
+    void resolveCountry().then((detected) => {
       if (active && !manuallySelected.current) {
-        setCountry(detected);
+        setCountry((prev) => (prev.code === detected.code ? prev : detected));
       }
     });
 

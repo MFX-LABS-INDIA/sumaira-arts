@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { CheckoutPageSkeleton } from "@/components/molecules/PageSkeletons";
 import { containerClassName } from "@/components/atoms/Container";
@@ -14,11 +14,13 @@ import { parsePhoneNumberFromString } from "libphonenumber-js/min";
 import { useCountryDetection } from "@/components/molecules/CountrySelect/useCountryDetection";
 import type { Order } from "@/types/store";
 
+const emptySubscribe = () => () => {};
+
 export default function CheckoutPage() {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.cart);
   const cartTotal = useAppSelector((state) => state.cart.cartTotal);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   // Form states
   const [name, setName] = useState("");
@@ -32,10 +34,6 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionError, setSubmissionError] = useState("");
   const [orderSuccess, setOrderSuccess] = useState<Order | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const validate = () => {
     const errs: Record<string, string> = {};

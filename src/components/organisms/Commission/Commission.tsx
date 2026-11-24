@@ -25,10 +25,7 @@ export function Commission() {
             </div>
 
             <div className="flex flex-col justify-center p-4 sm:p-6 md:p-10 lg:p-12">
-              <div className="flex items-center gap-2.5">
-                <span className="h-px w-6 bg-brand sm:hidden" aria-hidden="true" />
-                <Eyebrow>{commission.eyebrow}</Eyebrow>
-              </div>
+              <Eyebrow>{commission.eyebrow}</Eyebrow>
               <h2 className={`${headingClass} mt-2 sm:mt-3 md:mt-4 max-w-md text-deep text-balance`}>
                 {commission.title}
               </h2>

@@ -411,23 +411,16 @@ export const getOrderEmailTemplate = (
 /* -------------------------------------------------------------------------- */
 
 export const getEventBookingPlainText = (booking: EventBooking): string => {
-  const quantityLabel =
-    booking.tab === "sketching" ? "Estimated Portraits" : "Estimated Pieces";
   return [
-    `${booking.stationTitle} Booking Request (${booking.bookingId})`,
+    `${booking.categoryTitle} Booking Request (${booking.bookingId})`,
     "",
     `Submitted At: ${formatDubaiDateTime(booking.submittedAt)} (Dubai)`,
-    `Hourly Rate: ${booking.hourlyRateAed} AED / hour`,
     `Google Sheet Tab: Live Events`,
     "",
     `Full Name: ${booking.name}`,
     `Email: ${booking.email}`,
     `Mobile Number: ${booking.phoneNumber}`,
-    `Event Date: ${booking.eventDate}`,
-    `Duration: ${booking.duration}`,
-    `${quantityLabel}: ${booking.guestCount || "Not specified"}`,
-    `Venue / Location: ${booking.location}`,
-    `Notes: ${booking.notes || "None"}`,
+    `Event Category: ${booking.categoryTitle}`,
   ].join("\n");
 };
 
@@ -436,32 +429,26 @@ export const getEventBookingEmailTemplate = (
   audience: EmailAudience,
 ): string => {
   const formattedSubmitted = formatDubaiDateTime(booking.submittedAt);
-  const quantityLabel =
-    booking.tab === "sketching" ? "Est. Portraits" : "Est. Pieces";
 
   return renderBrandEmailLayout({
-    preheader: `${booking.stationTitle} (${booking.bookingId}) for ${booking.eventDate} · ${booking.duration}`,
+    preheader: `${booking.categoryTitle} (${booking.bookingId}) · ${booking.name}`,
     eyebrow: "Live Event Activation",
     heading: audience === "admin" ? "New live event request" : "Your event request is with us",
-    subheading: `${booking.stationTitle} · ${booking.duration}`,
+    subheading: booking.categoryTitle,
     audience,
     greetingName: booking.name,
     introHtml:
       audience === "admin"
-        ? `A new <strong>${escapeHtml(booking.stationTitle)}</strong> request (<strong>${escapeHtml(booking.bookingId)}</strong>) was submitted.`
-        : `Thank you for requesting our <strong>${escapeHtml(booking.stationTitle)}</strong> experience. We are checking artist calendar availability for <strong>${escapeHtml(booking.eventDate)}</strong> and will confirm setup details shortly.`,
+        ? `A new <strong>${escapeHtml(booking.categoryTitle)}</strong> request (<strong>${escapeHtml(booking.bookingId)}</strong>) was submitted.`
+        : `Thank you for requesting our <strong>${escapeHtml(booking.categoryTitle)}</strong> experience. Our live events team will reach out shortly to discuss your event date, setup, and customization details.`,
     metrics: [
       { label: "Booking ID", value: booking.bookingId },
-      { label: "Event Date", value: booking.eventDate },
-      { label: "Station Rate", value: `${booking.hourlyRateAed} AED / hr` },
+      { label: "Event Category", value: booking.categoryTitle },
     ],
     sectionTitle: "Event & Client Details",
     detailRows: [
       ["Submitted At", `${escapeHtml(formattedSubmitted)} (Dubai)`],
-      ["Station Selected", `<strong>${escapeHtml(booking.stationTitle)}</strong>`],
-      ["Duration", escapeHtml(booking.duration)],
-      [quantityLabel, escapeHtml(booking.guestCount || "Not specified")],
-      ["Venue / Location", `<strong>${escapeHtml(booking.location)}</strong>`],
+      ["Event Category", `<strong>${escapeHtml(booking.categoryTitle)}</strong>`],
       ["Contact Name", escapeHtml(booking.name)],
       [
         "Email",
@@ -472,13 +459,10 @@ export const getEventBookingEmailTemplate = (
         `<a href="tel:${escapeHtml(booking.phoneNumber)}" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">${escapeHtml(booking.phoneNumber)}</a>`,
       ],
     ],
-    callout: booking.notes
-      ? { label: "Customization Notes", body: booking.notes }
-      : undefined,
     sheetTabName: "Live Events",
     replyToEmail: booking.email,
     nextStepsHtml:
-      "Sumaira's live events team will confirm date availability, arrival setup timing, and any metallic ink or framing customization within 24 hours.",
+      "Sumaira's live events team will contact you within 24 hours to confirm availability, setup timing, and any custom event requirements.",
     primaryLink: { label: "View Live Events", href: `${SITE_URL}/live-events` },
   });
 };
@@ -497,13 +481,7 @@ export const getWorkshopBookingPlainText = (booking: WorkshopBooking): string =>
     `Full Name: ${booking.name}`,
     `Email: ${booking.email}`,
     `Mobile Number: ${booking.phoneNumber}`,
-    `Workshop Format: ${booking.workshopFormat}`,
-    `Session Mode: ${booking.sessionMode}`,
-    `Group Size: ${booking.groupSize}`,
-    `Skill Level: ${booking.skillLevel}`,
-    `Preferred Date: ${booking.preferredDate}`,
-    `Venue / City: ${booking.location || "To be confirmed"}`,
-    `Notes: ${booking.notes || "None"}`,
+    `Workshop Session: ${booking.workshopFormat}`,
   ].join("\n");
 
 export const getWorkshopBookingEmailTemplate = (
@@ -513,30 +491,24 @@ export const getWorkshopBookingEmailTemplate = (
   const formattedSubmitted = formatDubaiDateTime(booking.submittedAt);
 
   return renderBrandEmailLayout({
-    preheader: `Workshop request ${booking.bookingId} — ${booking.workshopFormat} on ${booking.preferredDate}`,
+    preheader: `Workshop request ${booking.bookingId} — ${booking.workshopFormat}`,
     eyebrow: "Calligraphy & Art Workshops",
     heading: audience === "admin" ? "New workshop request" : "Your workshop request is with us",
-    subheading: `${booking.workshopFormat} · ${booking.preferredDate}`,
+    subheading: booking.workshopFormat,
     audience,
     greetingName: booking.name,
     introHtml:
       audience === "admin"
         ? `A new workshop enquiry (<strong>${escapeHtml(booking.bookingId)}</strong>) was submitted.`
-        : `Thank you for requesting a calligraphy workshop with Sumaira Arts. We are reviewing schedule availability for <strong>${escapeHtml(booking.preferredDate)}</strong> and will reach out with session timing and material details.`,
+        : `Thank you for requesting a calligraphy workshop with Sumaira Arts. Our studio will reach out shortly with upcoming session dates, timing, and material details.`,
     metrics: [
       { label: "Booking ID", value: booking.bookingId },
-      { label: "Preferred Date", value: booking.preferredDate },
-      { label: "Group Type", value: booking.groupSize },
+      { label: "Workshop Session", value: booking.workshopFormat },
     ],
-    sectionTitle: "Session Preferences & Contact",
+    sectionTitle: "Session & Client Details",
     detailRows: [
       ["Submitted At", `${escapeHtml(formattedSubmitted)} (Dubai)`],
-      ["Workshop Format", `<strong>${escapeHtml(booking.workshopFormat)}</strong>`],
-      ["Session Mode", escapeHtml(booking.sessionMode)],
-      ["Group Size", escapeHtml(booking.groupSize)],
-      ["Skill Level", escapeHtml(booking.skillLevel)],
-      ["Preferred Date", `<strong>${escapeHtml(booking.preferredDate)}</strong>`],
-      ["Venue / City", escapeHtml(booking.location || "To be confirmed")],
+      ["Workshop Session", `<strong>${escapeHtml(booking.workshopFormat)}</strong>`],
       ["Contact Name", escapeHtml(booking.name)],
       [
         "Email",
@@ -547,9 +519,6 @@ export const getWorkshopBookingEmailTemplate = (
         `<a href="tel:${escapeHtml(booking.phoneNumber)}" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">${escapeHtml(booking.phoneNumber)}</a>`,
       ],
     ],
-    callout: booking.notes
-      ? { label: "Session Goals & Notes", body: booking.notes }
-      : undefined,
     sheetTabName: "Book Workshops",
     replyToEmail: booking.email,
     nextStepsHtml:

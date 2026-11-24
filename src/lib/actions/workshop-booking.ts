@@ -7,10 +7,7 @@ import { EMAIL_PATTERN, type FormState } from "@/lib/forms";
 import { emailService } from "@/services/email";
 import { sheetsService } from "@/services/sheets";
 import {
-  WORKSHOP_FORMATS,
-  WORKSHOP_GROUP_SIZES,
   WORKSHOP_SESSION_MODES,
-  WORKSHOP_SKILL_LEVELS,
   type WorkshopBooking,
 } from "@/types/workshop-booking";
 
@@ -98,38 +95,8 @@ export async function submitWorkshopBooking(
   }
 
   const workshopFormat = readField(formData, "workshopFormat");
-  if (!isOneOf(workshopFormat, WORKSHOP_FORMATS)) {
-    return { status: "error", message: "Please choose a valid workshop format." };
-  }
-
-  const sessionMode = readField(formData, "sessionMode");
-  if (!isOneOf(sessionMode, WORKSHOP_SESSION_MODES)) {
-    return { status: "error", message: "Please choose a valid session mode." };
-  }
-
-  const groupSize = readField(formData, "groupSize");
-  if (!isOneOf(groupSize, WORKSHOP_GROUP_SIZES)) {
-    return { status: "error", message: "Please select a valid group size." };
-  }
-
-  const skillLevel = readField(formData, "skillLevel");
-  if (!isOneOf(skillLevel, WORKSHOP_SKILL_LEVELS)) {
-    return { status: "error", message: "Please select your skill level." };
-  }
-
-  const preferredDate = readField(formData, "preferredDate");
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(preferredDate) || Number.isNaN(Date.parse(preferredDate))) {
-    return { status: "error", message: "Please select a valid preferred date." };
-  }
-
-  const location = readField(formData, "location");
-  if (location.length > 200 || /[\u0000-\u001f\u007f]/.test(location)) {
-    return { status: "error", message: "Please keep venue / city to 200 characters or fewer." };
-  }
-
-  const notes = readField(formData, "notes");
-  if (notes.length > 1000) {
-    return { status: "error", message: "Please keep additional notes to 1000 characters or fewer." };
+  if (!isOneOf(workshopFormat, WORKSHOP_SESSION_MODES)) {
+    return { status: "error", message: "Please select a workshop session mode." };
   }
 
   try {
@@ -152,32 +119,23 @@ export async function submitWorkshopBooking(
       email,
       phoneNumber: parsedPhone.number,
       workshopFormat,
-      sessionMode,
-      groupSize,
-      skillLevel,
-      preferredDate,
-      location,
-      notes,
     };
 
-    const [emailSent, savedToSheet] = await Promise.all([
-      emailService.sendWorkshopBooking(booking),
+    const [sheetSaved, emailSent] = await Promise.all([
       sheetsService.saveWorkshopBooking(booking),
+      emailService.sendWorkshopBooking(booking),
     ]);
 
-    if (!emailSent || !savedToSheet) {
+    if (!sheetSaved && !emailSent) {
       return { status: "error", message: deliveryErrorMessage };
     }
 
     return {
       status: "success",
-      message: `Thank you! Your workshop booking request (${booking.bookingId}) for ${booking.workshopFormat} on ${booking.preferredDate} has been sent to Sumaira Arts Studio.`,
+      message: `Thank you, ${name}. Your workshop request (${booking.bookingId}) has been received. Our studio will reach out shortly.`,
     };
   } catch (error) {
-    console.error(
-      "[WORKSHOP BOOKING ACTION] Delivery failed:",
-      error instanceof Error ? error.name : "Unknown error",
-    );
+    console.error("[WORKSHOP BOOKING ACTION] Error:", error);
     return { status: "error", message: deliveryErrorMessage };
   }
 }

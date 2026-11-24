@@ -5,11 +5,14 @@ import { Sparkles } from "lucide-react";
 import { LiveEventBookingForm } from "@/components/organisms/LiveEventBookingForm";
 import { FormDrawer } from "@/components/molecules/FormDrawer";
 import { StickyBookingBar } from "@/components/molecules/StickyBookingBar";
-import type { EventBookingTab } from "@/types/event-booking";
+import {
+  EVENT_CATEGORY_OPTIONS,
+  type EventCategoryId,
+} from "@/types/event-booking";
 
 export function LiveEventBookingSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalTab, setModalTab] = useState<EventBookingTab>("engraving");
+  const [modalCategory, setModalCategory] = useState<EventCategoryId | "">("");
 
   useEffect(() => {
     const syncFromHash = () => {
@@ -22,10 +25,10 @@ export function LiveEventBookingSection() {
     const handleBookingTrigger = (event: MouseEvent) => {
       if (!(event.target instanceof Element)) return;
 
-      const trigger = event.target.closest("[data-event-tab], a[href]");
+      const trigger = event.target.closest("[data-event-category], a[href]");
       if (!trigger) return;
 
-      const dataTab = trigger.getAttribute("data-event-tab");
+      const dataCategory = trigger.getAttribute("data-event-category");
       let isBookAnchor = false;
       if (trigger instanceof HTMLAnchorElement) {
         const url = new URL(trigger.href, window.location.href);
@@ -35,15 +38,14 @@ export function LiveEventBookingSection() {
           url.hash === "#book-event";
       }
 
-      if (!dataTab && !isBookAnchor) return;
+      if (!dataCategory && !isBookAnchor) return;
 
       event.preventDefault();
       if (
-        dataTab === "engraving" ||
-        dataTab === "products" ||
-        dataTab === "sketching"
+        dataCategory &&
+        EVENT_CATEGORY_OPTIONS.some((opt) => opt.id === dataCategory)
       ) {
-        setModalTab(dataTab);
+        setModalCategory(dataCategory as EventCategoryId);
       }
       setIsModalOpen(true);
     };
@@ -59,8 +61,6 @@ export function LiveEventBookingSection() {
   return (
     <>
       <StickyBookingBar
-        title="Live Calligraphy, Engraving & Sketching"
-        subtitle="From 500 AED/hr · Weddings, brand launches & VIP events across UAE & GCC"
         buttonLabel="Book Live Event"
         icon={<Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
         hidden={isModalOpen}
@@ -71,12 +71,13 @@ export function LiveEventBookingSection() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="Book Live Event"
-        subtitle="Select a station and reserve your event date"
+        subtitle="Share your contact details and preferred event category"
         icon={<Sparkles className="h-4 w-4 shrink-0 text-brand" aria-hidden="true" />}
       >
         {isModalOpen && (
           <LiveEventBookingForm
-            initialTab={modalTab}
+            key={modalCategory}
+            initialCategory={modalCategory}
             idPrefix="ev-modal"
             stickySubmit
           />

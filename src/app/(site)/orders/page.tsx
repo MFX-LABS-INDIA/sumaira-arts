@@ -1,33 +1,33 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { Package, Clock, CheckCircle2, ChevronRight, ArrowRight } from "lucide-react";
+import { Package, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 import { Container } from "@/components/atoms/Container";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { OrdersPageSkeleton } from "@/components/molecules/PageSkeletons";
 import type { Order } from "@/types/store";
 
-export default function MyOrdersPage() {
-  const [orders, setOrders] = useState<Order[]>([]);
-  const [loading, setLoading] = useState(true);
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("sumaira-arts-orders");
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed)) {
-          setOrders(parsed);
-        }
-      }
-    } catch {
-      // ignore
-    } finally {
-      setLoading(false);
+function readStoredOrders(): Order[] {
+  try {
+    const stored = localStorage.getItem("sumaira-arts-orders");
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed)) return parsed;
     }
-  }, []);
+  } catch {
+    // ignore
+  }
+  return [];
+}
+
+export default function MyOrdersPage() {
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  const orders = useMemo(() => (mounted ? readStoredOrders() : []), [mounted]);
+  const loading = !mounted;
 
   const sortedOrders = useMemo(
     () =>
@@ -66,7 +66,7 @@ export default function MyOrdersPage() {
             </div>
             <h2 className="mt-4 font-serif text-xl font-normal text-deep">No Orders Found</h2>
             <p className="mt-2 text-xs sm:text-sm text-steel max-w-sm mx-auto">
-              You haven't placed any artwork acquisition orders yet. Explore our curated collections.
+              You haven&apos;t placed any artwork acquisition orders yet. Explore our curated collections.
             </p>
             <Link
               href="/products"

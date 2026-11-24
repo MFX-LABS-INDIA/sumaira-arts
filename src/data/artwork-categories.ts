@@ -5,7 +5,7 @@ export const artworkCategories = [
     title: "Originals",
     eyebrow: "Discover depth and texture",
     description:
-      "Explore original canvases with sculptural surfaces and flowing calligraphy. Choose a piece whose texture is part of the story.",
+      "Explore original canvases with sculptural surfaces and flowing calligraphy.",
     productSlug: "promise-after-hardship",
   },
   {
@@ -13,7 +13,7 @@ export const artworkCategories = [
     title: "Mixed Media",
     eyebrow: "Make a statement",
     description:
-      "Discover individual pieces where Arabic script, colour and layered detail come together. Find a focal point with a meaning of its own.",
+      "Discover individual pieces where Arabic script, colour and layered detail come together.",
     productSlug: "the-purity",
   },
   {
@@ -21,7 +21,7 @@ export const artworkCategories = [
     title: "Collections",
     eyebrow: "Find your colour story",
     description:
-      "Explore calligraphy through expressive palettes and compositions. Start with the colours and mood you want to bring into your room.",
+      "Explore calligraphy through expressive palettes and compositions.",
     productSlug: "99-names-golden-edition",
   },
 ] as const;

@@ -141,7 +141,7 @@ class EmailService {
       from: `"${fromName}" <${fromEmail}>`,
       to: adminEmail,
       replyTo: booking.email,
-      subject: `New ${booking.stationTitle} Booking (${booking.bookingId}) | Sumaira Arts`,
+      subject: `New ${booking.categoryTitle} Request (${booking.bookingId}) | Sumaira Arts`,
       html: getEventBookingEmailTemplate(booking, "admin"),
       text: getEventBookingPlainText(booking),
     });
@@ -151,7 +151,7 @@ class EmailService {
         from: `"${fromName}" <${fromEmail}>`,
         to: booking.email,
         replyTo: adminEmail,
-        subject: `${booking.stationTitle} Request Received (${booking.bookingId}) | Sumaira Arts`,
+        subject: `${booking.categoryTitle} Request Received (${booking.bookingId}) | Sumaira Arts`,
         html: getEventBookingEmailTemplate(booking, "client"),
         text: getEventBookingPlainText(booking),
       });
