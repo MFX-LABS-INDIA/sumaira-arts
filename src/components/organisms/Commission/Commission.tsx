@@ -66,18 +66,18 @@ export function Commission() {
                 key={step.number}
                 className="w-[78%] min-w-[230px] max-w-[280px] shrink-0 snap-start rounded-xl border border-light bg-ice/35 p-3.5 sm:w-[46%] sm:max-w-[300px] md:w-auto md:min-w-0 md:max-w-none md:rounded-none md:border-0 md:border-e md:bg-transparent md:p-8 md:last:border-e-0"
               >
-                <div className="flex items-center gap-2.5 md:block">
+                <div className="flex items-center gap-3">
                   <span
-                    className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-[11px] font-semibold text-brand ring-1 ring-light sm:h-8 sm:w-8 sm:text-xs md:h-10 md:w-10 md:bg-ice md:text-sm md:ring-0"
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-xs font-semibold text-brand ring-1 ring-light md:h-9 md:w-9 md:bg-ice md:text-sm md:ring-0"
                     aria-hidden="true"
                   >
                     {step.number}
                   </span>
-                  <h3 className="text-sm font-semibold text-deep sm:text-base md:mt-4 md:text-lg">
+                  <h3 className="text-sm font-semibold leading-snug text-deep sm:text-base md:text-lg">
                     {step.title}
                   </h3>
                 </div>
-                <p className="mt-2 text-xs leading-relaxed text-steel md:text-sm md:leading-7">
+                <p className="mt-2.5 text-xs leading-relaxed text-steel md:mt-3 md:text-sm md:leading-6">
                   {step.text}
                 </p>
               </li>

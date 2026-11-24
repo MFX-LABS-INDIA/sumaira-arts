@@ -2,10 +2,10 @@ import type { Cta } from "@/types/content";
 
 export const homeHero = {
   eyebrow: "Contemporary Arabic calligraphy",
-  title: "Rooted in Heritage. Written in Beauty.",
+  title: "Heritage That Touches the Soul",
   accent: "A space that feels like you.",
   description:
-    "Discover the timeless charm of Arabic calligraphy, artistic textures and contemporary masterpieces inspired by a rich legacy of expression.",
+    "Discover timeless calligraphy and artistic creations inspired by culture and tradition.",
   primary: { label: "Find your artwork", href: "#offerings" },
   secondary: { label: "Meet the artist", href: "#artist" },
   featuredSlug: "promise-after-hardship",
