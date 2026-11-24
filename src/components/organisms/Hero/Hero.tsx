@@ -111,7 +111,7 @@ export function Hero() {
           >
             {homeHero.title}
           </h1>
-          <p className="mt-3.5 max-w-2xl text-sm font-medium leading-relaxed text-white drop-shadow-[0_2px_10px_rgba(13,24,42,0.85)] sm:mx-auto sm:mt-4 sm:text-base lg:text-lg">
+          <p className="mt-3.5 max-w-2xl text-sm font-medium leading-relaxed text-white drop-shadow-[0_2px_10px_rgba(13,24,42,0.85)] sm:mx-auto sm:mt-4 sm:text-base lg:max-w-none lg:whitespace-nowrap lg:text-lg">
             {homeHero.description}
           </p>
         </div>
