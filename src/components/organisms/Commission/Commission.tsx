@@ -9,7 +9,7 @@ import { commission } from "@/data/commission";
 /** A studio introduction followed by a clear, three-step commission journey. */
 export function Commission() {
   return (
-    <Section id="commission" tone="ice" className="py-7 sm:py-10 md:py-24 lg:py-32">
+    <Section id="commission" tone="ice">
       <Container>
         <div className="overflow-hidden rounded-2xl border border-light bg-white shadow-raised sm:rounded-3xl">
           <div className="grid lg:grid-cols-2">
