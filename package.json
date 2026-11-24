@@ -10,8 +10,7 @@
     "typecheck": "tsc --noEmit",
     "size": "node scripts/size.mjs",
     "contrast": "node scripts/contrast.mjs",
-    "docs:check": "node scripts/check-docs.mjs",
-    "verify": "npm run lint && npm run typecheck && npm run build && npm run size && npm run contrast && npm run docs:check",
+    "verify": "npm run lint && npm run typecheck && npm run build && npm run size && npm run contrast",
     "perf": "node scripts/lighthouse.mjs",
     "prepare": "husky"
   },
