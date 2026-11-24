@@ -3,7 +3,7 @@ import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
-import { ButtonLink, SmartLink, TextLink, buttonClass } from "@/components/ui/Link";
+import { ButtonLink, SmartLink, TextLink } from "@/components/ui/Link";
 import { Reveal } from "@/components/ui/Reveal";
 import { CollaboratedBrands } from "@/components/sections/CollaboratedBrands";
 import { LiveEventBookingSection } from "@/components/events/LiveEventBookingSection";
@@ -213,62 +213,64 @@ export function LiveEventsView() {
             {packages.map((pkg, index) => (
               <Reveal key={pkg.id} delay={index * 80} className="flex w-[84vw] max-w-[340px] shrink-0 snap-start sm:w-auto sm:max-w-none">
                 <article
-                  className={`flex h-full w-full flex-col rounded-card border p-5 transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:shadow-raised sm:p-7 motion-reduce:transform-none ${
+                  aria-labelledby={pkg.id + '-title'}
+                  className={`relative flex h-full w-full flex-col rounded-2xl border bg-white p-5 transition-[border-color,box-shadow] duration-300 sm:p-6 ${
                     pkg.featured
-                      ? "border-brand/40 bg-white shadow-sm ring-1 ring-brand/15"
-                      : "border-light bg-white"
+                      ? "border-brand/60 shadow-[0_8px_30px_-18px_rgba(27,58,107,0.35)]"
+                      : "border-light hover:border-brand/40 hover:shadow-sm"
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-ice px-3 py-1 text-micro font-semibold uppercase tracking-caps text-brand">
+                  {pkg.featured && (
+                    <span className="absolute -top-3 right-5 inline-flex items-center gap-1.5 rounded-full bg-brand px-3 py-1 text-[11px] font-semibold leading-4 text-white sm:right-6">
+                      <Sparkles className="h-3 w-3 shrink-0" aria-hidden="true" />
+                      Most requested
+                    </span>
+                  )}
+
+                  <div className="pt-2">
+                    <p className="flex min-h-8 items-start text-[11px] font-semibold uppercase leading-4 tracking-[0.12em] text-steel">
                       {pkg.scriptSupport}
-                    </span>
-                    {pkg.featured && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-brand">
-                        <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-                        Most Requested
+                    </p>
+                    <h3 id={pkg.id + '-title'} className="mt-1 min-h-14 text-xl font-medium leading-7 tracking-tight text-deep sm:min-h-[3.75rem] sm:text-[23px] sm:leading-[1.3]">
+                      {pkg.title}
+                    </h3>
+                  </div>
+
+                  <div className="mt-4 rounded-xl bg-ice/70 p-4">
+                    <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                      <span className="text-[2rem] font-medium leading-none tracking-tight text-deep tabular-nums sm:text-[2.25rem]">
+                        {pkg.rate}
                       </span>
-                    )}
+                      <span className="text-xs text-steel">/ {pkg.unit}</span>
+                    </p>
+                    <p className="mt-3 border-t border-light pt-3 text-xs font-medium leading-5 text-brand">
+                      {pkg.durationSummary}
+                    </p>
                   </div>
 
-                  <h3 className="mt-4 font-serif text-xl font-medium tracking-tight text-deep sm:text-2xl">
-                    {pkg.title}
-                  </h3>
-
-                  <div className="mt-4 flex items-baseline gap-2 border-b border-light pb-4">
-                    <span className="font-serif text-3xl font-light tracking-tight text-deep sm:text-4xl">
-                      {pkg.rate}
-                    </span>
-                    <span className="text-xs font-medium uppercase tracking-wider text-steel">
-                      / {pkg.unit}
-                    </span>
-                  </div>
-
-                  <p className="mt-3 font-mono text-xs font-medium text-brand">
-                    {pkg.durationSummary}
-                  </p>
-
-                  <ul className="mt-4 flex-1 space-y-2.5 text-xs leading-relaxed text-steel sm:text-sm">
+                  <ul className="mt-5 flex-1 space-y-3 text-[13px] leading-6 text-steel sm:text-sm">
                     {pkg.includes.map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true" />
+                        <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ice">
+                          <Check className="h-3 w-3 text-brand" aria-hidden="true" />
+                        </span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-6 pt-2">
+                  <div className="mt-6 border-t border-light pt-5">
                     <SmartLink
                       href="#book-event"
                       data-event-tab={pkg.bookingTab}
-                      aria-label={`Book ${pkg.title}`}
-                      className={buttonClass({
-                        variant: pkg.featured ? "solid" : "outline",
-                        tone: "light",
-                        className: "min-h-11 w-full px-5 text-center",
-                      })}
+                      aria-label={`Request booking for ${pkg.title}`}
+                      className={`group inline-flex min-h-12 w-full items-center justify-between gap-3 rounded-lg border px-4 py-3 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${pkg.featured
+                        ? "border-brand bg-brand text-white hover:border-deep hover:bg-deep"
+                        : "border-light bg-white text-brand hover:border-brand hover:bg-ice"
+                      }`}
                     >
-                      Book Now
+                      Request booking
+                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none rtl:rotate-180" aria-hidden="true" />
                     </SmartLink>
                   </div>
                 </article>

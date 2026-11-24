@@ -2,14 +2,21 @@
 
 import { useEffect } from "react";
 
-/** Registers the local runtime cache only in deployed builds, never during development. */
+/** Registers the runtime asset/page cache in production builds without blocking rendering. */
 export function ServiceWorkerRegistration() {
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) return;
+    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) {
+      return;
+    }
 
-    void navigator.serviceWorker.register("/sw.js").catch(() => {
-      // Caching is an enhancement; a registration failure must not affect browsing.
-    });
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((registration) => {
+        void registration.update().catch(() => undefined);
+      })
+      .catch(() => {
+        // Caching is a progressive enhancement; failures never impact browsing.
+      });
   }, []);
 
   return null;
