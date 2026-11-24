@@ -104,10 +104,10 @@ export function Hero() {
 
       {/* Centered copy + frosted-glass quick-category dock */}
       <Container className="relative z-10 py-14 text-center sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <h1
             id="home-title"
-            className="text-3xl font-semibold leading-[1.12] tracking-tight text-white text-balance drop-shadow-[0_2px_14px_rgba(13,24,42,0.65)] sm:text-5xl lg:text-[3.5rem]"
+            className="whitespace-nowrap text-[clamp(1.25rem,5.2vw,3.25rem)] font-semibold leading-[1.12] tracking-tight text-white drop-shadow-[0_2px_14px_rgba(13,24,42,0.65)]"
           >
             {homeHero.title}
           </h1>
