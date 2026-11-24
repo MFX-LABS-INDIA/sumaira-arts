@@ -3,7 +3,14 @@ import type { Enquiry } from "@/types/enquiry";
 import type { EventBooking } from "@/types/event-booking";
 import type { WorkshopBooking } from "@/types/workshop-booking";
 
-const SITE_URL = "https://sumaira-arts.vercel.app";
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "") ||
+  "https://sumaira-arts.vercel.app"
+).replace(/\/+$/, "");
 const BRAND_LOGO_URL = `${SITE_URL}/assets/brand/logo.png`;
 
 type EmailAudience = "admin" | "client";
@@ -33,7 +40,6 @@ interface BrandEmailLayoutOptions {
   callout?: CalloutBlock;
   sheetTabName: string;
   replyToEmail?: string;
-  replyToName?: string;
   nextStepsHtml?: string;
   primaryLink?: { label: string; href: string };
 }
@@ -68,277 +74,201 @@ function formatDubaiDateTime(value: string | Date, timeZone: string = "Asia/Duba
   });
 }
 
+// Tables and inline styles keep the essential layout usable without embedded CSS.
+function renderEmailButton(label: string, href: string): string {
+  return `
+    <table role="presentation" cellspacing="0" cellpadding="0" class="email-button" style="border-collapse: separate; margin-top: 20px;">
+      <tr>
+        <td align="center" bgcolor="#1b3a6b" style="border: 1px solid #1b3a6b; border-radius: 6px; mso-padding-alt: 14px 24px;">
+          <a href="${escapeHtml(href)}" style="display: block; padding: 14px 24px; color: #ffffff; font-size: 14px; line-height: 20px; font-weight: 700; text-align: center; text-decoration: none; mso-padding-alt: 0;">
+            ${escapeHtml(label)}
+          </a>
+        </td>
+      </tr>
+    </table>`;
+}
+
 function renderSummaryMetrics(metrics: SummaryMetric[]): string {
   if (metrics.length === 0) return "";
-  const widthPct = Math.floor(100 / metrics.length);
-
-  const cells = metrics
-    .map(
-      (metric, idx) => `
-        <td width="${widthPct}%" class="kpi-cell" style="padding: 12px 14px; background: #f7fafe; ${
-          idx < metrics.length - 1 ? "border-right: 1px solid #cde1f2;" : ""
-        } vertical-align: top;">
-          <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6b8cae;">
-            ${escapeHtml(metric.label)}
-          </div>
-          <div style="margin-top: 5px; font-size: 14px; font-weight: 700; color: #0d182a; line-height: 1.3;">
-            ${escapeHtml(metric.value)}
-          </div>
-        </td>`,
-    )
-    .join("");
 
   return `
     <tr>
-      <td style="padding: 0 28px 20px;" class="email-pad-x">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: separate; border: 1px solid #cde1f2; border-radius: 10px; overflow: hidden; background: #f7fafe;">
-          <tr>${cells}</tr>
+      <td class="email-pad-x" style="padding: 0 40px 28px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed; border: 1px solid #dce5ef; background: #f3f6fa; border-radius: 8px;">
+          <tr>${metrics.map((metric, index) => `
+            <td width="${100 / metrics.length}%" class="metric-cell" style="padding: 16px; vertical-align: top; ${index ? "border-left: 1px solid #dce5ef;" : ""} word-wrap: break-word; overflow-wrap: anywhere;">
+              <div class="metric-label" style="color: #3d5a80; font-size: 11px; line-height: 18px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">${escapeHtml(metric.label)}</div>
+              <div class="metric-value" style="padding-top: 6px; color: #0d182a; font-size: 15px; line-height: 22px; font-weight: 700;">${escapeHtml(metric.value)}</div>
+            </td>`).join("")}
+          </tr>
         </table>
       </td>
     </tr>`;
 }
 
 function renderDetailRows(rows: Array<[string, string]>): string {
-  return rows
-    .map(
-      ([label, htmlValue], idx) => `
-        <tr>
-          <td style="padding: 11px 16px; width: 38%; ${
-            idx < rows.length - 1 ? "border-bottom: 1px solid #dce8f5;" : ""
-          } color: #6b8cae; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; vertical-align: top;">
-            ${escapeHtml(label)}
-          </td>
-          <td style="padding: 11px 16px; width: 62%; ${
-            idx < rows.length - 1 ? "border-bottom: 1px solid #dce8f5;" : ""
-          } color: #0d182a; font-size: 13px; text-align: right; line-height: 1.5; vertical-align: top; word-break: break-word;">
-            ${htmlValue}
-          </td>
-        </tr>`,
-    )
-    .join("");
+  return rows.map(([label, htmlValue], index) => `
+    <tr>
+      <th scope="row" class="detail-label" style="width: 34%; padding: 14px 16px; ${index ? "border-top: 1px solid #e2e8f0;" : ""} color: #3d5a80; font-size: 13px; line-height: 21px; font-weight: 400; text-align: left; vertical-align: top;">
+        ${escapeHtml(label)}
+      </th>
+      <td class="detail-value" style="padding: 14px 16px; ${index ? "border-top: 1px solid #e2e8f0;" : ""} color: #0d182a; font-size: 14px; line-height: 21px; text-align: left; vertical-align: top; word-wrap: break-word; overflow-wrap: anywhere;">
+        ${htmlValue}
+      </td>
+    </tr>`).join("");
 }
 
 function renderBrandEmailLayout(options: BrandEmailLayoutOptions): string {
   const {
-    preheader,
-    eyebrow,
-    heading,
-    subheading,
-    audience,
-    greetingName,
-    introHtml,
-    metrics = [],
-    sectionTitle,
-    detailRows,
-    middleHtml = "",
-    callout,
-    sheetTabName,
-    replyToEmail,
-    replyToName,
-    nextStepsHtml,
-    primaryLink,
+    preheader, eyebrow, heading, subheading, audience, greetingName, introHtml,
+    metrics = [], sectionTitle, detailRows, middleHtml = "", callout,
+    sheetTabName, replyToEmail, nextStepsHtml, primaryLink,
   } = options;
-
-  const greetingLine =
-    audience === "admin"
-      ? "Hello Sumaira Arts Studio Team,"
-      : `Dear ${escapeHtml(greetingName || "Guest")},`;
-
-  const calloutHtml = callout
-    ? `
-      <tr>
-        <td style="padding: 0 28px 20px;" class="email-pad-x">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border: 1px solid #cde1f2; border-left: 3px solid #c8a86b; border-radius: 8px; background: #fbfcfe;">
-            <tr>
-              <td style="padding: 14px 16px;">
-                <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #3d5a80;">
-                  ${escapeHtml(callout.label)}
-                </div>
-                <p style="margin: 6px 0 0; font-size: 13px; line-height: 1.6; color: #0d182a;">
-                  ${formatMultilineHtml(callout.body)}
-                </p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>`
-    : "";
-
-  const adminPanelHtml =
-    audience === "admin"
-      ? `
-      <tr>
-        <td style="padding: 0 28px 26px;" class="email-pad-x">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border: 1px solid #cde1f2; border-radius: 10px; background: #ebf1fa;">
-            <tr>
-              <td style="padding: 16px 18px;">
-                <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1b3a6b;">
-                  Logged in Google Sheets
-                </div>
-                <p style="margin: 4px 0 14px; font-size: 13px; line-height: 1.5; color: #3d5a80;">
-                  Recorded automatically in the <strong style="color: #0d182a;">${escapeHtml(sheetTabName)}</strong> tab.
-                </p>
-                ${
-                  replyToEmail
-                    ? `<a href="mailto:${encodeURIComponent(replyToEmail)}" style="display: inline-block; padding: 10px 18px; border-radius: 8px; background: #1b3a6b; color: #ffffff; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">
-                        Reply to ${escapeHtml(replyToName || "Client")}
-                      </a>`
-                    : ""
-                }
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>`
-      : `
-      <tr>
-        <td style="padding: 0 28px 26px;" class="email-pad-x">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border: 1px solid #cde1f2; border-radius: 10px; background: #ebf1fa;">
-            <tr>
-              <td style="padding: 16px 18px;">
-                <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1b3a6b;">
-                  What happens next
-                </div>
-                <p style="margin: 6px 0 ${primaryLink ? "14px" : "0"}; font-size: 13px; line-height: 1.65; color: #3d5a80;">
-                  ${
-                    nextStepsHtml ||
-                    "Our studio team in Dubai will review your request and reply directly to your email or WhatsApp/mobile shortly."
-                  }
-                </p>
-                ${
-                  primaryLink
-                    ? `<a href="${escapeHtml(primaryLink.href)}" style="display: inline-block; padding: 10px 18px; border-radius: 8px; background: #1b3a6b; color: #ffffff; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">
-                        ${escapeHtml(primaryLink.label)}
-                      </a>`
-                    : ""
-                }
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>`;
+  const isAdmin = audience === "admin";
+  const greetingLine = isAdmin
+    ? "Hello studio team,"
+    : `Dear ${escapeHtml(greetingName || "Guest")},`;
+  const action = isAdmin
+    ? replyToEmail && { label: "Reply to client", href: `mailto:${encodeURIComponent(replyToEmail)}` }
+    : primaryLink;
+  const nextSteps = isAdmin
+    ? "Review the details above and reply to the client to discuss availability and next steps."
+    : nextStepsHtml || "Our Dubai studio will review your request and contact you using the details you shared.";
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
     <title>${escapeHtml(heading)} | Sumaira Arts</title>
+    <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
     <style>
+      body, table, td, th, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+      table, td, th { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+      table { border-spacing: 0; }
+      img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+      a:focus-visible { outline: 2px solid #b69252; outline-offset: 4px; }
       @media only screen and (max-width: 600px) {
         .email-outer { padding: 16px 8px !important; }
-        .email-pad-x { padding-left: 18px !important; padding-right: 18px !important; }
-        .kpi-cell {
-          display: block !important;
-          width: 100% !important;
-          box-sizing: border-box !important;
-          border-right: none !important;
-          border-bottom: 1px solid #cde1f2 !important;
-        }
-        .kpi-cell:last-child { border-bottom: none !important; }
+        .email-pad-x { padding-left: 22px !important; padding-right: 22px !important; }
+        .email-masthead { padding-top: 20px !important; padding-bottom: 20px !important; }
+        .email-hero { padding-top: 28px !important; padding-bottom: 28px !important; }
+        .email-title { font-size: 29px !important; line-height: 35px !important; }
+        .masthead-note { font-size: 10px !important; letter-spacing: 0.08em !important; }
+        .metric-cell { display: block !important; width: auto !important; padding: 12px 14px !important; border-left: 0 !important; border-top: 1px solid #dce5ef !important; }
+        .metric-cell:first-child { border-top: 0 !important; }
+        .metric-label { display: inline-block !important; width: 40% !important; vertical-align: top !important; letter-spacing: 0 !important; }
+        .metric-value { display: inline-block !important; width: 57% !important; padding-top: 0 !important; font-size: 14px !important; vertical-align: top !important; }
+        .detail-label { display: block !important; width: auto !important; padding: 12px 14px 3px !important; font-size: 12px !important; }
+        .detail-value { display: block !important; padding: 0 14px 12px !important; border-top: 0 !important; }
+        .email-button { width: 100% !important; }
+        .email-panel { padding: 20px !important; }
+        .item-cell { padding: 12px 8px !important; }
+        .item-title { width: 58% !important; }
+        .item-amount { width: 42% !important; }
+        .item-total { font-size: 16px !important; line-height: 23px !important; }
       }
     </style>
   </head>
-  <body style="margin: 0; padding: 0; background: #ebf1fa; color: #0d182a; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
-    <!-- Hidden Inbox Preheader -->
-    <div style="display: none; max-height: 0; overflow: hidden; opacity: 0; mso-hide: all;">
-      ${escapeHtml(preheader)}
-    </div>
-
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" class="email-outer" style="padding: 32px 12px; background: #ebf1fa;">
+  <body style="margin: 0; padding: 0; width: 100%; background: #ebf1f7; color: #0d182a; font-family: Arial, Helvetica, sans-serif;">
+    <div aria-hidden="true" style="display: none; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; overflow: hidden; opacity: 0; mso-hide: all;">${escapeHtml(preheader)}</div>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ebf1f7">
       <tr>
-        <td align="center">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 620px; margin: 0 auto; overflow: hidden; border: 1px solid #cde1f2; border-radius: 16px; background: #ffffff; box-shadow: 0 10px 30px -18px rgba(13, 24, 42, 0.25);">
-            <!-- Brand Masthead -->
+        <td align="center" class="email-outer" style="padding: 40px 16px;">
+          <!--[if mso]><table role="presentation" width="640" align="center" cellspacing="0" cellpadding="0"><tr><td><![endif]-->
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 640px; table-layout: fixed; margin: 0 auto; background: #ffffff; border: 1px solid #dce5ef; border-radius: 12px;">
             <tr>
-              <td align="center" style="padding: 20px 24px 16px; background: #ffffff; border-bottom: 2px solid #c8a86b;">
-                <a href="${SITE_URL}" style="display: inline-block; text-decoration: none;">
-                  <img
-                    src="${BRAND_LOGO_URL}"
-                    alt="Sumaira Arts"
-                    height="46"
-                    style="display: block; height: 46px; width: auto; border: 0; margin: 0 auto;"
-                  />
-                </a>
+              <td class="email-pad-x email-masthead" style="padding: 26px 40px; border-bottom: 3px solid #b69252;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="128" style="vertical-align: middle;">
+                      <a href="${SITE_URL}" style="text-decoration: none; color: #1b3a6b;">
+                        <img src="${BRAND_LOGO_URL}" alt="Sumaira Arts" width="112" height="70" style="display: block; width: 112px; height: 70px; color: #1b3a6b; font-size: 14px;">
+                      </a>
+                    </td>
+                    <td align="right" class="masthead-note" style="vertical-align: middle; color: #3d5a80; font-size: 11px; line-height: 19px; letter-spacing: 0.12em; text-transform: uppercase;">
+                      Art with meaning<br><span style="letter-spacing: 0; text-transform: none;">Dubai, UAE</span>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
-
-            <!-- Editorial Navy Header -->
             <tr>
-              <td align="center" style="padding: 28px 28px 26px; background: #0d182a; background-image: linear-gradient(135deg, #0d182a 0%, #1b3a6b 100%);" class="email-pad-x">
-                <div style="display: inline-block; padding: 4px 12px; border: 1px solid rgba(168, 197, 224, 0.35); border-radius: 999px; background: rgba(255, 255, 255, 0.06); color: #a8c5e0; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">
-                  ${escapeHtml(eyebrow)}
-                </div>
-                <h1 style="margin: 12px 0 0; color: #ffffff; font-family: Georgia, 'Times New Roman', serif; font-size: 25px; font-weight: normal; line-height: 1.25;">
-                  ${escapeHtml(heading)}
-                </h1>
-                <p style="margin: 8px 0 0; color: #cde1f2; font-size: 13px; line-height: 1.5;">
-                  ${escapeHtml(subheading)}
-                </p>
+              <td bgcolor="#1b3a6b" class="email-pad-x email-hero" style="padding: 34px 40px 36px; background: #1b3a6b;">
+                <p style="margin: 0 0 14px; color: #e4cfa8; font-size: 11px; line-height: 18px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">${escapeHtml(eyebrow)}</p>
+                <h1 class="email-title" style="margin: 0; color: #ffffff; font-family: Georgia, 'Times New Roman', serif; font-size: 36px; line-height: 43px; font-weight: 400; word-wrap: break-word; overflow-wrap: anywhere;">${escapeHtml(heading)}</h1>
+                <p style="margin: 16px 0 0; color: #dce5ef; font-size: 14px; line-height: 22px; word-wrap: break-word; overflow-wrap: anywhere;">${escapeHtml(subheading)}</p>
               </td>
             </tr>
-
-            <!-- Greeting & Intro -->
             <tr>
-              <td style="padding: 26px 28px 18px;" class="email-pad-x">
-                <p style="margin: 0 0 10px; font-size: 15px; font-weight: 700; color: #0d182a;">
-                  ${greetingLine}
-                </p>
-                <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #3d5a80;">
-                  ${introHtml}
-                </p>
+              <td class="email-pad-x" style="padding: 30px 40px 26px;">
+                <p style="margin: 0 0 10px; color: #0d182a; font-size: 16px; line-height: 24px; font-weight: 700; overflow-wrap: anywhere;">${greetingLine}</p>
+                <p style="margin: 0; color: #3d5a80; font-size: 15px; line-height: 25px; overflow-wrap: anywhere;">${introHtml}</p>
               </td>
             </tr>
-
-            <!-- KPI Summary Strip -->
             ${renderSummaryMetrics(metrics)}
-
-            <!-- Primary Details Card -->
+            ${middleHtml}
             <tr>
-              <td style="padding: 0 28px 20px;" class="email-pad-x">
-                <div style="margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1b3a6b;">
-                  ${escapeHtml(sectionTitle)}
-                </div>
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: separate; border: 1px solid #cde1f2; border-radius: 10px; overflow: hidden; background: #f7fafe;">
+              <td class="email-pad-x" style="padding: 0 40px 28px;">
+                <h2 style="margin: 0 0 12px; color: #0d182a; font-size: 17px; line-height: 24px; font-weight: 700;">${escapeHtml(sectionTitle)}</h2>
+                <table aria-label="${escapeHtml(sectionTitle)}" width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed; border: 1px solid #dce5ef; border-radius: 8px; background: #ffffff;">
                   ${renderDetailRows(detailRows)}
                 </table>
               </td>
             </tr>
-
-            <!-- Middle Content (e.g. Line Items Table) -->
-            ${middleHtml}
-
-            <!-- Optional Notes / Address Callout -->
-            ${calloutHtml}
-
-            <!-- Audience Closing Panel -->
-            ${adminPanelHtml}
-
-            <!-- Studio Footer -->
+            ${callout ? `
             <tr>
-              <td style="padding: 22px 28px; background: #f7fafe; border-top: 1px solid #cde1f2; text-align: center;" class="email-pad-x">
-                <p style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #1b3a6b;">
-                  Sumaira Arts Studio
-                </p>
-                <p style="margin: 4px 0 0; font-size: 12px; color: #6b8cae;">
-                  Arabic Calligraphy · Live Event Engraving · Bespoke Workshops · Dubai, UAE
-                </p>
-                <p style="margin: 12px 0 0; font-size: 12px;">
-                  <a href="${SITE_URL}/products" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">Artworks</a>
-                  <span style="color: #a8c5e0; margin: 0 8px;">&bull;</span>
-                  <a href="${SITE_URL}/live-events" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">Live Events</a>
-                  <span style="color: #a8c5e0; margin: 0 8px;">&bull;</span>
-                  <a href="${SITE_URL}/workshops" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">Workshops</a>
-                </p>
-                <p style="margin: 8px 0 0; font-size: 11px; color: #6b8cae;">
-                  Instagram:
-                  <a href="https://www.instagram.com/sumaira_arts/?hl=en" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">@sumaira_arts</a>
-                  &nbsp;&middot;&nbsp;
-                  <a href="https://www.instagram.com/sumevents.ae" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">@sumevents.ae</a>
-                </p>
+              <td class="email-pad-x" style="padding: 0 40px 28px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed; background: #f8f6f1; border-left: 3px solid #b69252;">
+                  <tr><td style="padding: 18px 20px;">
+                    <h2 style="margin: 0 0 8px; color: #3d5a80; font-size: 12px; line-height: 18px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">${escapeHtml(callout.label)}</h2>
+                    <p style="margin: 0; color: #0d182a; font-size: 14px; line-height: 23px; word-wrap: break-word; overflow-wrap: anywhere;">${formatMultilineHtml(callout.body)}</p>
+                  </td></tr>
+                </table>
+              </td>
+            </tr>` : ""}
+            <tr>
+              <td class="email-pad-x" style="padding: 0 40px 30px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed; background: #f3f6fa; border: 1px solid #dce5ef; border-radius: 8px;">
+                  <tr><td class="email-panel" style="padding: 24px;">
+                    <h2 style="margin: 0 0 10px; color: #1b3a6b; font-size: 18px; line-height: 25px; font-weight: 700;">${isAdmin ? "Continue the conversation" : "What happens next"}</h2>
+                    <p style="margin: 0; color: #3d5a80; font-size: 14px; line-height: 24px;">${nextSteps}</p>
+                    ${action ? renderEmailButton(action.label, action.href) : ""}
+                  </td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td class="email-pad-x" style="padding: 0 40px 30px;">
+                ${isAdmin ? `<p style="margin: 0; color: #3d5a80; font-size: 12px; line-height: 20px;">Studio reference &middot; Google Sheets / ${escapeHtml(sheetTabName)}</p>` : `
+                <p style="margin: 0; color: #3d5a80; font-size: 14px; line-height: 23px;">With appreciation,</p>
+                <p style="margin: 4px 0 0; color: #1b3a6b; font-family: Georgia, 'Times New Roman', serif; font-size: 21px; line-height: 28px;">Sumaira Arts Studio</p>`}
               </td>
             </tr>
           </table>
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 640px; table-layout: fixed; margin: 0 auto;">
+            <tr>
+              <td align="center" style="padding: 26px 20px 0;">
+                <p style="margin: 0; color: #1b3a6b; font-size: 12px; line-height: 20px; font-weight: 700; letter-spacing: 0.1em;">SUMAIRA ARTS</p>
+                <p style="margin: 6px 0 12px; color: #3d5a80; font-size: 12px; line-height: 20px;">Calligraphy, art &amp; meaningful experiences.</p>
+                <p style="margin: 0; font-size: 12px; line-height: 28px;">
+                  <a href="${SITE_URL}/products" style="display: inline-block; padding: 6px 8px; color: #1b3a6b; text-decoration: underline;">Artworks</a>
+                  <a href="${SITE_URL}/live-events" style="display: inline-block; padding: 6px 8px; color: #1b3a6b; text-decoration: underline;">Live events</a>
+                  <a href="${SITE_URL}/workshops" style="display: inline-block; padding: 6px 8px; color: #1b3a6b; text-decoration: underline;">Workshops</a>
+                </p>
+                <p style="margin: 4px 0 0; color: #3d5a80; font-size: 12px; line-height: 24px;">
+                  <a href="https://www.instagram.com/sumaira_arts/" style="display: inline-block; padding: 6px; color: #3d5a80; text-decoration: underline;">@sumaira_arts</a>
+                  &middot;
+                  <a href="https://www.instagram.com/sumevents.ae" style="display: inline-block; padding: 6px; color: #3d5a80; text-decoration: underline;">@sumevents.ae</a>
+                </p>
+                <p style="margin: 12px 0 0; color: #3d5a80; font-size: 11px; line-height: 18px;">${isAdmin ? "A website request for the Sumaira Arts team." : "Sent in response to your request at Sumaira Arts."}</p>
+              </td>
+            </tr>
+          </table>
+          <!--[if mso]></td></tr></table><![endif]-->
         </td>
       </tr>
     </table>
@@ -388,22 +318,18 @@ export const getOrderEmailTemplate = (
     .map(
       (item, idx) => `
         <tr>
-          <td style="padding: 13px 16px; ${
+          <td class="item-cell" style="padding: 16px; ${
             idx < order.items.length - 1 ? "border-bottom: 1px solid #dce8f5;" : ""
-          } color: #0d182a; font-size: 13px;">
+          } color: #0d182a; font-size: 14px; line-height: 22px;">
             <strong style="color: #0d182a;">${escapeHtml(item.title)}</strong>
-            <div style="margin-top: 3px; font-size: 11px; color: #6b8cae;">
+            <div style="margin-top: 3px; font-size: 12px; line-height: 19px; color: #3d5a80;">
               ${escapeHtml(item.category)}
             </div>
+            <div style="margin-top: 3px; font-size: 12px; line-height: 19px; color: #3d5a80;">Quantity: ${item.quantity}</div>
           </td>
-          <td style="padding: 13px 12px; ${
+          <td class="item-cell" style="padding: 16px; ${
             idx < order.items.length - 1 ? "border-bottom: 1px solid #dce8f5;" : ""
-          } text-align: center; color: #3d5a80; font-size: 13px;">
-            ${item.quantity}
-          </td>
-          <td style="padding: 13px 16px; ${
-            idx < order.items.length - 1 ? "border-bottom: 1px solid #dce8f5;" : ""
-          } text-align: right; color: #0d182a; font-size: 13px; font-weight: 600;">
+          } text-align: right; color: #0d182a; font-size: 14px; line-height: 22px; font-weight: 600;">
             ${formatCurrency(item.priceUSD * item.quantity)}
           </td>
         </tr>`,
@@ -412,25 +338,22 @@ export const getOrderEmailTemplate = (
 
   const itemsTableHtml = `
     <tr>
-      <td style="padding: 0 28px 20px;" class="email-pad-x">
-        <div style="margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1b3a6b;">
-          Selected Artworks
-        </div>
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: separate; border: 1px solid #cde1f2; border-radius: 10px; overflow: hidden; background: #ffffff;">
+      <td class="email-pad-x" style="padding: 0 40px 28px;">
+        <h2 style="margin: 0 0 12px; color: #0d182a; font-size: 17px; line-height: 24px; font-weight: 700;">Selected artworks</h2>
+        <table aria-label="Selected artworks" width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed; border-collapse: separate; word-wrap: break-word; overflow-wrap: anywhere; border: 1px solid #cde1f2; border-radius: 8px; overflow: hidden; background: #ffffff;">
           <thead>
             <tr style="background: #ebf1fa;">
-              <th style="padding: 10px 16px; color: #1b3a6b; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-align: left; text-transform: uppercase;">Artwork</th>
-              <th style="padding: 10px 12px; color: #1b3a6b; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-align: center; text-transform: uppercase;">Qty</th>
-              <th style="padding: 10px 16px; color: #1b3a6b; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-align: right; text-transform: uppercase;">Amount</th>
+              <th scope="col" width="62%" class="item-cell item-title" style="padding: 12px 16px; color: #1b3a6b; font-size: 11px; line-height: 18px; font-weight: 700; letter-spacing: 0.03em; text-align: left; text-transform: uppercase;">Artwork</th>
+              <th scope="col" width="38%" class="item-cell item-amount" style="padding: 12px 16px; color: #1b3a6b; font-size: 11px; line-height: 18px; font-weight: 700; letter-spacing: 0.03em; text-align: right; text-transform: uppercase;">Amount</th>
             </tr>
           </thead>
           <tbody>${itemsHtml}</tbody>
           <tfoot>
             <tr style="background: #f7fafe;">
-              <td colspan="2" style="padding: 13px 16px; border-top: 1px solid #cde1f2; color: #3d5a80; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-align: right;">
+              <td class="item-cell" style="padding: 16px; border-top: 1px solid #cde1f2; color: #3d5a80; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-align: left;">
                 Request Total
               </td>
-              <td style="padding: 13px 16px; border-top: 1px solid #cde1f2; color: #1b3a6b; font-size: 15px; font-weight: 700; text-align: right;">
+              <td class="item-cell item-total" style="padding: 16px; border-top: 1px solid #cde1f2; color: #1b3a6b; font-size: 18px; line-height: 25px; font-weight: 700; text-align: right;">
                 ${formatCurrency(order.total)}
               </td>
             </tr>
@@ -444,14 +367,14 @@ export const getOrderEmailTemplate = (
     eyebrow: audience === "admin" ? "New Order Request" : "Order Request Received",
     heading:
       audience === "admin"
-        ? `Artwork Order · ${order.id}`
-        : "Your Artwork Request Is With Us",
+        ? "New artwork request"
+        : "Your artwork request is with us",
     subheading: `Submitted ${formattedDate} (Dubai) · ${totalPieces} item${totalPieces === 1 ? "" : "s"}`,
     audience,
     greetingName: order.customerName,
     introHtml:
       audience === "admin"
-        ? `A new artwork request (<strong>${escapeHtml(order.id)}</strong>) was placed by <strong>${escapeHtml(order.customerName)}</strong> and saved to the <strong>Orders</strong> Google Sheet tab.`
+        ? `A new artwork request (<strong>${escapeHtml(order.id)}</strong>) was placed by <strong>${escapeHtml(order.customerName)}</strong>.`
         : "Thank you for selecting pieces from Sumaira Arts. Our studio is verifying artwork availability and bespoke framing/shipping options before confirming your order.",
     metrics: [
       { label: "Order Reference", value: order.id },
@@ -460,7 +383,6 @@ export const getOrderEmailTemplate = (
     ],
     sectionTitle: "Client & Delivery Details",
     detailRows: [
-      ["Order ID", `<strong>${escapeHtml(order.id)}</strong>`],
       ["Submitted At", `${escapeHtml(formattedDate)} (Dubai)`],
       ["Customer Name", escapeHtml(order.customerName)],
       [
@@ -478,7 +400,6 @@ export const getOrderEmailTemplate = (
       : undefined,
     sheetTabName: "Orders",
     replyToEmail: order.email,
-    replyToName: order.customerName,
     nextStepsHtml:
       "Your submission is a reservation enquiry — no payment has been charged yet. We will reach out shortly to confirm artwork availability, shipping timeline, and payment details.",
     primaryLink: { label: "Browse Gallery", href: `${SITE_URL}/products` },
@@ -521,13 +442,13 @@ export const getEventBookingEmailTemplate = (
   return renderBrandEmailLayout({
     preheader: `${booking.stationTitle} (${booking.bookingId}) for ${booking.eventDate} · ${booking.duration}`,
     eyebrow: "Live Event Activation",
-    heading: booking.stationTitle,
-    subheading: `${booking.hourlyRateAed} AED / hour · ${booking.duration} · ${booking.eventDate}`,
+    heading: audience === "admin" ? "New live event request" : "Your event request is with us",
+    subheading: `${booking.stationTitle} · ${booking.duration}`,
     audience,
     greetingName: booking.name,
     introHtml:
       audience === "admin"
-        ? `A new <strong>${escapeHtml(booking.stationTitle)}</strong> request (<strong>${escapeHtml(booking.bookingId)}</strong>) was submitted and logged in the <strong>Live Events</strong> Google Sheet tab.`
+        ? `A new <strong>${escapeHtml(booking.stationTitle)}</strong> request (<strong>${escapeHtml(booking.bookingId)}</strong>) was submitted.`
         : `Thank you for requesting our <strong>${escapeHtml(booking.stationTitle)}</strong> experience. We are checking artist calendar availability for <strong>${escapeHtml(booking.eventDate)}</strong> and will confirm setup details shortly.`,
     metrics: [
       { label: "Booking ID", value: booking.bookingId },
@@ -536,7 +457,6 @@ export const getEventBookingEmailTemplate = (
     ],
     sectionTitle: "Event & Client Details",
     detailRows: [
-      ["Booking ID", `<strong>${escapeHtml(booking.bookingId)}</strong>`],
       ["Submitted At", `${escapeHtml(formattedSubmitted)} (Dubai)`],
       ["Station Selected", `<strong>${escapeHtml(booking.stationTitle)}</strong>`],
       ["Duration", escapeHtml(booking.duration)],
@@ -557,7 +477,6 @@ export const getEventBookingEmailTemplate = (
       : undefined,
     sheetTabName: "Live Events",
     replyToEmail: booking.email,
-    replyToName: booking.name,
     nextStepsHtml:
       "Sumaira's live events team will confirm date availability, arrival setup timing, and any metallic ink or framing customization within 24 hours.",
     primaryLink: { label: "View Live Events", href: `${SITE_URL}/live-events` },
@@ -596,14 +515,14 @@ export const getWorkshopBookingEmailTemplate = (
   return renderBrandEmailLayout({
     preheader: `Workshop request ${booking.bookingId} — ${booking.workshopFormat} on ${booking.preferredDate}`,
     eyebrow: "Calligraphy & Art Workshops",
-    heading: "Workshop Booking Request",
+    heading: audience === "admin" ? "New workshop request" : "Your workshop request is with us",
     subheading: `${booking.workshopFormat} · ${booking.preferredDate}`,
     audience,
     greetingName: booking.name,
     introHtml:
       audience === "admin"
-        ? `A new workshop enquiry (<strong>${escapeHtml(booking.bookingId)}</strong>) was submitted and saved in the <strong>Book Workshops</strong> Google Sheet tab.`
-        : `Thank you for booking a calligraphy workshop with Sumaira Arts. We are reviewing schedule availability for <strong>${escapeHtml(booking.preferredDate)}</strong> and will reach out with session timing and material details.`,
+        ? `A new workshop enquiry (<strong>${escapeHtml(booking.bookingId)}</strong>) was submitted.`
+        : `Thank you for requesting a calligraphy workshop with Sumaira Arts. We are reviewing schedule availability for <strong>${escapeHtml(booking.preferredDate)}</strong> and will reach out with session timing and material details.`,
     metrics: [
       { label: "Booking ID", value: booking.bookingId },
       { label: "Preferred Date", value: booking.preferredDate },
@@ -611,7 +530,6 @@ export const getWorkshopBookingEmailTemplate = (
     ],
     sectionTitle: "Session Preferences & Contact",
     detailRows: [
-      ["Booking ID", `<strong>${escapeHtml(booking.bookingId)}</strong>`],
       ["Submitted At", `${escapeHtml(formattedSubmitted)} (Dubai)`],
       ["Workshop Format", `<strong>${escapeHtml(booking.workshopFormat)}</strong>`],
       ["Session Mode", escapeHtml(booking.sessionMode)],
@@ -634,7 +552,6 @@ export const getWorkshopBookingEmailTemplate = (
       : undefined,
     sheetTabName: "Book Workshops",
     replyToEmail: booking.email,
-    replyToName: booking.name,
     nextStepsHtml:
       "All traditional qalam pens, calligraphic inks, and canvases are prepared by our studio for in-person UAE sessions (or a curated supply list for online cohorts). We'll reply shortly to finalize your date.",
     primaryLink: { label: "Explore Workshops", href: `${SITE_URL}/workshops` },
@@ -671,14 +588,14 @@ export const getEnquiryEmailTemplate = (
     eyebrow: "Contact Us Enquiry",
     heading:
       audience === "admin"
-        ? `New Enquiry · ${enquiry.name}`
-        : "Thank You for Reaching Out",
+        ? "New studio enquiry"
+        : "A conversation worth starting",
     subheading: `Received ${receivedLabel} (Dubai) · Sumaira Arts Studio`,
     audience,
     greetingName: enquiry.name,
     introHtml:
       audience === "admin"
-        ? `<strong>${escapeHtml(enquiry.name)}</strong> submitted a general studio enquiry through the Contact Us dialog and was logged in the <strong>Contact Us</strong> Google Sheet tab.`
+        ? `<strong>${escapeHtml(enquiry.name)}</strong> sent a new enquiry through the website.`
         : "Thank you for writing to Sumaira Arts. Your contact details have been received by our studio in Dubai, and we will get back to you personally.",
     sectionTitle: "Contact Details",
     detailRows: [
@@ -698,7 +615,6 @@ export const getEnquiryEmailTemplate = (
       : undefined,
     sheetTabName: "Contact Us",
     replyToEmail: enquiry.email,
-    replyToName: enquiry.name,
     nextStepsHtml:
       "Whether you're commissioning a bespoke calligraphy canvas or planning a private gathering, Sumaira or a studio coordinator will follow up with you shortly.",
     primaryLink: { label: "Visit Sumaira Arts", href: SITE_URL },
