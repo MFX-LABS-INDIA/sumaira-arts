@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { WorkshopsView } from "@/components/sections/WorkshopsView";
+import { WorkshopsView } from "@/templates/WorkshopsView";
 
 export const metadata: Metadata = {
   title: "Arabic Calligraphy & Abstract Art Workshops | Sumaira Arts",

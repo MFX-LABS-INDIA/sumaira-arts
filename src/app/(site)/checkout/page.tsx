@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { containerClassName } from "@/components/ui/Container";
+import { SkeletonImage } from "@/components/atoms/SkeletonImage";
+import { CheckoutPageSkeleton } from "@/components/molecules/PageSkeletons";
+import { containerClassName } from "@/components/atoms/Container";
 import Link from "next/link";
 import { User, Mail, Phone, MapPin, ShieldCheck, CheckCircle2, Loader2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { clearCart } from "@/store/cartSlice";
-import { CountrySelect } from "@/components/checkout/CountrySelect";
+import { CountrySelect } from "@/components/molecules/CountrySelect";
 import { formatPrice } from "@/lib/format";
 import { parsePhoneNumberFromString } from "libphonenumber-js/min";
-import { useCountryDetection } from "@/components/checkout/useCountryDetection";
+import { useCountryDetection } from "@/components/molecules/CountrySelect/useCountryDetection";
 import type { Order } from "@/types/store";
 
 export default function CheckoutPage() {
@@ -134,14 +135,7 @@ export default function CheckoutPage() {
   };
 
   if (!mounted) {
-    return (
-      <div className="min-h-screen bg-ice/30 py-16">
-        <div className={`${containerClassName} animate-pulse`}>
-          <div className="h-8 w-48 rounded bg-light mb-8" />
-          <div className="h-96 rounded-xl bg-white border border-light" />
-        </div>
-      </div>
-    );
+    return <CheckoutPageSkeleton />;
   }
 
   // Success view
@@ -372,7 +366,7 @@ export default function CheckoutPage() {
                 {cart.map((item) => (
                   <div key={item.id} className="py-3 flex gap-3 items-center">
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded bg-ice border border-light">
-                      <Image src={item.image} alt={item.title} fill className="object-cover" />
+                      <SkeletonImage src={item.image} alt={item.title} fill sizes="48px" className="object-cover" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-serif text-xs font-medium text-deep truncate">{item.title}</p>

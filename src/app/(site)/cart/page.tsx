@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { containerClassName } from "@/components/ui/Container";
+import { SkeletonImage } from "@/components/atoms/SkeletonImage";
+import { CartPageSkeleton } from "@/components/molecules/PageSkeletons";
+import { containerClassName } from "@/components/atoms/Container";
 import Link from "next/link";
 import { Trash2, Plus, Minus, ArrowRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
@@ -21,21 +22,7 @@ export default function CartPage() {
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="min-h-screen bg-ice/40 py-16">
-        <div className={containerClassName}>
-          <div className="h-8 w-48 animate-pulse rounded bg-light mb-8" />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-4">
-              {[1, 2].map((i) => (
-                <div key={i} className="h-32 animate-pulse rounded-xl bg-white border border-light" />
-              ))}
-            </div>
-            <div className="h-64 animate-pulse rounded-xl bg-white border border-light" />
-          </div>
-        </div>
-      </div>
-    );
+    return <CartPageSkeleton />;
   }
 
   if (cart.length === 0) {
@@ -91,7 +78,7 @@ export default function CartPage() {
                 className="flex flex-row gap-3.5 sm:gap-5 rounded-xl border border-light bg-white p-3.5 sm:p-5 shadow-xs transition-colors hover:border-soft"
               >
                 <div className="relative h-24 w-24 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-lg bg-ice border border-light">
-                  <Image src={item.image} alt={item.title} fill className="object-cover" />
+                  <SkeletonImage src={item.image} alt={item.title} fill sizes="128px" className="object-cover" />
                 </div>
 
                 <div className="flex flex-1 flex-col justify-between min-w-0">

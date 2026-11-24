@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LiveEventsView } from "@/components/sections/LiveEventsView";
+import { LiveEventsView } from "@/templates/LiveEventsView";
 
 export const metadata: Metadata = {
   title: "Live Events, On-Site Engraving & Calligraphy Station | Sumaira Arts",

@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { Eyebrow, headingClass } from "@/components/ui/SectionHeading";
-import { buttonClass } from "@/components/ui/Link";
+import { Container } from "@/components/atoms/Container";
+import { Section } from "@/components/atoms/Section";
+import { Eyebrow, headingClass } from "@/components/molecules/SectionHeading";
+import { buttonClass } from "@/components/atoms/Link";
 
 /**
  * Route-level error boundary. It renders inside the site chrome, so the header and footer stay

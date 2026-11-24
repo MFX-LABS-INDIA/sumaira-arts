@@ -4,10 +4,12 @@ import { useState, useMemo, useRef, useEffect, useCallback, Suspense } from "rea
 import { useSearchParams, useRouter } from "next/navigation";
 import { Search, Sparkles } from "lucide-react";
 import { allProducts, formatCategoryLabel, getCategorySortRank } from "@/data/products";
-import { ProductCard } from "@/components/common/ProductCard";
-import { CategoryFilter, type CategoryOption } from "@/components/products/CategoryFilter";
-import { MobileFilterSortBar } from "@/components/products/MobileFilterSortBar";
-import { Container } from "@/components/ui/Container";
+import { ProductCard } from "@/components/molecules/ProductCard";
+import { CategoryFilter, type CategoryOption } from "@/components/organisms/CategoryFilter";
+import { MobileFilterSortBar } from "@/components/organisms/MobileFilterSortBar";
+import { Container } from "@/components/atoms/Container";
+import { CatalogPageSkeleton } from "@/components/molecules/PageSkeletons";
+import { ProductCardSkeleton } from "@/components/atoms/Skeleton";
 import type { ArtVariant } from "@/components/art/variants";
 import type { SceneKind } from "@/components/art/scenes";
 import type { Product } from "@/types/content";
@@ -266,11 +268,14 @@ function ProductsCatalogContent() {
 
                   {/* Viewport-triggered progressive rendering */}
                   {hasMore && (
-                    <div ref={loadMoreRef} className="mt-8 flex justify-center py-3" aria-live="polite">
-                      <div className="flex items-center gap-2 text-xs text-steel">
-                        <span className="h-4 w-4 animate-spin rounded-full border-2 border-brand border-t-transparent" />
-                        Loading more artworks…
-                      </div>
+                    <div
+                      ref={loadMoreRef}
+                      className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:gap-7"
+                      aria-live="polite"
+                      aria-label="Loading more artworks"
+                    >
+                      <ProductCardSkeleton />
+                      <ProductCardSkeleton />
                     </div>
                   )}
                 </>
@@ -285,13 +290,7 @@ function ProductsCatalogContent() {
 
 export default function ProductsPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen bg-ice/30 py-16 flex items-center justify-center">
-          <div className="h-10 w-10 animate-spin rounded-full border-4 border-brand border-t-transparent" />
-        </div>
-      }
-    >
+    <Suspense fallback={<CatalogPageSkeleton />}>
       <ProductsCatalogContent />
     </Suspense>
   );

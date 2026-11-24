@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { ArtPiece } from "./ArtPiece";
 import { RoomScene } from "./RoomScene";
 import { buildScene, type SceneKind } from "./scenes";
@@ -43,7 +43,7 @@ export function ArtImage({
     >
       <div className={inner}>
         {src ? (
-          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+          <SkeletonImage src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
         ) : scene ? (
           <RoomScene scene={buildScene(scene, art)} className="h-full w-full" />
         ) : (

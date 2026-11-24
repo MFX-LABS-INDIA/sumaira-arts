@@ -1,8 +1,8 @@
-import { SiteChrome } from "@/components/layout/SiteChrome";
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { Eyebrow, headingClass } from "@/components/ui/SectionHeading";
-import { ButtonLink } from "@/components/ui/Link";
+import { SiteChrome } from "@/templates/SiteChrome";
+import { Container } from "@/components/atoms/Container";
+import { Section } from "@/components/atoms/Section";
+import { Eyebrow, headingClass } from "@/components/molecules/SectionHeading";
+import { ButtonLink } from "@/components/atoms/Link";
 
 export default function NotFound() {
   return (

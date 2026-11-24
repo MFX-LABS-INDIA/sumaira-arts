@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PrivacyPolicy } from "@/components/sections/PrivacyPolicy";
+import { PrivacyPolicy } from "@/components/organisms/PrivacyPolicy";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Sumaira Arts",

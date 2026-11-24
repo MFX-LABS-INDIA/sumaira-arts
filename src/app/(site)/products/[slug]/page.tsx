@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { allProducts } from "@/data/products";
-import { ProductDetailsClient } from "@/components/products/ProductDetailsClient";
+import { ProductDetailsClient } from "@/components/organisms/ProductDetailsClient";
 
 export async function generateStaticParams() {
   return allProducts.map((p) => ({

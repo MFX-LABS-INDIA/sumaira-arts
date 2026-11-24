@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Package, Clock, CheckCircle2, ChevronRight, ArrowRight } from "lucide-react";
 import { formatPrice } from "@/lib/format";
-import { Container } from "@/components/ui/Container";
+import { Container } from "@/components/atoms/Container";
+import { SkeletonImage } from "@/components/atoms/SkeletonImage";
+import { OrdersPageSkeleton } from "@/components/molecules/PageSkeletons";
 import type { Order } from "@/types/store";
 
 export default function MyOrdersPage() {
@@ -36,6 +37,10 @@ export default function MyOrdersPage() {
     [orders]
   );
 
+  if (loading) {
+    return <OrdersPageSkeleton />;
+  }
+
   return (
     <div className="min-h-screen bg-ice/30 py-8 sm:py-14">
       <Container>
@@ -45,24 +50,16 @@ export default function MyOrdersPage() {
             <h1 className="font-serif text-2xl sm:text-4xl font-light text-deep">
               My Artwork Orders
             </h1>
-            {!loading && (
-              <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-brand px-2 font-mono text-xs font-bold text-white">
-                {orders.length}
-              </span>
-            )}
+            <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-brand px-2 font-mono text-xs font-bold text-white">
+              {orders.length}
+            </span>
           </div>
           <p className="mt-1 text-xs sm:text-sm text-steel">
             View your artwork requests and the pieces you selected.
           </p>
         </div>
 
-        {loading ? (
-          <div className="space-y-4">
-            {[1, 2].map((i) => (
-              <div key={i} className="h-40 rounded-2xl bg-white border border-light animate-pulse" />
-            ))}
-          </div>
-        ) : sortedOrders.length === 0 ? (
+        {sortedOrders.length === 0 ? (
           <div className="rounded-2xl border border-light bg-white py-16 px-4 text-center shadow-xs">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ice text-mist">
               <Package className="h-8 w-8" />
@@ -115,7 +112,7 @@ export default function MyOrdersPage() {
                   {order.items.map((item) => (
                     <div key={item.id} className="py-3 flex items-center gap-4">
                       <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-ice border border-light">
-                        <Image src={item.image} alt={item.title} fill className="object-cover" />
+                        <SkeletonImage src={item.image} alt={item.title} fill sizes="64px" className="object-cover" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="font-serif text-sm font-medium text-deep truncate">

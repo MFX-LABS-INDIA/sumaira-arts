@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { Eyebrow, SectionHeading, headingClass } from "@/components/ui/SectionHeading";
-import { ButtonLink, TextLink } from "@/components/ui/Link";
-import { Reveal } from "@/components/ui/Reveal";
+import { SkeletonImage } from "@/components/atoms/SkeletonImage";
+import { Container } from "@/components/atoms/Container";
+import { Section } from "@/components/atoms/Section";
+import { Eyebrow, SectionHeading, headingClass } from "@/components/molecules/SectionHeading";
+import { ButtonLink, TextLink } from "@/components/atoms/Link";
+import { Reveal } from "@/components/atoms/Reveal";
 import { artist } from "@/data/artist";
-import { InteractiveArchive } from "@/components/about/InteractiveArchive";
-import { RecognitionTimeline } from "@/components/about/RecognitionTimeline";
-import { StudioTechnique } from "@/components/about/StudioTechnique";
-import { ArtistFounderHero } from "@/components/about/ArtistFounderHero";
+import { InteractiveArchive } from "@/components/organisms/InteractiveArchive";
+import { RecognitionTimeline } from "@/components/organisms/RecognitionTimeline";
+import { StudioTechnique } from "@/components/organisms/StudioTechnique";
+import { ArtistFounderHero } from "@/components/organisms/ArtistFounderHero";
 
 export const metadata: Metadata = {
   title: "About the Artist | Sumaira Mohammed Ashik | Sumaira Arts",
@@ -65,7 +65,7 @@ export default function AboutPage() {
 
                 <div className="mt-auto flex items-center gap-3 border-t border-soft/40 pt-5 sm:pt-6">
                   <div className="relative h-12 w-12 overflow-hidden rounded-full border border-soft bg-white sm:h-14 sm:w-14">
-                    <Image
+                    <SkeletonImage
                       src="/assets/images/artist/sumaira-portrait.webp"
                       alt={artist.name}
                       fill
