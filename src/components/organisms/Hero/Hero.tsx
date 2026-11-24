@@ -102,16 +102,16 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(13,24,42,0.72)_0%,rgba(13,24,42,0.38)_52%,transparent_100%)]" />
       </div>
 
-      {/* Centered copy + frosted-glass quick-category dock */}
-      <Container className="relative z-10 py-14 text-center sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-5xl">
+      {/* Copy (left-aligned on mobile, centered on sm+) + frosted-glass quick-category dock */}
+      <Container className="relative z-10 py-14 text-left sm:py-20 sm:text-center lg:py-24">
+        <div className="max-w-5xl sm:mx-auto">
           <h1
             id="home-title"
-            className="whitespace-nowrap text-[clamp(1.25rem,5.2vw,3.25rem)] font-semibold leading-[1.12] tracking-tight text-white drop-shadow-[0_2px_14px_rgba(13,24,42,0.65)]"
+            className="text-2xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_2px_14px_rgba(13,24,42,0.65)] sm:text-3xl md:whitespace-nowrap lg:text-[3.25rem]"
           >
             {homeHero.title}
           </h1>
-          <p className="mx-auto mt-3.5 max-w-2xl text-sm font-medium leading-relaxed text-white drop-shadow-[0_2px_10px_rgba(13,24,42,0.85)] sm:mt-4 sm:text-base lg:text-lg">
+          <p className="mt-3.5 max-w-2xl text-sm font-medium leading-relaxed text-white drop-shadow-[0_2px_10px_rgba(13,24,42,0.85)] sm:mx-auto sm:mt-4 sm:text-base lg:text-lg">
             {homeHero.description}
           </p>
         </div>

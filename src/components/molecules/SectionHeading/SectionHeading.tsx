@@ -31,7 +31,7 @@ export function SectionHeading({
   align = "start",
   tone = "light",
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   align?: "start" | "center";
@@ -40,8 +40,8 @@ export function SectionHeading({
   const center = align === "center";
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
-      <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
-      <h2 className={`${headingClass} mt-2.5 sm:mt-4 ${tone === "dark" ? "text-white" : "text-deep"}`}>{title}</h2>
+      {eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}
+      <h2 className={`${headingClass} ${eyebrow ? "mt-2.5 sm:mt-4" : ""} ${tone === "dark" ? "text-white" : "text-deep"}`}>{title}</h2>
       {description ? (
         <p
           className={`mt-2.5 sm:mt-4 text-xs sm:text-sm leading-relaxed md:text-base ${

@@ -21,7 +21,6 @@ export const homeHero = {
 };
 
 export const categoryIntro = {
-  eyebrow: "Three ways to find your piece",
   title: "Discover the Art of Many Expressions.",
   description:
     "Explore thoughtfully curated collections, original artworks and expressive mixed media creations. From intricate calligraphy to captivating textures, find the artistic expression that speaks to you.",
