@@ -2,21 +2,29 @@ import type { Cta } from "@/types/content";
 
 export const homeHero = {
   eyebrow: "Contemporary Arabic calligraphy",
-  title: "Art with meaning.",
+  title: "Rooted in Heritage. Written in Beauty.",
   accent: "A space that feels like you.",
   description:
-    "Discover original textured canvases, expressive mixed media artworks and curated collections by Sumaira. Find the piece that speaks to you and belongs in your space.",
+    "Discover the timeless charm of Arabic calligraphy, artistic textures and contemporary masterpieces inspired by a rich legacy of expression.",
   primary: { label: "Find your artwork", href: "#offerings" },
   secondary: { label: "Meet the artist", href: "#artist" },
   featuredSlug: "promise-after-hardship",
   featuredLabel: "In the spotlight",
-  imageAlt: "Promise After Hardship, a textured Arabic calligraphy artwork featuring Fa Inna Ma'al Usri Yusra",
+  image: "/assets/images/hero/gallery-collage.webp",
+  imageAlt: "Curated gallery collage of Sumaira Arts Arabic calligraphy and textured canvas artworks",
+  quickCategories: [
+    { id: "originals", label: "Originals", href: "/products?category=Original_Texture", icon: "sparkles" },
+    { id: "mixed-media", label: "Mixed Media", href: "/products?category=Mixed_Media_Artworks", icon: "layers" },
+    { id: "collections", label: "Collections", href: "/products?category=Mixed_Media_Canvas", icon: "frame" },
+    { id: "all-artworks", label: "All Artworks", href: "/products", icon: "grid" },
+  ] as const,
 };
 
 export const categoryIntro = {
   eyebrow: "Three ways to find your piece",
-  title: "Start with what speaks to you.",
-  description: "A colour, a composition, a texture. Discover the different expressions of Sumaira’s work and choose your own starting point.",
+  title: "Discover the Art of Many Expressions.",
+  description:
+    "Explore thoughtfully curated collections, original artworks and expressive mixed media creations. From intricate calligraphy to captivating textures, find the artistic expression that speaks to you.",
   browse: "Explore category",
 };
 

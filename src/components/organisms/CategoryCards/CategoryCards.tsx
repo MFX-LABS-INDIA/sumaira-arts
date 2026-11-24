@@ -22,7 +22,7 @@ export function CategoryCards() {
 
             return (
               <article key={category.id} className="group relative flex h-full w-[82vw] max-w-[320px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-colors hover:border-brand sm:w-auto sm:max-w-none">
-                <div className="relative aspect-[16/11] overflow-hidden bg-ice sm:aspect-[4/3]">
+                <div className="relative aspect-[16/10] overflow-hidden bg-ice">
                   <SkeletonImage
                     src={artwork.image}
                     alt={`${artwork.title} from ${category.title}`}
@@ -30,18 +30,18 @@ export function CategoryCards() {
                     sizes="(min-width: 1280px) 379px, (min-width: 1024px) 31vw, (min-width: 640px) 90vw, 82vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
                   />
-                  <span className="absolute start-3 top-3 rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-brand sm:start-4 sm:top-4 sm:px-3 sm:py-1.5 sm:text-xs">{count} artworks</span>
+                  <span className="absolute start-3 top-3 rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-brand sm:start-3.5 sm:top-3.5 sm:px-3 sm:py-1 sm:text-xs">{count} artworks</span>
                 </div>
-                <div className="flex flex-1 flex-col p-4 sm:p-6 lg:p-7">
+                <div className="flex flex-1 flex-col p-3.5 sm:p-5">
                   <Eyebrow className="tracking-widest text-[10px] sm:text-label">{category.eyebrow}</Eyebrow>
-                  <h3 className="mt-1.5 sm:mt-3 text-lg sm:text-2xl font-medium leading-snug tracking-tight text-deep sm:min-h-16">
+                  <h3 className="mt-1 sm:mt-2 text-base sm:text-xl font-medium leading-snug tracking-tight text-deep">
                     <SmartLink href={categoryHref(category.id)} className="after:absolute after:inset-0 after:rounded-card">
                       {category.title}
                     </SmartLink>
                   </h3>
-                  <p className="mt-2 text-xs sm:text-base leading-relaxed sm:leading-7 text-steel line-clamp-2 sm:line-clamp-none">{category.description}</p>
-                  <div className="mt-auto pt-3 sm:pt-7">
-                    <span className="flex min-h-10 sm:min-h-11 items-center justify-between gap-3 border-t border-light pt-3 sm:pt-4 text-xs sm:text-sm font-semibold text-brand" aria-hidden="true">
+                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-steel line-clamp-2">{category.description}</p>
+                  <div className="mt-auto pt-3 sm:pt-4">
+                    <span className="flex min-h-9 items-center justify-between gap-3 border-t border-light pt-2.5 sm:pt-3 text-xs sm:text-sm font-semibold text-brand" aria-hidden="true">
                       {categoryIntro.browse}<ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 rtl:rotate-180" />
                     </span>
                   </div>

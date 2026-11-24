@@ -1,72 +1,147 @@
-import { ArrowUpRight } from "lucide-react";
-import { SkeletonImage } from "@/components/atoms/SkeletonImage";
+import Image from "next/image";
 import { Container } from "@/components/atoms/Container";
-import { Eyebrow } from "@/components/molecules/SectionHeading";
-import { ButtonLink, SmartLink, TextLink } from "@/components/atoms/Link";
+import {
+  AllArtworksGridIcon,
+  CalligraphyOriginalsIcon,
+  CollectionsGalleryIcon,
+  MixedMediaTextureIcon,
+} from "@/components/atoms/Icons";
+import { SmartLink } from "@/components/atoms/Link";
 import { homeHero } from "@/data/home";
-import { allProducts, formatCategoryLabel } from "@/data/products";
+import { allProducts } from "@/data/products";
 
-/** A steady introduction keeps the artwork and the next step visible together. */
+const categoryIcons = {
+  sparkles: CalligraphyOriginalsIcon,
+  layers: MixedMediaTextureIcon,
+  frame: CollectionsGalleryIcon,
+  grid: AllArtworksGridIcon,
+} as const;
+
+/**
+ * Pick 18 distinct artworks (6 per row across 3 rows) so the marquee fills even ultrawide
+ * viewports seamlessly while keeping initial image payload lean and flicker-free.
+ */
+function getArtworkMarqueeRows() {
+  const seen = new Set<string>();
+  const images: { src: string; title: string }[] = [];
+
+  for (const product of allProducts) {
+    if (product.image && !seen.has(product.image)) {
+      seen.add(product.image);
+      images.push({ src: product.image, title: product.title });
+      if (images.length >= 18) break;
+    }
+  }
+
+  const perRow = 6;
+  const duration = `${perRow * 4.5}s`;
+  return [
+    { key: "row-1", items: images.slice(0, perRow), direction: "left" as const, duration },
+    { key: "row-2", items: images.slice(perRow, perRow * 2), direction: "right" as const, duration },
+    { key: "row-3", items: images.slice(perRow * 2, perRow * 3), direction: "left" as const, duration },
+  ];
+}
+
+/** Full-bleed moving artwork marquee hero with a frosted-glass category dock. */
 export function Hero() {
-  const artwork = allProducts.find((product) => product.slug === homeHero.featuredSlug)!;
+  const rows = getArtworkMarqueeRows();
 
   return (
-    <section aria-labelledby="home-title" className="overflow-hidden border-b border-light bg-ice/50">
-      <Container className="py-6 sm:py-10 lg:py-14">
-        <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-14">
-          <div className="max-w-xl">
-            <div className="flex items-center gap-2.5">
-              <span className="h-px w-6 bg-brand sm:w-8" aria-hidden="true" />
-              <Eyebrow>{homeHero.eyebrow}</Eyebrow>
-            </div>
-            <h1 id="home-title" className="mt-3 sm:mt-4 text-[clamp(1.85rem,6.5vw,2.75rem)] sm:text-[clamp(2.35rem,4.5vw,4rem)] font-medium leading-[1.12] tracking-tight text-deep text-balance">
-              {homeHero.title}
-              <span className="mt-1 sm:mt-2 block font-light text-brand">{homeHero.accent}</span>
-            </h1>
-            <p className="mt-3 sm:mt-5 max-w-lg text-sm sm:text-base leading-relaxed sm:leading-8 text-steel">{homeHero.description}</p>
-            <div className="mt-5 sm:mt-7 grid grid-cols-1 gap-2.5 sm:flex sm:flex-row sm:items-center sm:gap-6">
-              <ButtonLink href={homeHero.primary.href} className="min-h-12 w-full justify-center shadow-sm sm:w-auto">
-                {homeHero.primary.label}
-              </ButtonLink>
-              <TextLink
-                href={homeHero.secondary.href}
-                className="min-h-11 w-full justify-center rounded-control border border-light bg-white/90 px-4 sm:w-auto sm:rounded-none sm:border-0 sm:border-b sm:bg-transparent sm:px-0"
-              >
-                {homeHero.secondary.label}
-              </TextLink>
-            </div>
-          </div>
+    <section
+      aria-labelledby="home-title"
+      className="relative flex min-h-[460px] items-center overflow-hidden bg-deep sm:min-h-[540px] lg:min-h-[600px]"
+    >
+      {/* Full-bleed 3-row moving artwork marquee wall */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 flex flex-col gap-1.5 bg-deep py-1.5"
+      >
+        {rows.map((row) => {
+          const trackClass =
+            row.direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
 
-          <figure className="group relative mx-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-light bg-white shadow-artwork lg:max-w-none">
-            <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-square">
-              <SkeletonImage
-                src={artwork.image}
-                alt={homeHero.imageAlt}
-                fill
-                preload
-                instantReveal
-                sizes="(min-width: 1280px) 564px, (min-width: 1024px) 46vw, (min-width: 640px) 80vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-              />
-              <span className="absolute start-3 top-3 rounded-full border border-white/70 bg-white/92 px-3 py-1.5 text-[11px] font-medium text-brand shadow-xs backdrop-blur-xs sm:start-5 sm:top-5 sm:px-4 sm:py-2 sm:text-xs">
-                {homeHero.featuredLabel}
-              </span>
-            </div>
-            <figcaption className="flex items-center justify-between gap-3 p-3.5 sm:p-5 sm:px-6">
-              <div className="min-w-0">
-                <p className="text-[11px] sm:text-xs leading-relaxed text-steel">{formatCategoryLabel(artwork.category)}</p>
-                <h2 className="mt-0.5 sm:mt-1 truncate text-base sm:text-lg font-medium text-deep">
-                  <SmartLink href={`/products/${artwork.slug}`} className="after:absolute after:inset-0 after:rounded-2xl">
-                    {artwork.title}
-                  </SmartLink>
-                </h2>
+          return (
+            <div key={row.key} className="relative flex-1 overflow-hidden">
+              <div
+                className={`flex h-full w-max ${trackClass}`}
+                style={{ animationDuration: row.duration }}
+              >
+                {[0, 1].map((dup) => (
+                  <div
+                    key={dup}
+                    className={`flex h-full shrink-0 gap-1.5 pr-1.5 ${
+                      dup === 1 ? "motion-reduce:hidden" : ""
+                    }`}
+                  >
+                    {row.items.map((item) => (
+                      <div
+                        key={`${row.key}-${dup}-${item.src}`}
+                        className="relative h-full w-40 shrink-0 overflow-hidden rounded-sm bg-deep sm:w-52 lg:w-64"
+                      >
+                        <Image
+                          src={item.src}
+                          alt=""
+                          fill
+                          loading="eager"
+                          decoding="async"
+                          quality={65}
+                          sizes="(min-width: 1024px) 256px, (min-width: 640px) 208px, 160px"
+                          className="object-cover object-center"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
               </div>
-              <span className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-light text-brand transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white" aria-hidden="true">
-                <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5 rtl:-rotate-90" />
-              </span>
-            </figcaption>
-          </figure>
+            </div>
+          );
+        })}
+
+        {/* Editorial navy scrim + soft center radial vignette so text pops while outer tiles stay vivid */}
+        <div className="absolute inset-0 bg-gradient-to-b from-deep/55 via-deep/60 to-deep/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(13,24,42,0.72)_0%,rgba(13,24,42,0.38)_52%,transparent_100%)]" />
+      </div>
+
+      {/* Centered copy + frosted-glass quick-category dock */}
+      <Container className="relative z-10 py-14 text-center sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-3xl">
+          <h1
+            id="home-title"
+            className="text-3xl font-semibold leading-[1.12] tracking-tight text-white text-balance drop-shadow-[0_2px_14px_rgba(13,24,42,0.65)] sm:text-5xl lg:text-[3.5rem]"
+          >
+            {homeHero.title}
+          </h1>
+          <p className="mx-auto mt-3.5 max-w-2xl text-sm font-medium leading-relaxed text-white drop-shadow-[0_2px_10px_rgba(13,24,42,0.85)] sm:mt-4 sm:text-base lg:text-lg">
+            {homeHero.description}
+          </p>
         </div>
+
+        <nav
+          aria-label="Browse artwork categories"
+          className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-2xl border border-white/30 bg-white/15 shadow-artwork backdrop-blur-md sm:mt-10"
+        >
+          <ul className="grid grid-cols-2 divide-x divide-y divide-white/25 sm:grid-cols-4 sm:divide-y-0">
+            {homeHero.quickCategories.map((item) => {
+              const Icon = categoryIcons[item.icon];
+              return (
+                <li key={item.id} className="min-w-0">
+                  <SmartLink
+                    href={item.href}
+                    className="group flex h-full min-h-[84px] flex-col items-center justify-center gap-2 px-3 py-4 text-center text-white transition-colors duration-200 hover:bg-white/20 focus-visible:bg-white/20 focus-visible:outline-none sm:min-h-[96px] sm:px-4 sm:py-5"
+                  >
+                    <Icon
+                      aria-hidden="true"
+                      className="h-5 w-5 text-white/90 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:text-white sm:h-6 sm:w-6"
+                    />
+                    <span className="text-xs font-medium leading-snug tracking-wide text-white/95 group-hover:text-white sm:text-[13px]">
+                      {item.label}
+                    </span>
+                  </SmartLink>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       </Container>
     </section>
   );

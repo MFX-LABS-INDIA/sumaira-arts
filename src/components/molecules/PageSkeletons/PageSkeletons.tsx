@@ -5,34 +5,17 @@ export function HomePageSkeleton() {
   return (
     <div aria-busy="true" aria-label="Loading gallery">
       {/* Hero section skeleton */}
-      <section className="border-b border-light bg-ice/50 py-6 sm:py-10 lg:py-14">
-        <Container>
-          <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-14">
-            <div className="max-w-xl space-y-5">
-              <div className="flex items-center gap-3">
-                <Skeleton className="h-px w-8" />
-                <Skeleton className="h-3.5 w-40 rounded-full" />
-              </div>
-              <div className="space-y-3">
-                <Skeleton className="h-10 w-11/12 sm:h-12" />
-                <Skeleton className="h-10 w-3/4 sm:h-12" />
-              </div>
-              <SkeletonText lines={3} />
-              <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-                <Skeleton className="h-12 w-full rounded-control sm:w-44" />
-                <Skeleton className="h-12 w-full rounded-control sm:w-36" />
-              </div>
-            </div>
-
-            <div className="mx-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-light bg-white shadow-artwork lg:max-w-none">
-              <Skeleton className="aspect-[4/3] w-full rounded-none sm:aspect-[16/10] lg:aspect-square" />
-              <div className="flex items-center justify-between gap-4 p-4 sm:p-5">
-                <div className="space-y-2 flex-1">
-                  <Skeleton className="h-3 w-24" />
-                  <Skeleton className="h-5 w-48" />
-                </div>
-                <Skeleton className="h-10 w-10 rounded-full shrink-0" />
-              </div>
+      <section className="flex min-h-[460px] items-center bg-deep py-14 sm:min-h-[540px] sm:py-20 lg:min-h-[600px]">
+        <Container className="text-center">
+          <div className="mx-auto max-w-3xl space-y-4">
+            <Skeleton tone="dark" className="mx-auto h-10 w-4/5 sm:h-14" />
+            <Skeleton tone="dark" className="mx-auto h-5 w-2/3" />
+          </div>
+          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-white/15 bg-white/5 p-3">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {[1, 2, 3, 4].map((i) => (
+                <Skeleton key={i} tone="dark" className="h-16 w-full rounded-xl" />
+              ))}
             </div>
           </div>
         </Container>
@@ -100,7 +83,7 @@ export function CatalogPageSkeleton() {
               <Skeleton className="h-4 w-36" />
               <Skeleton className="hidden h-9 w-40 rounded-lg sm:block" />
             </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:gap-7">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <ProductCardSkeleton key={i} />
               ))}

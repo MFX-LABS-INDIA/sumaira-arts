@@ -17,7 +17,7 @@ const collectionHref = "/products?category=Mixed_Media_Canvas";
 function CollectionCard({ product, index }: { product: Product; index: number }) {
   return (
     <article className="group relative flex w-[75vw] max-w-[280px] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-light bg-white shadow-xs transition-[border-color,box-shadow] duration-300 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]">
-      <div className="relative aspect-[5/6] sm:aspect-[4/5] overflow-hidden bg-ice">
+      <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden bg-ice">
         <SkeletonImage
           src={product.image}
           alt={`${product.title} artwork in the Collections range`}
@@ -25,22 +25,22 @@ function CollectionCard({ product, index }: { product: Product; index: number })
           sizes="(min-width: 1280px) 379px, (min-width: 1024px) 31vw, (min-width: 640px) 45vw, 75vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:transform-none"
         />
-        <span className="absolute start-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium text-brand shadow-xs sm:start-4 sm:top-4 sm:px-3 sm:py-1.5 sm:text-xs">
+        <span className="absolute start-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium text-brand shadow-xs sm:start-3.5 sm:top-3.5 sm:px-3 sm:py-1 sm:text-xs">
           {String(index + 1).padStart(2, "0")} / {String(collectionArtworks.length).padStart(2, "0")}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-4 sm:p-6">
+      <div className="flex flex-1 flex-col p-3.5 sm:p-4">
         <p className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-steel">Collections</p>
-        <h3 className="mt-1.5 sm:mt-2 text-lg font-medium leading-snug tracking-tight text-deep sm:text-2xl">
+        <h3 className="mt-1 text-base font-medium leading-snug tracking-tight text-deep sm:text-lg">
           <SmartLink href={`/products/${product.slug}`} className="after:absolute after:inset-0 after:rounded-2xl">
             {product.title}
           </SmartLink>
         </h3>
-        {product.medium && <p className="mt-2 sm:mt-3 line-clamp-2 text-xs sm:text-sm leading-relaxed sm:leading-6 text-steel">{product.medium}</p>}
-        <div className="mt-auto pt-3 sm:pt-6">
-          <span className="flex min-h-10 sm:min-h-11 items-center justify-between gap-3 border-t border-light pt-3 sm:pt-4 text-xs sm:text-sm font-semibold text-brand" aria-hidden="true">
+        {product.medium && <p className="mt-1.5 line-clamp-1 text-xs leading-relaxed text-steel sm:text-sm">{product.medium}</p>}
+        <div className="mt-auto pt-2.5 sm:pt-3.5">
+          <span className="flex min-h-9 items-center justify-between gap-3 border-t border-light pt-2.5 text-xs sm:text-sm font-semibold text-brand" aria-hidden="true">
             {collectionsIntro.viewArtwork}
-            <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5 rtl:-rotate-90" />
+            <ArrowUpRight className="h-4 w-4 rtl:-rotate-90" />
           </span>
         </div>
       </div>
