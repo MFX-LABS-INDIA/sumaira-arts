@@ -55,7 +55,7 @@ export function LiveEventsView() {
                         preload
                         instantReveal
                         sizes="(min-width: 1280px) 340px, (min-width: 1024px) 28vw, 55vw"
-                        className="object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
                       />
                       <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-deep/20 to-transparent p-3 sm:block">
                         <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
@@ -64,36 +64,36 @@ export function LiveEventsView() {
                       </span>
                     </div>
 
-                    {/* Top-right: luxury perfume engraving at gala */}
+                    {/* Top-right: framed live wedding sketching */}
                     <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-xl bg-ice">
                       <SkeletonImage
-                        src="/assets/images/events/gallery-gala-perfume-engraving.webp"
-                        alt="Sumaira engraving Arabic calligraphy onto perfume flacons at luxury candlelit gala"
+                        src="/assets/images/events/service-sketching.webp"
+                        alt="Framed live portrait sketch of an Emirati wedding couple with gold details"
                         fill
                         preload
                         instantReveal
+                        sizes="(min-width: 1280px) 240px, (min-width: 1024px) 20vw, 40vw"
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                      />
+                      <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-transparent to-transparent p-2.5 sm:block">
+                        <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
+                          Live Sketching
+                        </span>
+                      </span>
+                    </div>
+
+                    {/* Bottom-right: botanical floral glass etching */}
+                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-xl bg-ice">
+                      <SkeletonImage
+                        src="/assets/images/events/gallery-perfume-floral.webp"
+                        alt="Botanical floral motif diamond-engraved onto an amber perfume bottle"
+                        fill
                         sizes="(min-width: 1280px) 240px, (min-width: 1024px) 20vw, 40vw"
                         className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
                       />
                       <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-transparent to-transparent p-2.5 sm:block">
                         <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
                           Perfume Engraving
-                        </span>
-                      </span>
-                    </div>
-
-                    {/* Bottom-right: on-site live calligraphy & engraving */}
-                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-xl bg-ice">
-                      <SkeletonImage
-                        src="/assets/images/events/service-engraving-perfume.webp"
-                        alt="Sumaira performing live calligraphy and engraving on-site"
-                        fill
-                        sizes="(min-width: 1280px) 240px, (min-width: 1024px) 20vw, 40vw"
-                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
-                      />
-                      <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-transparent to-transparent p-2.5 sm:block">
-                        <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
-                          Live Personalization
                         </span>
                       </span>
                     </div>
