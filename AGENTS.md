@@ -7,3 +7,18 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Mandatory Post-Change & Git Deployment Workflow
+
+Always follow [.agents/rules/post-change-git-workflow.md](.agents/rules/post-change-git-workflow.md) after completing any code, content, or asset change:
+
+1. **Never auto-run** `npm run lint`, `npm run typecheck`, `npm run build`, `git` commands, or `vercel` deployments without explicit user approval.
+2. **Always use the interactive `ask_question` pop-up tool (never plain-text questions)** to ask **ONE step at a time** (`Step 1/7` → `Step 7/7`) with clickable options (`Yes`, `No`, `Skip`, `Skip to Git`):
+   - **Step 1/7:** Linting (`npm run lint`)
+   - **Step 2/7:** Type-check & build (`npm run typecheck && npm run build`)
+   - **Step 3/7:** Pre-commit diff & status review (`git status -s && git diff --stat`)
+   - **Step 4/7:** Stage files (`git add -A`)
+   - **Step 5/7:** Commit with auto-drafted Conventional Commit message (`git commit -m "<type>(<scope>): <summary>"`)
+   - **Step 6/7:** Sync & push branches (`git branch -f development HEAD; git push origin main development`)
+   - **Step 7/7:** Deploy to production (`npx vercel --prod --yes`)
+3. If the user clicks **No**, stop and ask what changes they want; once updated, restart from **Step 1/7**. If **Skip to Git**, jump directly to **Step 4/7**.

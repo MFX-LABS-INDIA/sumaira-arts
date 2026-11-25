@@ -27,27 +27,29 @@ export function ArtistFounderHero() {
 
           <Reveal delay={150} className="md:col-span-6 md:col-start-7 md:row-span-2 md:row-start-1 md:self-center">
             <figure className="relative mx-auto w-full max-w-lg">
-              <div className="absolute -inset-2 rounded-card border border-soft/70 sm:-inset-3" aria-hidden="true" />
-              <div className="relative aspect-[16/10] overflow-hidden rounded-card border border-light bg-white sm:aspect-[4/3]">
-                <SkeletonImage
-                  src="/assets/images/artist/sumaira-studio-calligraphy.webp"
-                  alt="Sumaira Mohammed Ashik at her easel in Dubai"
-                  fill
-                  preload
-                  instantReveal
-                  sizes="(min-width: 1024px) 40vw, 90vw"
-                  className="object-cover object-top"
-                />
-                <figcaption className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-3 rounded-control border border-white/70 bg-white/95 p-2.5 shadow-sm sm:inset-x-4 sm:bottom-4 sm:p-3">
-                  <span>
-                    <span className="block text-micro font-medium uppercase tracking-caps text-steel">
-                      Studio Practice · Dubai, UAE
+              <div className="pointer-events-none absolute -inset-2 hidden rounded-card border border-soft/70 sm:-inset-3 sm:block" aria-hidden="true" />
+              <div className="overflow-hidden rounded-card border border-light bg-white p-2 sm:p-2.5">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-ice">
+                  <SkeletonImage
+                    src="/assets/images/artist/sumaira-about-hero.webp"
+                    alt="Portrait of Sumaira Mohammed Ashik, Dubai-based abstract calligraphy artist and founder of Sumaira Arts"
+                    fill
+                    preload
+                    instantReveal
+                    sizes="(min-width: 1024px) 480px, (min-width: 768px) 46vw, 90vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-2 flex items-center justify-between gap-3 px-1.5 py-1 sm:mt-2.5 sm:px-2 sm:py-1.5">
+                  <span className="min-w-0">
+                    <span className="block truncate text-[10px] font-semibold uppercase tracking-wider text-steel sm:text-micro sm:tracking-caps">
+                      Artist &amp; Founder · Dubai, UAE
                     </span>
-                    <span className="mt-1 block font-serif text-xs font-light text-deep sm:text-sm">
+                    <span className="mt-0.5 block truncate font-serif text-xs font-light text-deep sm:text-sm">
                       Metallic textured acrylics &amp; contemporary Arabic script.
                     </span>
                   </span>
-                  <span className="shrink-0 font-mono text-xs text-brand" aria-hidden="true">
+                  <span className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand">
                     01 / 01
                   </span>
                 </figcaption>

@@ -141,6 +141,20 @@ export const workshopsData = {
   },
   gallery: [
     {
+      id: "ws-gal-0a",
+      title: "Guided Calligraphy Demonstration",
+      caption: "Live reed-pen stroke & proportion session",
+      image: "/assets/images/workshops/workshop-cultural-venue.webp",
+      alt: "Sumaira demonstrating classical Arabic calligraphy stroke proportions on a board for workshop participants",
+    },
+    {
+      id: "ws-gal-0b",
+      title: "Textured Ocean & Script Canvas",
+      caption: "Live impasto layering & contemporary Arabic calligraphy",
+      image: "/assets/images/workshops/workshop-live-canvas.webp",
+      alt: "Sumaira blending turquoise and emerald ocean textures alongside contemporary Arabic calligraphy on canvas",
+    },
+    {
       id: "ws-gal-1",
       title: "Hands-On Canvas Coaching",
       caption: "Guided brushwork at The Workshop Dubai",

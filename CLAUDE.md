@@ -55,6 +55,10 @@ build a duplicate.
 
 ## Before you finish anything
 
+Follow the mandatory step-by-step approval workflow in [.agents/rules/post-change-git-workflow.md](.agents/rules/post-change-git-workflow.md): **do not** run lint, typecheck, build, `git`, or deployment commands automatically. Pause after completing edits and ask the user **one step at a time** (`Step 1` lint → `Step 2` typecheck/build → `Step 3` diff/security review → `Step 4` `git add` → `Step 5` `git commit` → `Step 6` `git push` → `Step 7` deploy).
+
+When the user approves verification:
+
 ```bash
 npm run verify
 ```

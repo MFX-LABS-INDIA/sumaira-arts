@@ -125,6 +125,20 @@ export const liveEventsData = {
   },
   gallery: [
     {
+      id: "ev-gal-0",
+      title: "Luxury Gala Perfume Engraving",
+      category: "Engraving",
+      image: "/assets/images/events/gallery-gala-perfume-engraving.webp",
+      alt: "Sumaira Mohammed Ashik engraving Arabic calligraphy onto crystal fragrance flacons at a candlelit Emirati evening gala",
+    },
+    {
+      id: "ev-gal-0a",
+      title: "On-Site Diamond Perfume Engraving",
+      category: "Engraving",
+      image: "/assets/images/events/gallery-live-engraving-artist.webp",
+      alt: "Sumaira Mohammed Ashik hand-engraving a luxury fragrance bottle live using a precision diamond-tip micro-engraver",
+    },
+    {
       id: "ev-gal-1",
       title: "Floral Diamond Engraving",
       category: "Engraving",
