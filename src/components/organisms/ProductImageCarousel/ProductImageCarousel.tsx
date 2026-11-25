@@ -53,7 +53,7 @@ export function ProductImageCarousel({
               alt={`${productName} - Image ${currentIndex + 1}`}
               fill
               sizes="(min-width: 1024px) 55vw, 100vw"
-              priority
+              preload
               className="object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -182,7 +182,7 @@ export function ProductImageCarousel({
                 sizes="100vw"
                 skeletonTone="dark"
                 className="object-contain"
-                priority
+                preload
               />
             </div>
 

@@ -93,7 +93,7 @@ export function WorkshopsGallery({ items }: { items: WorkshopGalleryItem[] }) {
         {items.map((item, idx) => (
           <figure
             key={item.id}
-            className="group relative flex w-[78vw] max-w-[300px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-colors hover:border-brand/40 sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]"
+            className="group relative flex w-[78vw] max-w-[300px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-colors hover:border-brand/40 sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-ice">
               <SkeletonImage

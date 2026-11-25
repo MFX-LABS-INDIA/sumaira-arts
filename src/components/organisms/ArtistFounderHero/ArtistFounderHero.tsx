@@ -1,8 +1,10 @@
+import { Award, Calendar, Palette, Store } from "lucide-react";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { artist } from "@/data/artist";
 import { ButtonLink } from "@/components/atoms/Link";
 import { Container } from "@/components/atoms/Container";
 import { Eyebrow } from "@/components/molecules/SectionHeading";
+import { StatsBar } from "@/components/molecules/StatsBar";
 import { Reveal } from "@/components/atoms/Reveal";
 import { Section } from "@/components/atoms/Section";
 
@@ -81,20 +83,22 @@ export function ArtistFounderHero() {
         </div>
 
         <Reveal delay={220}>
-          <div className="mt-7 overflow-hidden rounded-card border border-light bg-white sm:mt-9">
-            <div className="grid grid-cols-2 divide-x divide-y divide-light sm:grid-cols-4 sm:divide-y-0">
-              {artist.stats.map((stat) => (
-                <div key={stat.label} className="px-4 py-3.5 sm:px-5 sm:py-4 lg:px-7">
-                  <span className="block font-serif text-2xl font-light tracking-tight text-deep sm:text-3xl">
-                    {stat.value}
-                  </span>
-                  <span className="mt-1 block text-micro font-medium uppercase tracking-caps text-steel">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <StatsBar
+            className="mt-6 sm:mt-8"
+            items={artist.stats.map((stat, idx) => ({
+              ...stat,
+              icon:
+                idx === 0 ? (
+                  <Calendar className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                ) : idx === 1 ? (
+                  <Store className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                ) : idx === 2 ? (
+                  <Palette className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                ) : (
+                  <Award className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                ),
+            }))}
+          />
         </Reveal>
       </Container>
     </Section>

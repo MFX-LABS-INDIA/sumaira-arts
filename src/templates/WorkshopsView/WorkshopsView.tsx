@@ -1,7 +1,9 @@
+import { Globe, MapPin, Palette, Users } from "lucide-react";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { Container } from "@/components/atoms/Container";
 import { Section } from "@/components/atoms/Section";
 import { Eyebrow, SectionHeading } from "@/components/molecules/SectionHeading";
+import { StatsBar } from "@/components/molecules/StatsBar";
 import { Reveal } from "@/components/atoms/Reveal";
 import { WorkshopBookingSection } from "@/components/organisms/WorkshopBookingSection";
 import { WorkshopsGallery } from "@/components/organisms/WorkshopsGallery";
@@ -75,20 +77,22 @@ export function WorkshopsView() {
           </div>
 
           <Reveal delay={200}>
-            <div className="mt-6 overflow-hidden rounded-card border border-light bg-white sm:mt-10">
-              <div className="grid grid-cols-2 divide-x divide-y divide-light sm:grid-cols-4 sm:divide-y-0">
-                {hero.stats.map((stat) => (
-                  <div key={stat.label} className="px-3.5 py-3 sm:px-5 sm:py-4 lg:px-6 lg:py-5">
-                    <span className="block truncate font-serif text-lg font-light tracking-tight text-deep sm:text-xl lg:text-2xl">
-                      {stat.value}
-                    </span>
-                    <span className="mt-0.5 block text-[11px] leading-snug text-steel sm:mt-1 sm:text-xs">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <StatsBar
+              className="mt-6 sm:mt-8"
+              items={hero.stats.map((stat, idx) => ({
+                ...stat,
+                icon:
+                  idx === 0 ? (
+                    <Users className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ) : idx === 1 ? (
+                    <Globe className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ) : idx === 2 ? (
+                    <MapPin className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ) : (
+                    <Palette className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ),
+              }))}
+            />
           </Reveal>
         </Container>
       </Section>

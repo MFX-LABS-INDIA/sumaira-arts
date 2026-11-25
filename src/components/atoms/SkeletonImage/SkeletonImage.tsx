@@ -43,9 +43,10 @@ export function SkeletonImage({
   );
   const imgRef = useRef<HTMLImageElement | null>(null);
 
+  const shouldPreload = Boolean(preload || priority);
   const isLoaded = loadedKey === srcKey || loadedImageSrcs.has(srcKey);
   const skipOpacityGate =
-    instantReveal || Boolean(preload) || Boolean(priority) || loadedImageSrcs.has(srcKey);
+    instantReveal || shouldPreload || loadedImageSrcs.has(srcKey);
 
   useEffect(() => {
     const img = imgRef.current;
@@ -74,8 +75,7 @@ export function SkeletonImage({
         ref={imgRef}
         src={src}
         alt={alt}
-        preload={preload}
-        priority={priority}
+        preload={shouldPreload || undefined}
         className={`${className} ${
           skipOpacityGate
             ? ""

@@ -111,13 +111,6 @@ export function LiveEventsGallery({ items }: { items: EventGalleryItem[] }) {
                 }`}
               >
                 <span>{category.name}</span>
-                <span
-                  className={`font-mono text-[11px] ${
-                    isActive ? "text-white/80" : "text-steel"
-                  }`}
-                >
-                  {String(category.count).padStart(2, "0")}
-                </span>
               </button>
             );
           })}

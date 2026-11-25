@@ -43,7 +43,7 @@ export function ArtImage({
     >
       <div className={inner}>
         {src ? (
-          <SkeletonImage src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+          <SkeletonImage src={src} alt={alt} fill sizes={sizes} preload={priority || undefined} className="object-cover" />
         ) : scene ? (
           <RoomScene scene={buildScene(scene, art)} className="h-full w-full" />
         ) : (

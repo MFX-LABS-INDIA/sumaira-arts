@@ -25,7 +25,7 @@ export const categoryIntro = {
   title: "The Art of Many Expressions",
   description:
     "Explore thoughtfully curated collections, original artworks and expressive mixed media creations.",
-  browse: "Explore category",
+  browse: "View More",
 };
 
 export const homeArtist = {

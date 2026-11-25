@@ -1,8 +1,10 @@
-import { Check } from "lucide-react";
+import { Award, Building2, Check, Languages } from "lucide-react";
+import { InstagramIcon } from "@/components/atoms/Icons";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { Container } from "@/components/atoms/Container";
 import { Section } from "@/components/atoms/Section";
 import { Eyebrow, SectionHeading } from "@/components/molecules/SectionHeading";
+import { StatsBar } from "@/components/molecules/StatsBar";
 import { Reveal } from "@/components/atoms/Reveal";
 import { CollaboratedBrands } from "@/components/organisms/CollaboratedBrands";
 import { LiveEventBookingSection } from "@/components/organisms/LiveEventBookingSection";
@@ -40,32 +42,76 @@ export function LiveEventsView() {
                   className="pointer-events-none absolute -inset-3 hidden rounded-card border border-soft/70 sm:block"
                   aria-hidden="true"
                 />
-                <div className="relative overflow-hidden rounded-card border border-light bg-white">
-                  <div className="relative aspect-[16/10] sm:aspect-[4/3]">
-                    <SkeletonImage
-                      src={hero.image}
-                      alt={hero.imageAlt}
-                      fill
-                      preload
-                      instantReveal
-                      sizes="(min-width: 1280px) 576px, (min-width: 1024px) 46vw, 92vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="flex flex-wrap items-center justify-between gap-2.5 border-t border-light bg-white p-3 sm:absolute sm:inset-x-4 sm:bottom-4 sm:flex-nowrap sm:rounded-control sm:border sm:border-white/70 sm:bg-white/95 sm:p-3 sm:shadow-sm sm:backdrop-blur-xs">
-                    <span className="min-w-0">
-                      <span className="block text-micro font-medium uppercase tracking-caps text-steel">
-                        On-Site Calligraphy &amp; Engraving · UAE &amp; GCC
+                <div className="overflow-hidden rounded-card border border-light bg-white p-2 sm:p-2.5">
+                  {/* 3-photo luxury event bento showcase */}
+                  <div className="grid aspect-[4/3] grid-cols-12 grid-rows-2 gap-1.5 sm:gap-2.5">
+                    {/* Tall left feature: luxury perfume engraving */}
+                    <div className="group relative col-span-7 row-span-2 overflow-hidden rounded-xl bg-ice">
+                      <SkeletonImage
+                        src="/assets/images/events/service-engraving.webp"
+                        alt="Kayali and luxury black perfume flacons hand-engraved with Arabic calligraphy"
+                        fill
+                        preload
+                        instantReveal
+                        sizes="(min-width: 1280px) 340px, (min-width: 1024px) 28vw, 55vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                      />
+                      <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-deep/20 to-transparent p-3 sm:block">
+                        <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
+                          Perfume Engraving
+                        </span>
                       </span>
-                      <span className="mt-0.5 block font-serif text-xs font-light text-deep sm:text-sm">
-                        Luxury launches, Emirati weddings &amp; VIP activations.
+                    </div>
+
+                    {/* Top-right: framed live wedding sketching */}
+                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-xl bg-ice">
+                      <SkeletonImage
+                        src="/assets/images/events/service-sketching.webp"
+                        alt="Framed live portrait sketch of an Emirati wedding couple with gold details"
+                        fill
+                        preload
+                        instantReveal
+                        sizes="(min-width: 1280px) 240px, (min-width: 1024px) 20vw, 40vw"
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                      />
+                      <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-transparent to-transparent p-2.5 sm:block">
+                        <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
+                          Live Sketching
+                        </span>
+                      </span>
+                    </div>
+
+                    {/* Bottom-right: diamond floral etching */}
+                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-xl bg-ice">
+                      <SkeletonImage
+                        src="/assets/images/events/gallery-perfume-floral.webp"
+                        alt="Botanical floral motif diamond-engraved onto an amber perfume bottle"
+                        fill
+                        sizes="(min-width: 1280px) 240px, (min-width: 1024px) 20vw, 40vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                      />
+                      <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-transparent to-transparent p-2.5 sm:block">
+                        <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
+                          Glass Etching
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <figcaption className="mt-2 flex items-center justify-between gap-3 px-1.5 py-1 sm:mt-2.5 sm:px-2 sm:py-1.5">
+                    <span className="min-w-0">
+                      <span className="block truncate text-[10px] font-semibold uppercase tracking-wider text-steel sm:text-micro sm:tracking-caps">
+                        On-Site Activations · UAE &amp; GCC
+                      </span>
+                      <span className="mt-0.5 block truncate font-serif text-xs font-light text-deep sm:text-sm">
+                        Luxury launches, weddings &amp; VIP events.
                       </span>
                     </span>
                     <a
                       href={site.instagram.events}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand transition-colors hover:bg-brand hover:text-white"
+                      className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand transition-colors hover:bg-brand hover:text-white sm:px-3 sm:py-1.5"
                     >
                       @sumevents.ae
                     </a>
@@ -84,31 +130,22 @@ export function LiveEventsView() {
           </div>
 
           <Reveal delay={200}>
-            <div className="mt-6 overflow-hidden rounded-card border border-light bg-white sm:mt-10">
-              <div className="grid grid-cols-2 divide-x divide-y divide-light sm:grid-cols-4 sm:divide-y-0">
-                {hero.highlights.map((item) => (
-                  <div key={item.label} className="px-3.5 py-3 sm:px-5 sm:py-4 lg:px-6 lg:py-5">
-                    {"href" in item && item.href ? (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block truncate font-serif text-lg font-light tracking-tight text-brand underline-offset-4 transition-colors hover:text-deep hover:underline sm:text-xl lg:text-2xl"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span className="block truncate font-serif text-lg font-light tracking-tight text-deep sm:text-xl lg:text-2xl">
-                        {item.value}
-                      </span>
-                    )}
-                    <span className="mt-0.5 block text-[11px] leading-snug text-steel sm:mt-1 sm:text-xs">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <StatsBar
+              className="mt-6 sm:mt-8"
+              items={hero.highlights.map((item, idx) => ({
+                ...item,
+                icon:
+                  idx === 0 ? (
+                    <Award className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ) : idx === 1 ? (
+                    <Building2 className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ) : idx === 2 ? (
+                    <Languages className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ) : (
+                    <InstagramIcon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  ),
+              }))}
+            />
           </Reveal>
         </Container>
       </Section>

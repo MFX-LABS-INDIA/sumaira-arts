@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   images: {
     // Serve AVIF/WebP to browsers that support them, and let the CDN keep optimised images for a month.
     formats: ["image/avif", "image/webp"],
+    qualities: [65, 75],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
 
@@ -28,15 +29,6 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value: "public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=604800",
-          },
-        ],
-      },
-      {
-        source: "/_next/image",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=604800",
           },
         ],
       },

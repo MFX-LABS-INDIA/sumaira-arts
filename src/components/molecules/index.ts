@@ -7,4 +7,5 @@ export * from "./PageSkeletons";
 export * from "./ProductCard";
 export * from "./SectionHeading";
 export * from "./SelectField";
+export * from "./StatsBar";
 export * from "./StickyBookingBar";

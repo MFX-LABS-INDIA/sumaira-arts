@@ -5,7 +5,7 @@ export const collectionsIntro = {
   title: "The Collections",
   description: "Explore expressive calligraphy, rich materials and distinctive colour across the Collections range.",
   viewAll: "View all collections",
-  viewArtwork: "View artwork",
+  viewArtwork: "View More",
 };
 
 /** The 99 Names collection, with four of its artworks (slugs from data/products.ts). */
