@@ -33,9 +33,9 @@ export const liveEventsData = {
       "UAE-licensed professional calligraphy and engraving artist Sumaira Mohammed Ashik brings live personalization, hand-lettered keepsakes, and portrait sketching to luxury brand launches, Emirati weddings, royal gatherings, and corporate activations across the UAE and GCC.",
     primaryCta: { label: "Book Live Event", href: "#book-event" },
     secondaryCta: { label: "Explore Services", href: "#services" },
-    image: "/assets/images/events/hero-live-engraving.webp",
+    image: "/assets/images/events/hero-live-event.webp",
     imageAlt:
-      "Sumaira Mohammed Ashik performing live calligraphy and engraving at an activation table",
+      "Sumaira Mohammed Ashik performing live calligraphy and engraving at a UAE activation podium",
     highlights: [
       { value: "Licensed", label: "UAE Calligraphy Artist" },
       { value: "35+", label: "Global & Regional Brands" },

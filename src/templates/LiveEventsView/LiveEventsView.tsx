@@ -1,5 +1,6 @@
 import { Award, Building2, Check, Languages } from "lucide-react";
 import { InstagramIcon } from "@/components/atoms/Icons";
+import { ExpandableText } from "@/components/atoms/ExpandableText";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { Container } from "@/components/atoms/Container";
 import { Section } from "@/components/atoms/Section";
@@ -45,20 +46,20 @@ export function LiveEventsView() {
                 <div className="overflow-hidden rounded-card border border-light bg-white p-2 sm:p-2.5">
                   {/* 3-photo luxury event bento showcase */}
                   <div className="grid aspect-[4/3] grid-cols-12 grid-rows-2 gap-1.5 sm:gap-2.5">
-                    {/* Tall left feature: luxury perfume engraving */}
+                    {/* Tall left feature: live artist engraving activation */}
                     <div className="group relative col-span-7 row-span-2 overflow-hidden rounded-xl bg-ice">
                       <SkeletonImage
-                        src="/assets/images/events/service-engraving.webp"
-                        alt="Kayali and luxury black perfume flacons hand-engraved with Arabic calligraphy"
+                        src={hero.image}
+                        alt={hero.imageAlt}
                         fill
                         preload
                         instantReveal
                         sizes="(min-width: 1280px) 340px, (min-width: 1024px) 28vw, 55vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                        className="object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
                       />
                       <span className="pointer-events-none absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-deep/70 via-deep/20 to-transparent p-3 sm:block">
                         <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
-                          Perfume Engraving
+                          Live Engraving
                         </span>
                       </span>
                     </div>
@@ -175,14 +176,17 @@ export function LiveEventsView() {
                     <h3 className="mt-1.5 font-serif text-lg font-medium leading-snug tracking-tight text-deep sm:mt-2 sm:text-xl">
                       {service.title}
                     </h3>
-                    <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-steel">
-                      {service.description}
-                    </p>
-                    <ul className="mt-3.5 flex-1 space-y-1.5 border-t border-light pt-3 text-xs text-deep/90">
+                    <ExpandableText text={service.description} className="mt-2" />
+                    <ul className="mt-3.5 flex-1 space-y-2 border-t border-light pt-3 text-xs text-deep/90">
                       {service.highlights.map((point) => (
-                        <li key={point} className="flex items-start gap-2">
-                          <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" aria-hidden="true" />
-                          <span>{point}</span>
+                        <li key={point} className="flex items-start gap-2.5">
+                          <span
+                            aria-hidden="true"
+                            className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-soft/80 bg-ice text-brand transition-colors duration-300 group-hover:border-brand/30 group-hover:bg-brand/10"
+                          >
+                            <Check className="h-2.5 w-2.5 stroke-[2.5]" />
+                          </span>
+                          <span className="leading-relaxed">{point}</span>
                         </li>
                       ))}
                     </ul>

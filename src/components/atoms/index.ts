@@ -1,4 +1,5 @@
 export * from "./Container";
+export * from "./ExpandableText";
 export * from "./Icons";
 export * from "./Link";
 export * from "./Logo";

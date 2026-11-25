@@ -15,6 +15,9 @@ function findTruncatedElement(target: EventTarget | null): HTMLElement | null {
   let depth = 0;
 
   while (node && depth < 5) {
+    if (node.hasAttribute("data-no-tooltip")) {
+      return null;
+    }
     const className = typeof node.className === "string" ? node.className : "";
     const isClampedClass =
       className.includes("truncate") || className.includes("line-clamp-");

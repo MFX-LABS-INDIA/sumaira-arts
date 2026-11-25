@@ -1,4 +1,5 @@
 import { Globe, MapPin, Palette, Users } from "lucide-react";
+import { ExpandableText } from "@/components/atoms/ExpandableText";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { Container } from "@/components/atoms/Container";
 import { Section } from "@/components/atoms/Section";
@@ -122,9 +123,7 @@ export function WorkshopsView() {
                     <h3 className="mt-2 font-serif text-base font-medium leading-snug tracking-tight text-deep sm:text-lg">
                       {format.title}
                     </h3>
-                    <p className="mt-2 line-clamp-3 flex-1 text-xs leading-relaxed text-steel">
-                      {format.description}
-                    </p>
+                    <ExpandableText text={format.description} className="mt-2 flex-1" />
                   </div>
                 </article>
               </Reveal>
