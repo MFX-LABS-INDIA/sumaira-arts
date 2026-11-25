@@ -37,6 +37,7 @@ function ProductsCatalogContent() {
   const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD_COUNT);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
+  const productListTopRef = useRef<HTMLDivElement>(null);
 
   const handleSelectCategory = (categoryId: string) => {
     setSelectedCategory(categoryId);
@@ -46,6 +47,9 @@ function ProductsCatalogContent() {
     } else {
       router.push(`/products?category=${categoryId}`, { scroll: false });
     }
+    requestAnimationFrame(() => {
+      productListTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   // Filter and sort items
@@ -195,7 +199,7 @@ function ProductsCatalogContent() {
             </aside>
 
             {/* Right Product Grid Area */}
-            <div className="flex-1 min-w-0 w-full">
+            <div ref={productListTopRef} className="flex-1 min-w-0 w-full scroll-mt-28">
               {/* Top Controls Bar */}
               <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-light/60 pb-3 sm:pb-4">
                 <p className="text-xs text-steel">

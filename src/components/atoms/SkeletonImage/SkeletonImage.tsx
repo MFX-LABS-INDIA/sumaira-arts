@@ -3,6 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import Image, { type ImageProps } from "next/image";
 
+/**
+ * Session-wide registry of images already decoded & stored in local browser/SW cache.
+ * Prevents shimmer/opacity-0 flashes when switching categories or revisiting routes.
+ */
+const loadedImageSrcs = new Set<string>();
+
 export interface SkeletonImageProps extends Omit<ImageProps, "onLoad" | "onError"> {
   /** Shimmer backdrop tone while image bytes decode. Set "none" for dark logo tiles or custom frames. */
   skeletonTone?: "light" | "dark" | "none";
@@ -16,7 +22,7 @@ export interface SkeletonImageProps extends Omit<ImageProps, "onLoad" | "onError
 
 /**
  * Drop-in `next/image` wrapper displaying a smooth shimmer skeleton while the image loads
- * and fading it in cleanly once decoded (immediately visible when cached or SW-preloaded).
+ * and revealing immediately once cached locally (zero flicker on category switches or revisits).
  */
 export function SkeletonImage({
   src,
@@ -32,15 +38,19 @@ export function SkeletonImage({
   ...props
 }: SkeletonImageProps) {
   const srcKey = typeof src === "string" ? src : JSON.stringify(src);
-  const [loadedKey, setLoadedKey] = useState<string | null>(null);
+  const [loadedKey, setLoadedKey] = useState<string | null>(() =>
+    loadedImageSrcs.has(srcKey) ? srcKey : null,
+  );
   const imgRef = useRef<HTMLImageElement | null>(null);
 
-  const isLoaded = loadedKey === srcKey;
-  const skipOpacityGate = instantReveal || Boolean(preload) || Boolean(priority);
+  const isLoaded = loadedKey === srcKey || loadedImageSrcs.has(srcKey);
+  const skipOpacityGate =
+    instantReveal || Boolean(preload) || Boolean(priority) || loadedImageSrcs.has(srcKey);
 
   useEffect(() => {
     const img = imgRef.current;
     if (img && img.complete && img.naturalWidth > 0) {
+      loadedImageSrcs.add(srcKey);
       setLoadedKey(srcKey);
     }
   }, [srcKey]);
@@ -72,6 +82,7 @@ export function SkeletonImage({
             : `transition-opacity duration-500 ease-out ${isLoaded ? "opacity-100" : "opacity-0"}`
         }`}
         onLoad={(event) => {
+          loadedImageSrcs.add(srcKey);
           setLoadedKey(srcKey);
           onLoad?.(event);
         }}

@@ -1,11 +1,11 @@
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const PAGE_CACHE = `sumaira-pages-${CACHE_VERSION}`;
 const IMAGE_CACHE = `sumaira-images-${CACHE_VERSION}`;
 const ASSET_CACHE = `sumaira-assets-${CACHE_VERSION}`;
 const ACTIVE_CACHES = [PAGE_CACHE, IMAGE_CACHE, ASSET_CACHE];
 
 const PRECACHE_ROUTES = ["/", "/products", "/live-events", "/workshops", "/about"];
-const MAX_IMAGE_ENTRIES = 140;
+const MAX_IMAGE_ENTRIES = 300;
 const MAX_PAGE_ENTRIES = 45;
 
 const isCacheableResponse = (response) =>
