@@ -80,16 +80,11 @@ export function CollaboratedBrands({
 }: CollaboratedBrandsProps) {
   const { brandsIntro, brands } = liveEventsData;
 
-  const mobileRows = [
-    { key: "m-1", items: brands.slice(0, 9), direction: "left" as const, duration: "26s" },
-    { key: "m-2", items: brands.slice(9, 18), direction: "right" as const, duration: "29s" },
-    { key: "m-3", items: brands.slice(18, 27), direction: "left" as const, duration: "27s" },
-    { key: "m-4", items: brands.slice(27), direction: "right" as const, duration: "30s" },
-  ];
-
-  const desktopRows = [
-    { key: "d-1", items: brands.slice(0, 18), direction: "left" as const },
-    { key: "d-2", items: brands.slice(18), direction: "right" as const },
+  const rows = [
+    { key: "r-1", items: brands.slice(0, 9), direction: "left" as const, duration: "36s" },
+    { key: "r-2", items: brands.slice(9, 18), direction: "right" as const, duration: "40s" },
+    { key: "r-3", items: brands.slice(18, 27), direction: "left" as const, duration: "38s" },
+    { key: "r-4", items: brands.slice(27), direction: "right" as const, duration: "42s" },
   ];
 
   return (
@@ -101,28 +96,14 @@ export function CollaboratedBrands({
 
         <Reveal delay={90}>
           <div dir="ltr" className="marquee-mask mt-6 -my-1 sm:mt-10 sm:-my-1.5">
-            {/* 4 rows on mobile & sm */}
-            <div className="flex flex-col gap-0.5 md:hidden">
-              {mobileRows.map((row) => (
+            <div className="flex flex-col gap-0.5 sm:gap-1">
+              {rows.map((row) => (
                 <BrandMarqueeRow
                   key={row.key}
                   rowKey={row.key}
                   items={row.items}
                   direction={row.direction}
                   duration={row.duration}
-                  compact
-                />
-              ))}
-            </div>
-
-            {/* 2 rows on md+ desktop */}
-            <div className="hidden md:flex md:flex-col md:gap-1">
-              {desktopRows.map((row) => (
-                <BrandMarqueeRow
-                  key={row.key}
-                  rowKey={row.key}
-                  items={row.items}
-                  direction={row.direction}
                 />
               ))}
             </div>
