@@ -10,6 +10,7 @@ import { InteractiveArchive } from "@/components/organisms/InteractiveArchive";
 import { RecognitionTimeline } from "@/components/organisms/RecognitionTimeline";
 import { StudioTechnique } from "@/components/organisms/StudioTechnique";
 import { ArtistFounderHero } from "@/components/organisms/ArtistFounderHero";
+import { AboutMobileStickyBar } from "@/components/molecules/AboutMobileStickyBar";
 
 export const metadata: Metadata = {
   title: "About the Artist | Sumaira Mohammed Ashik | Sumaira Arts",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="pb-16 sm:pb-0">
       <ArtistFounderHero />
 
       <Section id="story" tone="white" className="py-8 sm:py-10 lg:py-16">
@@ -117,6 +118,8 @@ export default function AboutPage() {
           </Reveal>
         </Container>
       </Section>
+
+      <AboutMobileStickyBar />
     </div>
   );
 }

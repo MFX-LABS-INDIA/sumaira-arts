@@ -9,3 +9,4 @@ export * from "./SectionHeading";
 export * from "./SelectField";
 export * from "./StatsBar";
 export * from "./StickyBookingBar";
+export * from "./AboutMobileStickyBar";
