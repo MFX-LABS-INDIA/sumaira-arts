@@ -40,10 +40,10 @@ export function ProductCardSkeleton() {
   return (
     <div
       aria-hidden="true"
-      className="flex min-h-36 h-full flex-row overflow-hidden rounded-2xl border border-light bg-white sm:flex-col"
+      className="flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-light bg-white"
     >
-      <Skeleton className="w-[40%] shrink-0 rounded-none sm:w-full sm:aspect-[5/4] lg:aspect-[4/3]" />
-      <div className="flex flex-1 flex-col justify-between p-3 sm:p-4">
+      <Skeleton className="aspect-[4/3] w-full shrink-0 rounded-none sm:aspect-[5/4] lg:aspect-[4/3]" />
+      <div className="flex flex-1 flex-col justify-between px-2.5 py-2 sm:p-4">
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <Skeleton className="h-3.5 w-16 rounded-full" />
@@ -52,9 +52,9 @@ export function ProductCardSkeleton() {
           <Skeleton className="h-4 w-4/5 sm:h-5" />
           <Skeleton className="h-3.5 w-3/5" />
         </div>
-        <div className="mt-4 flex items-center justify-between gap-3 border-t border-light/70 pt-3">
+        <div className="mt-1.5 flex items-center justify-between gap-3 border-t border-light/70 pt-1 sm:mt-4 sm:pt-3">
           <Skeleton className="h-4 w-20" />
-          <Skeleton className="h-8 w-20 rounded-lg" />
+          <Skeleton className="h-11 w-11 shrink-0 rounded-lg sm:h-8 sm:w-20" />
         </div>
       </div>
     </div>

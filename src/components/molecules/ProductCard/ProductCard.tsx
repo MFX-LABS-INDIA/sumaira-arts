@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/format";
 import { useAppDispatch } from "@/store/hooks";
 import { addToCart } from "@/store/cartSlice";
 import { ShoppingBag, Check, Star } from "lucide-react";
-import type { Product } from "@/types/content";
+import type { ProductCardProps } from "./ProductCard.types";
 
 const sizes = "(max-width: 640px) 100vw, (min-width: 1024px) 42vw, 50vw";
 
@@ -19,14 +19,8 @@ export function ProductCard({
   className = "",
   disableReveal = false,
   homeCard = false,
-}: {
-  product: Product;
-  index: number;
-  className?: string;
-  disableReveal?: boolean;
-  /** Home carousel cards use a compact stacked footer; catalogue cards retain their original layout. */
-  homeCard?: boolean;
-}) {
+  catalogue = false,
+}: ProductCardProps) {
   const dispatch = useAppDispatch();
   const [added, setAdded] = useState(false);
 
@@ -54,9 +48,9 @@ export function ProductCard({
   const reviewCount = product.reviewCount ?? product.reviews ?? 0;
 
   const cardContent = (
-    <article className="group relative flex min-h-36 h-full flex-row overflow-hidden rounded-2xl border border-light bg-white transition-all duration-300 hover:border-brand/40 hover:shadow-raised sm:flex-col">
+    <article className={`group relative flex min-h-36 h-full overflow-hidden rounded-2xl border border-light bg-white transition-all duration-300 hover:border-brand/40 hover:shadow-raised sm:flex-col ${catalogue ? "flex-col" : "flex-row"}`}>
       {/* Visual Image Container */}
-      <div className="relative w-[40%] shrink-0 overflow-hidden bg-white sm:w-auto sm:aspect-[5/4] lg:aspect-[4/3]">
+      <div className={`relative shrink-0 overflow-hidden bg-white sm:w-auto sm:aspect-[5/4] lg:aspect-[4/3] ${catalogue ? "w-full aspect-[4/3]" : "w-[40%]"}`}>
         {/* Main Artwork Image */}
         <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
           {product.image ? (
@@ -64,7 +58,7 @@ export function ProductCard({
               src={product.image}
               alt={product.title}
               fill
-              sizes={sizes}
+              sizes={catalogue ? "(min-width: 1024px) 25vw, 50vw" : sizes}
               loading="lazy"
               className="object-cover"
             />
@@ -110,8 +104,8 @@ export function ProductCard({
       </div>
 
       {/* Card Body */}
-      <div className={`flex flex-1 flex-col p-3 sm:p-4 ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-3"}`}>
-        <div className="min-w-0">
+      <div className={`flex flex-1 flex-col sm:p-4 ${catalogue ? "px-2.5 py-2" : "p-3"} ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-3"}`}>
+        <div className={catalogue ? "min-w-0 max-sm:flex-1" : "min-w-0"}>
           {product.rating !== undefined && (
             <div className="mb-1.5 flex items-center gap-1.5 text-xs text-steel">
               <Star aria-hidden="true" className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
@@ -134,7 +128,7 @@ export function ProductCard({
         </div>
 
         {/* Fixed artwork price */}
-        <div className={`flex items-end justify-between gap-2 border-t border-light/60 ${homeCard ? "mt-4 pt-3" : "mt-3 pt-2 sm:mt-0 sm:min-w-28 sm:border-s sm:border-t-0 sm:ps-3 sm:pt-0"}`}>
+        <div className={`flex items-end justify-between gap-2 border-t border-light/60 ${homeCard ? "mt-4 pt-3" : "mt-3 pt-2 sm:mt-0 sm:min-w-28 sm:border-s sm:border-t-0 sm:ps-3 sm:pt-0"} ${catalogue ? "max-sm:mt-1.5 max-sm:pt-1" : ""}`}>
           <div>
             <div className="flex items-baseline gap-1">
               <span className="text-[9px] text-steel uppercase font-semibold sm:text-[10px]">Price</span>
@@ -152,8 +146,8 @@ export function ProductCard({
           <button
             type="button"
             onClick={handleAddToCart}
-            className="relative z-10 flex h-9 w-9 items-center justify-center rounded-lg bg-ice text-brand hover:bg-brand hover:text-white transition-all shadow-xs"
-            aria-label="Add to cart"
+            className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-ice text-brand hover:bg-brand hover:text-white transition-all shadow-xs ${catalogue ? "max-sm:h-11 max-sm:w-11" : ""}`}
+            aria-label={catalogue ? `Add ${product.title} to cart` : "Add to cart"}
           >
             {added ? <Check className="h-4 w-4" /> : <ShoppingBag className="h-4 w-4" />}
           </button>

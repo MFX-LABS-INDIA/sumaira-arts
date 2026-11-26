@@ -7,4 +7,5 @@ export type ProductCardProps = {
   disableReveal?: boolean;
   /** Home carousel cards use a compact stacked footer; catalogue cards retain their original layout. */
   homeCard?: boolean;
+  catalogue?: boolean;
 };
