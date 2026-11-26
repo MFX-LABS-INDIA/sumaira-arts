@@ -14,7 +14,7 @@ import type { Product } from "@/types/store";
 const collectionArtworks = mixedMediaProducts.slice(0, 6);
 const collectionHref = "/products?category=Mixed_Media_Canvas";
 
-function CollectionCard({ product, index }: { product: Product; index: number }) {
+function CollectionCard({ product }: { product: Product; index: number }) {
   return (
     <article className="group relative flex w-[75vw] max-w-[280px] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-light bg-white shadow-xs transition-[border-color,box-shadow] duration-300 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]">
       <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden bg-ice">
@@ -25,9 +25,6 @@ function CollectionCard({ product, index }: { product: Product; index: number })
           sizes="(min-width: 1280px) 379px, (min-width: 1024px) 31vw, (min-width: 640px) 45vw, 75vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:transform-none"
         />
-        <span className="absolute start-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium text-brand shadow-xs sm:start-3.5 sm:top-3.5 sm:px-3 sm:py-1 sm:text-xs">
-          {String(index + 1).padStart(2, "0")} / {String(collectionArtworks.length).padStart(2, "0")}
-        </span>
       </div>
       <div className="flex flex-1 flex-col p-3.5 sm:p-4">
         <p className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-steel">Collections</p>

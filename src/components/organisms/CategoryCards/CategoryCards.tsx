@@ -18,7 +18,6 @@ export function CategoryCards() {
         <div className="mt-6 -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 no-scrollbar sm:mx-0 sm:mt-10 sm:px-0 sm:scroll-px-0 sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-6 sm:overflow-visible">
           {artworkCategories.map((category) => {
             const artwork = allProducts.find((product) => product.slug === category.productSlug)!;
-            const count = allProducts.filter((product) => product.category === category.id).length;
 
             return (
               <article key={category.id} className="group relative flex h-full w-[82vw] max-w-[320px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-colors hover:border-brand sm:w-auto sm:max-w-none">
@@ -30,7 +29,6 @@ export function CategoryCards() {
                     sizes="(min-width: 1280px) 379px, (min-width: 1024px) 31vw, (min-width: 640px) 90vw, 82vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
                   />
-                  <span className="absolute start-3 top-3 rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-brand sm:start-3.5 sm:top-3.5 sm:px-3 sm:py-1 sm:text-xs">{count} artworks</span>
                 </div>
                 <div className="flex flex-1 flex-col p-3.5 sm:p-5">
                   <Eyebrow className="tracking-widest text-[10px] sm:text-label">{category.eyebrow}</Eyebrow>

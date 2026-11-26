@@ -20,7 +20,6 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: "Mixed Media", href: "/products?category=Mixed_Media_Artworks" },
       { label: "Collections", href: "/products?category=Mixed_Media_Canvas" },
       { label: "All Artworks", href: "/products" },
-      { label: "Commission Process", href: "/#commission" },
     ],
   },
   {
