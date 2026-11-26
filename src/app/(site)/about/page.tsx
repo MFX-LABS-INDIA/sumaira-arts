@@ -3,7 +3,6 @@ import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { Container } from "@/components/atoms/Container";
 import { Section } from "@/components/atoms/Section";
 import { Eyebrow, SectionHeading, headingClass } from "@/components/molecules/SectionHeading";
-import { ButtonLink } from "@/components/atoms/Link";
 import { Reveal } from "@/components/atoms/Reveal";
 import { artist } from "@/data/artist";
 import { InteractiveArchive } from "@/components/organisms/InteractiveArchive";
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pb-16 sm:pb-0">
+    <div>
       <ArtistFounderHero />
 
       <Section id="story" tone="white" className="py-8 sm:py-10 lg:py-16">
@@ -99,22 +98,6 @@ export default function AboutPage() {
         <Container>
           <Reveal>
             <RecognitionTimeline milestones={artist.milestones} />
-          </Reveal>
-
-          <Reveal delay={200} className="mt-10 sm:mt-14">
-            <div className="rounded-card border border-light bg-white px-5 py-8 text-center sm:px-8 sm:py-10">
-              <p className="mx-auto max-w-2xl text-sm leading-relaxed text-steel sm:text-base sm:leading-8">
-                Interested in acquiring an original work or commissioning a bespoke canvas for your interior?
-              </p>
-              <div className="mt-5 flex flex-col justify-center gap-3 sm:mt-6 sm:flex-row sm:gap-4">
-                <ButtonLink href="/#commission" variant="solid" tone="light">
-                  Explore Bespoke Art
-                </ButtonLink>
-                <ButtonLink href="/products" variant="outline" tone="light">
-                  Browse Gallery
-                </ButtonLink>
-              </div>
-            </div>
           </Reveal>
         </Container>
       </Section>

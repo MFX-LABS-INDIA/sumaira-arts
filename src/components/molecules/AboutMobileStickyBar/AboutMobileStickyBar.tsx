@@ -6,7 +6,7 @@ export function AboutMobileStickyBar() {
   return (
     <div
       aria-label="Quick action"
-      className="fixed inset-x-0 bottom-0 z-40 block border-t border-light bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_28px_-14px_rgba(13,24,42,0.22)] backdrop-blur-md transition-all duration-300 ease-out-soft sm:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 block border-t border-light bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_28px_-14px_rgba(13,24,42,0.22)] backdrop-blur-md transition-all duration-300 ease-out-soft"
     >
       <Container className="flex items-center justify-between gap-3 py-2.5">
         <div className="min-w-0">

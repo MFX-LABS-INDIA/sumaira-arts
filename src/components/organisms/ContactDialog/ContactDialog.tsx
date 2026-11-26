@@ -1,26 +1,11 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
-import dynamic from "next/dynamic";
 import { X } from "lucide-react";
-import { Skeleton } from "@/components/atoms/Skeleton";
 import { useScrollLock } from "@/lib/scroll-lock";
+import { EnquiryForm } from "@/components/organisms/EnquiryForm";
 
 const emptySubscribe = () => () => {};
-
-const EnquiryForm = dynamic(
-  () => import("@/components/organisms/EnquiryForm").then((module) => module.EnquiryForm),
-  {
-    loading: () => (
-      <div className="space-y-4 px-5 pb-6 sm:px-6" aria-busy="true">
-        <Skeleton className="h-11 w-full rounded-lg" />
-        <Skeleton className="h-11 w-full rounded-lg" />
-        <Skeleton className="h-24 w-full rounded-lg" />
-        <Skeleton className="h-12 w-full rounded-lg" />
-      </div>
-    ),
-  },
-);
 
 export function ContactDialog() {
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);

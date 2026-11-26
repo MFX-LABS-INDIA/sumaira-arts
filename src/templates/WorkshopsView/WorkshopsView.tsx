@@ -42,8 +42,8 @@ export function WorkshopsView() {
                   className="pointer-events-none absolute -inset-3 hidden rounded-card border border-soft/70 sm:block"
                   aria-hidden="true"
                 />
-                <div className="relative overflow-hidden rounded-card border border-light bg-white">
-                  <div className="relative aspect-[16/10] sm:aspect-[4/3]">
+                <div className="overflow-hidden rounded-card border border-light bg-white p-2 sm:p-2.5">
+                  <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-xl bg-ice">
                     <SkeletonImage
                       src={hero.image}
                       alt={hero.imageAlt}
@@ -54,14 +54,17 @@ export function WorkshopsView() {
                       className="object-cover object-top"
                     />
                   </div>
-                  <figcaption className="flex items-center justify-between gap-3 border-t border-light bg-white p-3 sm:absolute sm:inset-x-4 sm:bottom-4 sm:rounded-control sm:border sm:border-white/70 sm:bg-white/95 sm:p-3 sm:shadow-sm sm:backdrop-blur-xs">
-                    <span>
-                      <span className="block text-micro font-medium uppercase tracking-caps text-steel">
+                  <figcaption className="mt-2 flex items-center justify-between gap-3 px-1.5 py-1 sm:mt-2.5 sm:px-2 sm:py-1.5">
+                    <span className="min-w-0">
+                      <span className="block truncate text-[10px] font-semibold uppercase tracking-wider text-steel sm:text-micro sm:tracking-caps">
                         Resident Tutor · The Workshop Dubai, Jumeirah
                       </span>
-                      <span className="mt-0.5 block font-serif text-xs font-light text-deep sm:text-sm">
+                      <span className="mt-0.5 block truncate font-serif text-xs font-light text-deep sm:text-sm">
                         Traditional qalam script &amp; layered textured canvas classes.
                       </span>
+                    </span>
+                    <span className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand">
+                      01 / 01
                     </span>
                   </figcaption>
                 </div>

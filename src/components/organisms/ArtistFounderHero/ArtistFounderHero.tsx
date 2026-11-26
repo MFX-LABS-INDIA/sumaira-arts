@@ -1,7 +1,6 @@
 import { Award, Calendar, Palette, Store } from "lucide-react";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { artist } from "@/data/artist";
-import { ButtonLink } from "@/components/atoms/Link";
 import { Container } from "@/components/atoms/Container";
 import { Eyebrow } from "@/components/molecules/SectionHeading";
 import { StatsBar } from "@/components/molecules/StatsBar";
@@ -62,24 +61,6 @@ export function ArtistFounderHero() {
               <p className="max-w-xl text-sm leading-relaxed text-steel sm:text-base sm:leading-7">
                 {artist.tagline}
               </p>
-              <div className="mt-5 flex flex-col items-stretch gap-2.5 sm:mt-6 sm:flex-row sm:items-center sm:gap-3">
-                <ButtonLink
-                  href="/products"
-                  variant="solid"
-                  tone="light"
-                  className="min-h-10 text-center sm:min-h-11"
-                >
-                  View Available Works
-                </ButtonLink>
-                <ButtonLink
-                  href="/#commission"
-                  variant="outline"
-                  tone="light"
-                  className="min-h-10 text-center sm:min-h-11"
-                >
-                  Explore Bespoke Art
-                </ButtonLink>
-              </div>
             </Reveal>
           </div>
         </div>
