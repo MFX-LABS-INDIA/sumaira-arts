@@ -5,7 +5,7 @@ import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { CheckoutPageSkeleton } from "@/components/molecules/PageSkeletons";
 import { containerClassName } from "@/components/atoms/Container";
 import Link from "next/link";
-import { User, Mail, Phone, MapPin, ShieldCheck, CheckCircle2, Loader2 } from "lucide-react";
+import { User, Mail, Phone, ShieldCheck, CheckCircle2, Loader2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { clearCart } from "@/store/cartSlice";
 import { CountrySelect } from "@/components/molecules/CountrySelect";
@@ -26,7 +26,6 @@ export default function CheckoutPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
   const { country, selectCountry } = useCountryDetection();
   const [honeypot, setHoneypot] = useState("");
 
@@ -54,9 +53,6 @@ export default function CheckoutPage() {
         errs.phone = `Enter a valid ${country.name} mobile number`;
       }
     }
-    if (address.trim().length > 300) {
-      errs.address = "Address must be 300 characters or fewer";
-    }
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -82,7 +78,6 @@ export default function CheckoutPage() {
       customerName: name.trim(),
       email: email.trim(),
       phoneNumber: fullPhone,
-      ...(address.trim() ? { address: address.trim() } : {}),
       items: cart,
       total: cartTotal,
       subtotal: cartTotal,
@@ -153,7 +148,6 @@ export default function CheckoutPage() {
             <p><strong>Order ID:</strong> <span className="font-mono">{orderSuccess.id}</span></p>
             <p><strong>Confirmation sent to:</strong> {orderSuccess.email}</p>
             <p><strong>Mobile number:</strong> {orderSuccess.phoneNumber}</p>
-            {orderSuccess.address && <p><strong>Address:</strong> {orderSuccess.address}</p>}
             <p><strong>Request total:</strong> ${orderSuccess.total.toLocaleString()} USD</p>
             <p>Our studio will contact you after checking artwork availability.</p>
           </div>
@@ -293,30 +287,6 @@ export default function CheckoutPage() {
                     {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                   </div>
                 </div>
-              </div>
-
-              {/* Optional Address */}
-              <div>
-                <label htmlFor="address" className="block text-xs font-medium uppercase tracking-wider text-steel mb-1.5">
-                  Address (Optional)
-                </label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-steel" />
-                  <input
-                    id="address"
-                    name="address"
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder="Street, city, country"
-                    autoComplete="street-address"
-                    maxLength={300}
-                    className={`h-11 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
-                      errors.address ? "border-red-400 bg-red-50/20" : "border-light bg-white"
-                    }`}
-                  />
-                </div>
-                {errors.address && <p className="mt-1 text-xs text-red-500">{errors.address}</p>}
               </div>
 
               {/* Bot honeypot */}

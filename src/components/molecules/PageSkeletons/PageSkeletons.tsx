@@ -83,7 +83,7 @@ export function CatalogPageSkeleton() {
               <Skeleton className="h-4 w-36" />
               <Skeleton className="hidden h-9 w-40 rounded-lg sm:block" />
             </div>
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-6">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3 lg:gap-6">
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <ProductCardSkeleton key={i} />
               ))}

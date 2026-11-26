@@ -6,7 +6,7 @@ export const privacyPolicy = {
     {
       title: "Information we collect",
       paragraphs: [
-        "The form collects your name, email address, mobile number and country calling code. Your address is optional.",
+        "The form collects your name, email address, mobile number and country calling code.",
       ],
     },
     {

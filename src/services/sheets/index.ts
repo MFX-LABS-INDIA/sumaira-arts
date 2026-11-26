@@ -31,7 +31,6 @@ class SheetsService {
     "Full Name",
     "Mobile Number",
     "Email",
-    "Address",
     "Category",
     "Product Name",
     "Quantity",
@@ -61,7 +60,6 @@ class SheetsService {
     "Name",
     "Email",
     "Mobile Number",
-    "Address",
   ];
 
   private sheets: ReturnType<typeof google.sheets> | null = null;
@@ -261,7 +259,6 @@ class SheetsService {
       order.customerName,
       order.phoneNumber,
       order.email,
-      order.address || "",
       item.category,
       item.title,
       item.quantity,
@@ -408,7 +405,7 @@ class SheetsService {
 
       await this.sheets.spreadsheets.values.append({
         spreadsheetId: this.spreadsheetId,
-        range: `${quoteSheetName(resolvedTab)}!A:K`,
+        range: `${quoteSheetName(resolvedTab)}!A:J`,
         valueInputOption: "RAW",
         insertDataOption: "INSERT_ROWS",
         requestBody: {
@@ -438,7 +435,7 @@ class SheetsService {
 
     await this.sheets.spreadsheets.values.append({
       spreadsheetId: this.spreadsheetId,
-      range: `${quoteSheetName(resolvedTab)}!A:E`,
+      range: `${quoteSheetName(resolvedTab)}!A:D`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
@@ -448,7 +445,6 @@ class SheetsService {
             enquiry.name,
             enquiry.email,
             enquiry.phoneNumber,
-            enquiry.address || "",
           ],
         ],
       },

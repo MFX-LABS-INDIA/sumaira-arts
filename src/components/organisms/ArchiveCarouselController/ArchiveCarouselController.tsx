@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ArchiveCategory {
@@ -35,75 +35,6 @@ export function ArchiveCarouselController({
     slide.scrollIntoView({ behavior, block: "nearest", inline: "start" });
     setActiveIndex(index);
   };
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const rootElement = document.documentElement;
-    const previousOverflow = rootElement.style.overflow;
-    let scrollLocked = false;
-
-    const lockScroll = () => {
-      if (scrollLocked) return;
-      rootElement.style.overflow = "hidden";
-      scrollLocked = true;
-    };
-
-    const unlockScroll = () => {
-      if (!scrollLocked) return;
-      rootElement.style.overflow = previousOverflow;
-      scrollLocked = false;
-    };
-
-    const handleClick = (event: MouseEvent) => {
-      if (!(event.target instanceof Element)) return;
-
-      const openButton = event.target.closest<HTMLButtonElement>("[data-archive-open]");
-      if (openButton) {
-        const dialogId = openButton.dataset.archiveOpen;
-        const dialog = root.querySelector<HTMLDialogElement>(
-          `[data-archive-dialog="${CSS.escape(dialogId ?? "")}"]`
-        );
-        if (dialog && !dialog.open) {
-          dialog.showModal();
-          lockScroll();
-        }
-        return;
-      }
-
-      const closeButton = event.target.closest<HTMLButtonElement>("[data-archive-close]");
-      if (closeButton) {
-        closeButton.closest("dialog")?.close();
-        return;
-      }
-
-      if (event.target instanceof HTMLDialogElement && event.target.open) {
-        event.target.close();
-      }
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      const dialog = root.querySelector<HTMLDialogElement>("dialog[open]");
-      if (!dialog) return;
-
-      event.preventDefault();
-      dialog.close();
-    };
-
-    const dialogs = root.querySelectorAll<HTMLDialogElement>("dialog");
-    dialogs.forEach((dialog) => dialog.addEventListener("close", unlockScroll));
-
-    root.addEventListener("click", handleClick);
-    root.addEventListener("keydown", handleKeyDown);
-    return () => {
-      dialogs.forEach((dialog) => dialog.removeEventListener("close", unlockScroll));
-      root.removeEventListener("click", handleClick);
-      root.removeEventListener("keydown", handleKeyDown);
-      unlockScroll();
-    };
-  }, []);
 
   const selectCategory = (category: string) => {
     const track = trackRef.current;
@@ -156,22 +87,12 @@ export function ArchiveCarouselController({
                 }`}
               >
                 {category.name}
-                <span className={`text-micro ${active ? "text-light" : "text-mist"}`}>
-                  {String(category.count).padStart(2, "0")}
-                </span>
               </button>
             );
           })}
         </div>
 
-        <div className="flex items-center justify-between gap-4 lg:justify-end">
-          <p className="font-mono text-xs text-steel" aria-live="polite">
-            <span className="font-semibold text-brand">
-              {String(Math.min(activeIndex + 1, visibleCount)).padStart(2, "0")}
-            </span>
-            <span className="mx-1.5 text-mist" aria-hidden="true">/</span>
-            {String(visibleCount).padStart(2, "0")} projects
-          </p>
+        <div className="flex items-center justify-end">
           <div className="hidden md:flex md:items-center md:gap-2">
             <button
               type="button"

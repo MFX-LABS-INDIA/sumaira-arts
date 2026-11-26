@@ -297,7 +297,6 @@ export const getOrderPlainText = (order: Order): string => {
     `Customer Name: ${order.customerName}`,
     `Email: ${order.email}`,
     `Mobile Number: ${order.phoneNumber}`,
-    `Delivery Address: ${order.address || "Not provided"}`,
     "",
     "Selected Artworks:",
     itemsText,
@@ -395,9 +394,6 @@ export const getOrderEmailTemplate = (
       ],
     ],
     middleHtml: itemsTableHtml,
-    callout: order.address
-      ? { label: "Delivery Address", body: order.address }
-      : undefined,
     sheetTabName: "Orders",
     replyToEmail: order.email,
     nextStepsHtml:
@@ -539,7 +535,6 @@ export const getEnquiryPlainText = (enquiry: Enquiry): string =>
     `Name: ${enquiry.name}`,
     `Email: ${enquiry.email}`,
     `Mobile Number: ${enquiry.phoneNumber}`,
-    `Address: ${enquiry.address || "Not provided"}`,
     "Google Sheet Tab: Contact Us",
   ].join("\n");
 
@@ -579,9 +574,6 @@ export const getEnquiryEmailTemplate = (
         `<a href="tel:${escapeHtml(enquiry.phoneNumber)}" style="color: #1b3a6b; text-decoration: none; font-weight: 600;">${escapeHtml(enquiry.phoneNumber)}</a>`,
       ],
     ],
-    callout: enquiry.address
-      ? { label: "Address / Message", body: enquiry.address }
-      : undefined,
     sheetTabName: "Contact Us",
     replyToEmail: enquiry.email,
     nextStepsHtml:

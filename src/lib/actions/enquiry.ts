@@ -78,11 +78,6 @@ export async function submitEnquiry(
     };
   }
 
-  const address = readField(formData, "address");
-  if (address.length > 300) {
-    return { status: "error", message: "Please keep your address to 300 characters or fewer." };
-  }
-
   try {
     const requestHeaders = await headers();
     const clientAddress =
@@ -100,7 +95,6 @@ export async function submitEnquiry(
       name,
       email,
       phoneNumber: parsedPhone.number,
-      address,
     };
     const [emailSent, savedToSheet] = await Promise.all([
       emailService.sendEnquiry(enquiry),

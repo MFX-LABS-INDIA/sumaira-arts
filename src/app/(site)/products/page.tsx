@@ -245,7 +245,7 @@ function ProductsCatalogContent() {
                 </div>
               ) : (
                 <>
-                  <div className="grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-6">
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3 lg:gap-6">
                     {displayedProducts.map((p, index) => (
                       <ProductCard
                         key={p.id || p.slug}
@@ -275,11 +275,10 @@ function ProductsCatalogContent() {
                   {hasMore && (
                     <div
                       ref={loadMoreRef}
-                      className="mt-6 grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-6"
+                      className="mt-6 grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3 lg:gap-6"
                       aria-live="polite"
                       aria-label="Loading more artworks"
                     >
-                      <ProductCardSkeleton />
                       <ProductCardSkeleton />
                       <ProductCardSkeleton />
                       <ProductCardSkeleton />

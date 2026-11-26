@@ -108,6 +108,8 @@ function releaseScrollLock(): void {
   lenis?.start?.();
 }
 
+export { acquireScrollLock, releaseScrollLock };
+
 export function useScrollLock(isLocked: boolean): void {
   useEffect(() => {
     if (!isLocked) return;

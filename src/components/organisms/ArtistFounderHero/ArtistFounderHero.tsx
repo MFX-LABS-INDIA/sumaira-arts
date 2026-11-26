@@ -39,17 +39,12 @@ export function ArtistFounderHero() {
                     className="object-cover object-center"
                   />
                 </div>
-                <figcaption className="mt-2 flex items-center justify-between gap-3 px-1.5 py-1 sm:mt-2.5 sm:px-2 sm:py-1.5">
-                  <span className="min-w-0">
-                    <span className="block truncate text-[10px] font-semibold uppercase tracking-wider text-steel sm:text-micro sm:tracking-caps">
-                      Artist &amp; Founder · Dubai, UAE
-                    </span>
-                    <span className="mt-0.5 block truncate font-serif text-xs font-light text-deep sm:text-sm">
-                      Metallic textured acrylics &amp; contemporary Arabic script.
-                    </span>
+                <figcaption className="mt-2 px-1.5 py-1 sm:mt-2.5 sm:px-2 sm:py-1.5">
+                  <span className="block truncate text-[10px] font-semibold uppercase tracking-wider text-steel sm:text-micro sm:tracking-caps">
+                    Artist &amp; Founder · Dubai, UAE
                   </span>
-                  <span className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand">
-                    01 / 01
+                  <span className="mt-0.5 block truncate font-serif text-xs font-light text-deep sm:text-sm">
+                    Metallic textured acrylics &amp; contemporary Arabic script.
                   </span>
                 </figcaption>
               </div>

@@ -72,20 +72,6 @@ export function EnquiryForm() {
             />
           </div>
         </div>
-
-        <div>
-          <label htmlFor="enquiry-address" className={labelClassName}>
-            Address <span className="normal-case tracking-normal">(optional)</span>
-          </label>
-          <textarea
-            id="enquiry-address"
-            name="address"
-            autoComplete="street-address"
-            maxLength={300}
-            rows={2}
-            className="w-full resize-y rounded-control border border-light bg-white px-3 py-2.5 text-sm text-deep focus:border-brand focus:outline-none"
-          />
-        </div>
       </div>
 
       <input

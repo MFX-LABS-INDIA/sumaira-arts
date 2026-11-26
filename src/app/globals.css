@@ -296,6 +296,30 @@
   }
 }
 
+/* Elegant, lightweight custom scrollbar for modals & panels */
+@utility custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-steel) 25%, transparent) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--color-steel) 22%, transparent);
+    border-radius: 9999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--color-steel) 40%, transparent);
+  }
+}
+
 @layer base {
   ::selection {
     background: var(--color-soft);

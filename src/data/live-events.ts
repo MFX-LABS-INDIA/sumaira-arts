@@ -14,7 +14,11 @@ export interface LiveEventService {
 export interface EventGalleryItem {
   id: string;
   title: string;
-  category: "Engraving" | "Products" | "Station" | "Live Sketching";
+  category:
+    | "On-Site Engraving"
+    | "Live Calligraphy Station"
+    | "Calligraphy on Products"
+    | "Live Sketching Station";
   image: string;
   alt: string;
 }
@@ -55,9 +59,9 @@ export const liveEventsData = {
   ],
   servicesIntro: {
     eyebrow: "On-Site Activations",
-    title: "Four live experiences tailored to your guests.",
+    title: "Live experiences tailored to your guests.",
     description:
-      "From delicate diamond-tip engraving on fragrance flacons to live coffee-cup calligraphy and framed guest portraits, every station is crafted around your event aesthetic.",
+      "From personalised engraving and live calligraphy to bespoke portraits, each experience is thoughtfully tailored to your event.",
   },
   services: [
     {
@@ -125,72 +129,93 @@ export const liveEventsData = {
   },
   gallery: [
     {
+      id: "ev-gal-srv-engraving",
+      title: "Signature Fragrance & Perfume Engraving",
+      category: "On-Site Engraving",
+      image: "/assets/images/events/service-engraving.webp",
+      alt: "Kayali and black luxury perfume bottles hand-engraved with Arabic calligraphy in gold",
+    },
+    {
       id: "ev-gal-0",
       title: "Luxury Gala Perfume Engraving",
-      category: "Engraving",
+      category: "On-Site Engraving",
       image: "/assets/images/events/gallery-gala-perfume-engraving.webp",
       alt: "Sumaira Mohammed Ashik engraving Arabic calligraphy onto crystal fragrance flacons at a candlelit Emirati evening gala",
     },
     {
-      id: "ev-gal-0a",
-      title: "On-Site Diamond Perfume Engraving",
-      category: "Engraving",
-      image: "/assets/images/events/gallery-live-engraving-artist.webp",
-      alt: "Sumaira Mohammed Ashik hand-engraving a luxury fragrance bottle live using a precision diamond-tip micro-engraver",
-    },
-    {
       id: "ev-gal-1",
       title: "Floral Diamond Engraving",
-      category: "Engraving",
+      category: "On-Site Engraving",
       image: "/assets/images/events/gallery-perfume-floral.webp",
       alt: "Botanical floral motif finely diamond-engraved onto an amber perfume flacon",
     },
     {
       id: "ev-gal-2",
       title: "Arabic Script on Amber Oud",
-      category: "Engraving",
+      category: "On-Site Engraving",
       image: "/assets/images/events/gallery-perfume-oud.webp",
       alt: "Minimalist gold Arabic monogram engraved onto an amber glass fragrance bottle",
     },
     {
       id: "ev-gal-3",
       title: "Bespoke Event Crystal Flutes",
-      category: "Engraving",
+      category: "On-Site Engraving",
       image: "/assets/images/events/gallery-glasses.webp",
       alt: "Row of crystal stemmed glasses engraved in gold calligraphy for an 18th celebration",
     },
     {
+      id: "ev-gal-srv-station",
+      title: "Live Ceramic Mug Lettering Station",
+      category: "Live Calligraphy Station",
+      image: "/assets/images/events/service-station.webp",
+      alt: "Artist hand-lettering Arabic names onto white and orange ceramic coffee mugs at a live station",
+    },
+    {
       id: "ev-gal-4",
       title: "Arabic Finjan Hospitality Cups",
-      category: "Station",
+      category: "Live Calligraphy Station",
       image: "/assets/images/events/gallery-finjan.webp",
       alt: "Traditional white Arabic Finjan coffee cups hand-lettered with guest names",
     },
     {
+      id: "ev-gal-srv-products",
+      title: "Terracotta Cup Personalization",
+      category: "Calligraphy on Products",
+      image: "/assets/images/events/service-products.webp",
+      alt: "Handcrafted terracotta cup personalized with black Arabic calligraphy and a red heart accent",
+    },
+    {
       id: "ev-gal-5",
       title: "Cork-Base Ceramic Keepsakes",
-      category: "Products",
+      category: "Calligraphy on Products",
       image: "/assets/images/events/gallery-cork-mugs.webp",
       alt: "Cork-base ceramic mugs customized live with bold black Arabic calligraphy",
     },
     {
       id: "ev-gal-6",
       title: "Emirati Wedding Hand Fans",
-      category: "Products",
+      category: "Calligraphy on Products",
       image: "/assets/images/events/gallery-wedding-fans.webp",
       alt: "Pleated white wedding hand fans inscribed with bride and groom Arabic calligraphy",
     },
     {
       id: "ev-gal-7",
       title: "Textured Black & Gold Bowl",
-      category: "Products",
+      category: "Calligraphy on Products",
       image: "/assets/images/events/gallery-diffusers.webp",
       alt: "Matte black decorative vessel hand-painted with swirling metallic gold Arabic calligraphy",
     },
     {
+      id: "ev-gal-srv-sketching",
+      title: "Bridal Couple Gold Portrait Illustration",
+      category: "Live Sketching Station",
+      image: "/assets/images/events/service-sketching.webp",
+      alt: "Framed live portrait sketch of an Emirati wedding couple with gold dress details and Arabic calligraphy",
+    },
+    {
       id: "ev-gal-8",
       title: "Gold-Embellished Couple Portrait",
-      category: "Live Sketching",
+      category: "Live Sketching Station",
       image: "/assets/images/events/gallery-sketch-green.webp",
       alt: "Original framed wedding portrait with shimmering olive-gold textured bridal dress and Arabic backdrop",
     },
