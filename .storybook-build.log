@@ -1,0 +1,885 @@
+
+> sumaira-arts@0.1.0 build-storybook
+> storybook build
+
+
+T  Building storybook v10.5.10
+|
+o  Cleaning outputDir: storybook-static
+|
+o  Loading presets
+|
+o  Building manager..
+|
+•  Building open services..
+|
+•  Building preview..
+|
+•  Copying static files: public at storybook-static
+|  Vite vite v8.3.8 building client environment for production...
+transforming...
+✓ 2522 modules transformed.
+rendering chunks...
+computing gzip size...
+|  Vite storybook-static/iframe.html
+|  18.74 kB │ gzip:   5.30 kB
+|  storybook-static/assets/iframe-C-3Th9-j.css
+|  105.36 kB │ gzip:  17.11 kB
+|  storybook-static/assets/iframe-B-vdOHZh.js
+|  0.04 kB │ gzip:   0.06 kB
+|  storybook-static/assets/react-624ljPii.js
+|  0.09 kB │ gzip:   0.10 kB
+|  storybook-static/assets/components-AIzOTSXY.js
+|  0.17 kB │ gzip:   0.16 kB
+|  storybook-static/assets/chunk-242VQQM5-CJ9i1iaj.js
+|  0.24 kB │ gzip:   0.20 kB
+|  storybook-static/assets/check-DPGGWeRF.js
+|  0.26 kB │ gzip:   0.23 kB
+|  storybook-static/assets/chevron-down-0kw8c7U_.js
+|  0.27 kB │ gzip:   0.22 kB
+|  storybook-static/assets/formatter-L2YTDE3Q-BeYPLnlc.js
+|  0.29 kB │ gzip:   0.23 kB
+|  storybook-static/assets/x-Zr7Ec-XC.js
+|  0.29 kB │ gzip:   0.24 kB
+|  storybook-static/assets/arrow-right-DYNeJUax.js
+|  0.31 kB │ gzip:   0.25 kB
+|  storybook-static/assets/arrow-up-right-DKKIMvNK.js
+|  0.31 kB │ gzip:   0.24 kB
+|  storybook-static/assets/search-F2rZ17vd.js
+|  0.31 kB │ gzip:   0.25 kB
+|  storybook-static/assets/circle-check-LFWfFHE3.js
+|  0.35 kB │ gzip:   0.27 kB
+|  storybook-static/assets/Logo.stories-NUpecLD6.js
+|  0.39 kB │ gzip:   0.27 kB
+|  storybook-static/assets/Icons.stories-CBPC74IA.js
+|  0.39 kB │ gzip:   0.27 kB
+|  storybook-static/assets/calendar-BWa7yq8v.js
+|  0.40 kB │ gzip:   0.29 kB
+|  storybook-static/assets/CartDrawer.stories-BySwMCUN.js
+|  0.40 kB │ gzip:   0.27 kB
+|  storybook-static/assets/EnquiryForm.stories-BI5Sb3YX.js
+|  0.40 kB │ gzip:   0.27 kB
+|  storybook-static/assets/Skeleton.stories-DHzPJDRQ.js
+|  0.42 kB │ gzip:   0.29 kB
+|  storybook-static/assets/StarRating.stories-qv58eQxW.js
+|  0.42 kB │ gzip:   0.28 kB
+|  storybook-static/assets/Reveal.stories-BvEEht3P.js
+|  0.42 kB │ gzip:   0.28 kB
+|  storybook-static/assets/Section.stories-BJzhVrIv.js
+|  0.42 kB │ gzip:   0.28 kB
+|  storybook-static/assets/WorkshopBookingForm.stories-XGqtUMYl.js
+|  0.42 kB │ gzip:   0.28 kB
+|  storybook-static/assets/LiveEventBookingForm.stories-C2j8B_xg.js
+|  0.42 kB │ gzip:   0.28 kB
+|  storybook-static/assets/Container.stories-Byxl2jWp.js
+|  0.42 kB │ gzip:   0.29 kB
+|  storybook-static/assets/chevron-right-X9JgBED0.js
+|  0.43 kB │ gzip:   0.28 kB
+|  storybook-static/assets/Link.stories-CCRJTy8b.js
+|  0.43 kB │ gzip:   0.30 kB
+|  storybook-static/assets/StatsBar.stories-C6MKF5vb.js
+|  0.44 kB │ gzip:   0.30 kB
+|  storybook-static/assets/CountrySelect.stories-CyLD_inm.js
+|  0.47 kB │ gzip:   0.32 kB
+|  storybook-static/assets/SkeletonImage.stories-DOHCbtKH.js
+|  0.47 kB │ gzip:   0.33 kB
+|  storybook-static/assets/ImageWithText.stories-Bs8vnt-a.js
+|  0.47 kB │ gzip:   0.31 kB
+|  storybook-static/assets/SectionHeading.stories-3gyUNPqF.js
+|  0.47 kB │ gzip:   0.31 kB
+|  storybook-static/assets/ProductCard.stories-ChityrVz.js
+|  0.48 kB │ gzip:   0.31 kB
+|  storybook-static/assets/ArchiveCarouselController.stories-NEhtY6-Y.js
+|  0.48 kB │ gzip:   0.32 kB
+|  storybook-static/assets/RecognitionCarouselController.stories-xWIw_hFA.js
+|  0.49 kB │ gzip:   0.31 kB
+|  storybook-static/assets/site-iM7B_oM1.js
+|  0.49 kB │ gzip:   0.33 kB
+|  storybook-static/assets/StickyBookingBar.stories-C8W1M3qR.js
+|  0.51 kB │ gzip:   0.35 kB
+|  storybook-static/assets/ProductImageCarousel.stories-JAvE3r68.js
+|  0.51 kB │ gzip:   0.32 kB
+|  storybook-static/assets/FormDrawer.stories-CdTnbeJc.js
+|  0.52 kB │ gzip:   0.37 kB
+|  storybook-static/assets/actions.fixture-BHwaL7fC.js
+|  0.55 kB │ gzip:   0.33 kB
+|  storybook-static/assets/palette-BlDTwjvj.js
+|  0.65 kB │ gzip:   0.36 kB
+|  storybook-static/assets/sparkles-DZ1j7sPg.js
+|  0.65 kB │ gzip:   0.38 kB
+|  storybook-static/assets/Container-BnvxHhjR.js
+|  0.67 kB │ gzip:   0.43 kB
+|  storybook-static/assets/hooks-C0zQpWdu.js
+|  0.83 kB │ gzip:   0.50 kB
+|  storybook-static/assets/Mirage.stories-O2jPAJ4x.js
+|  0.97 kB │ gzip:   0.56 kB
+|  storybook-static/assets/Reveal-DA53Vf7a.js
+|  0.98 kB │ gzip:   0.57 kB
+|  storybook-static/assets/Button.stories-DJuomYBs.js
+|  0.99 kB │ gzip:   0.52 kB
+|  storybook-static/assets/StarRating-2v0GHcu_.js
+|  1.08 kB │ gzip:   0.60 kB
+|  storybook-static/assets/navigation-BS-Afnqi.js
+|  1.21 kB │ gzip:   0.49 kB
+|  storybook-static/assets/collections-eVLaEQc6.js
+|  1.25 kB │ gzip:   0.66 kB
+|  storybook-static/assets/rolldown-runtime-2s6bX4vc.js
+|  1.26 kB │ gzip:   0.69 kB
+|  storybook-static/assets/react-country-flag.esm-ytNZbnKG.js
+|  1.27 kB │ gzip:   0.73 kB
+|  storybook-static/assets/ArtPiece-Biy-UWe4.js
+|  1.33 kB │ gzip:   0.62 kB
+|  storybook-static/assets/Section-CLF8oFEA.js
+|  1.34 kB │ gzip:   0.72 kB
+|  storybook-static/assets/link-hfpv9kSN.js
+|  1.41 kB │ gzip:   0.81 kB
+|  storybook-static/assets/Logo-BC_8kQ5X.js
+|  1.47 kB │ gzip:   0.85 kB
+|  storybook-static/assets/BrandStatement.stories-BpRRKsvM.js
+|  1.50 kB │ gzip:   0.76 kB
+|  storybook-static/assets/scroll-lock-VMffqvlu.js
+|  1.65 kB │ gzip:   0.66 kB
+|  storybook-static/assets/preload-helper-Lv_I9hyX.js
+|  1.74 kB │ gzip:   0.90 kB
+|  storybook-static/assets/ImageWithText-CSMhwAVX.js
+|  1.74 kB │ gzip:   0.89 kB
+|  storybook-static/assets/home-CQQ0CIKt.js
+|  1.91 kB │ gzip:   0.93 kB
+|  storybook-static/assets/StatsBar-CDSEga1K.js
+|  1.97 kB │ gzip:   0.92 kB
+|  storybook-static/assets/WorkshopBookingSection.stories-BPMBWn8X.js
+|  2.07 kB │ gzip:   1.05 kB
+|  storybook-static/assets/LiveEventBookingSection.stories-BD2JTPv4.js
+|  2.07 kB │ gzip:   1.05 kB
+|  storybook-static/assets/FounderBlock.stories-f0o5Q47b.js
+|  2.14 kB │ gzip:   1.01 kB
+|  storybook-static/assets/AboutMobileStickyBar.stories-CrjcrFjK.js
+|  2.15 kB │ gzip:   1.03 kB
+|  storybook-static/assets/SectionHeading-Cy0dmcb1.js
+|  2.16 kB │ gzip:   0.79 kB
+|  storybook-static/assets/ExpandableText.stories-B94CV2JT.js
+|  2.25 kB │ gzip:   1.23 kB
+|  storybook-static/assets/PageSkeletons.stories-CaTa060F.js
+|  2.27 kB │ gzip:   0.89 kB
+|  storybook-static/assets/StickyBookingBar-DAlJP2_S.js
+|  2.36 kB │ gzip:   1.07 kB
+|  storybook-static/assets/SkeletonImage-BnPiqLfI.js
+|  2.37 kB │ gzip:   1.15 kB
+|  storybook-static/assets/Skeleton-VxaVmvWK.js
+|  2.38 kB │ gzip:   0.96 kB
+|  storybook-static/assets/FormDrawer-DLhzcu2Q.js
+|  2.45 kB │ gzip:   1.16 kB
+|  storybook-static/assets/CollectionFeature.stories-DfzyzezD.js
+|  2.60 kB │ gzip:   1.26 kB
+|  storybook-static/assets/InteriorShowcase.stories-DxEsbCXr.js
+|  2.68 kB │ gzip:   1.30 kB
+|  storybook-static/assets/SocialGallery.stories-DdjBfZJr.js
+|  2.86 kB │ gzip:   1.35 kB
+|  storybook-static/assets/PrivacyPolicy.stories-Bm34EHZu.js
+|  3.01 kB │ gzip:   1.35 kB
+|  storybook-static/assets/Footer.stories-CBxvmpAn.js
+|  3.03 kB │ gzip:   1.25 kB
+|  storybook-static/assets/Link-D-MSyTVu.js
+|  3.19 kB │ gzip:   1.13 kB
+|  storybook-static/assets/ContactDialog.stories-CFIfF9L9.js
+|  3.22 kB │ gzip:   1.52 kB
+|  storybook-static/assets/CollaboratedBrands.stories-DHGuCmCt.js
+|  3.23 kB │ gzip:   1.49 kB
+|  storybook-static/assets/chunk-DRQKCCAG-BWVzssvL.js
+|  3.36 kB │ gzip:   1.39 kB
+|  storybook-static/assets/StudioTechnique.stories-AIEdYEiy.js
+|  3.38 kB │ gzip:   1.31 kB
+|  storybook-static/assets/FeaturedProducts.stories-knHuSL0J.js
+|  3.60 kB │ gzip:   1.67 kB
+|  storybook-static/assets/createLucideIcon-BL3vfvj6.js
+|  3.66 kB │ gzip:   1.68 kB
+|  storybook-static/assets/EnquiryForm-BCX7ubRe.js
+|  3.70 kB │ gzip:   1.50 kB
+|  storybook-static/assets/CategoryCards.stories-h72o5nMw.js
+|  3.85 kB │ gzip:   1.79 kB
+|  storybook-static/assets/ExperiencesBanner.stories-OPLHd9hn.js
+|  4.35 kB │ gzip:   1.97 kB
+|  storybook-static/assets/RecognitionTimeline.stories-CP3jMWZ4.js
+|  4.41 kB │ gzip:   1.65 kB
+|  storybook-static/assets/CategoryFilter.stories-BUbWSasg.js
+|  4.65 kB │ gzip:   1.72 kB
+|  storybook-static/assets/ArtistFounderHero.stories-qvOdWb4j.js
+|  4.85 kB │ gzip:   2.05 kB
+|  storybook-static/assets/Commission.stories-CFH3j1D9.js
+|  4.97 kB │ gzip:   2.11 kB
+|  storybook-static/assets/HeroControls.stories-_VaxgIEG.js
+|  4.99 kB │ gzip:   2.04 kB
+|  storybook-static/assets/Icons-BVQEKY51.js
+|  5.11 kB │ gzip:   1.55 kB
+|  storybook-static/assets/RecognitionCarouselController-DDa_KxlO.js
+|  5.33 kB │ gzip:   2.01 kB
+|  storybook-static/assets/CollectionGrid.stories-Cq9xZD72.js
+|  5.52 kB │ gzip:   2.27 kB
+|  storybook-static/assets/LiveEventsGallery.stories-Da_FW2Uy.js
+|  5.55 kB │ gzip:   2.22 kB
+|  storybook-static/assets/ArchiveCarouselController-CxRnyxUq.js
+|  5.88 kB │ gzip:   2.24 kB
+|  storybook-static/assets/ProductCard-D6AM8XuZ.js
+|  5.88 kB │ gzip:   2.43 kB
+|  storybook-static/assets/ReviewsWall.stories-CBQ2vl2X.js
+|  6.15 kB │ gzip:   2.50 kB
+|  storybook-static/assets/CartDrawer-BY-4enKG.js
+|  6.46 kB │ gzip:   2.19 kB
+|  storybook-static/assets/SelectField.stories-_KJ3OXbp.js
+|  6.71 kB │ gzip:   2.60 kB
+|  storybook-static/assets/ProductImageCarousel-DAIPELOS.js
+|  6.74 kB │ gzip:   2.27 kB
+|  storybook-static/assets/InteractiveArchive.stories-DH-RcIz-.js
+|  6.79 kB │ gzip:   2.49 kB
+|  storybook-static/assets/WorkshopBookingForm-D8Yco1h0.js
+|  7.47 kB │ gzip:   2.75 kB
+|  storybook-static/assets/MobileFilterSortBar.stories-BNvwJSIA.js
+|  7.58 kB │ gzip:   2.58 kB
+|  storybook-static/assets/LiveEventBookingForm-DQKO-x0A.js
+|  7.64 kB │ gzip:   2.78 kB
+|  storybook-static/assets/DatePickerField.stories-D9GnPJ9-.js
+|  8.10 kB │ gzip:   3.08 kB
+|  storybook-static/assets/artist-DFH8hbxs.js
+|  8.33 kB │ gzip:   3.32 kB
+|  storybook-static/assets/Hero.stories-CD9ga3kO.js
+|  9.13 kB │ gzip:   4.01 kB
+|  storybook-static/assets/ProductDetailsClient.stories-aio4sWw3.js
+|  9.66 kB │ gzip:   3.13 kB
+|  storybook-static/assets/live-events-BEowGWmd.js
+|  10.24 kB │ gzip:   3.50 kB
+|  storybook-static/assets/Header.stories--B372kPp.js
+|  11.45 kB │ gzip:   3.87 kB
+|  storybook-static/assets/WorkshopsGallery.stories-DPBVHaqT.js
+|  12.62 kB │ gzip:   4.84 kB
+|  storybook-static/assets/image-DAsGEBvS.js
+|  16.56 kB │ gzip:   6.21 kB
+|  storybook-static/assets/chunk-W22LQPXL-DN9OW9BJ.js
+|  22.59 kB │ gzip:   7.52 kB
+|  storybook-static/assets/ArtImage-O-mqw4qa.js
+|  27.18 kB │ gzip:   8.06 kB
+|  storybook-static/vite-inject-mocker-entry.js
+|  27.75 kB │ gzip:   9.66 kB
+|  storybook-static/assets/matchers-JIUQ3HVY-DGzzfmGb.js
+|  28.75 kB │ gzip:   9.66 kB
+|  storybook-static/assets/Color-6AOWCN3U-DtpMxpPg.js
+|  30.33 kB │ gzip:  11.45 kB
+|  storybook-static/assets/WithTooltip-CDUNV5IS-BV_WxivY.js
+|  32.65 kB │ gzip:  11.44 kB
+|  storybook-static/assets/theming-BUb3wrsX.js
+|  55.31 kB │ gzip:  21.31 kB
+|  storybook-static/assets/products-on28ZYgz.js
+|  58.74 kB │ gzip:   7.52 kB
+|  storybook-static/assets/syntaxhighlighter-QEQV7K2Y-D-nsRtXw.js
+|  75.80 kB │ gzip:  27.22 kB
+|  storybook-static/assets/CountrySelect-6c-hyAWa.js
+|  96.81 kB │ gzip:  24.61 kB
+|  storybook-static/assets/react-18-DjMWhiSK.js
+|  205.25 kB │ gzip:  64.54 kB
+|  storybook-static/assets/axe-Cr7CYNPv.js
+|  586.66 kB │ gzip: 160.14 kB
+|  storybook-static/assets/DocsRenderer-JROSPFPF-D-kWxHgk.js
+|  756.07 kB │ gzip: 238.87 kB
+|  storybook-static/assets/iframe-DEJwnpck.js
+|  1,368.61 kB │ gzip: 384.55 kB
+
+|
+!  Vite [plugin builtin:vite-reporter]
+|  (!) Some chunks are larger than 500 kB after minification. Consider:
+|  - Using dynamic import() to code-split the application
+|  - Use build.rolldownOptions.output.codeSplitting to improve chunking:
+|  ]8;;https://rolldown.rs/reference/OutputOptions.codeSplittinghttps://rolldown.rs/reference/OutputOptions.codeSplitting]8;;
+|  - Adjust chunk size limit for this warning via
+|  build.chunkSizeWarningLimit.
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/molecules/SelectField/SelectField.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/molecules/SelectField/SelectField.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in "src/components/providers/ReduxProvider.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/providers/ReduxProvider.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m 'use client';
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m 'use client';
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "node_modules/next/dist/client/components/redirect-boundary.js" may
+|  not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/next/dist/client/components/redirect-boundary.js:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m 'use client';
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/atoms/ExpandableText/ExpandableText.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/atoms/ExpandableText/ExpandableText.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in "src/components/atoms/Logo/Logo.tsx" may not
+|  be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/atoms/Logo/Logo.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/EnquiryForm/EnquiryForm.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/EnquiryForm/EnquiryForm.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/WorkshopBookingForm/WorkshopBookingForm.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/WorkshopBookingForm/WorkshopBookingForm.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/CollectionGrid/CollectionGrid.tsx" may not
+|  be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/CollectionGrid/CollectionGrid.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/LiveEventsGallery/LiveEventsGallery.tsx" may
+|  not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/LiveEventsGallery/LiveEventsGallery.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/ReviewsWall/ReviewsWall.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/ReviewsWall/ReviewsWall.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/atoms/SkeletonImage/SkeletonImage.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/atoms/SkeletonImage/SkeletonImage.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/CartDrawer/CartDrawer.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/CartDrawer/CartDrawer.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/LiveEventBookingForm/LiveEventBookingForm.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/LiveEventBookingForm/LiveEventBookingForm.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/ContactDialog/ContactDialog.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/ContactDialog/ContactDialog.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/molecules/ProductCard/ProductCard.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/molecules/ProductCard/ProductCard.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/RecognitionCarouselController/RecognitionCarouselController.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/RecognitionCarouselController/RecognitionCarouselController.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/ArchiveCarouselController/ArchiveCarouselController.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/ArchiveCarouselController/ArchiveCarouselController.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/WorkshopsGallery/WorkshopsGallery.tsx" may
+|  not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/WorkshopsGallery/WorkshopsGallery.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/ProductDetailsClient/ProductDetailsClient.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/ProductDetailsClient/ProductDetailsClient.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/ProductImageCarousel/ProductImageCarousel.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/ProductImageCarousel/ProductImageCarousel.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/LiveEventBookingSection/LiveEventBookingSection.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/LiveEventBookingSection/LiveEventBookingSection.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/WorkshopBookingSection/WorkshopBookingSection.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/WorkshopBookingSection/WorkshopBookingSection.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in "src/components/organisms/Header/Header.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/Header/Header.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/molecules/StickyBookingBar/StickyBookingBar.tsx" may
+|  not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/molecules/StickyBookingBar/StickyBookingBar.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/molecules/FormDrawer/FormDrawer.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/molecules/FormDrawer/FormDrawer.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/CategoryFilter/CategoryFilter.tsx" may not
+|  be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/organisms/CategoryFilter/CategoryFilter.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/molecules/HeroControls/HeroControls.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/molecules/HeroControls/HeroControls.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/organisms/MobileFilterSortBar/MobileFilterSortBar.tsx"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  src/components/organisms/MobileFilterSortBar/MobileFilterSortBar.tsx:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/molecules/DatePickerField/DatePickerField.tsx" may not
+|  be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/molecules/DatePickerField/DatePickerField.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "src/components/molecules/CountrySelect/CountrySelect.tsx" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/molecules/CountrySelect/CountrySelect.tsx:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in "src/lib/scroll-lock.ts" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/lib/scroll-lock.ts:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m
+|  node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js:1:1
+|  [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m 'use client';
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "node_modules/lucide-react/dist/esm/context.mjs" may not be preserved
+|  when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/lucide-react/dist/esm/context.mjs:2:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m2 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "node_modules/lucide-react/dist/esm/Icon.mjs" may not be preserved
+|  when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/lucide-react/dist/esm/Icon.mjs:2:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m2 │[0m "use client";
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in "node_modules/next/dist/client/script.js"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/next/dist/client/script.js:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m 'use client';
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in
+|  "node_modules/next/dist/client/image-component.js" may not be
+|  preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/next/dist/client/image-component.js:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m 'use client';
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|
+!  Vite [33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level
+|  directive "use client" in "node_modules/next/dist/shared/lib/head.js"
+|  may not be preserved when bundling.
+|  [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/next/dist/shared/lib/head.js:1:1 [38;5;246m][0m
+|  [38;5;246m│[0m
+|  [38;5;246m1 │[0m 'use client';
+|  [38;5;240m│[0m ──────┬──────
+|  [38;5;240m│[0m       ╰──────── module level directive may not be preserved
+|  [38;5;240m│[0m
+|  [38;5;240m│[0m [38;5;115mHelp[0m: For more information, see ]8;;https://rolldown.rs/in-depth/directives#other-directiveshttps://rolldown.rs/in-depth/d...]8;;
+|  [38;5;246m───╯[0m
+
+|  Vite ✓ built in 14.00s
+|
+!  Vite [33m[PLUGIN_TIMINGS] [0mJavaScript callbacks ran for 11.3s of this 13.3s
+|  build (85%).
+|  The slowest callbacks, timed inside each callback (the wait before a
+|  callback starts is excluded, the time it awaits is included):
+|  - plugin storybook:react-docgen-plugin transform (39%, 5.2s, 2522
+|  calls)
+|  - plugin vite:css transform (15%, 2.0s, 2 calls)
+|  Additional callback time came from the callbacks below and from
+|  callbacks under 1s.
+|  2 callbacks are listed without a time. Their calls overlapped, so the
+|  time inside one call includes work from other calls. To find their
+|  cost, profile the build with `node --cpu-prof`:
+|  - plugin vite-plugin-storybook-nextjs-swc transform (2522 calls)
+|  - plugin plugin-csf transform (2522 calls)
+|  See ]8;;https://rolldown.rs/reference/InputOptions.checks#bundlertimingshttps://rolldown.rs/reference/InputOptions.checks#bundlertimings]8;;
+|  for more details.
+
+|
+o  Output directory: C:/Users/Moideen Mashad/My media
+|  files/DEVELOPMENT/NextJs/sumaira-arts/storybook-static
+|
+—  Storybook build completed successfully
+

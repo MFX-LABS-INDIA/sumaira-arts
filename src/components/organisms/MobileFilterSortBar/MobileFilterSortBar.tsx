@@ -63,7 +63,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
     return (
       <>
         {/* Sticky Mobile Filter Bar */}
-        <div className="sticky top-19 z-40 lg:hidden border-b border-light bg-white/95 px-4 py-2.5 shadow-sm backdrop-blur-md">
+        <div className="sticky top-19 z-30 lg:hidden border-b border-light bg-white/95 px-4 py-2.5 shadow-sm backdrop-blur-md">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
               {/* Sort Trigger */}

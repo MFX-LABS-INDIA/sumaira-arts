@@ -325,7 +325,7 @@ export function Header() {
       <div
         id="mobile-menu"
         inert={!open}
-        className={`fixed inset-x-0 bottom-0 top-19 z-40 overflow-hidden transition-[visibility] duration-0 lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-19 z-50 overflow-hidden transition-[visibility] duration-0 lg:hidden ${
           open ? "visible delay-0" : "invisible delay-[450ms] motion-reduce:delay-0"
         }`}
       >
