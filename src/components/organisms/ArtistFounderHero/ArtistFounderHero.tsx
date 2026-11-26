@@ -26,17 +26,17 @@ export function ArtistFounderHero() {
           </div>
 
           <Reveal delay={150} className="md:col-span-6 md:col-start-7 md:row-span-2 md:row-start-1 md:self-center">
-            <figure className="relative mx-auto w-full max-w-[420px] lg:max-w-[460px]">
+            <figure className="relative mx-auto w-full max-w-xl">
               <div className="pointer-events-none absolute -inset-2 hidden rounded-card border border-soft/70 sm:-inset-3 sm:block" aria-hidden="true" />
               <div className="overflow-hidden rounded-card border border-light bg-white p-2 sm:p-2.5">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-ice">
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-xl bg-ice">
                   <SkeletonImage
                     src="/assets/images/artist/sumaira-about-hero.webp"
                     alt="Sumaira Mohammed Ashik painting contemporary Arabic calligraphy on textured canvas in her studio"
                     fill
                     preload
                     instantReveal
-                    sizes="(min-width: 1024px) 460px, (min-width: 768px) 44vw, 90vw"
+                    sizes="(min-width: 1280px) 576px, (min-width: 1024px) 46vw, 92vw"
                     className="object-cover object-center"
                   />
                 </div>
