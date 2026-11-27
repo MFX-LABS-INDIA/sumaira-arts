@@ -48,7 +48,7 @@ export function InteractiveArchive() {
             key={story.id}
             data-archive-slide
             data-category={story.category}
-            className="group flex w-[84vw] max-w-96 shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-[border-color,box-shadow] duration-500 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]"
+            className="group flex w-[84vw] max-w-96 shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-[border-color,box-shadow] duration-500 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
           >
             <button
               type="button"
@@ -60,7 +60,7 @@ export function InteractiveArchive() {
                 src={story.image}
                 alt={story.title}
                 fill
-                sizes="(min-width: 1024px) 31vw, (min-width: 640px) 45vw, 84vw"
+                sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 84vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
               />
               <span className="absolute inset-0 bg-gradient-to-t from-deep/65 via-transparent to-deep/10 opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
@@ -80,20 +80,23 @@ export function InteractiveArchive() {
                 <MapPin className="h-3.5 w-3.5 shrink-0 text-brand" aria-hidden="true" />
                 {story.location}
               </span>
-              <h3 className="mt-2 text-lg font-medium leading-snug tracking-tight text-deep sm:mt-3 sm:text-xl">
+              <h3
+                role="button"
+                tabIndex={0}
+                onClick={() => setActiveStory(story)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActiveStory(story);
+                  }
+                }}
+                className="mt-2 cursor-pointer text-lg font-medium leading-snug tracking-tight text-deep transition-colors hover:text-brand sm:mt-3 sm:text-xl"
+              >
                 {story.title}
               </h3>
-              <p className="mt-2 line-clamp-2 flex-1 text-xs leading-relaxed text-steel sm:mt-3 sm:text-sm">
+              <p className="mt-2 flex-1 text-xs leading-relaxed text-steel sm:mt-3 sm:text-sm">
                 {story.description}
               </p>
-              <button
-                type="button"
-                onClick={() => setActiveStory(story)}
-                className="mt-4 inline-flex min-h-10 items-center gap-2 self-start border-t border-light pt-3 text-xs font-semibold text-brand transition-colors hover:text-deep sm:mt-5 sm:text-sm cursor-pointer"
-              >
-                View project details
-                <ChevronRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
-              </button>
             </div>
           </article>
         ))}
@@ -112,10 +115,10 @@ export function InteractiveArchive() {
           <div
             onClick={(e) => e.stopPropagation()}
             data-lenis-prevent
-            className="custom-scrollbar relative my-auto flex max-h-[92vh] w-full max-w-2xl flex-col overflow-y-auto rounded-card border border-light bg-white shadow-artwork"
+            className="custom-scrollbar relative my-auto flex max-h-[92vh] w-full max-w-2xl flex-col overflow-y-auto rounded-card border border-light bg-white shadow-artwork animate-modal-pop will-change-transform"
           >
-            {/* Sticky Header with Category Badge and Close Button */}
-            <div className="sticky top-0 z-40 flex items-center justify-between border-b border-light/60 bg-white/95 px-5 py-3.5 backdrop-blur-md sm:px-7 sm:py-4">
+            {/* Sticky Header with Category Badge, Location, and Close Button */}
+            <div className="sticky top-0 z-40 flex items-center justify-between border-b border-light/60 bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6 sm:py-3.5">
               <div className="flex items-center gap-2">
                 <span className="rounded-full bg-ice px-3 py-1 text-micro font-semibold uppercase tracking-caps text-brand">
                   {activeStory.category}
@@ -134,10 +137,10 @@ export function InteractiveArchive() {
               </button>
             </div>
 
-            {/* Modal Body */}
-            <div className="p-5 sm:p-7">
+            {/* Modal Body: Full Image & Title */}
+            <div className="p-4 sm:p-6">
               {/* Image Frame */}
-              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-control bg-ice shadow-sm sm:aspect-[16/10]">
+              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-control bg-ice shadow-xs sm:aspect-[16/10]">
                 <SkeletonImage
                   src={activeStory.image}
                   alt={activeStory.title}
@@ -147,31 +150,13 @@ export function InteractiveArchive() {
                 />
               </div>
 
-              <div className="mt-6">
+              <div className="mt-4 sm:mt-5">
                 <h3
                   id={`archive-title-${activeStory.id}`}
-                  className="font-serif text-2xl font-light tracking-tight text-deep sm:text-3xl"
+                  className="font-serif text-xl font-light tracking-tight text-deep sm:text-2xl"
                 >
                   {activeStory.title}
                 </h3>
-                <p className="mt-1.5 text-sm italic text-steel">{activeStory.subtitle}</p>
-                <p className="mt-4 text-sm leading-relaxed text-steel sm:text-base">
-                  {activeStory.description}
-                </p>
-
-                <div className="mt-6 rounded-control border border-light bg-ice/50 p-5 sm:p-6">
-                  <span className="block text-micro font-semibold uppercase tracking-caps text-deep">
-                    Exhibition & Design Highlights
-                  </span>
-                  <ul className="mt-3.5 space-y-2.5 text-sm leading-relaxed text-steel">
-                    {activeStory.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-2.5">
-                        <span className="font-serif font-bold italic text-brand" aria-hidden="true">—</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           </div>

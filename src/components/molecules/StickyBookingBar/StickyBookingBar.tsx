@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/atoms/Container";
+import { InstagramIcon } from "@/components/atoms/Icons";
 
 interface StickyBookingBarProps {
   title?: string;
@@ -11,6 +12,8 @@ interface StickyBookingBarProps {
   icon: ReactNode;
   hidden: boolean;
   onAction: () => void;
+  instagramUrl?: string;
+  instagramHandle?: string;
 }
 
 export function StickyBookingBar({
@@ -20,6 +23,8 @@ export function StickyBookingBar({
   icon,
   hidden,
   onAction,
+  instagramUrl,
+  instagramHandle,
 }: StickyBookingBarProps) {
   const hasCopy = Boolean(title || subtitle);
 
@@ -31,12 +36,23 @@ export function StickyBookingBar({
           : "translate-y-0 opacity-100"
       }`}
     >
-      <Container
-        className={`flex items-center gap-3 py-2.5 sm:gap-6 sm:py-3 ${
-          hasCopy ? "justify-between" : "justify-end"
-        }`}
-      >
-        {hasCopy && (
+      <Container className="flex items-center justify-between gap-3 py-2.5 sm:gap-6 sm:py-3">
+        {instagramUrl ? (
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${instagramHandle || "Instagram"} profile`}
+            className="group flex h-11 items-center gap-2 rounded-control border border-light bg-ice/60 px-3.5 transition-all duration-200 hover:border-brand/40 hover:bg-white hover:shadow-xs sm:px-4"
+          >
+            <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-xs transition-transform duration-300 group-hover:scale-105">
+              <InstagramIcon className="h-3.5 w-3.5" />
+            </span>
+            <span className="text-[11px] font-semibold text-deep transition-colors group-hover:text-brand sm:text-xs">
+              {instagramHandle || "@instagram"}
+            </span>
+          </a>
+        ) : hasCopy ? (
           <div className="min-w-0">
             {title && (
               <div className="flex items-center gap-2">
@@ -55,14 +71,14 @@ export function StickyBookingBar({
               </p>
             )}
           </div>
+        ) : (
+          <div />
         )}
 
         <button
           type="button"
           onClick={onAction}
-          className={`inline-flex h-11 shrink-0 cursor-pointer items-center justify-center gap-1.5 rounded-control bg-brand px-4 text-[11px] font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:gap-2 sm:px-6 sm:text-xs sm:tracking-caps ${
-            hasCopy ? "" : "w-full sm:w-auto"
-          }`}
+          className="inline-flex h-11 shrink-0 cursor-pointer items-center justify-center gap-1.5 rounded-control bg-brand px-4 text-[11px] font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:gap-2 sm:px-6 sm:text-xs sm:tracking-caps"
         >
           {icon}
           <span>{buttonLabel}</span>

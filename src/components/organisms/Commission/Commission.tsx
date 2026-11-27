@@ -1,6 +1,5 @@
 import { MoveRight } from "lucide-react";
 import { ArtImage } from "@/components/art/ArtImage";
-import { ButtonLink } from "@/components/atoms/Link";
 import { Eyebrow, headingClass } from "@/components/molecules/SectionHeading";
 import { Container } from "@/components/atoms/Container";
 import { Section } from "@/components/atoms/Section";
@@ -32,14 +31,6 @@ export function Commission() {
               <p className="mt-2 sm:mt-3 md:mt-5 max-w-md text-xs sm:text-sm md:text-base leading-relaxed md:leading-8 text-steel">
                 {commission.description}
               </p>
-              <div className="hidden md:block md:mt-8">
-                <ButtonLink
-                  href={commission.cta.href}
-                  className="min-h-12 w-auto justify-center px-5 text-label"
-                >
-                  {commission.cta.label}
-                </ButtonLink>
-              </div>
             </div>
           </div>
 
@@ -80,15 +71,6 @@ export function Commission() {
               </li>
             ))}
           </ol>
-
-          <div className="border-t border-light bg-white px-4 py-3.5 sm:px-6 md:hidden">
-            <ButtonLink
-              href={commission.cta.href}
-              className="min-h-11 w-full justify-center px-5 text-xs shadow-sm"
-            >
-              {commission.cta.label}
-            </ButtonLink>
-          </div>
         </div>
       </Container>
     </Section>

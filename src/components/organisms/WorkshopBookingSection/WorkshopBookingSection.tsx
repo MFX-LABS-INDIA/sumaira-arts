@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Calendar } from "lucide-react";
 import { FormDrawer } from "@/components/molecules/FormDrawer";
 import { StickyBookingBar } from "@/components/molecules/StickyBookingBar";
+import { site } from "@/constants/site";
 import { WorkshopBookingForm } from "@/components/organisms/WorkshopBookingForm";
 import { WORKSHOP_FORMATS } from "@/types/workshop-booking";
 
@@ -62,6 +63,8 @@ export function WorkshopBookingSection() {
         icon={<Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
         hidden={isModalOpen}
         onAction={() => setIsModalOpen(true)}
+        instagramUrl={site.instagram.workshops}
+        instagramHandle="@sumaira_workshops"
       />
 
       <FormDrawer

@@ -1,4 +1,7 @@
-import { Award, Building2, Check, Languages } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Award, Building2, Check, Languages, X } from "lucide-react";
 import { InstagramIcon } from "@/components/atoms/Icons";
 import { ExpandableText } from "@/components/atoms/ExpandableText";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
@@ -11,9 +14,14 @@ import { CollaboratedBrands } from "@/components/organisms/CollaboratedBrands";
 import { LiveEventBookingSection } from "@/components/organisms/LiveEventBookingSection";
 import { LiveEventsGallery } from "@/components/organisms/LiveEventsGallery";
 import { site } from "@/constants/site";
-import { liveEventsData } from "@/data/live-events";
+import { useScrollLock } from "@/lib/scroll-lock";
+import { liveEventsData, type LiveEventService } from "@/data/live-events";
 
 export function LiveEventsView() {
+  const [activeImage, setActiveImage] = useState<LiveEventService | null>(null);
+
+  useScrollLock(!!activeImage);
+
   const {
     hero,
     servicesIntro,
@@ -162,7 +170,19 @@ export function LiveEventsView() {
             {services.map((service, index) => (
               <Reveal key={service.id} delay={index * 60} className="flex w-[80vw] max-w-[300px] shrink-0 snap-start sm:w-auto sm:max-w-none">
                 <article className="group flex h-full w-full flex-col overflow-hidden rounded-card border border-light bg-white transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:border-brand/40 hover:shadow-raised motion-reduce:transform-none">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-ice">
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setActiveImage(service)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveImage(service);
+                      }
+                    }}
+                    aria-label={`View image for ${service.title}`}
+                    className="relative aspect-[16/10] cursor-pointer overflow-hidden bg-ice"
+                  >
                     <SkeletonImage
                       src={service.image}
                       alt={service.alt}
@@ -173,7 +193,18 @@ export function LiveEventsView() {
                   </div>
                   <div className="flex flex-1 flex-col p-4 sm:p-5">
                     <Eyebrow className="text-[10px]">{service.eyebrow}</Eyebrow>
-                    <h3 className="mt-1.5 font-serif text-lg font-medium leading-snug tracking-tight text-deep sm:mt-2 sm:text-xl">
+                    <h3
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setActiveImage(service)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setActiveImage(service);
+                        }
+                      }}
+                      className="mt-1.5 cursor-pointer font-serif text-lg font-medium leading-snug tracking-tight text-deep transition-colors hover:text-brand sm:mt-2 sm:text-xl"
+                    >
                       {service.title}
                     </h3>
                     <ExpandableText text={service.description} className="mt-2" />
@@ -212,6 +243,58 @@ export function LiveEventsView() {
       <CollaboratedBrands tone="white" />
 
       <LiveEventBookingSection />
+
+      {/* Consistent Image and Title Modal */}
+      {activeImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          data-lenis-prevent
+          aria-label={activeImage.title}
+          onClick={() => setActiveImage(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-deep/80 p-3 sm:p-6 backdrop-blur-md animate-fade-in"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            data-lenis-prevent
+            className="custom-scrollbar relative my-auto flex max-h-[92vh] w-full max-w-2xl flex-col overflow-y-auto rounded-card border border-light bg-white shadow-artwork animate-modal-pop will-change-transform"
+          >
+            {/* Sticky Header with Category Badge and Close Button */}
+            <div className="sticky top-0 z-40 flex items-center justify-between border-b border-light/60 bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6 sm:py-3.5">
+              <span className="rounded-full bg-ice px-3 py-1 text-micro font-semibold uppercase tracking-caps text-brand">
+                {activeImage.eyebrow}
+              </span>
+              <button
+                type="button"
+                onClick={() => setActiveImage(null)}
+                aria-label="Close image preview"
+                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-light bg-white text-deep transition-all duration-200 hover:border-steel/30 hover:bg-ice hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Modal Body: Full Image & Title Only */}
+            <div className="p-4 sm:p-6">
+              <div className="relative aspect-[16/10] sm:aspect-[4/3] max-h-[68vh] w-full overflow-hidden rounded-control bg-ice shadow-xs">
+                <SkeletonImage
+                  src={activeImage.image}
+                  alt={activeImage.alt}
+                  fill
+                  sizes="(min-width: 1024px) 672px, 95vw"
+                  className="object-contain bg-deep/5"
+                />
+              </div>
+
+              <div className="mt-4 sm:mt-5">
+                <h3 className="font-serif text-xl font-light tracking-tight text-deep sm:text-2xl">
+                  {activeImage.title}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { Sparkles } from "lucide-react";
 import { LiveEventBookingForm } from "@/components/organisms/LiveEventBookingForm";
 import { FormDrawer } from "@/components/molecules/FormDrawer";
 import { StickyBookingBar } from "@/components/molecules/StickyBookingBar";
+import { site } from "@/constants/site";
 import {
   EVENT_CATEGORY_OPTIONS,
   type EventCategoryId,
@@ -65,6 +66,8 @@ export function LiveEventBookingSection() {
         icon={<Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
         hidden={isModalOpen}
         onAction={() => setIsModalOpen(true)}
+        instagramUrl={site.instagram.events}
+        instagramHandle="@sumaira_calligraphy"
       />
 
       <FormDrawer

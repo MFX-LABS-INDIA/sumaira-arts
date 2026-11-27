@@ -75,6 +75,7 @@ export function SkeletonImage({
         ref={imgRef}
         src={src}
         alt={alt}
+        draggable={false}
         preload={shouldPreload || undefined}
         className={`${className} ${
           skipOpacityGate

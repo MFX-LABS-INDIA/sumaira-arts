@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
+import { useScrollLock } from "@/lib/scroll-lock";
 import type { EventGalleryItem } from "@/data/live-events";
 
 const GALLERY_CATEGORIES = [
@@ -18,6 +19,8 @@ type GalleryFilter = (typeof GALLERY_CATEGORIES)[number];
 export function LiveEventsGallery({ items }: { items: EventGalleryItem[] }) {
   const [selected, setSelected] = useState<GalleryFilter>("All");
   const [activeItem, setActiveItem] = useState<EventGalleryItem | null>(null);
+
+  useScrollLock(!!activeItem);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -172,41 +175,48 @@ export function LiveEventsGallery({ items }: { items: EventGalleryItem[] }) {
         <div
           role="dialog"
           aria-modal="true"
+          data-lenis-prevent
           aria-label={activeItem.title}
           onClick={() => setActiveItem(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-deep/80 p-4 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-deep/80 p-3 sm:p-6 backdrop-blur-md animate-fade-in"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
+            data-lenis-prevent
+            className="custom-scrollbar relative my-auto flex max-h-[92vh] w-full max-w-2xl flex-col overflow-y-auto rounded-card border border-light bg-white shadow-artwork animate-modal-pop will-change-transform"
           >
-            <div className="relative aspect-[3/4] max-h-[68vh] w-full overflow-hidden bg-ice">
-              <SkeletonImage
-                src={activeItem.image}
-                alt={activeItem.alt}
-                fill
-                sizes="(min-width: 1024px) 672px, 95vw"
-                className="object-contain bg-deep/5"
-              />
+            {/* Sticky Header with Category Badge and Close Button */}
+            <div className="sticky top-0 z-40 flex items-center justify-between border-b border-light/60 bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6 sm:py-3.5">
+              <span className="rounded-full bg-ice px-3 py-1 text-micro font-semibold uppercase tracking-caps text-brand">
+                {activeItem.category}
+              </span>
               <button
                 type="button"
                 onClick={() => setActiveItem(null)}
                 aria-label="Close image preview"
-                className="absolute end-3 top-3 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-deep/60 text-white backdrop-blur-md transition-colors hover:bg-deep"
+                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-light bg-white text-deep transition-all duration-200 hover:border-steel/30 hover:bg-ice hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="flex flex-col gap-1 p-4 sm:p-5 bg-white border-t border-light">
-              <span className="text-[11px] font-semibold uppercase tracking-caps text-brand">
-                {activeItem.category}
-              </span>
-              <h3 className="font-serif text-lg font-normal text-deep">
-                {activeItem.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-steel line-clamp-2">
-                {activeItem.alt}
-              </p>
+
+            {/* Modal Body: Full Image & Title Only */}
+            <div className="p-4 sm:p-6">
+              <div className="relative aspect-[3/4] max-h-[68vh] w-full overflow-hidden rounded-control bg-ice shadow-xs">
+                <SkeletonImage
+                  src={activeItem.image}
+                  alt={activeItem.alt}
+                  fill
+                  sizes="(min-width: 1024px) 672px, 95vw"
+                  className="object-contain bg-deep/5"
+                />
+              </div>
+
+              <div className="mt-4 sm:mt-5">
+                <h3 className="font-serif text-xl font-light tracking-tight text-deep sm:text-2xl">
+                  {activeItem.title}
+                </h3>
+              </div>
             </div>
           </div>
         </div>
