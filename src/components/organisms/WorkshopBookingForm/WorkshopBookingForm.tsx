@@ -45,9 +45,9 @@ function WorkshopSessionGrid({
             role="radio"
             aria-checked={isSelected}
             onClick={() => onChange(option.value)}
-            className={`group relative flex cursor-pointer flex-col overflow-hidden rounded-lg border text-center transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:rounded-xl ${
+            className={`group relative flex cursor-pointer flex-col overflow-hidden rounded-control border text-center transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:rounded-card ${
               isSelected
-                ? "border-brand bg-ice/70 shadow-sm ring-2 ring-brand/20"
+                ? "border-brand bg-ice/70 shadow-raised ring-2 ring-brand/20"
                 : hasError
                   ? "border-red-300 bg-white hover:border-brand/50"
                   : "border-light bg-white hover:border-brand/40 hover:shadow-xs"
@@ -117,7 +117,7 @@ export function WorkshopBookingForm({
 
   if (formState.status === "success") {
     return (
-      <div className="rounded-xl border border-light bg-ice/50 p-6 text-center sm:p-8">
+      <div className="rounded-card border border-light bg-ice/50 p-6 text-center sm:p-8">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
           <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
         </div>
@@ -240,7 +240,7 @@ export function WorkshopBookingForm({
         {formState.status === "error" && (
           <p
             role="alert"
-            className="rounded-lg border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs text-red-700"
+            className="rounded-control border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs text-red-700"
           >
             {formState.message}
           </p>

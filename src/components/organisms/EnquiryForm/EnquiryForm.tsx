@@ -95,11 +95,11 @@ export function EnquiryForm() {
         </p>
       )}
 
-      <div className="sticky bottom-0 z-20 -mx-5 border-t border-light bg-white/95 px-5 pt-3 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-[0_-6px_18px_-12px_rgba(13,24,42,0.18)] backdrop-blur-xs sm:-mx-8 sm:px-8 md:static md:mx-0 md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+      <div className="sticky bottom-0 z-20 -mx-5 border-t border-light bg-white/95 px-5 pt-3 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-sticky backdrop-blur-xs sm:-mx-8 sm:px-8 md:static md:mx-0 md:border-0 md:bg-transparent md:p-0 md:shadow-none">
         <button
           type="submit"
           disabled={isPending || formState.status === "success"}
-          className="flex min-h-12 w-full cursor-pointer items-center justify-center rounded-control bg-brand px-5 py-3 text-sm font-medium uppercase tracking-caps text-white shadow-sm transition-colors hover:bg-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-60"
+          className="flex min-h-12 w-full cursor-pointer items-center justify-center rounded-control bg-brand px-5 py-3 text-sm font-medium uppercase tracking-caps text-white shadow-raised transition-colors hover:bg-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isPending ? "Sending..." : formState.status === "success" ? "Enquiry sent" : "Send enquiry"}
         </button>

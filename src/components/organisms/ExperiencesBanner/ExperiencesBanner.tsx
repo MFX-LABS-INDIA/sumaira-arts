@@ -16,7 +16,7 @@ export function ExperiencesBanner() {
           {experienceCards.map((card) => (
             <article
               key={card.id}
-              className="group relative flex w-[84vw] max-w-[340px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:border-brand hover:shadow-raised sm:w-auto sm:max-w-none motion-reduce:transform-none"
+              className="group relative flex w-[84vw] max-w-[340px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:border-brand sm:w-auto sm:max-w-none motion-reduce:transform-none"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-ice">
                 <SkeletonImage
@@ -26,7 +26,7 @@ export function ExperiencesBanner() {
                   sizes="(min-width: 1280px) 580px, (min-width: 640px) 46vw, 84vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                 />
-                <span className="absolute start-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-medium text-brand shadow-sm sm:start-4 sm:top-4 sm:text-xs">
+                <span className="absolute start-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-medium text-brand shadow-raised sm:start-4 sm:top-4 sm:text-xs">
                   {card.meta}
                 </span>
               </div>

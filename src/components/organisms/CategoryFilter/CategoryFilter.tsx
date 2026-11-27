@@ -27,7 +27,7 @@ const CategoryListItem = memo<{
   return (
     <label
       onClick={() => onSelect(category.id)}
-      className={`flex items-center text-sm cursor-pointer rounded-lg px-3.5 py-3 transition-all duration-200 ${
+      className={`flex items-center text-sm cursor-pointer rounded-control px-3.5 py-3 transition-all duration-200 ${
         isSelected
           ? "bg-brand/10 border border-brand/30 shadow-xs"
           : "hover:bg-ice/60 border border-transparent hover:border-light"
@@ -93,7 +93,7 @@ export const CategoryFilter = memo<CategoryFilterProps>(
             <button
               type="button"
               onClick={handleModalOpen}
-              className="w-full flex items-center justify-between px-4 py-3 bg-white rounded-xl border border-light shadow-xs"
+              className="w-full flex items-center justify-between px-4 py-3 bg-white rounded-card border border-light"
               aria-expanded={isModalOpen}
               aria-label="Open category filter"
             >
@@ -116,7 +116,7 @@ export const CategoryFilter = memo<CategoryFilterProps>(
                 aria-hidden="true"
               />
 
-              <div className="relative z-10 w-full max-w-md bg-white rounded-t-2xl sm:rounded-2xl shadow-raised overflow-hidden">
+              <div className="relative z-10 w-full max-w-md bg-white rounded-t-card sm:rounded-card shadow-raised overflow-hidden">
                 <div className="flex items-center justify-between px-5 py-4 border-b border-light">
                   <h3 className="font-serif text-lg font-light text-deep">Filter by Category</h3>
                   <button
@@ -151,7 +151,7 @@ export const CategoryFilter = memo<CategoryFilterProps>(
     return (
       <fieldset
         aria-label="Artwork categories"
-        className="bg-white rounded-2xl border border-light shadow-sm overflow-hidden"
+        className="bg-white rounded-card border border-light overflow-hidden"
       >
         <button
           type="button"

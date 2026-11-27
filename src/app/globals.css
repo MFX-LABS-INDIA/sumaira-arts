@@ -37,6 +37,7 @@
 
   /* Shadows are tinted with the brand navy, never plain black. */
   --shadow-raised: 0 10px 30px -18px color-mix(in srgb, var(--color-deep) 35%, transparent);
+  --shadow-sticky: 0 -8px 24px -12px color-mix(in srgb, var(--color-deep) 20%, transparent);
   --shadow-artwork: 0 22px 32px -22px color-mix(in srgb, var(--color-deep) 50%, transparent);
 
   /* Editorial serif for headings, clean sans for everything else */

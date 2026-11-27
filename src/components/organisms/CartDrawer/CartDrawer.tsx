@@ -74,7 +74,7 @@ export function CartDrawer() {
               <button
                 type="button"
                 onClick={() => dispatch(setCartOpen(false))}
-                className="mt-6 rounded-lg bg-brand px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-sm hover:bg-deep"
+                className="mt-6 rounded-control bg-brand px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep"
               >
                 Browse Artworks
               </button>
@@ -83,7 +83,7 @@ export function CartDrawer() {
             <div className="divide-y divide-light">
               {cart.map((item) => (
                 <div key={item.id} className="flex gap-4 py-4">
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-light bg-ice">
+                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-control border border-light bg-ice">
                     <SkeletonImage
                       src={item.image}
                       alt={item.title}
@@ -179,7 +179,7 @@ export function CartDrawer() {
               <Link
                 href="/checkout"
                 onClick={() => dispatch(setCartOpen(false))}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised transition-colors hover:bg-deep"
+                className="flex w-full items-center justify-center gap-2 rounded-control bg-brand py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised transition-colors hover:bg-deep"
               >
                 <span>Proceed to Checkout</span>
                 <ArrowRight className="h-4 w-4" />
@@ -187,7 +187,7 @@ export function CartDrawer() {
               <Link
                 href="/cart"
                 onClick={() => dispatch(setCartOpen(false))}
-                className="block w-full rounded-lg border border-light bg-white py-2.5 text-center text-xs font-semibold uppercase tracking-wider text-deep transition-colors hover:bg-ice"
+                className="block w-full rounded-control border border-light bg-white py-2.5 text-center text-xs font-semibold uppercase tracking-wider text-deep transition-colors hover:bg-ice"
               >
                 View Full Cart
               </Link>

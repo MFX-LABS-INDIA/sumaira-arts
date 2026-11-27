@@ -28,7 +28,7 @@ export function ArtistFounderHero() {
             <figure className="relative mx-auto w-full max-w-xl">
               <div className="pointer-events-none absolute -inset-2 hidden rounded-card border border-soft/70 sm:-inset-3 sm:block" aria-hidden="true" />
               <div className="overflow-hidden rounded-card border border-light bg-white p-2 sm:p-2.5">
-                <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-xl bg-ice">
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-card bg-ice">
                   <SkeletonImage
                     src="/assets/images/artist/sumaira-about-hero.webp"
                     alt="Sumaira Mohammed Ashik painting contemporary Arabic calligraphy on textured canvas in her studio"

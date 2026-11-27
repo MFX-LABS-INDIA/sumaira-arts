@@ -48,7 +48,7 @@ export function InteractiveArchive() {
             key={story.id}
             data-archive-slide
             data-category={story.category}
-            className="group flex w-[84vw] max-w-96 shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-[border-color,box-shadow] duration-500 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
+            className="group flex w-[84vw] max-w-96 shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-[border-color,box-shadow] duration-500 hover:border-soft sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
           >
             <button
               type="button"
@@ -64,7 +64,7 @@ export function InteractiveArchive() {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
               />
               <span className="absolute inset-0 bg-gradient-to-t from-deep/65 via-transparent to-deep/10 opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
-              <span className="absolute start-3 top-3 rounded-full bg-white/95 px-3 py-1.5 text-micro font-semibold uppercase tracking-caps text-brand shadow-sm sm:start-4 sm:top-4">
+              <span className="absolute start-3 top-3 rounded-full bg-white/95 px-3 py-1.5 text-micro font-semibold uppercase tracking-caps text-brand shadow-raised sm:start-4 sm:top-4">
                 {story.category}
               </span>
               <span className="absolute inset-x-4 bottom-4 flex translate-y-2 items-center justify-between gap-3 text-start text-xs font-semibold text-white opacity-0 transition-[opacity,transform] duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 sm:inset-x-5 sm:bottom-5 sm:text-sm motion-reduce:translate-y-0 motion-reduce:transition-none">

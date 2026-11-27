@@ -37,7 +37,7 @@ export default function CartPage() {
           <div className="mt-8">
             <Link
               href="/#artwork"
-              className="inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors"
+              className="inline-flex items-center gap-2 rounded-control bg-brand px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors"
             >
               <span>Explore Artworks</span>
               <ArrowRight className="h-4 w-4" />
@@ -73,9 +73,9 @@ export default function CartPage() {
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-row gap-3.5 sm:gap-5 rounded-xl border border-light bg-white p-3.5 sm:p-5 shadow-xs transition-colors hover:border-soft"
+                className="flex flex-row gap-3.5 sm:gap-5 rounded-card border border-light bg-white p-3.5 sm:p-5 transition-colors hover:border-soft"
               >
-                <div className="relative h-24 w-24 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-lg bg-ice border border-light">
+                <div className="relative h-24 w-24 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-control bg-ice border border-light">
                   <SkeletonImage src={item.image} alt={item.title} fill sizes="128px" className="object-cover" />
                 </div>
 
@@ -90,12 +90,12 @@ export default function CartPage() {
                       {(item.selectedStyle || item.selectedSize) && (
                         <div className="mt-1 sm:mt-1.5 flex flex-wrap gap-1 sm:gap-1.5">
                           {item.selectedStyle && (
-                            <span className="inline-flex items-center rounded-md bg-ice px-1.5 py-0.5 sm:px-2 text-[9px] sm:text-[10px] font-medium text-deep border border-light">
+                            <span className="inline-flex items-center rounded-control bg-ice px-1.5 py-0.5 sm:px-2 text-[9px] sm:text-[10px] font-medium text-deep border border-light">
                               {item.selectedStyle}
                             </span>
                           )}
                           {item.selectedSize && (
-                            <span className="inline-flex items-center rounded-md bg-ice px-1.5 py-0.5 sm:px-2 text-[9px] sm:text-[10px] font-medium text-deep border border-light">
+                            <span className="inline-flex items-center rounded-control bg-ice px-1.5 py-0.5 sm:px-2 text-[9px] sm:text-[10px] font-medium text-deep border border-light">
                               {item.selectedSize}
                             </span>
                           )}
@@ -109,7 +109,7 @@ export default function CartPage() {
 
                   <div className="mt-2.5 sm:mt-4 flex items-center justify-between border-t border-light/60 pt-2 sm:pt-3">
                     {/* Quantity controls */}
-                    <div className="flex items-center rounded-md border border-light bg-ice/40">
+                    <div className="flex items-center rounded-control border border-light bg-ice/40">
                       <button
                         type="button"
                         onClick={() =>
@@ -159,7 +159,7 @@ export default function CartPage() {
             ))}
 
             {/* Studio Guarantee Banner */}
-            <div className="mt-6 rounded-xl border border-light bg-ice/40 p-5">
+            <div className="mt-6 rounded-card border border-light bg-ice/40 p-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3">
                   <Truck className="h-5 w-5 text-brand shrink-0 mt-0.5" />
@@ -189,7 +189,7 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="sticky top-28 rounded-xl border border-light bg-white p-6 shadow-sm">
+            <div className="sticky top-28 rounded-card border border-light bg-white p-6">
               <h2 className="font-serif text-xl font-light text-deep border-b border-light pb-4">
                 Order Summary
               </h2>
@@ -218,14 +218,14 @@ export default function CartPage() {
               <div className="mt-5 lg:mt-6 space-y-3">
                 <Link
                   href="/checkout"
-                  className="hidden lg:flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-all"
+                  className="hidden lg:flex w-full items-center justify-center gap-2 rounded-control bg-brand py-3.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-all"
                 >
                   <span>Proceed to Checkout</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/#artwork"
-                  className="block w-full rounded-lg border border-light bg-ice/35 py-2.5 text-center text-xs font-medium uppercase tracking-wider text-steel transition-colors hover:border-brand/40 hover:text-brand lg:border-0 lg:bg-transparent lg:py-2"
+                  className="block w-full rounded-control border border-light bg-ice/35 py-2.5 text-center text-xs font-medium uppercase tracking-wider text-steel transition-colors hover:border-brand/40 hover:text-brand lg:border-0 lg:bg-transparent lg:py-2"
                 >
                   Continue Browsing
                 </Link>
@@ -236,7 +236,7 @@ export default function CartPage() {
       </div>
 
       {/* Mobile & Tablet Sticky Checkout Bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 px-4 pt-2.5 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-[0_-8px_24px_-12px_rgba(13,24,42,0.2)] backdrop-blur-xs lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 px-4 pt-2.5 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-sticky backdrop-blur-xs lg:hidden">
         <div className="mx-auto max-w-2xl space-y-2">
           <div className="flex items-center justify-between text-xs">
             <span className="font-medium text-steel">
@@ -248,7 +248,7 @@ export default function CartPage() {
           </div>
           <Link
             href="/checkout"
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand px-5 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-deep"
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-control bg-brand px-5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised transition-colors hover:bg-deep"
           >
             <span>Proceed to Checkout</span>
             <ArrowRight className="h-4 w-4" />

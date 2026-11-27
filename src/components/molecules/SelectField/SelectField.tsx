@@ -41,6 +41,8 @@ interface SelectFieldProps {
   required?: boolean;
   ariaLabel?: string;
   className?: string;
+  size?: "md" | "sm";
+  minListWidth?: number;
 }
 
 export function SelectField({
@@ -53,6 +55,8 @@ export function SelectField({
   required = false,
   ariaLabel,
   className = "",
+  size = "md",
+  minListWidth = 0,
 }: SelectFieldProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState<ListboxPosition | null>(null);
@@ -88,8 +92,8 @@ export function SelectField({
       ? Math.max(margin, Math.min(rect.bottom + 6, vh - visibleHeight - margin))
       : Math.max(margin, rect.top - visibleHeight - 6);
 
-    const left = rect.left;
-    const width = rect.width;
+    const width = Math.min(Math.max(rect.width, minListWidth), window.innerWidth - margin * 2);
+    const left = Math.max(margin, Math.min(rect.left, window.innerWidth - width - margin));
 
     setPosition((prev) =>
       prev &&
@@ -100,7 +104,7 @@ export function SelectField({
         ? prev
         : { top, left, width, maxHeight },
     );
-  }, []);
+  }, [minListWidth]);
 
   useLayoutEffect(() => {
     if (!isOpen) return;
@@ -214,7 +218,9 @@ export function SelectField({
         aria-controls={`${id}-listbox`}
         onClick={handleToggle}
         onKeyDown={handleKeyDown}
-        className={`flex h-11 w-full cursor-pointer items-center justify-between gap-2 rounded-control border bg-white px-3.5 text-sm text-deep transition-all duration-200 sm:h-12 ${
+        className={`flex w-full cursor-pointer items-center justify-between gap-2 rounded-control border bg-white text-deep transition-all duration-200 ${
+          size === "sm" ? "h-9 px-3 text-xs font-medium" : "h-11 px-3.5 text-sm sm:h-12"
+        } ${
           isOpen
             ? "border-brand ring-2 ring-brand/15 outline-none"
             : "border-light hover:border-brand/50 focus:border-brand focus:ring-2 focus:ring-brand/15 focus:outline-none"
@@ -261,7 +267,7 @@ export function SelectField({
                   }
                 : { top: -9999, left: -9999, width: 240, maxHeight: 256, visibility: "hidden" }
             }
-            className="subtle-scrollbar fixed z-[80] overflow-y-auto overscroll-contain rounded-xl border border-light bg-white p-1.5 shadow-raised ring-1 ring-brand/10"
+            className="subtle-scrollbar [scrollbar-gutter:auto] fixed z-[80] overflow-y-auto overscroll-contain rounded-card border border-light bg-white p-1.5 shadow-raised ring-1 ring-brand/10"
           >
             {normalized.map((item) => {
               const isSelected = selected !== undefined && item.value === selected.value;
@@ -273,7 +279,7 @@ export function SelectField({
                       onChange(item.value);
                       setIsOpen(false);
                     }}
-                    className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-start text-xs transition-colors sm:text-sm ${
+                    className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-control px-3 py-2.5 text-start text-xs transition-colors sm:text-sm ${
                       isSelected
                         ? "bg-ice/90 font-medium text-brand"
                         : "text-deep hover:bg-ice/60"
@@ -286,12 +292,9 @@ export function SelectField({
                           {item.hint}
                         </span>
                       )}
-                      {isSelected && (
-                        <Check
-                          className="h-4 w-4 shrink-0 text-brand"
-                          aria-hidden="true"
-                        />
-                      )}
+                      <span className="flex h-4 w-4 shrink-0 items-center justify-center">
+                        {isSelected && <Check className="h-4 w-4 text-brand" aria-hidden="true" />}
+                      </span>
                     </span>
                   </button>
                 </li>

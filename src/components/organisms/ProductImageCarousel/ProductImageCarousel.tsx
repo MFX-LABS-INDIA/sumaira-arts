@@ -43,9 +43,9 @@ export function ProductImageCarousel({
     <>
       <div className="space-y-4">
         {/* Main Stage Image / Carousel with navigation */}
-        <div className="group relative aspect-portrait sm:aspect-landscape lg:aspect-[4/3] w-full overflow-hidden rounded-2xl border border-light bg-white p-4 shadow-sm">
+        <div className="group relative aspect-portrait sm:aspect-landscape lg:aspect-[4/3] w-full overflow-hidden rounded-card border border-light bg-white p-4">
           <div
-            className="relative h-full w-full cursor-zoom-in overflow-hidden rounded-xl"
+            className="relative h-full w-full cursor-zoom-in overflow-hidden rounded-card"
             onClick={() => setIsLightboxOpen(true)}
           >
             <SkeletonImage
@@ -120,9 +120,9 @@ export function ProductImageCarousel({
                 key={idx}
                 type="button"
                 onClick={() => setCurrentIndex(idx)}
-                className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border-2 bg-white transition-all ${
+                className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-card border-2 bg-white transition-all ${
                   currentIndex === idx
-                    ? "border-brand shadow-sm scale-95"
+                    ? "border-brand shadow-raised scale-95"
                     : "border-light opacity-70 hover:opacity-100"
                 }`}
               >
@@ -174,7 +174,7 @@ export function ProductImageCarousel({
               </button>
             )}
 
-            <div className="relative h-full w-full max-w-5xl max-h-[75vh] overflow-hidden rounded-xl">
+            <div className="relative h-full w-full max-w-5xl max-h-[75vh] overflow-hidden rounded-card">
               <SkeletonImage
                 src={validImages[currentIndex]}
                 alt={`${productName} - Fullscreen View`}
@@ -208,7 +208,7 @@ export function ProductImageCarousel({
                 key={idx}
                 type="button"
                 onClick={() => setCurrentIndex(idx)}
-                className={`relative h-16 w-16 shrink-0 overflow-hidden rounded-lg transition-all ${
+                className={`relative h-16 w-16 shrink-0 overflow-hidden rounded-control transition-all ${
                   currentIndex === idx
                     ? "ring-2 ring-brand ring-offset-2 ring-offset-deep scale-105"
                     : "opacity-50 hover:opacity-100"

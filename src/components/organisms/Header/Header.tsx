@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { mainNav } from "@/data/navigation";
 import { BagIcon, CloseIcon, MenuIcon, UserIcon } from "@/components/atoms/Icons";
@@ -9,7 +9,7 @@ import { Container } from "@/components/atoms/Container";
 import { Logo } from "@/components/atoms/Logo";
 import { CartDrawer } from "@/components/organisms/CartDrawer";
 import { useAppSelector } from "@/store/hooks";
-import { Languages } from "lucide-react";
+import { Check, ChevronDown, Languages } from "lucide-react";
 import ReactCountryFlag from "react-country-flag";
 
 const ORDERS_STORAGE_KEY = "sumaira-arts-orders";
@@ -107,7 +107,7 @@ function CountBadge({ count }: { count: number }) {
   if (count < 1) return null;
 
   return (
-    <span className="inline-flex min-w-4 items-center justify-center rounded-full bg-red-500 px-1.5 py-0.5 font-mono text-[10px] font-bold leading-none text-white shadow-sm ring-2 ring-white" aria-label={`${count} items`}>
+    <span className="inline-flex min-w-4 items-center justify-center rounded-full bg-red-500 px-1.5 py-0.5 font-mono text-[10px] font-bold leading-none text-white shadow-raised ring-2 ring-white" aria-label={`${count} items`}>
       {count > 99 ? "99+" : count}
     </span>
   );
@@ -135,12 +135,29 @@ export function Header() {
   const orderCount = useSyncExternalStore(subscribeToOrders, getOrderCount, () => 0);
   const [open, setOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
+  const languageRef = useRef<HTMLDivElement>(null);
   const locale = useSyncExternalStore<Locale>(subscribeToLocale, getLocale, () => "en-GB");
 
   useEffect(() => {
     document.documentElement.lang = locale;
     document.documentElement.dir = languages[locale].direction;
   }, [locale]);
+
+  useEffect(() => {
+    if (!languageOpen) return;
+    const onPointerDown = (event: MouseEvent) => {
+      if (!languageRef.current?.contains(event.target as Node)) setLanguageOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLanguageOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [languageOpen]);
 
   const selectLocale = (nextLocale: Locale) => {
     window.localStorage.setItem(LOCALE_STORAGE_KEY, nextLocale);
@@ -225,13 +242,14 @@ export function Header() {
           </nav>
 
           <div className="ms-auto hidden items-center gap-1 lg:flex">
-            <div className="relative order-last ms-1">
+            <div ref={languageRef} className="relative order-last ms-1">
               <button type="button" aria-label="Choose language" aria-expanded={languageOpen} aria-haspopup="listbox" onClick={() => setLanguageOpen((value) => !value)} className="inline-flex items-center gap-2 rounded-full border border-light px-3 py-2 text-xs font-semibold text-deep transition-colors hover:border-brand hover:text-brand">
                 <Languages className="h-4 w-4" aria-hidden />
-                <ReactCountryFlag svg countryCode={languages[locale].countryCode} aria-label={languages[locale].label} className="h-4 w-5 rounded-sm object-cover" />
+                <ReactCountryFlag svg countryCode={languages[locale].countryCode} aria-label={languages[locale].label} className="h-4 w-5 rounded-control object-cover" />
+                <ChevronDown aria-hidden className={`h-3.5 w-3.5 text-steel transition-transform duration-200 ${languageOpen ? "rotate-180 text-brand" : ""}`} />
               </button>
               {languageOpen ? (
-              <div role="listbox" aria-label="Language" className="absolute end-0 top-[calc(100%+0.5rem)] z-50 w-44 overflow-hidden rounded-xl border border-light bg-white py-1 shadow-raised">
+              <div role="listbox" aria-label="Language" className="absolute end-0 top-[calc(100%+0.5rem)] z-50 w-52 overflow-hidden rounded-card border border-light bg-white p-1.5 shadow-raised ring-1 ring-brand/10">
                 {(Object.keys(languages) as Locale[]).map((language) => (
                   <button
                     key={language}
@@ -239,15 +257,16 @@ export function Header() {
                     role="option"
                     aria-selected={locale === language}
                     onClick={() => selectLocale(language)}
-                    className={`flex w-full items-center gap-2 px-3 py-2.5 text-left text-sm transition-colors hover:bg-ice ${locale === language ? "bg-ice text-brand" : "text-deep"}`}
+                    className={`flex w-full cursor-pointer items-center gap-2.5 rounded-control px-3 py-2.5 text-start text-sm transition-colors ${locale === language ? "bg-ice/90 font-medium text-brand" : "text-deep hover:bg-ice/60"}`}
                   >
                     <ReactCountryFlag
                       svg
                       countryCode={languages[language].countryCode}
                       aria-label={languages[language].label}
-                      className="h-4 w-5 shrink-0 rounded-sm object-cover"
+                      className="h-4 w-5 shrink-0 rounded-control object-cover"
                     />
-                    <span>{languages[language].label}</span>
+                    <span className="flex-1">{languages[language].label}</span>
+                    {locale === language && <Check aria-hidden className="h-4 w-4 shrink-0 text-brand" />}
                   </button>
                 ))}
               </div>
@@ -263,7 +282,7 @@ export function Header() {
               <span className="absolute end-0 top-0">
                 <CountBadge count={orderCount} />
               </span>
-              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
+              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-control bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
                 My orders
               </span>
             </SmartLink>
@@ -278,7 +297,7 @@ export function Header() {
               <span className="absolute end-0 top-0">
                 <CountBadge count={cartItemCount} />
               </span>
-              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-md bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
+              <span role="tooltip" className="pointer-events-none absolute end-0 top-full mt-2 whitespace-nowrap rounded-control bg-deep px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white opacity-0 shadow-raised transition-opacity group-hover:opacity-100">
                 Cart
               </span>
             </SmartLink>
@@ -380,13 +399,13 @@ export function Header() {
                   key={language}
                   type="button"
                   onClick={() => selectLocale(language)}
-                  className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-left text-sm transition-colors ${locale === language ? "border-brand bg-ice text-brand" : "border-light text-deep hover:border-brand"}`}
+                  className={`flex items-center gap-2 rounded-control border px-3 py-2 text-left text-sm transition-colors ${locale === language ? "border-brand bg-ice text-brand" : "border-light text-deep hover:border-brand"}`}
                 >
                   <ReactCountryFlag
                     svg
                     countryCode={languages[language].countryCode}
                     aria-label={languages[language].label}
-                    className="h-4 w-5 shrink-0 rounded-sm object-cover"
+                    className="h-4 w-5 shrink-0 rounded-control object-cover"
                   />
                   <span>{languages[language].label}</span>
                 </button>

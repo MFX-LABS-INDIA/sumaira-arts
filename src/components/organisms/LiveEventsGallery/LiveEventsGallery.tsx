@@ -149,7 +149,7 @@ export function LiveEventsGallery({ items }: { items: EventGalleryItem[] }) {
           <figure
             key={item.id}
             onClick={() => setActiveItem(item)}
-            className="group relative flex w-[78vw] max-w-[300px] shrink-0 snap-start cursor-pointer flex-col overflow-hidden rounded-card border border-light bg-white transition-all hover:border-brand/50 hover:shadow-md sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
+            className="group relative flex w-[78vw] max-w-[300px] shrink-0 snap-start cursor-pointer flex-col overflow-hidden rounded-card border border-light bg-white transition-all hover:border-brand/50 sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
           >
             <div className="relative aspect-[3/4] overflow-hidden bg-ice">
               <SkeletonImage
@@ -159,7 +159,7 @@ export function LiveEventsGallery({ items }: { items: EventGalleryItem[] }) {
                 sizes="(min-width: 1280px) 280px, (min-width: 1024px) 23vw, (min-width: 640px) 46vw, 78vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
               />
-              <span className="absolute start-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-caps text-brand shadow-sm">
+              <span className="absolute start-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-caps text-brand shadow-raised">
                 {item.category}
               </span>
             </div>

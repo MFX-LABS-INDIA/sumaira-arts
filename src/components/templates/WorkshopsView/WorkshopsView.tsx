@@ -52,7 +52,7 @@ export function WorkshopsView() {
                   aria-hidden="true"
                 />
                 <div className="overflow-hidden rounded-card border border-light bg-white p-2 sm:p-2.5">
-                  <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-xl bg-ice">
+                  <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-card bg-ice">
                     <SkeletonImage
                       src={hero.image}
                       alt={hero.imageAlt}
@@ -125,7 +125,7 @@ export function WorkshopsView() {
           <div className="mt-6 -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 no-scrollbar sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-px-0 lg:grid-cols-4">
             {formats.map((format, index) => (
               <Reveal key={format.id} delay={index * 60} className="flex w-[80vw] max-w-[300px] shrink-0 snap-start sm:w-auto sm:max-w-none">
-                <article className="group flex h-full w-full flex-col overflow-hidden rounded-card border border-light bg-white transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:border-brand/40 hover:shadow-raised motion-reduce:transform-none">
+                <article className="group flex h-full w-full flex-col overflow-hidden rounded-card border border-light bg-white transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:border-brand/40 motion-reduce:transform-none">
                   <div
                     role="button"
                     tabIndex={0}
@@ -202,7 +202,7 @@ export function WorkshopsView() {
                     aria-hidden="true"
                   />
                 )}
-                <article className="group relative flex h-full w-full flex-col overflow-hidden rounded-card border border-light bg-white p-5 transition-all duration-500 ease-out-soft hover:-translate-y-2 hover:border-brand/40 hover:shadow-raised sm:p-6 motion-reduce:transform-none motion-reduce:transition-none">
+                <article className="group relative flex h-full w-full flex-col overflow-hidden rounded-card border border-light bg-white p-5 transition-all duration-500 ease-out-soft hover:-translate-y-2 hover:border-brand/40 sm:p-6 motion-reduce:transform-none motion-reduce:transition-none">
                   <span
                     className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ice/75 via-white/40 to-white opacity-0 transition-opacity duration-500 ease-out-soft group-hover:opacity-100 motion-reduce:transition-none"
                     aria-hidden="true"
@@ -213,7 +213,7 @@ export function WorkshopsView() {
                   />
 
                   <div className="relative z-10 flex items-center justify-between gap-3">
-                    <span className="grid h-10 w-10 place-items-center rounded-full border border-soft bg-ice font-mono text-xs font-semibold text-brand transition-all duration-500 ease-out-soft group-hover:scale-110 group-hover:border-brand group-hover:bg-brand group-hover:text-white group-hover:shadow-sm motion-reduce:transform-none motion-reduce:transition-none">
+                    <span className="grid h-10 w-10 place-items-center rounded-full border border-soft bg-ice font-mono text-xs font-semibold text-brand transition-all duration-500 ease-out-soft group-hover:scale-110 group-hover:border-brand group-hover:bg-brand group-hover:text-white group-hover:shadow-raised motion-reduce:transform-none motion-reduce:transition-none">
                       {step.step}
                     </span>
                     <span className="font-mono text-[11px] uppercase tracking-widest text-steel/70 transition-colors duration-500 ease-out-soft group-hover:text-brand">

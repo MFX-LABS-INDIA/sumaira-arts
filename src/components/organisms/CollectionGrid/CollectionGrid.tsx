@@ -16,7 +16,7 @@ const collectionHref = "/products?category=Mixed_Media_Canvas";
 
 function CollectionCard({ product }: { product: Product; index: number }) {
   return (
-    <article className="group relative flex w-[75vw] max-w-[280px] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-light bg-white shadow-xs transition-[border-color,box-shadow] duration-300 hover:border-soft hover:shadow-raised sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]">
+    <article className="group relative flex w-[75vw] max-w-[280px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-light bg-white transition-[border-color,box-shadow] duration-300 hover:border-soft sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-2.5rem)/3)]">
       <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden bg-ice">
         <SkeletonImage
           src={product.image}
@@ -29,7 +29,7 @@ function CollectionCard({ product }: { product: Product; index: number }) {
       <div className="flex flex-1 flex-col p-3.5 sm:p-4">
         <p className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-steel">Collections</p>
         <h3 className="mt-1 text-base font-medium leading-snug tracking-tight text-deep sm:text-lg">
-          <SmartLink href={`/products/${product.slug}`} className="after:absolute after:inset-0 after:rounded-2xl">
+          <SmartLink href={`/products/${product.slug}`} className="after:absolute after:inset-0 after:rounded-card">
             {product.title}
           </SmartLink>
         </h3>

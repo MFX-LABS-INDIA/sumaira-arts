@@ -290,7 +290,7 @@ export function DatePickerField({
                   }
                 : { top: -9999, left: -9999, width: 312, visibility: "hidden" }
             }
-            className="subtle-scrollbar fixed z-[80] max-h-[calc(100dvh-24px)] overflow-y-auto overscroll-contain rounded-2xl border border-light bg-white p-3.5 shadow-raised ring-1 ring-brand/10 sm:p-4"
+            className="subtle-scrollbar fixed z-[80] max-h-[calc(100dvh-24px)] overflow-y-auto overscroll-contain rounded-card border border-light bg-white p-3.5 shadow-raised ring-1 ring-brand/10 sm:p-4"
           >
             {/* Month Header */}
             <div className="flex items-center justify-between gap-2">
@@ -353,7 +353,7 @@ export function DatePickerField({
                     }}
                     aria-label={formatDisplayDate(iso)}
                     aria-pressed={isSelected}
-                    className={`flex h-10 w-full items-center justify-center rounded-lg text-sm font-medium transition-all duration-150 sm:h-9 sm:text-xs ${
+                    className={`flex h-10 w-full items-center justify-center rounded-control text-sm font-medium transition-all duration-150 sm:h-9 sm:text-xs ${
                       isSelected
                         ? "cursor-pointer bg-brand text-white shadow-xs"
                         : isDisabled
@@ -379,7 +379,7 @@ export function DatePickerField({
                   setIsOpen(false);
                 }}
                 disabled={!isTodaySelectable}
-                className="cursor-pointer rounded-md px-3 py-1.5 text-xs font-medium text-brand transition-colors hover:bg-ice disabled:cursor-not-allowed disabled:opacity-40"
+                className="cursor-pointer rounded-control px-3 py-1.5 text-xs font-medium text-brand transition-colors hover:bg-ice disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Today
               </button>
@@ -389,7 +389,7 @@ export function DatePickerField({
                   onChange("");
                   setIsOpen(false);
                 }}
-                className="cursor-pointer rounded-md px-3 py-1.5 text-xs font-medium text-steel transition-colors hover:bg-ice hover:text-deep"
+                className="cursor-pointer rounded-control px-3 py-1.5 text-xs font-medium text-steel transition-colors hover:bg-ice hover:text-deep"
               >
                 Clear
               </button>

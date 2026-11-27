@@ -60,7 +60,7 @@ export default function MyOrdersPage() {
         </div>
 
         {sortedOrders.length === 0 ? (
-          <div className="rounded-2xl border border-light bg-white py-16 px-4 text-center shadow-xs">
+          <div className="rounded-card border border-light bg-white py-16 px-4 text-center">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ice text-mist">
               <Package className="h-8 w-8" />
             </div>
@@ -70,7 +70,7 @@ export default function MyOrdersPage() {
             </p>
             <Link
               href="/products"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors"
+              className="mt-6 inline-flex items-center gap-2 rounded-card bg-brand px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors"
             >
               <span>Explore Gallery</span>
               <ArrowRight className="h-4 w-4" />
@@ -81,7 +81,7 @@ export default function MyOrdersPage() {
             {sortedOrders.map((order) => (
               <div
                 key={order.id}
-                className="rounded-2xl border border-light bg-white p-5 sm:p-6 shadow-xs hover:border-soft transition-colors"
+                className="rounded-card border border-light bg-white p-5 sm:p-6 hover:border-soft transition-colors"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-light/60 pb-4">
                   <div>
@@ -111,7 +111,7 @@ export default function MyOrdersPage() {
                 <div className="mt-4 divide-y divide-light/50">
                   {order.items.map((item) => (
                     <div key={item.id} className="py-3 flex items-center gap-4">
-                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-ice border border-light">
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-control bg-ice border border-light">
                         <SkeletonImage src={item.image} alt={item.title} fill sizes="64px" className="object-cover" />
                       </div>
                       <div className="flex-1 min-w-0">

@@ -90,7 +90,7 @@ export function WorkshopsGallery({ items }: { items: WorkshopGalleryItem[] }) {
           <figure
             key={item.id}
             onClick={() => setActiveItem(item)}
-            className="group relative flex w-[78vw] max-w-[300px] shrink-0 snap-start cursor-pointer flex-col overflow-hidden rounded-card border border-light bg-white transition-all hover:border-brand/50 hover:shadow-md sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
+            className="group relative flex w-[78vw] max-w-[300px] shrink-0 snap-start cursor-pointer flex-col overflow-hidden rounded-card border border-light bg-white transition-all hover:border-brand/50 sm:w-[calc((100%-1.25rem)/2)] sm:max-w-none lg:w-[calc((100%-3.75rem)/4)]"
           >
             <div className="relative aspect-[3/4] overflow-hidden bg-ice">
               <SkeletonImage

@@ -55,7 +55,7 @@ export function LiveEventsView() {
                   {/* 3-photo luxury event bento showcase */}
                   <div className="grid aspect-[4/3] grid-cols-12 grid-rows-2 gap-1.5 sm:gap-2.5">
                     {/* Tall left feature: live artist engraving activation */}
-                    <div className="group relative col-span-7 row-span-2 overflow-hidden rounded-xl bg-ice">
+                    <div className="group relative col-span-7 row-span-2 overflow-hidden rounded-card bg-ice">
                       <SkeletonImage
                         src={hero.image}
                         alt={hero.imageAlt}
@@ -73,7 +73,7 @@ export function LiveEventsView() {
                     </div>
 
                     {/* Top-right: framed live wedding sketching */}
-                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-xl bg-ice">
+                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-card bg-ice">
                       <SkeletonImage
                         src="/assets/images/events/service-sketching.webp"
                         alt="Framed live portrait sketch of an Emirati wedding couple with gold details"
@@ -91,7 +91,7 @@ export function LiveEventsView() {
                     </div>
 
                     {/* Bottom-right: botanical floral glass etching */}
-                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-xl bg-ice">
+                    <div className="group relative col-span-5 row-span-1 overflow-hidden rounded-card bg-ice">
                       <SkeletonImage
                         src="/assets/images/events/gallery-perfume-floral.webp"
                         alt="Botanical floral motif diamond-engraved onto an amber perfume bottle"
@@ -169,7 +169,7 @@ export function LiveEventsView() {
           <div className="mt-6 -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 no-scrollbar sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-px-0 lg:grid-cols-4">
             {services.map((service, index) => (
               <Reveal key={service.id} delay={index * 60} className="flex w-[80vw] max-w-[300px] shrink-0 snap-start sm:w-auto sm:max-w-none">
-                <article className="group flex h-full w-full flex-col overflow-hidden rounded-card border border-light bg-white transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:border-brand/40 hover:shadow-raised motion-reduce:transform-none">
+                <article className="group flex h-full w-full flex-col overflow-hidden rounded-card border border-light bg-white transition-all duration-500 ease-out-soft hover:-translate-y-1 hover:border-brand/40 motion-reduce:transform-none">
                   <div
                     role="button"
                     tabIndex={0}

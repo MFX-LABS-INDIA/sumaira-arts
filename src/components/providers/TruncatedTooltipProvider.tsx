@@ -122,7 +122,7 @@ export function TruncatedTooltipProvider() {
             ? "translate(-50%, -100%)"
             : "translate(-50%, 0)",
       }}
-      className="pointer-events-none fixed z-[100] max-w-[300px] rounded-lg border border-white/10 bg-deep/95 px-3 py-2 text-xs font-normal leading-relaxed text-white shadow-raised backdrop-blur-xs"
+      className="pointer-events-none fixed z-[100] max-w-[300px] rounded-control border border-white/10 bg-deep/95 px-3 py-2 text-xs font-normal leading-relaxed text-white shadow-raised backdrop-blur-xs"
     >
       {tooltip.text}
     </div>,

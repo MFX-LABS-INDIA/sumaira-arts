@@ -150,7 +150,7 @@ export default function CheckoutPage() {
   if (orderSuccess) {
     return (
       <div className="min-h-[80vh] bg-ice/30 py-16 px-4">
-        <div className="mx-auto max-w-xl rounded-2xl border border-light bg-white p-8 text-center shadow-raised">
+        <div className="mx-auto max-w-xl rounded-card border border-light bg-white p-8 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
             <CheckCircle2 className="h-10 w-10" />
           </div>
@@ -159,7 +159,7 @@ export default function CheckoutPage() {
             Thank you, <strong className="text-deep">{orderSuccess.customerName}</strong>. Your artwork request is under review.
           </p>
 
-          <div className="mt-6 rounded-xl bg-ice/50 p-4 text-left text-xs text-steel space-y-1.5 border border-light">
+          <div className="mt-6 rounded-card bg-ice/50 p-4 text-left text-xs text-steel space-y-1.5 border border-light">
             <p><strong>Order ID:</strong> <span className="font-mono">{orderSuccess.id}</span></p>
             <p><strong>Confirmation sent to:</strong> {orderSuccess.email}</p>
             <p><strong>Mobile number:</strong> {orderSuccess.phoneNumber}</p>
@@ -170,7 +170,7 @@ export default function CheckoutPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/"
-              className="rounded-lg bg-brand px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white hover:bg-deep transition-colors"
+              className="rounded-control bg-brand px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white hover:bg-deep transition-colors"
             >
               Return to Gallery
             </Link>
@@ -192,7 +192,7 @@ export default function CheckoutPage() {
           <div className="mt-6">
             <Link
               href="/#artwork"
-              className="inline-block rounded-lg bg-brand px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white hover:bg-deep transition-colors"
+              className="inline-block rounded-control bg-brand px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white hover:bg-deep transition-colors"
             >
               Browse Gallery
             </Link>
@@ -215,7 +215,7 @@ export default function CheckoutPage() {
             <form
               id="checkout-form"
               onSubmit={handleSubmit}
-              className="relative rounded-xl border border-light bg-white p-5 sm:p-8 shadow-xs space-y-6"
+              className="relative rounded-card border border-light bg-white p-5 sm:p-8 space-y-6"
             >
               <div>
                 <h2 className="text-base font-semibold uppercase tracking-wider text-deep mb-4">
@@ -239,7 +239,7 @@ export default function CheckoutPage() {
                         autoComplete="name"
                         maxLength={120}
                         required
-                        className={`h-12 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
+                        className={`h-12 w-full rounded-control border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
                           errors.name ? "border-red-400 bg-red-50/20" : "border-light bg-white"
                         }`}
                       />
@@ -268,7 +268,7 @@ export default function CheckoutPage() {
                           autoComplete="tel"
                           maxLength={30}
                           required
-                          className={`h-12 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
+                          className={`h-12 w-full rounded-control border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
                             errors.phone ? "border-red-400 bg-red-50/20" : "border-light bg-white"
                           }`}
                         />
@@ -294,7 +294,7 @@ export default function CheckoutPage() {
                         autoComplete="email"
                         maxLength={254}
                         required
-                        className={`h-11 w-full rounded-lg border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
+                        className={`h-11 w-full rounded-control border pl-9 pr-3 text-sm text-deep transition-colors focus:border-brand focus:outline-none ${
                           errors.email ? "border-red-400 bg-red-50/20" : "border-light bg-white"
                         }`}
                       />
@@ -319,7 +319,7 @@ export default function CheckoutPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="hidden lg:flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-brand px-6 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep disabled:opacity-50 transition-all"
+                className="hidden lg:flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-control bg-brand px-6 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep disabled:opacity-50 transition-all"
               >
                 {isSubmitting ? (
                   <>
@@ -335,7 +335,7 @@ export default function CheckoutPage() {
 
           {/* Right Summary Column */}
           <div className="lg:col-span-1">
-            <div className="sticky top-28 rounded-xl border border-light bg-white p-6 shadow-sm">
+            <div className="sticky top-28 rounded-card border border-light bg-white p-6">
               <h2 className="font-serif text-lg font-light text-deep border-b border-light pb-4">
                 Selected Pieces ({cartItemCount})
               </h2>
@@ -368,7 +368,7 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              <div className="mt-6 flex items-start gap-2.5 rounded-lg bg-ice/60 p-3 text-[11px] text-steel">
+              <div className="mt-6 flex items-start gap-2.5 rounded-control bg-ice/60 p-3 text-[11px] text-steel">
                 <ShieldCheck className="h-4 w-4 text-brand shrink-0 mt-0.5" />
                 <span>
                   Our studio will review availability and contact you to confirm your request. No purchase is confirmed at this stage.
@@ -380,13 +380,13 @@ export default function CheckoutPage() {
       </div>
 
       {/* Mobile & Tablet Sticky Checkout Action Bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 px-4 pt-3 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-[0_-8px_24px_-12px_rgba(13,24,42,0.2)] backdrop-blur-xs lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 px-4 pt-3 pb-[max(0.875rem,env(safe-area-inset-bottom))] shadow-sticky backdrop-blur-xs lg:hidden">
         <div className="mx-auto max-w-2xl">
           <button
             type="submit"
             form="checkout-form"
             disabled={isSubmitting}
-            className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-brand px-5 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-deep disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-control bg-brand px-5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised transition-colors hover:bg-deep disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting ? (
               <>

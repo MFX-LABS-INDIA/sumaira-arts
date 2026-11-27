@@ -48,7 +48,7 @@ export function ProductCard({
   const reviewCount = product.reviewCount ?? product.reviews ?? 0;
 
   const cardContent = (
-    <article className={`group relative flex min-h-36 h-full overflow-hidden rounded-2xl border border-light bg-white transition-all duration-300 hover:border-brand/40 hover:shadow-raised sm:flex-col ${catalogue ? "flex-col" : "flex-row"}`}>
+    <article className={`group relative flex min-h-36 h-full overflow-hidden rounded-card border border-light bg-white transition-all duration-300 hover:border-brand/40 sm:flex-col ${catalogue ? "flex-col" : "flex-row"}`}>
       {/* Visual Image Container */}
       <div className={`relative shrink-0 overflow-hidden bg-white sm:w-auto sm:aspect-[5/4] lg:aspect-[4/3] ${catalogue ? "w-full aspect-[4/3]" : "w-[40%]"}`}>
         {/* Main Artwork Image */}
@@ -85,7 +85,7 @@ export function ProductCard({
           <button
             type="button"
             onClick={handleAddToCart}
-            className="absolute bottom-3 inset-x-3 z-10 hidden items-center justify-center gap-2 rounded-xl bg-deep/95 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand sm:flex"
+            className="absolute bottom-3 inset-x-3 z-10 hidden items-center justify-center gap-2 rounded-card bg-deep/95 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand sm:flex"
           >
             {added ? (
               <>
@@ -138,7 +138,7 @@ export function ProductCard({
           <button
             type="button"
             onClick={handleAddToCart}
-            className="relative z-10 col-start-2 flex h-11 w-11 items-center justify-center rounded-lg bg-ice text-brand transition-colors hover:bg-brand hover:text-white disabled:opacity-50 @[13rem]:row-span-2 @[13rem]:row-start-2"
+            className="relative z-10 col-start-2 flex h-11 w-11 items-center justify-center rounded-control bg-ice text-brand transition-colors hover:bg-brand hover:text-white disabled:opacity-50 @[13rem]:row-span-2 @[13rem]:row-start-2"
             disabled={product.soldOut}
             aria-label={catalogue ? `Add ${product.title} to cart` : "Add to cart"}
           >

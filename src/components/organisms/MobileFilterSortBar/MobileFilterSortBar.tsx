@@ -63,14 +63,14 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
     return (
       <>
         {/* Sticky Mobile Filter Bar */}
-        <div className="sticky top-19 z-30 lg:hidden border-b border-light bg-white/95 px-4 py-2.5 shadow-sm backdrop-blur-md">
+        <div className="sticky top-19 z-30 lg:hidden border-b border-light bg-white/95 px-4 py-2.5 shadow-raised backdrop-blur-md">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
               {/* Sort Trigger */}
               <button
                 type="button"
                 onClick={() => setActiveSheet("sort")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-control border text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-colors ${
                   sortBy !== "featured"
                     ? "bg-brand/10 text-brand border-brand/30"
                     : "bg-white text-steel border-light hover:border-steel"
@@ -84,7 +84,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
               <button
                 type="button"
                 onClick={() => setActiveSheet("filter")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-control border text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-colors ${
                   selectedCategory !== "All"
                     ? "bg-brand/10 text-brand border-brand/30"
                     : "bg-white text-steel border-light hover:border-steel"
@@ -114,7 +114,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
               onClick={closeSheet}
             />
 
-            <div className="relative z-10 w-full bg-white rounded-t-2xl shadow-raised max-h-[85vh] overflow-hidden flex flex-col animate-in slide-in-from-bottom duration-300">
+            <div className="relative z-10 w-full bg-white rounded-t-card shadow-raised max-h-[85vh] overflow-hidden flex flex-col animate-in slide-in-from-bottom duration-300">
               {/* Sheet Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-light">
                 <h3 className="font-serif text-lg font-light text-deep">
@@ -141,7 +141,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
                         onSortChange(opt.value);
                         closeSheet();
                       }}
-                      className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left text-sm transition-all ${
+                      className={`w-full flex items-center justify-between px-4 py-3.5 rounded-card text-left text-sm transition-all ${
                         sortBy === opt.value
                           ? "bg-brand/10 text-brand font-semibold"
                           : "text-steel hover:bg-ice/50 hover:text-deep"
@@ -161,7 +161,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
                           onSelectCategory(cat.id);
                           closeSheet();
                         }}
-                        className={`flex items-center justify-between px-4 py-3.5 rounded-xl cursor-pointer text-sm transition-all ${
+                        className={`flex items-center justify-between px-4 py-3.5 rounded-card cursor-pointer text-sm transition-all ${
                           isSelected
                             ? "bg-brand/10 text-brand font-semibold border border-brand/30"
                             : "hover:bg-ice/60 border border-transparent text-deep"
@@ -197,7 +197,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
                   value={searchQuery}
                   onChange={(event) => onSearchChange(event.target.value)}
                   placeholder="Search artworks..."
-                  className="h-12 w-full rounded-xl border-2 border-deep bg-ice/30 pl-11 pr-4 text-base text-deep placeholder:text-steel focus:border-brand focus:bg-white focus:outline-none"
+                  className="h-12 w-full rounded-card border-2 border-deep bg-ice/30 pl-11 pr-4 text-base text-deep placeholder:text-steel focus:border-brand focus:bg-white focus:outline-none"
                 />
               </div>
               <button
@@ -216,7 +216,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
                     Matching artworks
                   </p>
                   {searchSuggestions.length ? (
-                    <ul className="overflow-hidden rounded-xl border border-light divide-y divide-light">
+                    <ul className="overflow-hidden rounded-card border border-light divide-y divide-light">
                       {searchSuggestions.map((suggestion) => (
                         <li key={suggestion.label}>
                           <button
@@ -234,7 +234,7 @@ export const MobileFilterSortBar = memo<MobileFilterSortBarProps>(
                       ))}
                     </ul>
                   ) : (
-                    <p className="rounded-xl bg-ice/60 p-4 text-sm text-steel">No artwork matches that search yet.</p>
+                    <p className="rounded-card bg-ice/60 p-4 text-sm text-steel">No artwork matches that search yet.</p>
                   )}
                 </div>
               ) : (

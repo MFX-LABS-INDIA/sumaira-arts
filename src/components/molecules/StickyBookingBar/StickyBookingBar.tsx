@@ -30,7 +30,7 @@ export function StickyBookingBar({
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_28px_-14px_rgba(13,24,42,0.22)] backdrop-blur-md transition-all duration-300 ease-out-soft sm:border-white/30 sm:bg-white/30 sm:shadow-[0_-4px_20px_rgba(13,24,42,0.05)] sm:backdrop-blur-md ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-sticky backdrop-blur-md transition-all duration-300 ease-out-soft sm:border-white/30 sm:bg-white/30 sm:shadow-sticky sm:backdrop-blur-md ${
         hidden
           ? "pointer-events-none translate-y-full opacity-0"
           : "translate-y-0 opacity-100"
@@ -66,9 +66,9 @@ export function StickyBookingBar({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View ${instagramHandle || "Instagram"} profile`}
-                className="group flex h-11 w-1/2 flex-1 items-center justify-center gap-2 rounded-control border border-steel/20 bg-white px-3 text-center text-[11px] font-semibold tracking-wider text-deep shadow-xs transition-all duration-300 hover:border-brand/50 hover:bg-ice/50 hover:text-brand hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:gap-2.5 sm:px-5 sm:text-xs sm:tracking-caps lg:w-auto lg:flex-initial"
+                className="group flex h-11 w-1/2 flex-1 items-center justify-center gap-2 rounded-control border border-steel/20 bg-white px-3 text-center text-[11px] font-semibold tracking-wider text-deep shadow-xs transition-all duration-300 hover:border-brand/50 hover:bg-ice/50 hover:text-brand hover:shadow-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:gap-2.5 sm:px-5 sm:text-xs sm:tracking-caps lg:w-auto lg:flex-initial"
               >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-xs transition-transform duration-300 group-hover:scale-110">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-control bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-xs transition-transform duration-300 group-hover:scale-110">
                   <InstagramIcon className="h-3 w-3" />
                 </span>
                 <span className="truncate text-[11px] font-semibold text-deep transition-colors group-hover:text-brand sm:text-xs">
@@ -87,7 +87,7 @@ export function StickyBookingBar({
           <button
             type="button"
             onClick={onAction}
-            className="inline-flex h-11 w-1/2 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-control bg-brand px-3 text-[11px] font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:gap-2 sm:px-6 sm:text-xs sm:tracking-caps lg:w-auto lg:flex-initial"
+            className="inline-flex h-11 w-1/2 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-control bg-brand px-3 text-[11px] font-semibold uppercase tracking-wider text-white shadow-raised transition-colors hover:bg-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:gap-2 sm:px-6 sm:text-xs sm:tracking-caps lg:w-auto lg:flex-initial"
           >
             {icon}
             <span className="truncate">{buttonLabel}</span>

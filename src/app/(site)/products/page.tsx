@@ -7,6 +7,7 @@ import { allProducts, formatCategoryLabel, getCategorySortRank } from "@/data/pr
 import { ProductCard } from "@/components/molecules/ProductCard";
 import { CategoryFilter, type CategoryOption } from "@/components/organisms/CategoryFilter";
 import { MobileFilterSortBar } from "@/components/organisms/MobileFilterSortBar";
+import { SelectField } from "@/components/molecules/SelectField";
 import { Container } from "@/components/atoms/Container";
 import { CatalogPageSkeleton } from "@/components/molecules/PageSkeletons";
 import { ProductCardSkeleton } from "@/components/atoms/Skeleton";
@@ -165,7 +166,7 @@ function ProductsCatalogContent() {
             {/* Desktop Left Sidebar with Category Radio options */}
             <aside className="hidden w-72 shrink-0 lg:block">
               <div className="sticky top-28 space-y-4">
-                <div className="rounded-2xl border border-light bg-white p-4 shadow-sm">
+                <div className="rounded-card border border-light bg-white p-4">
                   <label htmlFor="catalogue-search" className="mb-2 block text-xs font-semibold uppercase tracking-wider text-deep">
                     Find an artwork
                   </label>
@@ -181,7 +182,7 @@ function ProductsCatalogContent() {
                         setVisibleCount(INITIAL_LOAD_COUNT);
                       }}
                       placeholder="Title, verse, medium..."
-                      className="h-11 w-full rounded-lg border border-light bg-ice/30 pl-9 pr-3 text-xs text-deep placeholder:text-steel focus:border-brand focus:bg-white focus:outline-none"
+                      className="h-11 w-full rounded-control border border-light bg-ice/30 pl-9 pr-3 text-xs text-deep placeholder:text-steel focus:border-brand focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
@@ -209,22 +210,29 @@ function ProductsCatalogContent() {
 
                 <div className="hidden sm:flex items-center gap-2">
                   <span className="text-xs text-steel">Sort By:</span>
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value as SortOption)}
-                    className="h-9 rounded-lg border border-light bg-white px-3 text-xs font-medium text-deep shadow-xs focus:border-brand focus:outline-none"
-                  >
-                    <option value="featured">Featured First</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                    <option value="rating">Highest Rated</option>
-                  </select>
+                  <div className="w-48">
+                    <SelectField
+                      id="sort-by"
+                      name="sortBy"
+                      ariaLabel="Sort products"
+                      size="sm"
+                      minListWidth={192}
+                      value={sortBy}
+                      onChange={(value) => setSortBy(value as SortOption)}
+                      options={[
+                        { value: "featured", label: "Featured First" },
+                        { value: "price-asc", label: "Price: Low to High" },
+                        { value: "price-desc", label: "Price: High to Low" },
+                        { value: "rating", label: "Highest Rated" },
+                      ]}
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Products Grid */}
               {displayedProducts.length === 0 ? (
-                <div className="rounded-2xl border border-light bg-white py-16 text-center shadow-xs">
+                <div className="rounded-card border border-light bg-white py-16 text-center">
                   <Sparkles className="mx-auto h-12 w-12 text-mist" />
                   <h3 className="mt-4 font-serif text-xl font-normal text-deep">
                     No products found
@@ -238,7 +246,7 @@ function ProductsCatalogContent() {
                       handleSelectCategory("All");
                       setSearchQuery("");
                     }}
-                    className="mt-6 rounded-lg bg-brand px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors"
+                    className="mt-6 rounded-control bg-brand px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors"
                   >
                     Reset Category
                   </button>

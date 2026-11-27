@@ -25,7 +25,7 @@ export function StatsBar({
           <>
             <span
               aria-hidden="true"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-light/80 bg-ice text-brand transition-colors group-hover:border-brand/30 group-hover:bg-brand group-hover:text-white sm:h-10 sm:w-10"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-card border border-light/80 bg-ice text-brand transition-colors group-hover:border-brand/30 group-hover:bg-brand group-hover:text-white sm:h-10 sm:w-10"
             >
               {item.icon}
             </span>
@@ -49,7 +49,7 @@ export function StatsBar({
         );
 
         const cardClasses =
-          "group flex items-center gap-2.5 rounded-xl border border-light bg-white/95 px-3 py-2.5 transition-all duration-200 hover:border-brand/35 hover:bg-white sm:gap-3.5 sm:px-4 sm:py-3.5";
+          "group flex items-center gap-2.5 rounded-card border border-light bg-white/95 px-3 py-2.5 transition-all duration-200 hover:border-brand/35 hover:bg-white sm:gap-3.5 sm:px-4 sm:py-3.5";
 
         if (item.href) {
           return (

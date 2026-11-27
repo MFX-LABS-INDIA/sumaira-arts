@@ -60,7 +60,7 @@ export function FormDrawer({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className={`fixed inset-y-0 right-0 z-[60] flex w-full max-w-md flex-col bg-white shadow-raised transition-all duration-300 ease-out-soft md:inset-auto md:left-1/2 md:top-1/2 md:max-h-[calc(100dvh-3rem)] md:w-[calc(100%-2rem)] md:max-w-2xl md:-translate-x-1/2 md:-translate-y-1/2 md:overflow-hidden md:rounded-2xl md:border md:border-light ${
+        className={`fixed inset-y-0 right-0 z-[60] flex w-full max-w-md flex-col bg-white shadow-raised transition-all duration-300 ease-out-soft md:inset-auto md:left-1/2 md:top-1/2 md:max-h-[calc(100dvh-3rem)] md:w-[calc(100%-2rem)] md:max-w-2xl md:-translate-x-1/2 md:-translate-y-1/2 md:overflow-hidden md:rounded-card md:border md:border-light ${
           isOpen
             ? "translate-x-0 md:scale-100 md:opacity-100"
             : "pointer-events-none invisible translate-x-full md:translate-x-0 md:scale-95 md:opacity-0"

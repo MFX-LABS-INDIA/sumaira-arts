@@ -10,7 +10,7 @@ export function Commission() {
   return (
     <Section id="commission" tone="ice">
       <Container>
-        <div className="overflow-hidden rounded-2xl border border-light bg-white shadow-raised sm:rounded-3xl">
+        <div className="overflow-hidden rounded-card border border-light bg-white sm:rounded-card">
           <div className="grid lg:grid-cols-2">
             <div className="relative bg-light p-2 sm:p-3 lg:p-4">
               <ArtImage
@@ -52,7 +52,7 @@ export function Commission() {
             {commission.steps.map((step) => (
               <li
                 key={step.number}
-                className="w-[78%] min-w-[230px] max-w-[280px] shrink-0 snap-start rounded-xl border border-light bg-ice/35 p-3.5 sm:w-[46%] sm:max-w-[300px] md:w-auto md:min-w-0 md:max-w-none md:rounded-none md:border-0 md:border-e md:bg-transparent md:p-8 md:last:border-e-0"
+                className="w-[78%] min-w-[230px] max-w-[280px] shrink-0 snap-start rounded-card border border-light bg-ice/35 p-3.5 sm:w-[46%] sm:max-w-[300px] md:w-auto md:min-w-0 md:max-w-none md:rounded-none md:border-0 md:border-e md:bg-transparent md:p-8 md:last:border-e-0"
               >
                 <div className="flex items-center gap-3">
                   <span

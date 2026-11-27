@@ -64,7 +64,7 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-1 max-h-64 w-72 max-w-[calc(100vw-2.5rem)] rounded-xl border border-light bg-white p-2 shadow-raised">
+        <div className="absolute left-0 top-full z-50 mt-1 max-h-64 w-72 max-w-[calc(100vw-2.5rem)] rounded-card border border-light bg-white p-2 shadow-raised">
           <div className="relative mb-2">
             <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-steel" />
             <input
@@ -74,7 +74,7 @@ export function CountrySelect({ value, onChange, className = "" }: CountrySelect
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search country..."
               aria-label="Search country or calling code"
-              className="h-9 w-full rounded-md border border-light pl-8 pr-7 text-xs text-deep focus:border-brand focus:outline-none"
+              className="h-9 w-full rounded-control border border-light pl-8 pr-7 text-xs text-deep focus:border-brand focus:outline-none"
             />
             {query && (
               <button

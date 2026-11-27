@@ -66,7 +66,7 @@ export function RecognitionCarouselController({
       }}
       className="mt-8 sm:mt-12"
     >
-      <div className="relative overflow-hidden rounded-card border border-light bg-white shadow-xs sm:rounded-2xl">
+      <div className="relative overflow-hidden rounded-card border border-light bg-white sm:rounded-card">
         <div
           ref={carouselRef}
           className="flex transition-transform duration-700 ease-out-soft motion-reduce:transition-none"

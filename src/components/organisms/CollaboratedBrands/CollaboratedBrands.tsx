@@ -47,7 +47,7 @@ function BrandMarqueeRow({
               <li
                 key={`${rowKey}-${dupIndex}-${brand.name}`}
                 title={brand.name}
-                className={`flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-light transition-all duration-300 ease-out-soft hover:-translate-y-0.5 hover:border-brand/35 hover:shadow-raised motion-reduce:transform-none ${tileSizeClass} ${
+                className={`flex shrink-0 items-center justify-center overflow-hidden rounded-card border border-light transition-all duration-300 ease-out-soft hover:-translate-y-0.5 hover:border-brand/35 motion-reduce:transform-none ${tileSizeClass} ${
                   brand.darkSurface ? "bg-[#163020]" : "bg-white"
                 }`}
               >

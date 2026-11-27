@@ -25,7 +25,7 @@ import type { Product as StoreProduct } from "@/types/store";
 
 function ArtworkDetails({ product }: { product: StoreProduct }) {
   return (
-    <section className="overflow-hidden rounded-2xl border border-light bg-white shadow-xs">
+    <section className="overflow-hidden rounded-card border border-light bg-white">
       <div className="p-4 sm:p-8">
         <h2 className="text-lg font-semibold tracking-tight text-deep sm:text-2xl">About this artwork</h2>
         <p className="mt-3 sm:mt-5 max-w-prose whitespace-pre-line text-xs sm:text-base font-normal leading-relaxed sm:leading-8 text-deep">{product.description}</p>
@@ -167,7 +167,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
 
           {/* Details & Acquisition Box (Right Column, 5 cols) */}
           <div className="space-y-4 sm:space-y-6 lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
-            <div className="space-y-4 sm:space-y-5 rounded-2xl border border-light bg-white p-4 sm:p-7 shadow-sm">
+            <div className="space-y-4 sm:space-y-5 rounded-card border border-light bg-white p-4 sm:p-7">
               {/* Title + Rating */}
               <div>
                 <p className="mb-1.5 sm:mb-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-brand">
@@ -191,7 +191,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
               </div>
 
               {/* Artwork price */}
-              <div className="rounded-xl bg-ice/60 px-4 py-3">
+              <div className="rounded-card bg-ice/60 px-4 py-3">
                 <p className="text-xs font-semibold uppercase tracking-wider text-steel">Artwork price</p>
                 <div className="mt-1 flex items-baseline gap-3">
                 <span className="font-serif text-2xl sm:text-3xl font-light text-deep">
@@ -208,7 +208,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                 {inCart > 0 && (
                   <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 border-t border-brand/10 pt-1">
                     <CartQuantityNote quantity={inCart} />
-                    <Link href="/cart" className="inline-flex min-h-11 items-center gap-1 rounded-sm text-xs font-semibold text-brand underline-offset-4 hover:underline focus-visible:outline-2">
+                    <Link href="/cart" className="inline-flex min-h-11 items-center gap-1 rounded-control text-xs font-semibold text-brand underline-offset-4 hover:underline focus-visible:outline-2">
                       <span>View cart</span>
                       <ChevronRight aria-hidden="true" className="h-3.5 w-3.5 rtl:rotate-180" />
                     </Link>
@@ -220,10 +220,10 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
               <div
                 role="region"
                 aria-label="Purchase this artwork"
-                className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white px-4 pt-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] shadow-raised sm:static sm:rounded-xl sm:border sm:p-3 sm:shadow-none"
+                className="fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white px-4 pt-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] shadow-raised sm:static sm:rounded-card sm:border sm:p-3 sm:shadow-none"
               >
               <div className="flex items-center gap-3">
-                <div className="flex h-12 items-center rounded-lg border border-light bg-white">
+                <div className="flex h-12 items-center rounded-control border border-light bg-white">
                   <button
                     type="button"
                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -251,7 +251,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                   onClick={handleAdd}
                   disabled={product.inStock === false}
                   aria-live="polite"
-                  className="flex h-12 min-w-0 flex-1 items-center justify-center gap-2 rounded-lg bg-brand px-3 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors sm:px-6"
+                  className="flex h-12 min-w-0 flex-1 items-center justify-center gap-2 rounded-control bg-brand px-3 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors sm:px-6"
                 >
                   {added ? (
                     <>

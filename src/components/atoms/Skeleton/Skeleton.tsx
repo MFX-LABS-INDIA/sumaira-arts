@@ -9,7 +9,7 @@ export function Skeleton({ className = "", tone = "light", ...props }: SkeletonP
   return (
     <div
       aria-hidden="true"
-      className={`${tone === "dark" ? "skeleton-shimmer-dark" : "skeleton-shimmer"} rounded-md ${className}`}
+      className={`${tone === "dark" ? "skeleton-shimmer-dark" : "skeleton-shimmer"} rounded-control ${className}`}
       {...props}
     />
   );
@@ -40,7 +40,7 @@ export function ProductCardSkeleton() {
   return (
     <div
       aria-hidden="true"
-      className="flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-light bg-white"
+      className="flex h-full min-w-0 flex-col overflow-hidden rounded-card border border-light bg-white"
     >
       <Skeleton className="aspect-[4/3] w-full shrink-0 rounded-none sm:aspect-[5/4] lg:aspect-[4/3]" />
       <div className="flex flex-1 flex-col justify-between px-2.5 py-2 sm:p-4">
@@ -54,7 +54,7 @@ export function ProductCardSkeleton() {
         </div>
         <div className="mt-1.5 flex items-center justify-between gap-3 border-t border-light/70 pt-1 sm:mt-4 sm:pt-3">
           <Skeleton className="h-4 w-20" />
-          <Skeleton className="h-11 w-11 shrink-0 rounded-lg sm:h-8 sm:w-20" />
+          <Skeleton className="h-11 w-11 shrink-0 rounded-control sm:h-8 sm:w-20" />
         </div>
       </div>
     </div>
