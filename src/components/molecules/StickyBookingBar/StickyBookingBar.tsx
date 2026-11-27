@@ -30,7 +30,7 @@ export function StickyBookingBar({
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 shadow-[0_-8px_28px_-14px_rgba(13,24,42,0.22)] backdrop-blur-md transition-all duration-300 ease-out-soft pb-[env(safe-area-inset-bottom)] ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-light bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_28px_-14px_rgba(13,24,42,0.22)] backdrop-blur-md transition-all duration-300 ease-out-soft sm:border-white/30 sm:bg-white/30 sm:shadow-[0_-4px_20px_rgba(13,24,42,0.05)] sm:backdrop-blur-md ${
         hidden
           ? "pointer-events-none translate-y-full opacity-0"
           : "translate-y-0 opacity-100"
