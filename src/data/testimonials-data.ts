@@ -1,4 +1,4 @@
-[
+export const testimonialsData = [
   {
     "id": "review-1",
     "name": "Amina M.",
@@ -59,4 +59,4 @@
     "description": "It arrived beautifully presented and has become the focal point of our home.",
     "date": "Verified collector"
   }
-]
+];

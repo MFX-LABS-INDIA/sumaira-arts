@@ -24,6 +24,7 @@ export default function CheckoutPage() {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.cart);
   const cartTotal = useAppSelector((state) => state.cart.cartTotal);
+  const cartItemCount = useAppSelector((state) => state.cart.cartItemCount);
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   // Form states
@@ -336,7 +337,7 @@ export default function CheckoutPage() {
           <div className="lg:col-span-1">
             <div className="sticky top-28 rounded-xl border border-light bg-white p-6 shadow-sm">
               <h2 className="font-serif text-lg font-light text-deep border-b border-light pb-4">
-                Selected Pieces ({cart.length})
+                Selected Pieces ({cartItemCount})
               </h2>
 
               <div className="subtle-scrollbar mt-4 divide-y divide-light max-h-72 overflow-y-auto pr-1">

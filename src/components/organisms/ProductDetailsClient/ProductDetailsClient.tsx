@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { CartQuantityNote } from "@/components/atoms/CartQuantityNote";
 import { ProductImageCarousel } from "@/components/organisms/ProductImageCarousel";
 import {
   ShoppingBag,
@@ -12,8 +13,8 @@ import {
   Palette,
   Frame,
 } from "lucide-react";
-import { useAppDispatch } from "@/store/hooks";
-import { addToCart } from "@/store/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { addToCart, selectArtworkQuantity } from "@/store/cartSlice";
 import { formatPrice } from "@/lib/format";
 import { formatCategoryLabel } from "@/data/products";
 import { Container } from "@/components/atoms/Container";
@@ -86,6 +87,7 @@ function DetailSpec({
 
 export function ProductDetailsClient({ product }: { product: StoreProduct }) {
   const dispatch = useAppDispatch();
+  const inCart = useAppSelector((state) => selectArtworkQuantity(state, product.slug));
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
@@ -104,7 +106,6 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
   const handleAdd = () => {
     dispatch(
       addToCart({
-        productId: product.id,
         slug: product.slug,
         title: product.title,
         category: formatCategoryLabel(
@@ -204,6 +205,15 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                     </span>
                   </>
                 )}</div>
+                {inCart > 0 && (
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 border-t border-brand/10 pt-1">
+                    <CartQuantityNote quantity={inCart} />
+                    <Link href="/cart" className="inline-flex min-h-11 items-center gap-1 rounded-sm text-xs font-semibold text-brand underline-offset-4 hover:underline focus-visible:outline-2">
+                      <span>View cart</span>
+                      <ChevronRight aria-hidden="true" className="h-3.5 w-3.5 rtl:rotate-180" />
+                    </Link>
+                  </div>
+                )}
               </div>
 
               {/* Quantity + Add to Cart */}
@@ -239,6 +249,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                 <button
                   type="button"
                   onClick={handleAdd}
+                  disabled={product.inStock === false}
                   aria-live="polite"
                   className="flex h-12 min-w-0 flex-1 items-center justify-center gap-2 rounded-lg bg-brand px-3 text-xs font-semibold uppercase tracking-wider text-white shadow-raised hover:bg-deep transition-colors sm:px-6"
                 >
@@ -250,7 +261,7 @@ export function ProductDetailsClient({ product }: { product: StoreProduct }) {
                   ) : (
                     <>
                       <ShoppingBag className="h-4 w-4" />
-                      <span>Add to Cart</span>
+                      <span>{product.inStock === false ? "Sold out" : "Add to Cart"}</span>
                     </>
                   )}
                 </button>

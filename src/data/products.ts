@@ -1,5 +1,5 @@
 import type { Cta } from "@/types/content";
-import productsData from "./products.json";
+import { productsData } from "./products-data";
 import type { Product as StoreProduct } from "@/types/store";
 import type { ArtVariant } from "@/components/art/variants";
 import type { SceneKind } from "@/components/art/scenes";

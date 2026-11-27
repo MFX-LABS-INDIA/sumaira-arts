@@ -1,4 +1,4 @@
-import testimonialsData from "./testimonials.json";
+import { testimonialsData } from "./testimonials-data";
 import type { Testimonial } from "@/types/content";
 
 export const testimonialsIntro = {

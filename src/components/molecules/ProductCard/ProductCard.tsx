@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { CartQuantityNote } from "@/components/atoms/CartQuantityNote";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { ArtPiece } from "@/components/art/ArtPiece";
 import { SmartLink } from "@/components/atoms/Link";
 import { Reveal } from "@/components/atoms/Reveal";
 import { formatPrice } from "@/lib/format";
-import { useAppDispatch } from "@/store/hooks";
-import { addToCart } from "@/store/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { addToCart, selectArtworkQuantity } from "@/store/cartSlice";
 import { ShoppingBag, Check, Star } from "lucide-react";
 import type { ProductCardProps } from "./ProductCard.types";
 
@@ -18,10 +19,10 @@ export function ProductCard({
   index,
   className = "",
   disableReveal = false,
-  homeCard = false,
   catalogue = false,
 }: ProductCardProps) {
   const dispatch = useAppDispatch();
+  const inCart = useAppSelector((state) => selectArtworkQuantity(state, product.slug));
   const [added, setAdded] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -30,7 +31,6 @@ export function ProductCard({
 
     dispatch(
       addToCart({
-        productId: product.slug,
         slug: product.slug,
         title: product.title,
         category: product.category,
@@ -73,12 +73,11 @@ export function ProductCard({
           )}
         </div>
 
-        {/* Top Badges */}
-        <div className="absolute start-2 top-2 z-10 flex items-center gap-1.5 sm:start-3 sm:top-3">
-          <span className="rounded-md bg-white/95 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-deep shadow-xs sm:px-2.5 sm:text-[10px]">
-            {product.category}
-          </span>
-        </div>
+        {inCart > 0 && (
+          <div className="pointer-events-none absolute end-2 top-2 z-10 rounded-full shadow-xs sm:end-3 sm:top-3">
+            <CartQuantityNote quantity={inCart} />
+          </div>
+        )}
 
 
         {/* Quick Add To Cart Button Overlay */}
@@ -103,50 +102,44 @@ export function ProductCard({
         )}
       </div>
 
-      {/* Card Body */}
-      <div className={`flex flex-1 flex-col sm:p-4 ${catalogue ? "px-2.5 py-2" : "p-3"} ${homeCard ? "" : "sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-3"}`}>
-        <div className={catalogue ? "min-w-0 max-sm:flex-1" : "min-w-0"}>
+      <div className="@container min-w-0 flex-1 px-2.5 py-2 sm:px-4 sm:py-3">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-1.5 gap-y-0.5">
+        <div className="col-span-2 mb-1 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-steel">
+          <span className="text-[10px] font-semibold uppercase tracking-wider">
+            {product.category}
+          </span>
           {product.rating !== undefined && (
-            <div className="mb-1.5 flex items-center gap-1.5 text-xs text-steel">
+            <span className="inline-flex items-center gap-1 whitespace-nowrap text-[11px] tabular-nums sm:text-xs">
               <Star aria-hidden="true" className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-              <span>{product.rating.toFixed(1)}</span>
-              {reviewCount > 0 && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <span>{reviewCount} reviews</span>
-                </>
-              )}
-            </div>
+              <span className="sr-only">Rating:</span>
+              {product.rating.toFixed(1)}
+              {reviewCount > 0 && <span>({reviewCount}<span className="sr-only"> reviews</span>)</span>}
+            </span>
           )}
-
-          {/* Title (auto-tooltipped globally when truncated) */}
-          <h3 className="font-serif text-xs font-semibold leading-snug tracking-tight text-deep transition-colors group-hover:text-brand line-clamp-2 sm:text-sm sm:font-medium">
-            <SmartLink href={`/products/${product.slug}`} className="after:absolute after:inset-0">
-              {product.title}
-            </SmartLink>
-          </h3>
         </div>
 
-        {/* Fixed artwork price */}
-        <div className={`flex items-end justify-between gap-2 border-t border-light/60 ${homeCard ? "mt-4 pt-3" : "mt-3 pt-2 sm:mt-0 sm:min-w-28 sm:border-s sm:border-t-0 sm:ps-3 sm:pt-0"} ${catalogue ? "max-sm:mt-1.5 max-sm:pt-1" : ""}`}>
-          <div>
-            <div className="flex items-baseline gap-1">
-              <span className="text-[9px] text-steel uppercase font-semibold sm:text-[10px]">Price</span>
-              {product.oldPriceUSD && (
-                <span className="text-[10px] font-medium text-red-500 line-through">
-                  {formatPrice(product.oldPriceUSD)}
-                </span>
-              )}
-            </div>
-            <p className="font-serif text-lg font-semibold text-deep leading-none mt-0.5 sm:text-lg sm:font-medium">
-              {formatPrice(product.price)}
-            </p>
+        <h3 className="col-span-2 min-w-0 truncate text-[13px] font-semibold leading-[1.4] text-deep group-hover:text-brand @[13rem]:col-span-1 sm:text-base">
+          <SmartLink href={`/products/${product.slug}`} className="after:absolute after:inset-0">
+            {product.title}
+          </SmartLink>
+        </h3>
+
+          <div className="col-start-1 flex min-w-0 flex-wrap items-baseline gap-x-1.5 gap-y-0.5 tabular-nums">
+            <span className="text-[15px] font-semibold leading-tight text-deep sm:text-lg">
+              <span className="sr-only">Price: </span>{formatPrice(product.price)}
+            </span>
+            {product.oldPriceUSD != null && product.oldPriceUSD > product.price && (
+              <del className="text-[11px] text-red-700 sm:text-xs">
+                <span className="sr-only">Previous price: </span>{formatPrice(product.oldPriceUSD)}
+              </del>
+            )}
           </div>
 
           <button
             type="button"
             onClick={handleAddToCart}
-            className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-ice text-brand hover:bg-brand hover:text-white transition-all shadow-xs ${catalogue ? "max-sm:h-11 max-sm:w-11" : ""}`}
+            className="relative z-10 col-start-2 flex h-11 w-11 items-center justify-center rounded-lg bg-ice text-brand transition-colors hover:bg-brand hover:text-white disabled:opacity-50 @[13rem]:row-span-2 @[13rem]:row-start-2"
+            disabled={product.soldOut}
             aria-label={catalogue ? `Add ${product.title} to cart` : "Add to cart"}
           >
             {added ? <Check className="h-4 w-4" /> : <ShoppingBag className="h-4 w-4" />}

@@ -19,11 +19,33 @@ const initialState: CartState = {
   isHydrated: false,
 };
 
+export function selectArtworkQuantity(state: { cart: CartState }, slug: string) {
+  return state.cart.cart.reduce((sum, item) => sum + (item.slug === slug ? item.quantity : 0), 0);
+}
+
 const calculateMetrics = (items: CartItem[]) => {
   const cartItemCount = items.reduce((acc, item) => acc + item.quantity, 0);
   const cartTotal = items.reduce((acc, item) => acc + item.priceUSD * item.quantity, 0);
   return { cartItemCount, cartTotal };
 };
+
+type CartSelection = Omit<CartItem, "id" | "productId">;
+
+function mergeSelection(items: CartItem[], selection: CartSelection) {
+  const { slug, selectedSize, selectedStyle, selectedFrame, quantity } = selection;
+  if (!slug || !Number.isSafeInteger(quantity) || quantity < 1) return;
+
+  // Older carts may contain editions. Give each real selection its own editable row.
+  const id = selectedSize || selectedStyle || selectedFrame
+    ? JSON.stringify([slug, selectedSize || "", selectedStyle || "", selectedFrame || ""])
+    : slug;
+  const existing = items.find((item) => item.id === id);
+  if (existing) {
+    existing.quantity += quantity;
+  } else {
+    items.push({ ...selection, id, productId: slug });
+  }
+}
 
 const saveToLocalStorage = (items: CartItem[]) => {
   if (typeof window !== "undefined") {
@@ -46,10 +68,17 @@ export const cartSlice = createSlice({
           if (stored) {
             const parsed = JSON.parse(stored);
             if (Array.isArray(parsed)) {
-              state.cart = parsed;
-              const { cartItemCount, cartTotal } = calculateMetrics(parsed);
+              const restored: CartItem[] = [];
+              for (const item of parsed) {
+                if (item && typeof item.slug === "string" && Number.isFinite(item.priceUSD)) {
+                  mergeSelection(restored, item);
+                }
+              }
+              state.cart = restored;
+              const { cartItemCount, cartTotal } = calculateMetrics(restored);
               state.cartItemCount = cartItemCount;
               state.cartTotal = cartTotal;
+              saveToLocalStorage(restored);
             }
           }
         } catch {
@@ -58,29 +87,8 @@ export const cartSlice = createSlice({
       }
       state.isHydrated = true;
     },
-    addToCart: (state, action: PayloadAction<Omit<CartItem, "id"> & { id?: string }>) => {
-      const incoming = action.payload;
-      const baseId = incoming.id || incoming.productId;
-      const quantityToAdd = incoming.quantity && incoming.quantity > 0 ? incoming.quantity : 1;
-
-      const existingIndex = state.cart.findIndex(
-        (item) =>
-          item.productId === incoming.productId &&
-          item.selectedSize === incoming.selectedSize &&
-          item.selectedStyle === incoming.selectedStyle
-      );
-
-      if (existingIndex !== -1) {
-        state.cart[existingIndex].quantity += quantityToAdd;
-      } else {
-        const newItem: CartItem = {
-          ...incoming,
-          id: baseId,
-          quantity: quantityToAdd,
-        };
-        state.cart.push(newItem);
-      }
-
+    addToCart: (state, action: PayloadAction<CartSelection>) => {
+      mergeSelection(state.cart, action.payload);
       const { cartItemCount, cartTotal } = calculateMetrics(state.cart);
       state.cartItemCount = cartItemCount;
       state.cartTotal = cartTotal;
@@ -97,6 +105,7 @@ export const cartSlice = createSlice({
     },
     updateQuantity: (state, action: PayloadAction<{ id: string; quantity: number }>) => {
       const { id, quantity } = action.payload;
+      if (!Number.isSafeInteger(quantity)) return;
       if (quantity <= 0) {
         state.cart = state.cart.filter((item) => item.id !== id);
       } else {

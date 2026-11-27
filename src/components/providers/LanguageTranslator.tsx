@@ -11,6 +11,8 @@ const LOCALE_UPDATED_EVENT = "sumaira-locale-updated";
 // Text is kept in the source language and translated at the page boundary. This lets server-rendered
 // marketing sections, client controls and future content share one language switch without affecting values.
 const copy: Record<string, Translation> = {
+  "In your cart": { ar: "في سلتك", fr: "Dans votre panier", es: "En tu carrito" },
+  "View cart": { ar: "عرض السلة", fr: "Voir le panier", es: "Ver el carrito" },
   "Page not found": { ar: "الصفحة غير موجودة", fr: "Page introuvable", es: "Página no encontrada" },
   "This link may have changed. You can still explore the artworks in our gallery.": {
     ar: "ربما تغيّر هذا الرابط. يمكنك استكشاف الأعمال الفنية في معرضنا.",
