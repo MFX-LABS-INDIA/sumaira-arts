@@ -114,7 +114,7 @@ export function LiveEventsView() {
                       rel="noopener noreferrer"
                       className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand transition-colors hover:bg-brand hover:text-white sm:px-3 sm:py-1.5"
                     >
-                      @sumevents.ae
+                      @sumaira_calligraphy
                     </a>
                   </figcaption>
                 </div>

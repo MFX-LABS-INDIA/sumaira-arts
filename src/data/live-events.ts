@@ -45,7 +45,7 @@ export const liveEventsData = {
       { value: "35+", label: "Global & Regional Brands" },
       { value: "EN & AR", label: "Bilingual Script Artistry" },
       {
-        value: "@sumevents.ae",
+        value: "@sumaira_calligraphy",
         label: "Dedicated Events Portfolio",
         href: site.instagram.events,
       },
@@ -283,6 +283,6 @@ export const liveEventsData = {
       "Reserve your date above or explore Sumaira's guided Arabic calligraphy and textured canvas workshops for teams and private groups.",
     primary: { label: "Complete Booking Form", href: "#book-event" },
     secondary: { label: "Explore Calligraphy Workshops", href: "/workshops" },
-    handles: ["@sumevents.ae", "@sumaira_arts"],
+    handles: ["@sumaira_calligraphy", "@sumaira_arts"],
   },
 };

@@ -7,7 +7,8 @@ export const site = {
   statement:
     "A contemporary art destination bringing together refined artwork, cultural influence and modern design to create pieces that belong beautifully in the spaces we live and work in.",
   instagram: {
-    main: "https://www.instagram.com/sumaira_arts/?hl=en",
-    events: "https://www.instagram.com/sumevents.ae",
+    main: "https://www.instagram.com/sumaira_arts?lqvp=aHpyYnl3YWptYWxo&utm_source=qr",
+    events: "https://www.instagram.com/sumaira_calligraphy?jplx=YTU5dmlheTVzeHZ4&utm_source=qr",
+    workshops: "https://www.instagram.com/sumaira_workshops?gwpx=MXJneGJocnY1djBkOQ%3D%3D&utm_source=qr",
   },
 };

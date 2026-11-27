@@ -2,6 +2,7 @@ import type { Order } from "@/types/store";
 import type { Enquiry } from "@/types/enquiry";
 import type { EventBooking } from "@/types/event-booking";
 import type { WorkshopBooking } from "@/types/workshop-booking";
+import { site } from "@/constants/site";
 
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -260,9 +261,11 @@ function renderBrandEmailLayout(options: BrandEmailLayoutOptions): string {
                   <a href="${SITE_URL}/workshops" style="display: inline-block; padding: 6px 8px; color: #1b3a6b; text-decoration: underline;">Workshops</a>
                 </p>
                 <p style="margin: 4px 0 0; color: #3d5a80; font-size: 12px; line-height: 24px;">
-                  <a href="https://www.instagram.com/sumaira_arts/" style="display: inline-block; padding: 6px; color: #3d5a80; text-decoration: underline;">@sumaira_arts</a>
+                  <a href="${site.instagram.main}" style="display: inline-block; padding: 6px; color: #3d5a80; text-decoration: underline;">@sumaira_arts</a>
                   &middot;
-                  <a href="https://www.instagram.com/sumevents.ae" style="display: inline-block; padding: 6px; color: #3d5a80; text-decoration: underline;">@sumevents.ae</a>
+                  <a href="${site.instagram.events}" style="display: inline-block; padding: 6px; color: #3d5a80; text-decoration: underline;">@sumaira_calligraphy</a>
+                  &middot;
+                  <a href="${site.instagram.workshops}" style="display: inline-block; padding: 6px; color: #3d5a80; text-decoration: underline;">@sumaira_workshops</a>
                 </p>
                 <p style="margin: 12px 0 0; color: #3d5a80; font-size: 11px; line-height: 18px;">${isAdmin ? "A website request for the Sumaira Arts team." : "Sent in response to your request at Sumaira Arts."}</p>
               </td>

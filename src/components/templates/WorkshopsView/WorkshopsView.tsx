@@ -9,6 +9,7 @@ import { Reveal } from "@/components/atoms/Reveal";
 import { WorkshopBookingSection } from "@/components/organisms/WorkshopBookingSection";
 import { WorkshopsGallery } from "@/components/organisms/WorkshopsGallery";
 import { workshopsData } from "@/data/workshops";
+import { site } from "@/constants/site";
 
 export function WorkshopsView() {
   const {
@@ -63,9 +64,14 @@ export function WorkshopsView() {
                         Traditional qalam script &amp; layered textured canvas classes.
                       </span>
                     </span>
-                    <span className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand">
-                      01 / 01
-                    </span>
+                    <a
+                      href={site.instagram.workshops}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 rounded-full bg-ice px-2.5 py-1 font-mono text-[11px] font-medium text-brand transition-colors hover:bg-brand hover:text-white sm:px-3 sm:py-1.5"
+                    >
+                      @sumaira_workshops
+                    </a>
                   </figcaption>
                 </div>
               </figure>
