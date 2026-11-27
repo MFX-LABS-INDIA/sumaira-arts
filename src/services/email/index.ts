@@ -1,4 +1,5 @@
 import nodemailer, { type Transporter } from "nodemailer";
+import { sanitizeEmailHeader } from "@/lib/security/sanitize";
 import type { Order } from "@/types/store";
 import type { Enquiry } from "@/types/enquiry";
 import type { EventBooking } from "@/types/event-booking";
@@ -44,9 +45,16 @@ class EmailService {
   }
 
   private getSenderIdentity() {
-    const fromName = process.env.SMTP_FROM_NAME || "Sumaira Arts Studio";
-    const fromEmail = process.env.SMTP_USER || "orders@sumairaarts.com";
-    const adminEmail = process.env.ENQUIRY_ADMIN_EMAIL || process.env.ADMIN_EMAIL_CC;
+    const fromName = sanitizeEmailHeader(
+      process.env.SMTP_FROM_NAME || "Sumaira Arts Studio",
+      80,
+    ).replace(/"/g, "");
+    const fromEmail = sanitizeEmailHeader(
+      process.env.SMTP_USER || "orders@sumairaarts.com",
+      254,
+    );
+    const rawAdmin = process.env.ENQUIRY_ADMIN_EMAIL || process.env.ADMIN_EMAIL_CC;
+    const adminEmail = rawAdmin ? sanitizeEmailHeader(rawAdmin, 254) : undefined;
     return { fromName, fromEmail, adminEmail };
   }
 
@@ -55,6 +63,9 @@ class EmailService {
   ): Promise<{ success: boolean; simulated?: boolean }> {
     const { fromName, fromEmail, adminEmail } = this.getSenderIdentity();
     const transporter = this.getTransporter();
+    const safeEmail = sanitizeEmailHeader(order.email, 254);
+    const safeOrderId = sanitizeEmailHeader(order.id, 40);
+    const safeCustomerName = sanitizeEmailHeader(order.customerName, 120);
 
     if (!transporter) {
       console.warn("[SIMULATED EMAIL] SMTP is not configured; no email was sent.");
@@ -64,9 +75,11 @@ class EmailService {
     try {
       await transporter.sendMail({
         from: `"${fromName}" <${fromEmail}>`,
-        to: order.email,
+        to: safeEmail,
         replyTo: adminEmail,
-        subject: `Order ID ${order.id} - Artwork Request Received | Sumaira Arts`,
+        subject: sanitizeEmailHeader(
+          `Order ID ${safeOrderId} - Artwork Request Received | Sumaira Arts`,
+        ),
         html: getOrderEmailTemplate(order, "client"),
         text: getOrderPlainText(order),
       });
@@ -76,8 +89,10 @@ class EmailService {
           await transporter.sendMail({
             from: `"${fromName}" <${fromEmail}>`,
             to: adminEmail,
-            replyTo: order.email,
-            subject: `New Artwork Order (${order.id}) — ${order.customerName} | Sumaira Arts`,
+            replyTo: safeEmail,
+            subject: sanitizeEmailHeader(
+              `New Artwork Order (${safeOrderId}) — ${safeCustomerName} | Sumaira Arts`,
+            ),
             html: getOrderEmailTemplate(order, "admin"),
             text: getOrderPlainText(order),
           });
@@ -104,11 +119,16 @@ class EmailService {
     const { fromName, fromEmail, adminEmail } = this.getSenderIdentity();
     if (!transporter || !adminEmail) return false;
 
+    const safeEmail = sanitizeEmailHeader(enquiry.email, 254);
+    const safeName = sanitizeEmailHeader(enquiry.name, 120);
+
     await transporter.sendMail({
       from: `"${fromName}" <${fromEmail}>`,
       to: adminEmail,
-      replyTo: enquiry.email,
-      subject: `New Contact Us Enquiry — ${enquiry.name} | Sumaira Arts`,
+      replyTo: safeEmail,
+      subject: sanitizeEmailHeader(
+        `New Contact Us Enquiry — ${safeName} | Sumaira Arts`,
+      ),
       html: getEnquiryEmailTemplate(enquiry, "admin"),
       text: getEnquiryPlainText(enquiry),
     });
@@ -116,7 +136,7 @@ class EmailService {
     try {
       await transporter.sendMail({
         from: `"${fromName}" <${fromEmail}>`,
-        to: enquiry.email,
+        to: safeEmail,
         replyTo: adminEmail,
         subject: "Enquiry Received | Sumaira Arts Studio",
         html: getEnquiryEmailTemplate(enquiry, "client"),
@@ -137,11 +157,17 @@ class EmailService {
     const { fromName, fromEmail, adminEmail } = this.getSenderIdentity();
     if (!transporter || !adminEmail) return false;
 
+    const safeEmail = sanitizeEmailHeader(booking.email, 254);
+    const safeCategory = sanitizeEmailHeader(booking.categoryTitle, 80);
+    const safeBookingId = sanitizeEmailHeader(booking.bookingId, 40);
+
     await transporter.sendMail({
       from: `"${fromName}" <${fromEmail}>`,
       to: adminEmail,
-      replyTo: booking.email,
-      subject: `New ${booking.categoryTitle} Request (${booking.bookingId}) | Sumaira Arts`,
+      replyTo: safeEmail,
+      subject: sanitizeEmailHeader(
+        `New ${safeCategory} Request (${safeBookingId}) | Sumaira Arts`,
+      ),
       html: getEventBookingEmailTemplate(booking, "admin"),
       text: getEventBookingPlainText(booking),
     });
@@ -149,9 +175,11 @@ class EmailService {
     try {
       await transporter.sendMail({
         from: `"${fromName}" <${fromEmail}>`,
-        to: booking.email,
+        to: safeEmail,
         replyTo: adminEmail,
-        subject: `${booking.categoryTitle} Request Received (${booking.bookingId}) | Sumaira Arts`,
+        subject: sanitizeEmailHeader(
+          `${safeCategory} Request Received (${safeBookingId}) | Sumaira Arts`,
+        ),
         html: getEventBookingEmailTemplate(booking, "client"),
         text: getEventBookingPlainText(booking),
       });
@@ -170,11 +198,17 @@ class EmailService {
     const { fromName, fromEmail, adminEmail } = this.getSenderIdentity();
     if (!transporter || !adminEmail) return false;
 
+    const safeEmail = sanitizeEmailHeader(booking.email, 254);
+    const safeBookingId = sanitizeEmailHeader(booking.bookingId, 40);
+    const safeFormat = sanitizeEmailHeader(booking.workshopFormat, 80);
+
     await transporter.sendMail({
       from: `"${fromName}" <${fromEmail}>`,
       to: adminEmail,
-      replyTo: booking.email,
-      subject: `New Workshop Booking (${booking.bookingId}) — ${booking.workshopFormat} | Sumaira Arts`,
+      replyTo: safeEmail,
+      subject: sanitizeEmailHeader(
+        `New Workshop Booking (${safeBookingId}) — ${safeFormat} | Sumaira Arts`,
+      ),
       html: getWorkshopBookingEmailTemplate(booking, "admin"),
       text: getWorkshopBookingPlainText(booking),
     });
@@ -182,9 +216,11 @@ class EmailService {
     try {
       await transporter.sendMail({
         from: `"${fromName}" <${fromEmail}>`,
-        to: booking.email,
+        to: safeEmail,
         replyTo: adminEmail,
-        subject: `Workshop Booking Request Received (${booking.bookingId}) | Sumaira Arts`,
+        subject: sanitizeEmailHeader(
+          `Workshop Booking Request Received (${safeBookingId}) | Sumaira Arts`,
+        ),
         html: getWorkshopBookingEmailTemplate(booking, "client"),
         text: getWorkshopBookingPlainText(booking),
       });

@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, CheckCircle2, Sparkles } from "lucide-react";
+import { FormSecurityFields } from "@/components/atoms/FormSecurityFields";
 import { CountrySelect } from "@/components/molecules/CountrySelect";
 import { useCountryDetection } from "@/components/molecules/CountrySelect/useCountryDetection";
 import { submitEventBooking } from "@/lib/actions/event-booking";
@@ -150,18 +151,10 @@ export function LiveEventBookingForm({
           setCategoryError("Please select an event category.");
         }
       }}
-      className="flex flex-col"
+      className="relative flex flex-col"
       noValidate={false}
     >
-      {/* Honeypot */}
-      <input
-        type="text"
-        name="website"
-        tabIndex={-1}
-        autoComplete="off"
-        className="hidden"
-        aria-hidden="true"
-      />
+      <FormSecurityFields scope="event" />
 
       <div className="space-y-4">
         {/* Name */}

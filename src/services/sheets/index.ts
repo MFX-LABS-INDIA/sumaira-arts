@@ -1,4 +1,5 @@
 import { google } from "googleapis";
+import { sanitizeSheetText } from "@/lib/security/sanitize";
 import type { Order } from "@/types/store";
 import type { Enquiry } from "@/types/enquiry";
 import type { EventBooking } from "@/types/event-booking";
@@ -251,16 +252,16 @@ class SheetsService {
     const timestamp = formatDubaiTimestamp(order.orderDate);
 
     return order.items.map((item) => [
-      order.id,
+      sanitizeSheetText(order.id),
       timestamp,
       order.status === "pending"
         ? "Under Review"
         : order.status.charAt(0).toUpperCase() + order.status.slice(1),
-      order.customerName,
-      order.phoneNumber,
-      order.email,
-      item.category,
-      item.title,
+      sanitizeSheetText(order.customerName),
+      sanitizeSheetText(order.phoneNumber),
+      sanitizeSheetText(order.email),
+      sanitizeSheetText(item.category),
+      sanitizeSheetText(item.title),
       item.quantity,
       item.priceUSD,
     ]);
@@ -442,9 +443,9 @@ class SheetsService {
         values: [
           [
             formatDubaiTimestamp(),
-            enquiry.name,
-            enquiry.email,
-            enquiry.phoneNumber,
+            sanitizeSheetText(enquiry.name),
+            sanitizeSheetText(enquiry.email),
+            sanitizeSheetText(enquiry.phoneNumber),
           ],
         ],
       },
@@ -470,12 +471,12 @@ class SheetsService {
       requestBody: {
         values: [
           [
-            booking.bookingId,
+            sanitizeSheetText(booking.bookingId),
             submittedLabel,
-            booking.categoryTitle,
-            booking.name,
-            booking.email,
-            booking.phoneNumber,
+            sanitizeSheetText(booking.categoryTitle),
+            sanitizeSheetText(booking.name),
+            sanitizeSheetText(booking.email),
+            sanitizeSheetText(booking.phoneNumber),
           ],
         ],
       },
@@ -501,12 +502,12 @@ class SheetsService {
       requestBody: {
         values: [
           [
-            booking.bookingId,
+            sanitizeSheetText(booking.bookingId),
             submittedLabel,
-            booking.workshopFormat,
-            booking.name,
-            booking.email,
-            booking.phoneNumber,
+            sanitizeSheetText(booking.workshopFormat),
+            sanitizeSheetText(booking.name),
+            sanitizeSheetText(booking.email),
+            sanitizeSheetText(booking.phoneNumber),
           ],
         ],
       },

@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import Link from "next/link";
+import { FormSecurityFields } from "@/components/atoms/FormSecurityFields";
 import { CountrySelect } from "@/components/molecules/CountrySelect";
 import { useCountryDetection } from "@/components/molecules/CountrySelect/useCountryDetection";
 import { idleForm } from "@/lib/forms";
@@ -16,7 +17,8 @@ export function EnquiryForm() {
   const { country, selectCountry } = useCountryDetection();
 
   return (
-    <form action={formAction} className="space-y-4 px-5 pb-0 sm:px-8 md:pb-8">
+    <form action={formAction} className="relative space-y-4 px-5 pb-0 sm:px-8 md:pb-8">
+      <FormSecurityFields scope="enquiry" />
       <div className="space-y-4">
         <div>
           <label htmlFor="enquiry-name" className={labelClassName}>
@@ -73,15 +75,6 @@ export function EnquiryForm() {
           </div>
         </div>
       </div>
-
-      <input
-        aria-hidden="true"
-        autoComplete="off"
-        className="hidden"
-        name="website"
-        tabIndex={-1}
-        type="text"
-      />
 
       <p className="text-xs leading-relaxed text-steel">
         Your details are used to respond to your enquiry. Read our{" "}

@@ -1,6 +1,10 @@
 "use client";
 
 import { useState, useSyncExternalStore } from "react";
+import {
+  FormSecurityFields,
+  type HoneypotState,
+} from "@/components/atoms/FormSecurityFields";
 import { SkeletonImage } from "@/components/atoms/SkeletonImage";
 import { CheckoutPageSkeleton } from "@/components/molecules/PageSkeletons";
 import { containerClassName } from "@/components/atoms/Container";
@@ -27,7 +31,12 @@ export default function CheckoutPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const { country, selectCountry } = useCountryDetection();
-  const [honeypot, setHoneypot] = useState("");
+  const [guardToken, setGuardToken] = useState("");
+  const [honeypots, setHoneypots] = useState<HoneypotState>({
+    website: "",
+    company_url: "",
+    fax_number: "",
+  });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,8 +68,6 @@ export default function CheckoutPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (honeypot) return; // bot detection
-
     if (!validate()) return;
 
     setIsSubmitting(true);
@@ -85,17 +92,24 @@ export default function CheckoutPage() {
       orderDate: new Date().toISOString(),
       status: "pending",
     };
+
+    const requestBody = JSON.stringify({
+      order: orderData,
+      guardToken,
+      honeypots,
+    });
+
     try {
       const [emailResponse, sheetResponse] = await Promise.all([
         fetch("/api/orders/send-emails", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ order: orderData }),
+          body: requestBody,
         }),
         fetch("/api/orders/save-to-sheets", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ order: orderData }),
+          body: requestBody,
         }),
       ]);
 
@@ -200,7 +214,7 @@ export default function CheckoutPage() {
             <form
               id="checkout-form"
               onSubmit={handleSubmit}
-              className="rounded-xl border border-light bg-white p-5 sm:p-8 shadow-xs space-y-6"
+              className="relative rounded-xl border border-light bg-white p-5 sm:p-8 shadow-xs space-y-6"
             >
               <div>
                 <h2 className="text-base font-semibold uppercase tracking-wider text-deep mb-4">
@@ -289,15 +303,10 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              {/* Bot honeypot */}
-              <input
-                type="text"
-                name="company_website"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-                className="hidden"
-                tabIndex={-1}
-                autoComplete="off"
+              <FormSecurityFields
+                scope="checkout"
+                onTokenChange={setGuardToken}
+                onHoneypotChange={setHoneypots}
               />
 
               {submissionError && (

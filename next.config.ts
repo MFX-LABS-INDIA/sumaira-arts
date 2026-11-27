@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
   // Only takes effect over HTTPS, so it is inert on localhost.
@@ -12,6 +13,13 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Do not advertise the framework.
   poweredByHeader: false,
+
+  experimental: {
+    serverActions: {
+      // Cap multipart form payloads at 32KB (forms only submit short text fields).
+      bodySizeLimit: "32kb",
+    },
+  },
 
   images: {
     // Serve AVIF/WebP to browsers that support them, and let the CDN keep optimised images for a month.

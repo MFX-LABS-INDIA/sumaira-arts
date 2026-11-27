@@ -1,5 +1,6 @@
 export * from "./Container";
 export * from "./ExpandableText";
+export * from "./FormSecurityFields";
 export * from "./Icons";
 export * from "./Link";
 export * from "./Logo";
