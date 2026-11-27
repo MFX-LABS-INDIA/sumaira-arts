@@ -11,6 +11,14 @@ const LOCALE_UPDATED_EVENT = "sumaira-locale-updated";
 // Text is kept in the source language and translated at the page boundary. This lets server-rendered
 // marketing sections, client controls and future content share one language switch without affecting values.
 const copy: Record<string, Translation> = {
+  "Page not found": { ar: "الصفحة غير موجودة", fr: "Page introuvable", es: "Página no encontrada" },
+  "This link may have changed. You can still explore the artworks in our gallery.": {
+    ar: "ربما تغيّر هذا الرابط. يمكنك استكشاف الأعمال الفنية في معرضنا.",
+    fr: "Ce lien a peut-être changé. Vous pouvez découvrir les œuvres de notre galerie.",
+    es: "Es posible que este enlace haya cambiado. Puedes explorar las obras de nuestra galería.",
+  },
+  "Browse artworks": { ar: "تصفّح الأعمال الفنية", fr: "Explorer les œuvres", es: "Explorar las obras" },
+  "Back to home": { ar: "العودة إلى الرئيسية", fr: "Retour à l’accueil", es: "Volver al inicio" },
   "Products": { ar: "المنتجات", fr: "Produits", es: "Productos" },
   "About": { ar: "حول", fr: "À propos", es: "Acerca de" },
   "Contact Us": { ar: "اتصل بنا", fr: "Nous contacter", es: "Contacto" },

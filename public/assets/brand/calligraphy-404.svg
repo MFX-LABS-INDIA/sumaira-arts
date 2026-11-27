@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 224" fill="none">
+  <title>404</title>
+  <defs>
+    <g id="four" fill="#182e4e">
+      <!-- A fine diagonal opens into a broad cross stroke. -->
+      <path d="M101 26C92 54 63 91 34 116C53 113 76 109 100 104C118 100 135 95 151 85C141 102 128 114 107 120C75 130 43 127 16 141L13 129C49 101 78 63 101 26Z"/>
+      <!-- The upright ends in a long, tapering return. -->
+      <path d="M123 40L140 23C135 46 117 86 105 126C97 154 87 172 64 182C48 189 29 191 9 188C39 186 63 176 73 161C84 143 85 124 93 101C103 74 117 51 123 40Z"/>
+    </g>
+  </defs>
+  <use href="#four"/>
+  <path fill="#182e4e" fill-rule="evenodd" d="M249 38C267 47 275 70 268 98C259 133 230 164 199 170C172 175 153 162 153 137C152 105 181 63 214 46C225 40 239 37 249 38ZM238 53C222 53 202 68 188 88C172 109 165 135 175 146C184 157 206 150 222 135C244 115 254 88 249 68C247 60 243 55 238 53Z"/>
+  <use href="#four" transform="translate(283 -3)"/>
+  <!-- Lozenge-shaped reed-pen impressions and a fine finishing stroke. -->
+  <g fill="#997344">
+    <path d="m206 21 8-9 10 7-8 9zM225 13l7-8 9 6-7 8z"/>
+    <path d="m302 179 7-8 9 6-7 8z"/>
+    <path d="M105 205C148 177 194 176 242 184C279 190 305 197 339 191C305 202 275 198 241 193C188 184 146 185 105 205Z"/>
+  </g>
+</svg>
